@@ -1,0 +1,128 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "spyv"
+version = "0.0.1a0"
+description = "Testing tool for AI engineers: quality, optimization, vulnerability, guardrails, and copy-paste fixes for LLM prompts."
+readme = "README.md"
+license = "Apache-2.0"
+requires-python = ">=3.10"
+authors = [{ name = "Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
+maintainers = [{ name = "Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
+keywords = [
+    "llm",
+    "security",
+    "red-team",
+    "red-teaming",
+    "vulnerability",
+    "vulnerability-scanner",
+    "prompt-injection",
+    "guardrails",
+    "ai-safety",
+    "owasp-llm",
+    "jailbreak",
+    "chatbot-security",
+    "agent-security",
+    "llm-security",
+    "openai",
+    "anthropic",
+    "langchain",
+    "langgraph",
+    "crewai",
+]
+classifiers = [
+    "Development Status :: 2 - Pre-Alpha",
+    "Intended Audience :: Developers",
+    "Intended Audience :: Information Technology",
+    "License :: OSI Approved :: Apache Software License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Security",
+    "Topic :: Software Development :: Testing",
+    "Topic :: Scientific/Engineering :: Artificial Intelligence",
+    "Typing :: Typed",
+]
+dependencies = [
+    "pydantic>=2.6",
+    "anyio>=4.2",
+    "aiolimiter>=1.1",
+    "jinja2>=3.1",
+    "pyyaml>=6.0",
+    "rich>=13.7",
+    "click>=8.1",
+]
+
+[project.optional-dependencies]
+openai = ["openai>=1.30"]
+classifiers = ["transformers>=4.40", "torch>=2.2"]
+sarif = ["sarif-om>=1.0"]
+sqlite = ["sqlmodel>=0.0.16"]
+gcg = ["nanogcg>=0.2"]
+dev = [
+    "pytest>=8.0",
+    "pytest-asyncio>=0.23",
+    "pytest-httpserver>=1.0",
+    "pytest-cov>=4.1",
+    "ruff>=0.5",
+    "mypy>=1.10",
+    "types-PyYAML>=6.0",
+]
+all = ["spyv[openai,classifiers,sarif,sqlite]"]
+
+[project.scripts]
+spyv = "spyv.cli:main"
+
+[project.urls]
+Homepage = "https://github.com/Majidul17068/spyv"
+Repository = "https://github.com/Majidul17068/spyv"
+Issues = "https://github.com/Majidul17068/spyv/issues"
+Changelog = "https://github.com/Majidul17068/spyv/blob/main/CHANGELOG.md"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/spyv"]
+
+[tool.hatch.build.targets.sdist]
+include = ["src/spyv", "tests", "LICENSE", "NOTICE", "README.md", "SECURITY.md", "POLICY.md", "CODE_OF_CONDUCT.md"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM", "ANN", "RUF"]
+ignore = ["ANN401"]
+
+[tool.ruff.lint.per-file-ignores]
+"tests/*" = ["ANN"]
+
+[tool.mypy]
+python_version = "3.10"
+strict = true
+warn_unused_ignores = true
+warn_redundant_casts = true
+disallow_untyped_defs = true
+disallow_any_generics = true
+
+[[tool.mypy.overrides]]
+module = [
+    "openai.*",
+    "anthropic.*",
+    "langchain.*",
+    "yaml.*",
+    "nanogcg.*",
+    "transformers.*",
+    "torch.*",
+]
+ignore_missing_imports = true
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+testpaths = ["tests"]
+addopts = "-ra --strict-markers"
+pythonpath = ["src"]
