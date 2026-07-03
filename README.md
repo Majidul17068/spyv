@@ -89,10 +89,18 @@ environment.
 
 ## Scan a whole project
 
-Point Spyv at a codebase and it discovers every agent prompt — in Python
-strings, OpenAI `system` messages, constructor arguments (`persona=`,
-`system_prompt=`), YAML/JSON configs, and `prompts/` files — then audits each
-one and ranks the weakest first.
+Point Spyv at a codebase and it discovers every agent prompt, regardless of
+framework, then audits each one and ranks the weakest first. It understands:
+
+- **CrewAI** — `Agent(role=, goal=, backstory=)` (combined the way CrewAI runs them)
+- **OpenAI** — `{"role": "system", "content": …}` messages, `instructions=` agents
+- **LangChain / LangGraph** — `SystemMessage(…)`, `("system", …)` tuples,
+  `PromptTemplate(template=…)`, `.from_template(…)`
+- **Plain code** — Python string variables, `persona=` / `system_prompt=` args,
+  YAML/JSON configs, and `prompts/` text files
+
+A precision filter skips UI strings and non-prompt text so you audit real
+prompts, not noise.
 
 ```bash
 spyv scan . --model gpt-4o
