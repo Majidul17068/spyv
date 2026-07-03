@@ -87,6 +87,32 @@ spyv test prompt.yaml --provider ollama    --model llama3.1
 `--provider auto` (the default) picks the provider from whichever key is in your
 environment.
 
+## Scan a whole project
+
+Point Spyv at a codebase and it discovers every agent prompt — in Python
+strings, OpenAI `system` messages, constructor arguments (`persona=`,
+`system_prompt=`), YAML/JSON configs, and `prompts/` files — then audits each
+one and ranks the weakest first.
+
+```bash
+spyv scan . --model gpt-4o
+```
+
+```text
+╭─ Spyv scan · . · 42 files · 7 prompts · model=gpt-4o ─╮
+╰────────────────────────────────────────────────────────╯
+  ship: 3    fix_first: 2    unsafe: 2
+┏━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━┓
+┃ Verdict  ┃ Score ┃ Sev      ┃ Prompt       ┃ Location           ┃
+┡━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━╇━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━┩
+│ unsafe   │   3.2 │ critical │ SYSTEM_PROMPT │ agents/bot.py:14   │
+│ unsafe   │   4.1 │ high     │ persona       │ specialists.py:22  │
+│ ship     │   8.6 │ info     │ system_prompt │ prompts/faq.yaml   │
+└──────────┴───────┴──────────┴──────────────┴────────────────────┘
+```
+
+Exit code is non-zero when any prompt is `unsafe`, so it drops straight into CI.
+
 ## Query-conditioned analysis
 
 Static analysis inspects the prompt in isolation. `spyv probe` goes further: it
@@ -169,6 +195,7 @@ Set `SPYV_OUT=json` to emit structured lines for Datadog, Loki, or CloudWatch.
 | Command | Status |
 |---|---|
 | `spyv test <prompt>` | Five-pillar static analysis — **available** |
+| `spyv scan <path>` | Audit every prompt in a whole project — **available** |
 | `spyv probe <prompt> --query …` | Query-conditioned analysis — **available** |
 | `spyv init` | Accept the acceptable-use policy — **available** |
 | `spyv redteam <target>` | Active attack corpus — *v0.1* |
@@ -177,8 +204,8 @@ Set `SPYV_OUT=json` to emit structured lines for Datadog, Loki, or CloudWatch.
 
 ## Roadmap
 
-- **v0.0.2 (current)** — five-pillar static analysis, query-conditioned probing,
-  multi-provider adapters, `@watch` runtime tracking.
+- **v0.0.3 (current)** — five-pillar static analysis, project-wide scanning,
+  query-conditioned probing, multi-provider adapters, `@watch` runtime tracking.
 - **v0.1** — `--attack` mode and `spyv redteam`; classifier-based judges;
   SARIF output for GitHub / GitLab code-scanning.
 - **v0.5** — runtime guardrails (`@guard`, `instrument()`), signed findings
