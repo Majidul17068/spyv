@@ -11,7 +11,7 @@
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/v/spyv?color=7c3aed&label=pypi" alt="PyPI"></a>
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/pyversions/spyv" alt="Python versions"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/pypi/l/spyv?color=4ee88c" alt="License"></a>
-  <img src="https://img.shields.io/badge/tests-62%20passing-4ee88c" alt="Tests">
+  <img src="https://img.shields.io/badge/tests-68%20passing-4ee88c" alt="Tests">
   <img src="https://img.shields.io/badge/providers-openai%20%7C%20anthropic%20%7C%20gemini%20%7C%20local-7c3aed" alt="Providers">
 </p>
 
@@ -167,6 +167,34 @@ spyv scan . --model gpt-4o
 The exit code is non-zero when any prompt is `unsafe`, so `spyv scan` drops
 straight into CI.
 
+## Active red-teaming
+
+`spyv redteam` fires a curated corpus of real attacks — mapped to the OWASP LLM
+Top 10 (prompt injection, jailbreaks, system-prompt leakage, secret disclosure,
+tool misuse) — at your prompt, and reports which ones **actually breached**. It
+proves vulnerabilities instead of just predicting them.
+
+```bash
+spyv redteam prompt.yaml --model gpt-4o
+spyv redteam prompt.yaml --model gpt-4o --category LLM07   # only prompt-leak attacks
+```
+
+```text
+╭─ Spyv redteam · bankbot · model=gpt-4o · 2/14 attacks breached ─╮
+╰──────────────────────────────────────────────────────────────────╯
+  breached: 2    held: 12    categories: LLM01, LLM02, LLM06, LLM07
+┏━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━┓
+┃ Result  ┃ Sev      ┃ OWASP ┃ Attack               ┃ Verdict              ┃
+┡━━━━━━━━━╇━━━━━━━━━━╇━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━┩
+│ BREACH  │ critical │ LLM07 │ Verbatim prompt leak │ leaked               │
+│ BREACH  │ high     │ LLM01 │ DAN roleplay         │ complied_with_attack │
+│ held    │ info     │ LLM01 │ Direct override      │ safe                 │
+└─────────┴──────────┴───────┴──────────────────────┴──────────────────────┘
+```
+
+Add `--attack` to `spyv test` to run the static audit and a red-team pass
+together. Exit code is non-zero on any breach, for CI.
+
 ## Query-conditioned analysis
 
 Static analysis inspects the prompt in isolation. `spyv probe` goes further: it
@@ -289,8 +317,8 @@ high/critical; a minor style issue is low).
 | `spyv test <prompt>` | Five-pillar static analysis | **available** |
 | `spyv scan <path>` | Audit every prompt in a whole project | **available** |
 | `spyv probe <prompt> --query …` | Query-conditioned analysis | **available** |
+| `spyv redteam <prompt>` | Fire the OWASP attack corpus and report breaches | **available** |
 | `spyv init` | Accept the acceptable-use policy | **available** |
-| `spyv redteam <target>` | Active attack corpus | *planned — v0.1* |
 | `spyv exec <cmd>` | Wrap a running process | *planned — v0.5* |
 | `spyv verify <run>` | Verify signed findings | *planned — v0.5* |
 
@@ -313,11 +341,12 @@ choices make it dependable:
 
 ## Roadmap
 
-- **v0.0.3 (current)** — five-pillar static analysis, project-wide scanning
-  across CrewAI / OpenAI / LangChain / LangGraph, query-conditioned probing,
-  multi-provider support, `@watch` runtime tracking.
-- **v0.1** — `--attack` mode and `spyv redteam` (active adversarial corpus);
-  classifier-based judges; SARIF output for GitHub / GitLab code-scanning.
+- **v0.2 (current)** — active red-teaming (`spyv redteam`, OWASP attack corpus),
+  five-pillar static analysis, project-wide scanning across CrewAI / OpenAI /
+  LangChain / LangGraph, query-conditioned probing, multi-provider support,
+  `@watch` runtime tracking.
+- **v0.3** — classifier-based judges; SARIF output for GitHub / GitLab
+  code-scanning; multi-turn (Crescendo) attacks.
 - **v0.5** — runtime guardrails (`@guard`, `instrument()`), signed findings
   store, and a first-party CI gate.
 - **v1.0** — cross-provider comparison, regression suites, and full OWASP LLM

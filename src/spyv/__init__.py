@@ -45,7 +45,7 @@ from .reason import LLMClient, analyze, format_summary
 from .redteam import redteam
 from .scan import scan
 
-__version__ = "0.1.1"
+__version__ = "0.2.0"
 __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"
 
