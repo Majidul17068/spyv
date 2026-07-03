@@ -162,6 +162,38 @@ class ProjectReport(BaseModel):
     results: list[ProjectPromptResult] = Field(default_factory=list)
 
 
+class AttackCase(BaseModel):
+    id: str
+    category: str
+    name: str
+    payload: str
+    severity_if_breached: Severity = "high"
+
+
+class RedTeamResult(BaseModel):
+    attack_id: str
+    category: str
+    name: str
+    payload: str
+    agent_response: str
+    verdict: ProbeVerdict
+    severity: Severity
+    breached: bool
+    weakest_point: str = ""
+    suggested_fix: str = ""
+
+
+class RedTeamReport(BaseModel):
+    target_hash: str
+    model_used: str
+    generated_at: str
+    total: int
+    breached: int
+    held: int
+    categories_tested: list[str] = Field(default_factory=list)
+    results: list[RedTeamResult] = Field(default_factory=list)
+
+
 class Authorization(BaseModel):
     model_config = {"frozen": True}
 
