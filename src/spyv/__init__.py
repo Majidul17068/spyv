@@ -2,6 +2,7 @@ from __future__ import annotations
 
 from . import terminal
 from .contracts import (
+    AttackCase,
     AttackEvent,
     AttackPart,
     AttackSurface,
@@ -24,6 +25,8 @@ from .contracts import (
     QualityReport,
     QueryProbeReport,
     QueryProbeResult,
+    RedTeamReport,
+    RedTeamResult,
     Report,
     Session,
     Severity,
@@ -39,6 +42,7 @@ from .hooks import watch
 from .probe import probe
 from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
+from .redteam import redteam
 from .scan import scan
 
 __version__ = "0.1.1"
@@ -46,6 +50,7 @@ __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"
 
 __all__ = [
+    "AttackCase",
     "AttackEvent",
     "AttackPart",
     "AttackSurface",
@@ -69,6 +74,8 @@ __all__ = [
     "QualityReport",
     "QueryProbeReport",
     "QueryProbeResult",
+    "RedTeamReport",
+    "RedTeamResult",
     "Report",
     "Session",
     "Severity",
@@ -87,6 +94,7 @@ __all__ = [
     "format_summary",
     "probe",
     "provider",
+    "redteam",
     "scan",
     "terminal",
     "watch",
