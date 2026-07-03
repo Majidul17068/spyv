@@ -43,6 +43,22 @@ def _name_matches(name: str) -> bool:
     return any(hint in low for hint in _NAME_HINTS)
 
 
+def _crewai_prompt(kw_strings: dict[str, str]) -> str | None:
+    if "role" not in kw_strings:
+        return None
+    if "goal" not in kw_strings and "backstory" not in kw_strings:
+        return None
+    parts = []
+    if kw_strings.get("role"):
+        parts.append(f"ROLE: {kw_strings['role']}")
+    if kw_strings.get("goal"):
+        parts.append(f"GOAL: {kw_strings['goal']}")
+    if kw_strings.get("backstory"):
+        parts.append(f"BACKSTORY: {kw_strings['backstory']}")
+    combined = "\n".join(parts)
+    return combined if len(combined) >= _MIN_LEN else None
+
+
 def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
     found: list[DiscoveredPrompt] = []
     try:
@@ -73,20 +89,37 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                     break
 
         if isinstance(node, ast.Call):
+            kw_strings: dict[str, str] = {}
             for kw in node.keywords:
-                if not kw.arg or not _name_matches(kw.arg):
-                    continue
-                v = kw.value
-                if isinstance(v, ast.Constant) and isinstance(v.value, str) and len(v.value) >= _MIN_LEN:
-                    found.append(
-                        DiscoveredPrompt(
-                            file=str(path),
-                            line=getattr(v, "lineno", node.lineno),
-                            source_kind="python_var",
-                            identifier=kw.arg,
-                            system_prompt=v.value,
-                        )
+                if kw.arg and isinstance(kw.value, ast.Constant) and isinstance(kw.value.value, str):
+                    kw_strings[kw.arg] = kw.value.value
+
+            crew_prompt = _crewai_prompt(kw_strings)
+            if crew_prompt is not None:
+                found.append(
+                    DiscoveredPrompt(
+                        file=str(path),
+                        line=node.lineno,
+                        source_kind="crewai_agent",
+                        identifier=kw_strings["role"][:60],
+                        system_prompt=crew_prompt,
                     )
+                )
+            else:
+                for kw in node.keywords:
+                    if not kw.arg or not _name_matches(kw.arg):
+                        continue
+                    v = kw.value
+                    if isinstance(v, ast.Constant) and isinstance(v.value, str) and len(v.value) >= _MIN_LEN:
+                        found.append(
+                            DiscoveredPrompt(
+                                file=str(path),
+                                line=getattr(v, "lineno", node.lineno),
+                                source_kind="python_var",
+                                identifier=kw.arg,
+                                system_prompt=v.value,
+                            )
+                        )
 
         if isinstance(node, ast.Dict):
             role_is_system = False

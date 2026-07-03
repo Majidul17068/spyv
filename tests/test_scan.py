@@ -67,6 +67,34 @@ def test_discover_catches_constructor_kwarg_persona(project):
     assert "routing agent" in personas[0].system_prompt
 
 
+def test_discover_catches_crewai_agent(tmp_path):
+    (tmp_path / "crew.py").write_text(
+        "from crewai import Agent\n"
+        "def make():\n"
+        "    return Agent(\n"
+        '        role="COPD Care Plan Specialist",\n'
+        '        goal="Generate person-centred COPD care plans from clinical guidelines.",\n'
+        '        backstory="You are an experienced nurse specialising in COPD and long-term care.",\n'
+        "        verbose=False,\n"
+        "    )\n"
+    )
+    prompts, _ = discover(tmp_path)
+    crew = [p for p in prompts if p.source_kind == "crewai_agent"]
+    assert len(crew) == 1
+    assert crew[0].identifier == "COPD Care Plan Specialist"
+    assert "ROLE:" in crew[0].system_prompt
+    assert "GOAL:" in crew[0].system_prompt
+    assert "BACKSTORY:" in crew[0].system_prompt
+
+
+def test_discover_ignores_crewai_without_goal_or_backstory(tmp_path):
+    (tmp_path / "notcrew.py").write_text(
+        'x = SomeClass(role="just a role string on its own with nothing else attached here")\n'
+    )
+    prompts, _ = discover(tmp_path)
+    assert not [p for p in prompts if p.source_kind == "crewai_agent"]
+
+
 def test_discover_skips_venv_dir(project):
     prompts, _ = discover(project)
     for p in prompts:

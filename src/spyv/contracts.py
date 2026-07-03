@@ -123,7 +123,7 @@ class QueryProbeReport(BaseModel):
     results: list[QueryProbeResult] = Field(default_factory=list)
 
 
-SourceKind = Literal["yaml", "json", "python_var", "openai_message", "prompt_file"]
+SourceKind = Literal["yaml", "json", "python_var", "openai_message", "prompt_file", "crewai_agent"]
 
 
 class DiscoveredPrompt(BaseModel):
