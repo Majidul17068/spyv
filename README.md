@@ -21,9 +21,10 @@ whether the prompt is well-built, efficient, and hard to break, then hands you
 copy-paste fixes for everything it finds.
 
 It brings **no model of its own**. Spyv reuses the LLM you already run, so there
-are no extra keys, no extra subscriptions, and no extra bills. Works with
-OpenAI, Anthropic, Google Gemini, and any local or self-hosted model (vLLM,
-Ollama, LM Studio, or any OpenAI-compatible endpoint).
+are no extra keys, no extra subscriptions, and no extra bills. A single
+`pip install spyv` works with OpenAI, Anthropic, Google Gemini, and any local or
+self-hosted model (vLLM, Ollama, LM Studio, or any OpenAI-compatible endpoint) —
+no extra packages to install.
 
 ## The five pillars
 
@@ -40,9 +41,11 @@ Every `spyv test` run audits a prompt across five dimensions:
 ## Install
 
 ```bash
-pip install spyv                 # core + OpenAI
-pip install "spyv[providers]"    # + Anthropic and Gemini adapters
+pip install spyv
 ```
+
+That's it — every provider (OpenAI, Anthropic, Gemini, and local models) is
+supported out of the box. No extras, no per-vendor packages.
 
 ## Quickstart
 

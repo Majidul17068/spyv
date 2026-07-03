@@ -36,7 +36,7 @@ from .probe import probe
 from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
 
-__version__ = "0.0.2a1"
+__version__ = "0.0.2a2"
 __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"
 

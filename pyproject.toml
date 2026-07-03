@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spyv"
-version = "0.0.2a1"
-description = "Testing tool for AI engineers: quality, optimization, vulnerability, guardrails, and copy-paste fixes for LLM prompts."
+version = "0.0.2a2"
+description = "Prompt-security testing for AI engineers: quality, optimization, vulnerability and guardrail checks with copy-paste fixes. Works with OpenAI, Anthropic, Gemini, and local models out of the box."
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
@@ -56,14 +56,17 @@ dependencies = [
     "pyyaml>=6.0",
     "rich>=13.7",
     "click>=8.1",
+    "openai>=1.30",
+    "anthropic>=0.40",
+    "google-genai>=0.3",
 ]
 
 [project.optional-dependencies]
-openai = ["openai>=1.30"]
-anthropic = ["anthropic>=0.40"]
-gemini = ["google-genai>=0.3"]
-local = ["openai>=1.30"]
-providers = ["openai>=1.30", "anthropic>=0.40", "google-genai>=0.3"]
+openai = ["spyv"]
+anthropic = ["spyv"]
+gemini = ["spyv"]
+local = ["spyv"]
+providers = ["spyv"]
 classifiers = ["transformers>=4.40", "torch>=2.2"]
 sarif = ["sarif-om>=1.0"]
 sqlite = ["sqlmodel>=0.0.16"]
@@ -77,7 +80,7 @@ dev = [
     "mypy>=1.10",
     "types-PyYAML>=6.0",
 ]
-all = ["spyv[providers,classifiers,sarif,sqlite]"]
+all = ["spyv[classifiers,sarif,sqlite]"]
 
 [project.scripts]
 spyv = "spyv.cli:main"
