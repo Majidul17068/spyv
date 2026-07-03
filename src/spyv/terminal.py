@@ -10,7 +10,7 @@ from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn, TimeEl
 from rich.table import Table
 from rich.text import Text
 
-from spyv.contracts import QueryProbeReport, Report, Severity
+from spyv.contracts import ProjectReport, QueryProbeReport, Report, Severity
 
 
 console: Console = Console(stderr=True)
@@ -343,6 +343,9 @@ _VERDICT_STYLE = {
     "leaked": "bold red",
     "complied_with_attack": "bold red",
     "error": "grey50",
+    "ship": "green",
+    "fix_first": "yellow",
+    "unsafe": "bold red",
 }
 
 
@@ -375,6 +378,52 @@ def render_probe_report(report: QueryProbeReport, *, color: bool | None = None) 
 
 
 def emit_probe_json(report: QueryProbeReport, stream: IO[str] | None = None) -> None:
+    target = stream if stream is not None else sys.stdout
+    target.write(report.model_dump_json())
+    target.write("\n")
+    target.flush()
+
+
+def render_project_report(report: ProjectReport, *, color: bool | None = None) -> None:
+    con = _resolve_console(color)
+    header = Text()
+    header.append("Spyv scan", style="bold cyan")
+    header.append(f"  {report.root}")
+    header.append(f"  ·  {report.files_scanned} files")
+    header.append(f"  ·  {report.prompts_found} prompts")
+    header.append(f"  ·  model={report.model_used}")
+    con.print(Panel(header, border_style="cyan"))
+
+    summary = Text()
+    summary.append(f"  ship: {report.ship}", style="green")
+    summary.append(f"    fix_first: {report.fix_first}", style="yellow")
+    summary.append(f"    unsafe: {report.unsafe}", style="bold red")
+    if report.truncated:
+        summary.append(f"   (showing first {report.prompts_analyzed} of {report.prompts_found})", style="grey50")
+    con.print(summary)
+
+    table = Table(show_header=True, header_style="bold", expand=True)
+    table.add_column("Verdict", no_wrap=True)
+    table.add_column("Score", justify="right", no_wrap=True)
+    table.add_column("Sev", no_wrap=True)
+    table.add_column("Prompt", no_wrap=True)
+    table.add_column("Location")
+    for r in report.results:
+        vstyle = _VERDICT_STYLE.get(r.overall_verdict, "white")
+        loc = r.file
+        if r.line is not None:
+            loc = f"{loc}:{r.line}"
+        table.add_row(
+            Text(r.overall_verdict, style=vstyle),
+            f"{r.overall_score:.1f}",
+            Text(r.max_severity, style=_SEVERITY_STYLE.get(r.max_severity, "white")),
+            r.identifier or "-",
+            loc,
+        )
+    con.print(table)
+
+
+def emit_project_json(report: ProjectReport, stream: IO[str] | None = None) -> None:
     target = stream if stream is not None else sys.stdout
     target.write(report.model_dump_json())
     target.write("\n")
