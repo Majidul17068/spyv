@@ -1,3 +1,7 @@
+<p align="center">
+  <img src="assets/logo.png" alt="Spyv" width="180">
+</p>
+
 # Spyv
 
 Spyv is a testing tool for AI engineers and prompt engineers. Point it at a prompt and it answers the five questions you actually care about before shipping — is it any good, is it wasteful, can it be jailbroken, does it hold its guardrails, and how do I fix what's broken. Every finding comes with a copy-paste-ready fix. Bring your own model — Spyv reuses the LLM client you already run in production, so there are no new keys, no new subscriptions, and no new bills.
