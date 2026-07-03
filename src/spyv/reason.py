@@ -3,9 +3,10 @@ from __future__ import annotations
 import inspect
 import json
 import re
+from collections.abc import Callable
 from datetime import datetime, timezone
 from hashlib import blake2b
-from typing import Any, Callable, Protocol, runtime_checkable
+from typing import Any, Protocol, runtime_checkable
 
 from . import terminal
 from .contracts import (
@@ -15,11 +16,10 @@ from .contracts import (
     OptimizationReport,
     PromptFix,
     QualityReport,
-    SpyvFinding,
     Report,
+    SpyvFinding,
     Vulnerability,
 )
-
 
 REASON_SYSTEM_PROMPT = """You are Spyv, a static analyzer for LLM system prompts and agents. You audit a target prompt across FIVE pillars and return a single strict JSON object. No prose. No markdown fences. No commentary outside the JSON.
 
@@ -409,10 +409,7 @@ def _drop_echoed_fixes(fixes: list[PromptFix], system_prompt: str) -> list[Promp
 
 
 def _has_high_or_critical(vulns: list[Vulnerability]) -> bool:
-    for v in vulns:
-        if v.severity in ("high", "critical"):
-            return True
-    return False
+    return any(v.severity in ("high", "critical") for v in vulns)
 
 
 def _security_score(vulns: list[Vulnerability]) -> float:
@@ -495,8 +492,8 @@ def format_summary(report: Report) -> str:
 
 
 __all__ = [
-    "LLMClient",
     "REASON_SYSTEM_PROMPT",
+    "LLMClient",
     "analyze",
     "format_summary",
 ]

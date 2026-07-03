@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import os
 import sys
 from datetime import datetime, timezone
@@ -9,11 +8,9 @@ from typing import Any
 
 import click
 
-from spyv import __version__
+from spyv import __version__, terminal
 from spyv import reason as reason_module
-from spyv import terminal
 from spyv.contracts import Report
-
 
 VERSION = __version__ if isinstance(__version__, str) else "0.0.1"
 AUP_PATH = Path.home() / ".spyv" / "accepted-aup-v1"

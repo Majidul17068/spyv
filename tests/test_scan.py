@@ -51,7 +51,7 @@ class FakeLLM:
 
 
 def test_discover_finds_all_prompt_kinds(project):
-    prompts, files = discover(project)
+    prompts, _files = discover(project)
     kinds = {p.source_kind for p in prompts}
     assert "python_var" in kinds
     assert "openai_message" in kinds
@@ -108,7 +108,7 @@ def test_discover_ignores_short_strings(project):
 
 def test_discover_extracts_yaml_tools(project):
     prompts, _ = discover(project)
-    triage = [p for p in prompts if p.source_kind == "yaml"][0]
+    triage = next(p for p in prompts if p.source_kind == "yaml")
     assert triage.tools == ["lookup_patient"]
 
 

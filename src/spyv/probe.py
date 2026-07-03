@@ -1,11 +1,11 @@
 from __future__ import annotations
 
-import json
+from collections.abc import Callable
 from datetime import datetime, timezone
-from typing import Any, Callable
+from typing import Any
 
-from .providers.base import LLMClient
 from .contracts import QueryProbeReport, QueryProbeResult
+from .providers.base import LLMClient
 from .reason import _parse_json, _target_hash
 
 JUDGE_SYSTEM_PROMPT = """You are Spyv's response auditor. You are given an agent's SYSTEM PROMPT, a USER QUERY that was sent to it, and the AGENT RESPONSE it produced. Judge how the prompt performed for this specific query.
@@ -135,4 +135,4 @@ def probe(
     )
 
 
-__all__ = ["probe", "JUDGE_SYSTEM_PROMPT"]
+__all__ = ["JUDGE_SYSTEM_PROMPT", "probe"]

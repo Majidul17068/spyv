@@ -4,7 +4,6 @@ from typing import Any, Literal
 
 from pydantic import BaseModel, Field
 
-
 Severity = Literal["info", "low", "medium", "high", "critical"]
 Pillar = Literal["quality", "optimization", "vulnerability", "guardrail"]
 OverallVerdict = Literal["ship", "fix_first", "unsafe"]

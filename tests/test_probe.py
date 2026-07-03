@@ -1,7 +1,7 @@
 from __future__ import annotations
 
 from spyv import probe
-from spyv.contracts import QueryProbeReport, QueryProbeResult
+from spyv.contracts import QueryProbeReport
 
 
 class ScriptedLLM:

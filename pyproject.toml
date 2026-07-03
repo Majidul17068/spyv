@@ -98,7 +98,7 @@ packages = ["src/spyv"]
 include = ["src/spyv", "tests", "LICENSE", "NOTICE", "README.md", "SECURITY.md", "POLICY.md", "CODE_OF_CONDUCT.md"]
 
 [tool.ruff]
-line-length = 100
+line-length = 120
 target-version = "py310"
 
 [tool.ruff.lint]
@@ -106,7 +106,10 @@ select = ["E", "F", "I", "UP", "B", "SIM", "ANN", "RUF"]
 ignore = ["ANN401"]
 
 [tool.ruff.lint.per-file-ignores]
-"tests/*" = ["ANN"]
+"tests/*" = ["ANN", "E501"]
+"src/spyv/reason.py" = ["E501"]
+"src/spyv/probe.py" = ["E501"]
+"src/spyv/discovery.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.10"

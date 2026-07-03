@@ -6,9 +6,10 @@ import logging
 import os
 import sys
 import time
+from collections.abc import Callable
 from datetime import datetime, timezone
 from functools import wraps
-from typing import IO, Any, Callable, TypeVar
+from typing import IO, Any, TypeVar
 
 from rich.text import Text
 

@@ -205,14 +205,17 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
             role_is_system = False
             content_value: str | None = None
             content_line: int | None = None
-            for k, v in zip(node.keys, node.values):
-                if isinstance(k, ast.Constant) and k.value == "role":
-                    if isinstance(v, ast.Constant) and v.value == "system":
-                        role_is_system = True
-                if isinstance(k, ast.Constant) and k.value == "content":
-                    if isinstance(v, ast.Constant) and isinstance(v.value, str):
-                        content_value = v.value
-                        content_line = getattr(v, "lineno", node.lineno)
+            for k, v in zip(node.keys, node.values, strict=False):
+                if isinstance(k, ast.Constant) and k.value == "role" and isinstance(v, ast.Constant) and v.value == "system":
+                    role_is_system = True
+                if (
+                    isinstance(k, ast.Constant)
+                    and k.value == "content"
+                    and isinstance(v, ast.Constant)
+                    and isinstance(v.value, str)
+                ):
+                    content_value = v.value
+                    content_line = getattr(v, "lineno", node.lineno)
             if role_is_system and content_value and len(content_value) >= _MIN_LEN:
                 found.append(
                     DiscoveredPrompt(

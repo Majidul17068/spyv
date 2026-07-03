@@ -10,8 +10,7 @@ from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn, TimeEl
 from rich.table import Table
 from rich.text import Text
 
-from spyv.contracts import ProjectReport, QueryProbeReport, Report, Severity
-
+from spyv.contracts import ProjectReport, QueryProbeReport, Report
 
 console: Console = Console(stderr=True)
 
@@ -448,10 +447,10 @@ def format_summary(report: Report) -> str:
 
 __all__ = [
     "console",
-    "render_report",
-    "render_probe_report",
-    "render_progress",
     "emit_json",
     "emit_probe_json",
     "format_summary",
+    "render_probe_report",
+    "render_progress",
+    "render_report",
 ]
