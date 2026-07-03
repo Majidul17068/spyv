@@ -172,11 +172,6 @@ def test_cmd(
     if no_color:
         os.environ["NO_COLOR"] = "1"
 
-    if attack:
-        click.echo(
-            "Note: --attack ships fully in v0.1; running static reasoning only.",
-            err=True,
-        )
 
     if not path.exists():
         click.echo(f"Error: file not found: {path}", err=True)
@@ -232,7 +227,27 @@ def test_cmd(
             click.echo(f"Error writing --out: {exc}", err=True)
             sys.exit(2)
 
-    sys.exit(_exit_code_for(report))
+    exit_code = _exit_code_for(report)
+
+    if attack:
+        from spyv.redteam import redteam as run_redteam
+
+        if not (ci or json_out):
+            click.echo("Firing the attack corpus ...", err=True)
+        rt = run_redteam(
+            system_prompt=target["system_prompt"],
+            llm=client,
+            model=model,
+            tools=target["tools"] or None,
+        )
+        if ci or json_out:
+            terminal.emit_redteam_json(rt)
+        else:
+            terminal.render_redteam_report(rt)
+        if rt.breached and exit_code < 2:
+            exit_code = 2
+
+    sys.exit(exit_code)
 
 
 @main.command("probe")
@@ -375,10 +390,67 @@ def scan_cmd(
 
 
 @main.command("redteam")
-@click.argument("path", type=click.Path(path_type=Path), required=False)
-def redteam_cmd(path: Path | None) -> None:
-    click.echo("red-team ships in v0.1")
-    sys.exit(3)
+@click.argument("path", type=click.Path(path_type=Path))
+@click.option("--model", "model", required=True, help="Model name (required).")
+@click.option("--provider", "provider_name", default="auto", help="LLM provider (default: auto).")
+@click.option("--base-url", "base_url", default=None, help="Base URL for local / compatible endpoints.")
+@click.option("--category", "categories", multiple=True, help="Limit to OWASP categories, e.g. LLM01 (repeatable).")
+@click.option("--ci", "ci", is_flag=True, help="Non-interactive JSON output.")
+@click.option("--json", "json_out", is_flag=True, help="Emit JSON to stdout.")
+@click.option("--no-color", is_flag=True, help="Disable ANSI colors.")
+def redteam_cmd(
+    path: Path,
+    model: str,
+    provider_name: str,
+    base_url: str | None,
+    categories: tuple[str, ...],
+    ci: bool,
+    json_out: bool,
+    no_color: bool,
+) -> None:
+    if no_color:
+        os.environ["NO_COLOR"] = "1"
+    if not path.exists():
+        click.echo(f"Error: file not found: {path}", err=True)
+        sys.exit(2)
+
+    target = _load_target(path)
+
+    from spyv.providers import auto as provider_auto
+    from spyv.providers import provider as make_provider
+    from spyv.providers.base import ProviderError
+    from spyv.redteam import redteam as run_redteam
+
+    try:
+        if provider_name == "auto":
+            client: Any = provider_auto(model=model)
+        else:
+            client = make_provider(provider_name, model=model, base_url=base_url)
+    except ProviderError as exc:
+        click.echo(f"Error: {exc}", err=True)
+        sys.exit(2)
+
+    if not (ci or json_out):
+        click.echo(f"Firing attacks at {path} ...", err=True)
+
+    try:
+        report = run_redteam(
+            system_prompt=target["system_prompt"],
+            llm=client,
+            model=model,
+            categories=list(categories) or None,
+            tools=target["tools"] or None,
+        )
+    except KeyboardInterrupt:
+        click.echo("\nAborted.", err=True)
+        sys.exit(130)
+
+    if ci or json_out:
+        terminal.emit_redteam_json(report)
+    else:
+        terminal.render_redteam_report(report)
+
+    sys.exit(0 if report.breached == 0 else 2)
 
 
 @main.command("exec")

@@ -10,7 +10,7 @@ from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn, TimeEl
 from rich.table import Table
 from rich.text import Text
 
-from spyv.contracts import ProjectReport, QueryProbeReport, Report
+from spyv.contracts import ProjectReport, QueryProbeReport, RedTeamReport, Report
 
 console: Console = Console(stderr=True)
 
@@ -423,6 +423,59 @@ def render_project_report(report: ProjectReport, *, color: bool | None = None) -
 
 
 def emit_project_json(report: ProjectReport, stream: IO[str] | None = None) -> None:
+    target = stream if stream is not None else sys.stdout
+    target.write(report.model_dump_json())
+    target.write("\n")
+    target.flush()
+
+
+def render_redteam_report(report: RedTeamReport, *, color: bool | None = None) -> None:
+    con = _resolve_console(color)
+    header = Text()
+    header.append("Spyv redteam", style="bold #7c3aed")
+    header.append(f"  {_short_hash(report.target_hash)}")
+    header.append(f"  ·  model={report.model_used}")
+    header.append(f"  ·  {report.breached}/{report.total} attacks breached")
+    con.print(Panel(header, border_style="#7c3aed"))
+
+    summary = Text()
+    summary.append(f"  breached: {report.breached}", style="bold red")
+    summary.append(f"    held: {report.held}", style="green")
+    summary.append(f"    categories: {', '.join(report.categories_tested)}", style="grey50")
+    con.print(summary)
+
+    table = Table(show_header=True, header_style="bold", expand=True)
+    table.add_column("Result", no_wrap=True)
+    table.add_column("Sev", no_wrap=True)
+    table.add_column("OWASP", no_wrap=True)
+    table.add_column("Attack")
+    table.add_column("Verdict", no_wrap=True)
+    for r in report.results:
+        result = (
+            Text("BREACH", style="bold white on red")
+            if r.breached
+            else Text("held", style="green")
+        )
+        table.add_row(
+            result,
+            Text(r.severity, style=_SEVERITY_STYLE.get(r.severity, "white")),
+            r.category,
+            r.name,
+            Text(r.verdict, style=_VERDICT_STYLE.get(r.verdict, "white")),
+        )
+    con.print(table)
+
+    breaches = [r for r in report.results if r.breached]
+    if breaches:
+        lines = []
+        for r in breaches[:8]:
+            lines.append(Text(f"• [{r.severity}] {r.name} ({r.category})", style="red"))
+            if r.suggested_fix:
+                lines.append(Text(f"    fix: {r.suggested_fix[:110]}", style="green"))
+        con.print(Panel(Text("\n").join(lines), title="breaches — fix these", border_style="red"))
+
+
+def emit_redteam_json(report: RedTeamReport, stream: IO[str] | None = None) -> None:
     target = stream if stream is not None else sys.stdout
     target.write(report.model_dump_json())
     target.write("\n")

@@ -110,6 +110,7 @@ ignore = ["ANN401"]
 "src/spyv/reason.py" = ["E501"]
 "src/spyv/probe.py" = ["E501"]
 "src/spyv/discovery.py" = ["E501"]
+"src/spyv/attacks.py" = ["E501"]
 
 [tool.mypy]
 python_version = "3.10"

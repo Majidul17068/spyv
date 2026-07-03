@@ -30,11 +30,19 @@ def test_test_help_mentions_expected_flags():
     assert "--out" in result.output
 
 
-def test_redteam_prints_v01_message_and_exits_3():
+def test_redteam_help_lists_flags():
     runner = CliRunner()
-    result = runner.invoke(main, ["redteam"])
-    assert result.exit_code == 3
-    assert "v0.1" in result.output
+    result = runner.invoke(main, ["redteam", "--help"])
+    assert result.exit_code == 0
+    assert "--model" in result.output
+    assert "--category" in result.output
+
+
+def test_redteam_without_model_exits_2():
+    runner = CliRunner()
+    result = runner.invoke(main, ["redteam", "/tmp/none.yaml"])
+    assert result.exit_code == 2
+    assert "Traceback" not in result.output
 
 
 def test_exec_prints_v05_message_and_exits_3():
