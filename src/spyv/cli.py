@@ -24,44 +24,6 @@ POLICY_CANDIDATES = [
 ]
 
 
-class OpenAIAdapter:
-    def __init__(self) -> None:
-        try:
-            import openai
-        except ImportError:
-            click.echo(
-                "Error: 'openai' package is not installed. Install with: pip install openai",
-                err=True,
-            )
-            sys.exit(2)
-        if not os.environ.get("OPENAI_API_KEY"):
-            click.echo(
-                "Error: OPENAI_API_KEY environment variable is not set.",
-                err=True,
-            )
-            sys.exit(2)
-        self._client = openai.OpenAI()
-
-    def chat_completion(
-        self,
-        *,
-        model: str,
-        system: str,
-        user: str,
-        temperature: float = 0.0,
-    ) -> str:
-        response = self._client.chat.completions.create(
-            model=model,
-            messages=[
-                {"role": "system", "content": system},
-                {"role": "user", "content": user},
-            ],
-            temperature=temperature,
-        )
-        content = response.choices[0].message.content
-        return content or ""
-
-
 def _find_policy_file() -> Path | None:
     for candidate in POLICY_CANDIDATES:
         if candidate.exists():
@@ -180,6 +142,13 @@ def init_cmd(consent: bool) -> None:
 @main.command("test")
 @click.argument("path", type=click.Path(path_type=Path))
 @click.option("--model", "model", required=True, help="Model name (required).")
+@click.option(
+    "--provider",
+    "provider_name",
+    default="auto",
+    help="LLM provider: auto, openai, anthropic, gemini, vllm, ollama, lmstudio, openai-compat.",
+)
+@click.option("--base-url", "base_url", default=None, help="Base URL for local / compatible endpoints.")
 @click.option("--attack", is_flag=True, help="Enable attack mode (v0.1 preview).")
 @click.option("--ci", "ci", is_flag=True, help="Non-interactive JSON output.")
 @click.option("--json", "json_out", is_flag=True, help="Emit JSON to stdout.")
@@ -194,6 +163,8 @@ def init_cmd(consent: bool) -> None:
 def test_cmd(
     path: Path,
     model: str,
+    provider_name: str,
+    base_url: str | None,
     attack: bool,
     ci: bool,
     json_out: bool,
@@ -223,21 +194,27 @@ def test_cmd(
         click.echo("\nAborted.", err=True)
         sys.exit(130)
 
-    if os.environ.get("OPENAI_API_KEY"):
-        client: Any = OpenAIAdapter()
-    else:
-        click.echo(
-            "Error: no LLM client available. Set OPENAI_API_KEY to use the OpenAI adapter.",
-            err=True,
-        )
+    from spyv.providers import auto as provider_auto
+    from spyv.providers import provider as make_provider
+    from spyv.providers.base import ProviderError
+
+    try:
+        if provider_name == "auto":
+            client: Any = provider_auto(model=model)
+        else:
+            client = make_provider(provider_name, model=model, base_url=base_url)
+    except ProviderError as exc:
+        click.echo(f"Error: {exc}", err=True)
         sys.exit(2)
 
     try:
         report = reason_module.analyze(
-            target=target,
-            client=client,
+            system_prompt=target["system_prompt"],
+            llm=client,
             model=model,
-            show_progress=not (ci or json_out),
+            tools=target["tools"] or None,
+            retrieval_sources=target["retrieval_sources"] or None,
+            nshot_examples=target["nshot_examples"] or None,
         )
     except KeyboardInterrupt:
         click.echo("\nAborted.", err=True)
