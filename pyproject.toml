@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spyv"
-version = "0.0.1a0"
+version = "0.0.2a0"
 description = "Testing tool for AI engineers: quality, optimization, vulnerability, guardrails, and copy-paste fixes for LLM prompts."
 readme = "README.md"
 license = "Apache-2.0"
@@ -60,6 +60,10 @@ dependencies = [
 
 [project.optional-dependencies]
 openai = ["openai>=1.30"]
+anthropic = ["anthropic>=0.40"]
+gemini = ["google-genai>=0.3"]
+local = ["openai>=1.30"]
+providers = ["openai>=1.30", "anthropic>=0.40", "google-genai>=0.3"]
 classifiers = ["transformers>=4.40", "torch>=2.2"]
 sarif = ["sarif-om>=1.0"]
 sqlite = ["sqlmodel>=0.0.16"]
@@ -73,7 +77,7 @@ dev = [
     "mypy>=1.10",
     "types-PyYAML>=6.0",
 ]
-all = ["spyv[openai,classifiers,sarif,sqlite]"]
+all = ["spyv[providers,classifiers,sarif,sqlite]"]
 
 [project.scripts]
 spyv = "spyv.cli:main"
@@ -113,6 +117,8 @@ disallow_any_generics = true
 module = [
     "openai.*",
     "anthropic.*",
+    "google.*",
+    "google.genai.*",
     "langchain.*",
     "yaml.*",
     "nanogcg.*",

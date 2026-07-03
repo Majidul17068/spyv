@@ -30,9 +30,10 @@ from .contracts import (
     Vulnerability,
 )
 from .hooks import watch
+from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
 
-__version__ = "0.0.1a0"
+__version__ = "0.0.2a0"
 __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"
 
@@ -68,7 +69,9 @@ __all__ = [
     "ToolArgumentsPart",
     "Vulnerability",
     "analyze",
+    "auto",
     "format_summary",
+    "provider",
     "terminal",
     "watch",
 ]
