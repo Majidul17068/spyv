@@ -322,8 +322,6 @@ choices make it dependable:
 - **v1.0** — cross-provider comparison, regression suites, and full OWASP LLM
   Top 10 coverage.
 
-See [`ROADMAP.md`](./ROADMAP.md) for detail.
-
 ## Responsible use
 
 Spyv is a defensive testing tool. Use it only on systems you own or are

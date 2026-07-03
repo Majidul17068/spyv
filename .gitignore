@@ -19,3 +19,8 @@ htmlcov/
 .DS_Store
 .idea/
 .vscode/
+
+# private planning — not for the public repo
+ROADMAP.md
+NEXT_PHASE.md
+*.private.md
