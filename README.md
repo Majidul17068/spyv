@@ -7,6 +7,7 @@
 <p align="center"><em>Spy on your prompt. Validate the fix.</em></p>
 
 <p align="center">
+  <a href="https://github.com/Majidul17068/spyv/actions/workflows/ci.yml"><img src="https://github.com/Majidul17068/spyv/actions/workflows/ci.yml/badge.svg" alt="CI"></a>
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/v/spyv?color=7c3aed&label=pypi" alt="PyPI"></a>
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/pyversions/spyv" alt="Python versions"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/pypi/l/spyv?color=4ee88c" alt="License"></a>
