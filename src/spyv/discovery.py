@@ -43,6 +43,39 @@ def _name_matches(name: str) -> bool:
     return any(hint in low for hint in _NAME_HINTS)
 
 
+_PROMPT_CUES = (
+    "you are", "your role", "your task", "your job", "you must", "you should",
+    "you will", "you can", "act as", "respond", "reply", "return ", "analyse",
+    "analyze", "generate", "classify", "summarize", "summarise", "extract",
+    "translate", "role:", "goal:", "backstory:", "system:", "instruction",
+    "assistant", "do not", "must not", "guideline", "rules", "context:",
+    "persona", "format:", "your goal", "you help",
+)
+
+_SYSTEM_MESSAGE_CALLS = {"SystemMessage", "SystemMessagePromptTemplate"}
+
+
+def _looks_like_prompt(text: str) -> bool:
+    t = text.strip()
+    if len(t) < _MIN_LEN:
+        return False
+    if len(t) >= 200:
+        return True
+    low = t.lower()
+    return any(cue in low for cue in _PROMPT_CUES)
+
+
+def _call_name(func: ast.expr) -> str | None:
+    return getattr(func, "id", None) or getattr(func, "attr", None)
+
+
+def _first_string_arg(node: ast.Call) -> str | None:
+    for a in node.args:
+        if isinstance(a, ast.Constant) and isinstance(a.value, str):
+            return a.value
+    return None
+
+
 def _crewai_prompt(kw_strings: dict[str, str]) -> str | None:
     if "role" not in kw_strings:
         return None
@@ -57,6 +90,23 @@ def _crewai_prompt(kw_strings: dict[str, str]) -> str | None:
         parts.append(f"BACKSTORY: {kw_strings['backstory']}")
     combined = "\n".join(parts)
     return combined if len(combined) >= _MIN_LEN else None
+
+
+def _langchain_prompt(node: ast.Call, kw_strings: dict[str, str]) -> tuple[str, str] | None:
+    name = _call_name(node.func)
+    if name in _SYSTEM_MESSAGE_CALLS:
+        text = _first_string_arg(node) or kw_strings.get("content")
+        if text and len(text) >= _MIN_LEN:
+            return name, text
+    if name == "from_template":
+        text = _first_string_arg(node) or kw_strings.get("template")
+        if text and len(text) >= _MIN_LEN:
+            return "from_template", text
+    if name and name.endswith("PromptTemplate"):
+        text = kw_strings.get("template") or _first_string_arg(node)
+        if text and len(text) >= _MIN_LEN:
+            return name, text
+    return None
 
 
 def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
@@ -95,6 +145,7 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                     kw_strings[kw.arg] = kw.value.value
 
             crew_prompt = _crewai_prompt(kw_strings)
+            lc = _langchain_prompt(node, kw_strings)
             if crew_prompt is not None:
                 found.append(
                     DiscoveredPrompt(
@@ -103,6 +154,16 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                         source_kind="crewai_agent",
                         identifier=kw_strings["role"][:60],
                         system_prompt=crew_prompt,
+                    )
+                )
+            elif lc is not None:
+                found.append(
+                    DiscoveredPrompt(
+                        file=str(path),
+                        line=node.lineno,
+                        source_kind="langchain",
+                        identifier=lc[0],
+                        system_prompt=lc[1],
                     )
                 )
             else:
@@ -120,6 +181,25 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                                 system_prompt=v.value,
                             )
                         )
+
+        if isinstance(node, ast.Tuple) and len(node.elts) >= 2:
+            first, second = node.elts[0], node.elts[1]
+            if (
+                isinstance(first, ast.Constant)
+                and first.value == "system"
+                and isinstance(second, ast.Constant)
+                and isinstance(second.value, str)
+                and len(second.value) >= _MIN_LEN
+            ):
+                found.append(
+                    DiscoveredPrompt(
+                        file=str(path),
+                        line=getattr(second, "lineno", node.lineno),
+                        source_kind="langchain",
+                        identifier="system tuple",
+                        system_prompt=second.value,
+                    )
+                )
 
         if isinstance(node, ast.Dict):
             role_is_system = False
@@ -271,7 +351,8 @@ def discover(root: str | Path) -> tuple[list[DiscoveredPrompt], int]:
         except (OSError, UnicodeDecodeError):
             continue
 
-    return _dedupe(prompts), files_scanned
+    filtered = [p for p in prompts if _looks_like_prompt(p.system_prompt)]
+    return _dedupe(filtered), files_scanned
 
 
 __all__ = ["discover"]
