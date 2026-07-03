@@ -19,6 +19,8 @@ from .contracts import (
     Pillar,
     PromptFix,
     QualityReport,
+    QueryProbeReport,
+    QueryProbeResult,
     SpyvFinding,
     Report,
     Session,
@@ -30,6 +32,7 @@ from .contracts import (
     Vulnerability,
 )
 from .hooks import watch
+from .probe import probe
 from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
 
@@ -71,7 +74,10 @@ __all__ = [
     "analyze",
     "auto",
     "format_summary",
+    "probe",
     "provider",
     "terminal",
     "watch",
+    "QueryProbeReport",
+    "QueryProbeResult",
 ]
