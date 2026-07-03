@@ -2,6 +2,7 @@ from __future__ import annotations
 
 import inspect
 import json
+import re
 from datetime import datetime, timezone
 from hashlib import blake2b
 from typing import Any, Callable, Protocol, runtime_checkable
@@ -385,6 +386,28 @@ def _coerce_fixes(raw: Any) -> list[PromptFix]:
     return out
 
 
+_CANON_RE = re.compile(r"[^a-z0-9 ]")
+
+
+def _canon(s: str) -> str:
+    return " ".join(_CANON_RE.sub(" ", s.lower()).split())
+
+
+def _drop_echoed_fixes(fixes: list[PromptFix], system_prompt: str) -> list[PromptFix]:
+    canon_prompt = _canon(system_prompt)
+    kept: list[PromptFix] = []
+    for f in fixes:
+        rep = f.replacement.strip()
+        upper = rep.upper()
+        if upper.startswith(("ROLE:", "GOAL:", "BACKSTORY:")):
+            continue
+        canon_rep = _canon(rep)
+        if len(canon_rep) >= 20 and canon_rep in canon_prompt:
+            continue
+        kept.append(f)
+    return kept
+
+
 def _has_high_or_critical(vulns: list[Vulnerability]) -> bool:
     for v in vulns:
         if v.severity in ("high", "critical"):
@@ -446,7 +469,7 @@ def analyze(
     optimization = _coerce_optimization(parsed.get("optimization"))
     vulnerabilities = _coerce_vulnerabilities(parsed.get("vulnerabilities"))
     guardrails = _coerce_guardrails(parsed.get("guardrails"))
-    fixes = _coerce_fixes(parsed.get("fixes"))
+    fixes = _drop_echoed_fixes(_coerce_fixes(parsed.get("fixes")), system_prompt)
     overall_score, overall_verdict = _compute_overall(
         quality, optimization, vulnerabilities, guardrails
     )

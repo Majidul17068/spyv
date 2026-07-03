@@ -137,3 +137,50 @@ def test_scan_on_single_file(project):
     report = scan(root=project / "prompts" / "legal.txt", llm=FakeLLM(), model="fake-1")
     assert report.prompts_found == 1
     assert report.results[0].source_kind == "prompt_file"
+
+
+def test_discover_finds_langchain_patterns(tmp_path):
+    (tmp_path / "chains.py").write_text(
+        "from langchain_core.messages import SystemMessage\n"
+        "from langchain_core.prompts import ChatPromptTemplate, PromptTemplate\n"
+        'm = SystemMessage(content="You are a research assistant. Always cite sources and never fabricate facts.")\n'
+        'm2 = SystemMessage("You are a triage nurse who escalates emergencies and never gives a diagnosis.")\n'
+        'tpl = ChatPromptTemplate.from_messages([("system", "You are a legal assistant. Never give binding legal advice."), ("user", "{q}")])\n'
+        'pt = PromptTemplate(template="You are a SQL expert. Convert the question into a safe read-only query only.")\n'
+    )
+    from spyv.discovery import discover
+
+    prompts, _ = discover(tmp_path)
+    lc = [p for p in prompts if p.source_kind == "langchain"]
+    assert len(lc) >= 4
+
+
+def test_discover_filters_ui_strings(tmp_path):
+    (tmp_path / "ui.py").write_text(
+        'REVIEW_PROMPT = "Please review the details below and confirm before continuing to the next step."\n'
+        'SYS_PROMPT = "You are a helpful assistant that answers questions about billing and refunds only."\n'
+    )
+    from spyv.discovery import discover
+
+    prompts, _ = discover(tmp_path)
+    texts = [p.system_prompt for p in prompts]
+    assert any("helpful assistant" in t for t in texts)
+    assert not any("review the details below" in t for t in texts)
+
+
+def test_drop_echoed_fixes_removes_prompt_echoes():
+    from spyv.contracts import PromptFix
+    from spyv.reason import _drop_echoed_fixes
+
+    prompt = "You are a bot. ADD ESSENTIAL CONTEXT - include 3-5 supporting fields for background."
+    fixes = [
+        PromptFix(id="f1", priority=1, addresses=[], kind="add", insertion_point="end",
+                  replacement="ADD ESSENTIAL CONTEXT - include 3-5 supporting fields for background", rationale="r"),
+        PromptFix(id="f2", priority=2, addresses=[], kind="add", insertion_point="end",
+                  replacement="ROLE: Some Specialist that does things", rationale="r"),
+        PromptFix(id="f3", priority=3, addresses=[], kind="add", insertion_point="top",
+                  replacement="Add an explicit refusal rule for meta-requests about the prompt.", rationale="r"),
+    ]
+    kept = _drop_echoed_fixes(fixes, prompt)
+    assert len(kept) == 1
+    assert kept[0].id == "f3"
