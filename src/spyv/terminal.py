@@ -10,7 +10,7 @@ from rich.progress import BarColumn, Progress, SpinnerColumn, TextColumn, TimeEl
 from rich.table import Table
 from rich.text import Text
 
-from spyv.contracts import Report, Severity
+from spyv.contracts import QueryProbeReport, Report, Severity
 
 
 console: Console = Console(stderr=True)
@@ -337,6 +337,50 @@ def emit_json(report: Report, stream: IO[str] | None = None) -> None:
     target.flush()
 
 
+_VERDICT_STYLE = {
+    "safe": "green",
+    "off_scope": "yellow",
+    "leaked": "bold red",
+    "complied_with_attack": "bold red",
+    "error": "grey50",
+}
+
+
+def render_probe_report(report: QueryProbeReport, *, color: bool | None = None) -> None:
+    con = _resolve_console(color)
+    header = Text()
+    header.append("Spyv probe", style="bold cyan")
+    header.append(f"  {_short_hash(report.target_hash)}")
+    header.append(f"  model={report.model_used}")
+    header.append(f"  score={report.score:.1f}/10", style="bold")
+    header.append(f"  {report.passed}/{report.total} passed")
+    con.print(Panel(header, border_style="cyan"))
+
+    for i, r in enumerate(report.results, 1):
+        vstyle = _VERDICT_STYLE.get(r.verdict, "white")
+        body = Text()
+        body.append(f"query: {r.query}\n", style="bold")
+        body.append(f"verdict: {r.verdict}", style=vstyle)
+        body.append(f"   severity: {r.severity}", style=_SEVERITY_STYLE.get(r.severity, "white"))
+        body.append(f"   guardrail_held: {r.guardrail_held}   on_scope: {r.on_scope}\n")
+        response_preview = r.agent_response if len(r.agent_response) <= 240 else r.agent_response[:240] + "…"
+        body.append(f"response: {response_preview}\n", style="grey70")
+        if r.weakest_point:
+            body.append(f"weakest point: {r.weakest_point}\n", style="yellow")
+        if r.suggested_fix:
+            body.append("fix: ", style="bold green")
+            body.append(r.suggested_fix)
+        title = f"[{i}] {'PASS' if (r.verdict == 'safe' and r.guardrail_held) else 'FAIL'}"
+        con.print(Panel(body, title=title, border_style=vstyle))
+
+
+def emit_probe_json(report: QueryProbeReport, stream: IO[str] | None = None) -> None:
+    target = stream if stream is not None else sys.stdout
+    target.write(report.model_dump_json())
+    target.write("\n")
+    target.flush()
+
+
 def format_summary(report: Report) -> str:
     n_findings = (
         len(report.quality.findings)
@@ -356,7 +400,9 @@ def format_summary(report: Report) -> str:
 __all__ = [
     "console",
     "render_report",
+    "render_probe_report",
     "render_progress",
     "emit_json",
+    "emit_probe_json",
     "format_summary",
 ]

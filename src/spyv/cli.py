@@ -238,6 +238,89 @@ def test_cmd(
     sys.exit(_exit_code_for(report))
 
 
+@main.command("probe")
+@click.argument("path", type=click.Path(path_type=Path))
+@click.option("--model", "model", required=True, help="Model name (required).")
+@click.option("--provider", "provider_name", default="auto", help="LLM provider (default: auto).")
+@click.option("--base-url", "base_url", default=None, help="Base URL for local / compatible endpoints.")
+@click.option("--query", "queries", multiple=True, help="A user query to probe (repeatable).")
+@click.option(
+    "--queries-file",
+    "queries_file",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="File with one query per line.",
+)
+@click.option("--ci", "ci", is_flag=True, help="Non-interactive JSON output.")
+@click.option("--json", "json_out", is_flag=True, help="Emit JSON to stdout.")
+@click.option("--no-color", is_flag=True, help="Disable ANSI colors.")
+def probe_cmd(
+    path: Path,
+    model: str,
+    provider_name: str,
+    base_url: str | None,
+    queries: tuple[str, ...],
+    queries_file: Path | None,
+    ci: bool,
+    json_out: bool,
+    no_color: bool,
+) -> None:
+    if no_color:
+        os.environ["NO_COLOR"] = "1"
+
+    if not path.exists():
+        click.echo(f"Error: file not found: {path}", err=True)
+        sys.exit(2)
+
+    query_list = list(queries)
+    if queries_file is not None:
+        try:
+            text = queries_file.read_text(encoding="utf-8")
+        except OSError as exc:
+            click.echo(f"Error reading --queries-file: {exc}", err=True)
+            sys.exit(2)
+        query_list.extend(line.strip() for line in text.splitlines() if line.strip())
+
+    if not query_list:
+        click.echo("Error: provide at least one --query or --queries-file.", err=True)
+        sys.exit(2)
+
+    target = _load_target(path)
+
+    from spyv.probe import probe as run_probe
+    from spyv.providers import auto as provider_auto
+    from spyv.providers import provider as make_provider
+    from spyv.providers.base import ProviderError
+
+    try:
+        if provider_name == "auto":
+            client: Any = provider_auto(model=model)
+        else:
+            client = make_provider(provider_name, model=model, base_url=base_url)
+    except ProviderError as exc:
+        click.echo(f"Error: {exc}", err=True)
+        sys.exit(2)
+
+    try:
+        report = run_probe(
+            system_prompt=target["system_prompt"],
+            queries=query_list,
+            llm=client,
+            model=model,
+            tools=target["tools"] or None,
+        )
+    except KeyboardInterrupt:
+        click.echo("\nAborted.", err=True)
+        sys.exit(130)
+
+    if ci or json_out:
+        terminal.emit_probe_json(report)
+    else:
+        terminal.render_probe_report(report)
+
+    sys.exit(0 if report.failed == 0 else 2)
+
+
 @main.command("redteam")
 @click.argument("path", type=click.Path(path_type=Path), required=False)
 def redteam_cmd(path: Path | None) -> None:
