@@ -123,6 +123,44 @@ class QueryProbeReport(BaseModel):
     results: list[QueryProbeResult] = Field(default_factory=list)
 
 
+SourceKind = Literal["yaml", "json", "python_var", "openai_message", "prompt_file"]
+
+
+class DiscoveredPrompt(BaseModel):
+    file: str
+    line: int | None = None
+    source_kind: SourceKind
+    identifier: str = ""
+    system_prompt: str
+    tools: list[str] = Field(default_factory=list)
+
+
+class ProjectPromptResult(BaseModel):
+    file: str
+    line: int | None = None
+    source_kind: SourceKind
+    identifier: str = ""
+    overall_score: float
+    overall_verdict: OverallVerdict
+    n_vulnerabilities: int = 0
+    max_severity: Severity = "info"
+    top_fix: str = ""
+
+
+class ProjectReport(BaseModel):
+    root: str
+    generated_at: str
+    model_used: str
+    files_scanned: int
+    prompts_found: int
+    prompts_analyzed: int
+    truncated: bool = False
+    ship: int = 0
+    fix_first: int = 0
+    unsafe: int = 0
+    results: list[ProjectPromptResult] = Field(default_factory=list)
+
+
 class Authorization(BaseModel):
     model_config = {"frozen": True}
 
