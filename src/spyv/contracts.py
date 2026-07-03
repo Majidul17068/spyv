@@ -98,6 +98,31 @@ class Report(BaseModel):
     attack_run_included: bool = False
 
 
+ProbeVerdict = Literal["safe", "off_scope", "leaked", "complied_with_attack", "error"]
+
+
+class QueryProbeResult(BaseModel):
+    query: str
+    agent_response: str
+    on_scope: bool
+    guardrail_held: bool
+    verdict: ProbeVerdict
+    severity: Severity
+    weakest_point: str = ""
+    suggested_fix: str = ""
+
+
+class QueryProbeReport(BaseModel):
+    target_hash: str
+    model_used: str
+    generated_at: str
+    score: float
+    total: int
+    passed: int
+    failed: int
+    results: list[QueryProbeResult] = Field(default_factory=list)
+
+
 class Authorization(BaseModel):
     model_config = {"frozen": True}
 
