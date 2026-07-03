@@ -17,6 +17,9 @@ from .contracts import (
     OptimizationReport,
     OverallVerdict,
     Pillar,
+    DiscoveredPrompt,
+    ProjectPromptResult,
+    ProjectReport,
     PromptFix,
     QualityReport,
     QueryProbeReport,
@@ -31,10 +34,12 @@ from .contracts import (
     ToolArgumentsPart,
     Vulnerability,
 )
+from .discovery import discover
 from .hooks import watch
 from .probe import probe
 from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
+from .scan import scan
 
 __version__ = "0.0.2a2"
 __author__ = "Majidul Islam"
@@ -73,11 +78,16 @@ __all__ = [
     "Vulnerability",
     "analyze",
     "auto",
+    "discover",
     "format_summary",
     "probe",
     "provider",
+    "scan",
     "terminal",
     "watch",
     "QueryProbeReport",
     "QueryProbeResult",
+    "DiscoveredPrompt",
+    "ProjectReport",
+    "ProjectPromptResult",
 ]
