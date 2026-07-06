@@ -11,7 +11,7 @@
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/v/spyv?color=7c3aed&label=pypi" alt="PyPI"></a>
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/pyversions/spyv" alt="Python versions"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/pypi/l/spyv?color=4ee88c" alt="License"></a>
-  <img src="https://img.shields.io/badge/tests-68%20passing-4ee88c" alt="Tests">
+  <img src="https://img.shields.io/badge/tests-79%20passing-4ee88c" alt="Tests">
   <img src="https://img.shields.io/badge/providers-openai%20%7C%20anthropic%20%7C%20gemini%20%7C%20local-7c3aed" alt="Providers">
 </p>
 
@@ -325,6 +325,37 @@ high/critical; a minor style issue is low).
 Common flags: `--provider`, `--model`, `--base-url`, `--ci` (JSON + exit codes),
 `--json`, `--out <file>`, `--no-color`.
 
+## How findings stay trustworthy (hybrid judge)
+
+An LLM judge alone can be wrong — false positives, false negatives, or
+manipulation. Spyv doesn't rely on it alone:
+
+- **Deterministic checkers run alongside the LLM** — pure-Python detectors for
+  leaked secrets, PII, verbatim system-prompt leakage, and injection markers.
+  When a checker fires, the finding is **confirmed ground truth (confidence
+  1.0), independent of the LLM.** A regex doesn't hallucinate.
+- **Checkers override a lenient LLM.** If the model says "safe" but a checker
+  finds a leaked key, the checker wins — the judge's false negative can't hide a
+  real breach.
+- **Disagreements are flagged, not hidden.** When the checker and LLM conflict,
+  the finding is marked `needs_review` and its `source` (`deterministic` /
+  `llm` / `both`) is shown, so you know exactly how much to trust it.
+- **The judge is hardened.** All target output is fenced as untrusted data and
+  truncated, so a malicious response can't manipulate Spyv's own judge — and a
+  self red-team test suite proves a crafted response can't flip a verdict.
+- **You control the edge cases.** Register org-specific patterns and allowlist
+  known-safe values so the deterministic tier fits your codebase:
+
+  ```python
+  from spyv import register_pattern, add_allowlist
+  register_pattern("secrets", "acme_key", r"ACME-[A-Z0-9]{24}", "critical")
+  add_allowlist("sk-test-EXAMPLE")   # never flag this known placeholder
+  ```
+
+The honest bound: deterministic checkers are high-precision on known patterns;
+the LLM is the high-recall net for everything else. Critical findings don't
+depend on the model — the rest are advisory and clearly labeled.
+
 ## How it works
 
 Spyv sends your prompt to your own model wrapped in a strict audit instruction,
@@ -341,7 +372,8 @@ choices make it dependable:
 
 ## Roadmap
 
-- **v0.2 (current)** — active red-teaming (`spyv redteam`, OWASP attack corpus),
+- **v0.3 (current)** — hybrid judge (deterministic checkers override the LLM, disagreements flagged), judge hardening + self red-team.
+- **v0.2** — active red-teaming (`spyv redteam`, OWASP attack corpus),
   five-pillar static analysis, project-wide scanning across CrewAI / OpenAI /
   LangChain / LangGraph, query-conditioned probing, multi-provider support,
   `@watch` runtime tracking.

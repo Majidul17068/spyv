@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 from . import terminal
+from .checkers import add_allowlist, register_pattern, run_checkers
 from .contracts import (
     AttackCase,
     AttackEvent,
@@ -45,7 +46,7 @@ from .reason import LLMClient, analyze, format_summary
 from .redteam import redteam
 from .scan import scan
 
-__version__ = "0.2.0"
+__version__ = "0.3.0"
 __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"
 
@@ -88,6 +89,7 @@ __all__ = [
     "__author__",
     "__license__",
     "__version__",
+    "add_allowlist",
     "analyze",
     "auto",
     "discover",
@@ -95,6 +97,8 @@ __all__ = [
     "probe",
     "provider",
     "redteam",
+    "register_pattern",
+    "run_checkers",
     "scan",
     "terminal",
     "watch",

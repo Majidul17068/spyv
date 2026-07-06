@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spyv"
-version = "0.2.0"
+version = "0.3.0"
 description = "Prompt-security testing for AI engineers: quality, optimization, vulnerability and guardrail checks with copy-paste fixes. Works with OpenAI, Anthropic, Gemini, and local models out of the box."
 readme = "README.md"
 license = "Apache-2.0"
