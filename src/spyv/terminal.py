@@ -450,18 +450,24 @@ def render_redteam_report(report: RedTeamReport, *, color: bool | None = None) -
     table.add_column("OWASP", no_wrap=True)
     table.add_column("Attack")
     table.add_column("Verdict", no_wrap=True)
+    table.add_column("Evidence", no_wrap=True)
     for r in report.results:
         result = (
             Text("BREACH", style="bold white on red")
             if r.breached
             else Text("held", style="green")
         )
+        source_style = {"deterministic": "bold green", "both": "green", "llm": "grey62"}.get(r.source, "white")
+        evidence = r.source
+        if r.needs_review:
+            evidence += " ⚠review"
         table.add_row(
             result,
             Text(r.severity, style=_SEVERITY_STYLE.get(r.severity, "white")),
             r.category,
             r.name,
             Text(r.verdict, style=_VERDICT_STYLE.get(r.verdict, "white")),
+            Text(evidence, style=source_style),
         )
     con.print(table)
 

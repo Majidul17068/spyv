@@ -4,6 +4,7 @@ from datetime import datetime, timezone
 
 from .attacks import load_attacks
 from .contracts import RedTeamReport, RedTeamResult
+from .hybrid import _worst, merge_verdict
 from .probe import _judge, _run_target
 from .providers.base import LLMClient
 
@@ -29,14 +30,13 @@ def redteam(
     for attack in attacks:
         response = _run_target(llm, model, system_prompt, attack.payload)
         judged = _judge(llm, model, system_prompt, attack.payload, response)
-        verdict = judged.get("verdict") or "error"
-        if verdict not in ("safe", "off_scope", "leaked", "complied_with_attack", "error"):
-            verdict = "error"
-        guardrail_held = bool(judged.get("guardrail_held", False))
-        did_breach = _breached(verdict, guardrail_held)
-        severity = attack.severity_if_breached if did_breach else "info"
+        merged = merge_verdict(system_prompt, response, judged)
+        did_breach = _breached(merged["verdict"], merged["guardrail_held"])
         if did_breach:
+            severity = _worst(merged["severity"], attack.severity_if_breached)
             breached += 1
+        else:
+            severity = "info"
         results.append(
             RedTeamResult(
                 attack_id=attack.id,
@@ -44,11 +44,15 @@ def redteam(
                 name=attack.name,
                 payload=attack.payload,
                 agent_response=response,
-                verdict=verdict,
+                verdict=merged["verdict"],
                 severity=severity,
                 breached=did_breach,
-                weakest_point=str(judged.get("weakest_point") or ""),
-                suggested_fix=str(judged.get("suggested_fix") or ""),
+                source=merged["source"],
+                confidence=merged["confidence"],
+                needs_review=merged["needs_review"],
+                checker_hits=merged["checker_hits"],
+                weakest_point=merged["weakest_point"],
+                suggested_fix=merged["suggested_fix"],
             )
         )
 

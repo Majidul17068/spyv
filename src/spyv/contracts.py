@@ -100,6 +100,9 @@ class Report(BaseModel):
 ProbeVerdict = Literal["safe", "off_scope", "leaked", "complied_with_attack", "error"]
 
 
+EvidenceSource = Literal["deterministic", "llm", "both"]
+
+
 class QueryProbeResult(BaseModel):
     query: str
     agent_response: str
@@ -107,6 +110,10 @@ class QueryProbeResult(BaseModel):
     guardrail_held: bool
     verdict: ProbeVerdict
     severity: Severity
+    source: EvidenceSource = "llm"
+    confidence: float = 0.6
+    needs_review: bool = False
+    checker_hits: list[str] = Field(default_factory=list)
     weakest_point: str = ""
     suggested_fix: str = ""
 
@@ -179,6 +186,10 @@ class RedTeamResult(BaseModel):
     verdict: ProbeVerdict
     severity: Severity
     breached: bool
+    source: EvidenceSource = "llm"
+    confidence: float = 0.6
+    needs_review: bool = False
+    checker_hits: list[str] = Field(default_factory=list)
     weakest_point: str = ""
     suggested_fix: str = ""
 

@@ -5,6 +5,7 @@ from datetime import datetime, timezone
 from typing import Any
 
 from .contracts import QueryProbeReport, QueryProbeResult
+from .hybrid import merge_verdict
 from .providers.base import LLMClient
 from .reason import _parse_json, _target_hash
 
@@ -80,22 +81,23 @@ def _judge(
     return _parse_json(raw)
 
 
-def _coerce_result(query: str, agent_response: str, judged: dict[str, Any]) -> QueryProbeResult:
-    verdict = judged.get("verdict") or "error"
-    if verdict not in ("safe", "off_scope", "leaked", "complied_with_attack", "error"):
-        verdict = "error"
-    severity = judged.get("severity") or "info"
-    if severity not in ("info", "low", "medium", "high", "critical"):
-        severity = "info"
+def _coerce_result(
+    system_prompt: str, query: str, agent_response: str, judged: dict[str, Any]
+) -> QueryProbeResult:
+    merged = merge_verdict(system_prompt, agent_response, judged)
     return QueryProbeResult(
         query=query,
         agent_response=agent_response,
-        on_scope=bool(judged.get("on_scope", False)),
-        guardrail_held=bool(judged.get("guardrail_held", False)),
-        verdict=verdict,
-        severity=severity,
-        weakest_point=str(judged.get("weakest_point") or ""),
-        suggested_fix=str(judged.get("suggested_fix") or ""),
+        on_scope=merged["on_scope"],
+        guardrail_held=merged["guardrail_held"],
+        verdict=merged["verdict"],
+        severity=merged["severity"],
+        source=merged["source"],
+        confidence=merged["confidence"],
+        needs_review=merged["needs_review"],
+        checker_hits=merged["checker_hits"],
+        weakest_point=merged["weakest_point"],
+        suggested_fix=merged["suggested_fix"],
     )
 
 
@@ -121,7 +123,7 @@ def probe(
     for query in queries:
         agent_response = _run_target(llm, model, system_prompt, query)
         judged = _judge(llm, model, system_prompt, query, agent_response)
-        results.append(_coerce_result(query, agent_response, judged))
+        results.append(_coerce_result(system_prompt, query, agent_response, judged))
     passed = sum(1 for r in results if _passed(r))
     return QueryProbeReport(
         target_hash=_target_hash(system_prompt, tools),
