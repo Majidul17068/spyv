@@ -4,8 +4,8 @@ build-backend = "hatchling.build"
 
 [project]
 name = "spyv"
-version = "0.3.0"
-description = "Prompt-security testing for AI engineers: quality, optimization, vulnerability and guardrail checks with copy-paste fixes. Works with OpenAI, Anthropic, Gemini, and local models out of the box."
+version = "0.4.0"
+description = "Prompt-security testing for AI engineers. Discovers every prompt across CrewAI, LangChain & OpenAI, then audits, red-teams, and (at runtime) guards them — with deterministic checks for secrets, PII & prompt-leaks that don't rely on an LLM. Works with any model."
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"

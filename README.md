@@ -11,7 +11,7 @@
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/v/spyv?color=7c3aed&label=pypi" alt="PyPI"></a>
   <a href="https://pypi.org/project/spyv/"><img src="https://img.shields.io/pypi/pyversions/spyv" alt="Python versions"></a>
   <a href="./LICENSE"><img src="https://img.shields.io/pypi/l/spyv?color=4ee88c" alt="License"></a>
-  <img src="https://img.shields.io/badge/tests-79%20passing-4ee88c" alt="Tests">
+  <img src="https://img.shields.io/badge/tests-90%20passing-4ee88c" alt="Tests">
   <img src="https://img.shields.io/badge/providers-openai%20%7C%20anthropic%20%7C%20gemini%20%7C%20local-7c3aed" alt="Providers">
 </p>
 
@@ -38,7 +38,7 @@ self-hosted model out of the box.
 - [Works with any model](#works-with-any-model)
 - [Scan a whole project](#scan-a-whole-project)
 - [Query-conditioned analysis](#query-conditioned-analysis)
-- [Runtime tracking](#runtime-tracking)
+- [Runtime protection](#runtime-protection)
 - [Python API](#python-api)
 - [Understanding the report](#understanding-the-report)
 - [Command reference](#command-reference)
@@ -226,11 +226,34 @@ spyv probe prompt.yaml --model gpt-4o \
 Pass queries inline with repeated `--query`, or from a file with
 `--queries-file`.
 
-## Runtime tracking
+## Runtime protection
 
-Wrap any agent function with `@watch` to log every call — name, duration,
-success or failure — to your backend log. Pretty in a terminal, JSON in
-production.
+Static analysis predicts; runtime **observes**. Wrap an agent with `@guard` and
+Spyv runs its **deterministic checkers on the real output** of every call — so a
+leaked secret, PII, or prompt-leak that *actually appears* in production is
+caught as an observed, ground-truth finding (no LLM, no guessing). It can warn
+or block, and it redacts evidence in the log by default.
+
+```python
+from spyv import guard, GuardBreach
+
+@guard(label="banking_agent", system_prompt=SYSTEM_PROMPT, on_breach="raise")
+def banking_agent(query: str) -> str:
+    return call_llm(query)
+```
+
+```text
+◆ spyv.guard  banking_agent  BREACH  [critical] secrets/openai_key=sk-***EF
+```
+
+It extracts the response text from plain strings, dicts, and OpenAI-style
+objects (or pass your own `extract=`). Because the checks are pure regex, there
+is no LLM in the hot path — negligible latency, and the findings are provable.
+*(Runtime tool-call monitoring and LLM-judged runtime analysis are on the
+roadmap, not yet shipped.)*
+
+For lightweight call logging without security checks, `@watch` records each
+call's name, duration, and success/error:
 
 ```python
 from spyv import watch
@@ -240,13 +263,8 @@ def banking_agent(query: str) -> str:
     return call_llm(query)
 ```
 
-```text
-◆ spyv.watch  banking_agent  405ms  ok
-◆ spyv.watch  banking_agent  512ms  error  TimeoutError: upstream timed out
-```
-
-Set `SPYV_OUT=json` to emit structured lines for Datadog, Grafana Loki, or
-CloudWatch. `@watch` has near-zero overhead and holds no state.
+Set `SPYV_OUT=json` for structured lines into Datadog, Grafana Loki, or
+CloudWatch.
 
 ## Python API
 
@@ -372,17 +390,16 @@ choices make it dependable:
 
 ## Roadmap
 
-- **v0.3 (current)** — hybrid judge (deterministic checkers override the LLM, disagreements flagged), judge hardening + self red-team.
+- **v0.4 (current)** — `@guard` runtime deterministic checks on real output,
+  f-string / concatenation discovery, concurrent scanning.
+- **v0.3** — hybrid judge (deterministic checkers override the LLM,
+  disagreements flagged), judge hardening + self red-team.
 - **v0.2** — active red-teaming (`spyv redteam`, OWASP attack corpus),
   five-pillar static analysis, project-wide scanning across CrewAI / OpenAI /
-  LangChain / LangGraph, query-conditioned probing, multi-provider support,
-  `@watch` runtime tracking.
-- **v0.3** — classifier-based judges; SARIF output for GitHub / GitLab
-  code-scanning; multi-turn (Crescendo) attacks.
-- **v0.5** — runtime guardrails (`@guard`, `instrument()`), signed findings
-  store, and a first-party CI gate.
-- **v1.0** — cross-provider comparison, regression suites, and full OWASP LLM
-  Top 10 coverage.
+  LangChain / LangGraph, query-conditioned probing, multi-provider support.
+- **Next** — a labeled benchmark (precision / recall / consistency), SARIF +
+  GitHub Action, classifier-based judges, multi-turn (Crescendo) attacks,
+  runtime tool-call monitoring, and cross-provider comparison.
 
 ## Responsible use
 
