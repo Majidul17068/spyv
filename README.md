@@ -390,7 +390,7 @@ choices make it dependable:
 
 ## Roadmap
 
-- **v0.4 (current)** — `@guard` runtime deterministic checks on real output,
+- **v0.3.1 (current)** — `@guard` runtime deterministic checks on real output,
   f-string / concatenation discovery, concurrent scanning.
 - **v0.3** — hybrid judge (deterministic checkers override the LLM,
   disagreements flagged), judge hardening + self red-team.
