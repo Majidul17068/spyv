@@ -69,10 +69,36 @@ def _call_name(func: ast.expr) -> str | None:
     return getattr(func, "id", None) or getattr(func, "attr", None)
 
 
+def _static_text(node: ast.expr | None) -> str | None:
+    if node is None:
+        return None
+    if isinstance(node, ast.Constant):
+        return node.value if isinstance(node.value, str) else None
+    if isinstance(node, ast.JoinedStr):
+        parts: list[str] = []
+        has_static = False
+        for v in node.values:
+            if isinstance(v, ast.Constant) and isinstance(v.value, str):
+                parts.append(v.value)
+                if v.value.strip():
+                    has_static = True
+            else:
+                parts.append("{...}")
+        return "".join(parts) if has_static else None
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+        left = _static_text(node.left)
+        right = _static_text(node.right)
+        if left is None and right is None:
+            return None
+        return (left or "{...}") + (right or "{...}")
+    return None
+
+
 def _first_string_arg(node: ast.Call) -> str | None:
     for a in node.args:
-        if isinstance(a, ast.Constant) and isinstance(a.value, str):
-            return a.value
+        text = _static_text(a)
+        if text is not None:
+            return text
     return None
 
 
@@ -118,10 +144,8 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
 
     for node in ast.walk(tree):
         if isinstance(node, (ast.Assign, ast.AnnAssign)):
-            value = node.value
-            if not isinstance(value, ast.Constant) or not isinstance(value.value, str):
-                continue
-            if len(value.value) < _MIN_LEN:
+            value_text = _static_text(node.value)
+            if value_text is None or len(value_text) < _MIN_LEN:
                 continue
             targets = node.targets if isinstance(node, ast.Assign) else [node.target]
             for t in targets:
@@ -133,7 +157,7 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                             line=node.lineno,
                             source_kind="python_var",
                             identifier=name,
-                            system_prompt=value.value,
+                            system_prompt=value_text,
                         )
                     )
                     break
@@ -141,8 +165,10 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
         if isinstance(node, ast.Call):
             kw_strings: dict[str, str] = {}
             for kw in node.keywords:
-                if kw.arg and isinstance(kw.value, ast.Constant) and isinstance(kw.value.value, str):
-                    kw_strings[kw.arg] = kw.value.value
+                if kw.arg:
+                    kw_text = _static_text(kw.value)
+                    if kw_text is not None:
+                        kw_strings[kw.arg] = kw_text
 
             crew_prompt = _crewai_prompt(kw_strings)
             lc = _langchain_prompt(node, kw_strings)
@@ -170,26 +196,26 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                 for kw in node.keywords:
                     if not kw.arg or not _name_matches(kw.arg):
                         continue
-                    v = kw.value
-                    if isinstance(v, ast.Constant) and isinstance(v.value, str) and len(v.value) >= _MIN_LEN:
+                    kw_text = kw_strings.get(kw.arg)
+                    if kw_text is not None and len(kw_text) >= _MIN_LEN:
                         found.append(
                             DiscoveredPrompt(
                                 file=str(path),
-                                line=getattr(v, "lineno", node.lineno),
+                                line=getattr(kw.value, "lineno", node.lineno),
                                 source_kind="python_var",
                                 identifier=kw.arg,
-                                system_prompt=v.value,
+                                system_prompt=kw_text,
                             )
                         )
 
         if isinstance(node, ast.Tuple) and len(node.elts) >= 2:
             first, second = node.elts[0], node.elts[1]
+            second_text = _static_text(second)
             if (
                 isinstance(first, ast.Constant)
                 and first.value == "system"
-                and isinstance(second, ast.Constant)
-                and isinstance(second.value, str)
-                and len(second.value) >= _MIN_LEN
+                and second_text is not None
+                and len(second_text) >= _MIN_LEN
             ):
                 found.append(
                     DiscoveredPrompt(
@@ -197,7 +223,7 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                         line=getattr(second, "lineno", node.lineno),
                         source_kind="langchain",
                         identifier="system tuple",
-                        system_prompt=second.value,
+                        system_prompt=second_text,
                     )
                 )
 
@@ -208,14 +234,11 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
             for k, v in zip(node.keys, node.values, strict=False):
                 if isinstance(k, ast.Constant) and k.value == "role" and isinstance(v, ast.Constant) and v.value == "system":
                     role_is_system = True
-                if (
-                    isinstance(k, ast.Constant)
-                    and k.value == "content"
-                    and isinstance(v, ast.Constant)
-                    and isinstance(v.value, str)
-                ):
-                    content_value = v.value
-                    content_line = getattr(v, "lineno", node.lineno)
+                if isinstance(k, ast.Constant) and k.value == "content":
+                    v_text = _static_text(v)
+                    if v_text is not None:
+                        content_value = v_text
+                        content_line = getattr(v, "lineno", node.lineno)
             if role_is_system and content_value and len(content_value) >= _MIN_LEN:
                 found.append(
                     DiscoveredPrompt(
