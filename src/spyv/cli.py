@@ -339,6 +339,7 @@ def probe_cmd(
 @click.option("--provider", "provider_name", default="auto", help="LLM provider (default: auto).")
 @click.option("--base-url", "base_url", default=None, help="Base URL for local / compatible endpoints.")
 @click.option("--max-prompts", "max_prompts", default=25, help="Cap prompts analyzed (default: 25).")
+@click.option("--concurrency", "concurrency", default=8, help="Prompts audited in parallel (default: 8).")
 @click.option("--ci", "ci", is_flag=True, help="Non-interactive JSON output.")
 @click.option("--json", "json_out", is_flag=True, help="Emit JSON to stdout.")
 @click.option("--no-color", is_flag=True, help="Disable ANSI colors.")
@@ -348,6 +349,7 @@ def scan_cmd(
     provider_name: str,
     base_url: str | None,
     max_prompts: int,
+    concurrency: int,
     ci: bool,
     json_out: bool,
     no_color: bool,
@@ -376,7 +378,9 @@ def scan_cmd(
         click.echo(f"Discovering and auditing prompts under {path} ...", err=True)
 
     try:
-        report = run_scan(root=path, llm=client, model=model, max_prompts=max_prompts)
+        report = run_scan(
+            root=path, llm=client, model=model, max_prompts=max_prompts, max_workers=concurrency
+        )
     except KeyboardInterrupt:
         click.echo("\nAborted.", err=True)
         sys.exit(130)
