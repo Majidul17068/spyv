@@ -23,4 +23,6 @@ htmlcov/
 # private planning — not for the public repo
 ROADMAP.md
 NEXT_PHASE.md
+DEFENSE-NOTES.txt
 *.private.md
+*.private.txt
