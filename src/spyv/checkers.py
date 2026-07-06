@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import re
+from collections import defaultdict
 from dataclasses import dataclass
 
 _SECRET_PATTERNS: list[tuple[str, re.Pattern[str]]] = [
@@ -39,6 +40,48 @@ class CheckerHit:
     label: str
     severity: str
     evidence: str
+
+
+_CUSTOM: dict[str, list[tuple[str, re.Pattern[str], str]]] = defaultdict(list)
+_ALLOWLIST: list[re.Pattern[str]] = []
+
+
+def register_pattern(checker: str, label: str, pattern: str, severity: str = "high") -> None:
+    _CUSTOM[checker].append((label, re.compile(pattern), severity))
+
+
+def add_allowlist(value: str, *, is_regex: bool = False) -> None:
+    _ALLOWLIST.append(re.compile(value if is_regex else re.escape(value)))
+
+
+def clear_custom() -> None:
+    _CUSTOM.clear()
+    _ALLOWLIST.clear()
+
+
+def load_config(config: dict) -> None:
+    for item in config.get("custom", []) or []:
+        register_pattern(
+            item["checker"], item["label"], item["pattern"], item.get("severity", "high")
+        )
+    for value in config.get("allowlist", []) or []:
+        add_allowlist(value)
+    for value in config.get("allowlist_regex", []) or []:
+        add_allowlist(value, is_regex=True)
+
+
+def _allowed(evidence: str) -> bool:
+    return any(p.search(evidence) for p in _ALLOWLIST)
+
+
+def _scan_custom(text: str) -> list[CheckerHit]:
+    hits: list[CheckerHit] = []
+    for checker, patterns in _CUSTOM.items():
+        for label, pattern, severity in patterns:
+            m = pattern.search(text)
+            if m:
+                hits.append(CheckerHit(checker=checker, label=label, severity=severity, evidence=m.group(0)[:80]))
+    return hits
 
 
 def _luhn_ok(digits: str) -> bool:
@@ -106,14 +149,19 @@ def run_checkers(system_prompt: str, response: str) -> list[CheckerHit]:
     hits.extend(check_pii(response))
     hits.extend(check_injection_markers(response))
     hits.extend(check_prompt_leak(system_prompt, response))
-    return hits
+    hits.extend(_scan_custom(response))
+    return [h for h in hits if not _allowed(h.evidence)]
 
 
 __all__ = [
     "CheckerHit",
-    "check_secrets",
-    "check_pii",
+    "add_allowlist",
     "check_injection_markers",
+    "check_pii",
     "check_prompt_leak",
+    "check_secrets",
+    "clear_custom",
+    "load_config",
+    "register_pattern",
     "run_checkers",
 ]
