@@ -39,7 +39,7 @@ from .contracts import (
     Vulnerability,
 )
 from .discovery import discover
-from .hooks import watch
+from .hooks import GuardBreach, guard, watch
 from .probe import probe
 from .providers import auto, provider
 from .reason import LLMClient, analyze, format_summary
@@ -60,6 +60,7 @@ __all__ = [
     "DiscoveredPrompt",
     "FilePart",
     "Finding",
+    "GuardBreach",
     "Guardrail",
     "GuardrailAudit",
     "ImagePart",
@@ -94,6 +95,7 @@ __all__ = [
     "auto",
     "discover",
     "format_summary",
+    "guard",
     "probe",
     "provider",
     "redteam",
