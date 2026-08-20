@@ -37,6 +37,8 @@ self-hosted model out of the box.
 - [Quickstart](#quickstart)
 - [Works with any model](#works-with-any-model)
 - [Scan a whole project](#scan-a-whole-project)
+- [CI: SARIF and severity gates](#ci-sarif-and-severity-gates)
+- [Benchmarks](#benchmarks)
 - [Query-conditioned analysis](#query-conditioned-analysis)
 - [Runtime protection](#runtime-protection)
 - [Python API](#python-api)
@@ -166,6 +168,95 @@ spyv scan . --model gpt-4o
 
 The exit code is non-zero when any prompt is `unsafe`, so `spyv scan` drops
 straight into CI.
+
+## CI: SARIF and severity gates
+
+Spyv exports [SARIF 2.1.0](https://sarifweb.azurewebsites.net/), so findings appear
+as annotations on the changed lines of a pull request instead of scrolling past in
+a build log.
+
+```bash
+spyv scan . --model gpt-4o --sarif spyv.sarif --fail-on high
+```
+
+Exit codes are designed so a pipeline can tell the two failure modes apart:
+
+| Code | Meaning |
+|---|---|
+| `0` | nothing at or above the gate |
+| `1` | the gate tripped on a real finding |
+| `2` | spyv could not run (bad target, provider error, missing key) |
+
+Without `--fail-on`, the previous exit codes are unchanged.
+
+### GitHub Action
+
+```yaml
+permissions:
+  contents: read
+  security-events: write   # required to upload SARIF
+
+jobs:
+  prompt-security:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: Majidul17068/spyv@main
+        with:
+          model: gpt-4o
+          fail-on: high
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+```
+
+The action uploads the SARIF **before** enforcing the gate, so the alerts are
+visible on the pull request that is about to fail. The API key is read from the
+environment rather than passed as an input, because action inputs are echoed in
+workflow logs.
+
+## Benchmarks
+
+Spyv measures itself, and reports the reproducible half separately from the
+advisory half. Blending them into one accuracy number would overstate what the
+checkers prove and understate the judge's error.
+
+```bash
+spyv bench                                  # deterministic tier — no API key
+spyv bench --tier all --model gpt-4o        # adds LLM-judge and red-team tiers
+spyv bench --tier llm --model gpt-4o --repeat 3   # judge consistency
+```
+
+| Tier | Needs a key | Reproducible | Reports |
+|---|---|---|---|
+| deterministic | no | yes | precision / recall / F1 of the regex checkers |
+| llm_judge | yes | no | precision / recall / F1, per-OWASP recall, verdict stability |
+| redteam | yes | no | live-attack detection rate |
+
+Proportions carry 95% Wilson intervals. The seed dataset is self-authored and
+small, so it is a **regression guard, not a published number** — a real claim
+needs external, held-out labels and a larger N.
+
+### Real repositories
+
+`spyv corpus` measures the provable half — discovery and the checkers — against
+real code, where the ground truth is the code itself rather than a label:
+
+```bash
+spyv corpus ../repo-a ../repo-b --name a --name b
+```
+
+It reports discovery yield by construct, agreement with a deliberately naive
+grep baseline (a three-way split: both / spyv-only / grep-only), and credentials
+or personal data sitting in prompts that are already committed.
+
+The grep column is an **agreement analysis, not a recall estimate** — grep is not
+ground truth and over-triggers on prose. Its value is the other direction:
+grep-only files are candidate discovery misses. That is how CrewAI `Task` support
+was found.
+
+Matched evidence is redacted by default, and `--reveal` refuses to print to
+stdout. A credential in a public repository is still a live credential, so the
+report carries counts, not secrets. `--fail-on-exposure` makes it gateable.
 
 ## Active red-teaming
 
@@ -337,11 +428,15 @@ high/critical; a minor style issue is low).
 | `spyv probe <prompt> --query …` | Query-conditioned analysis | **available** |
 | `spyv redteam <prompt>` | Fire the OWASP attack corpus and report breaches | **available** |
 | `spyv init` | Accept the acceptable-use policy | **available** |
+| `spyv bench` | Measure spyv against a labeled dataset | **available** |
+| `spyv corpus <path>…` | Measure discovery against real repositories | **available** |
 | `spyv exec <cmd>` | Wrap a running process | *planned — v0.5* |
 | `spyv verify <run>` | Verify signed findings | *planned — v0.5* |
 
 Common flags: `--provider`, `--model`, `--base-url`, `--ci` (JSON + exit codes),
 `--json`, `--out <file>`, `--no-color`.
+
+CI flags on `test` and `scan`: `--sarif <file>`, `--fail-on <severity>`.
 
 ## How findings stay trustworthy (hybrid judge)
 
