@@ -163,12 +163,62 @@ def _langchain_prompt(node: ast.Call, kw_strings: dict[str, str]) -> tuple[str, 
     return None
 
 
+def _string_bindings(tree: ast.AST) -> dict[str, str]:
+    """Map variable name -> statically resolvable string, file-wide.
+
+    Prompts are commonly assembled into a local and then passed by name, which
+    leaves the call site holding an ast.Name rather than a literal:
+
+        description = f"You are a clinical reviewer. {context}"
+        Task(description=description)
+
+    A name bound to two *different* strings anywhere in the file is dropped
+    rather than guessed at. Attributing the wrong prompt to a call would be
+    worse than missing it, and this is best-effort static resolution, not
+    dataflow analysis.
+    """
+    bindings: dict[str, str] = {}
+    ambiguous: set[str] = set()
+    for node in ast.walk(tree):
+        if not isinstance(node, (ast.Assign, ast.AnnAssign)):
+            continue
+        value_text = _static_text(node.value)
+        if value_text is None:
+            continue
+        targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+        for t in targets:
+            name = getattr(t, "id", None) or getattr(t, "attr", None)
+            if not name or name in ambiguous:
+                continue
+            previous = bindings.get(name)
+            if previous is not None and previous != value_text:
+                ambiguous.add(name)
+                bindings.pop(name, None)
+                continue
+            bindings[name] = value_text
+    return bindings
+
+
+def _resolve_text(node: ast.expr | None, bindings: dict[str, str]) -> str | None:
+    """_static_text, plus one hop through a variable binding."""
+    direct = _static_text(node)
+    if direct is not None:
+        return direct
+    if isinstance(node, ast.Name):
+        return bindings.get(node.id)
+    if isinstance(node, ast.Attribute):
+        return bindings.get(node.attr)
+    return None
+
+
 def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
     found: list[DiscoveredPrompt] = []
     try:
         tree = ast.parse(text)
     except SyntaxError:
         return found
+
+    bindings = _string_bindings(tree)
 
     for node in ast.walk(tree):
         if isinstance(node, (ast.Assign, ast.AnnAssign)):
@@ -194,7 +244,7 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
             kw_strings: dict[str, str] = {}
             for kw in node.keywords:
                 if kw.arg:
-                    kw_text = _static_text(kw.value)
+                    kw_text = _resolve_text(kw.value, bindings)
                     if kw_text is not None:
                         kw_strings[kw.arg] = kw_text
 
