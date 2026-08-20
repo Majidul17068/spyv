@@ -130,7 +130,14 @@ class QueryProbeReport(BaseModel):
 
 
 SourceKind = Literal[
-    "yaml", "json", "python_var", "openai_message", "prompt_file", "crewai_agent", "langchain"
+    "yaml",
+    "json",
+    "python_var",
+    "openai_message",
+    "prompt_file",
+    "crewai_agent",
+    "crewai_task",
+    "langchain",
 ]
 
 

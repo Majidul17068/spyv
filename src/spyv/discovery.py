@@ -118,6 +118,34 @@ def _crewai_prompt(kw_strings: dict[str, str]) -> str | None:
     return combined if len(combined) >= _MIN_LEN else None
 
 
+# CrewAI Task(description=..., expected_output=...). Both strings are sent to
+# the model, so both are prompt surface -- and neither field name appears in
+# _NAME_HINTS, so without this they are invisible to discovery.
+_CREWAI_TASK_CALLS = {"Task", "ConditionalTask"}
+
+
+def _crewai_task_prompt(node: ast.Call, kw_strings: dict[str, str]) -> tuple[str, str] | None:
+    description = kw_strings.get("description")
+    if not description:
+        return None
+    expected = kw_strings.get("expected_output")
+    # Require either the callee to be a Task, or the description/expected_output
+    # pair that is characteristic of CrewAI. Matching a bare description= would
+    # pull in every unrelated constructor in the codebase.
+    if _call_name(node.func) not in _CREWAI_TASK_CALLS and not expected:
+        return None
+
+    parts = [f"DESCRIPTION: {description}"]
+    if expected:
+        parts.append(f"EXPECTED OUTPUT: {expected}")
+    combined = "\n".join(parts)
+    if len(combined) < _MIN_LEN:
+        return None
+
+    first_line = next((ln.strip() for ln in description.splitlines() if ln.strip()), "task")
+    return first_line[:60], combined
+
+
 def _langchain_prompt(node: ast.Call, kw_strings: dict[str, str]) -> tuple[str, str] | None:
     name = _call_name(node.func)
     if name in _SYSTEM_MESSAGE_CALLS:
@@ -171,6 +199,7 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                         kw_strings[kw.arg] = kw_text
 
             crew_prompt = _crewai_prompt(kw_strings)
+            crew_task = _crewai_task_prompt(node, kw_strings)
             lc = _langchain_prompt(node, kw_strings)
             if crew_prompt is not None:
                 found.append(
@@ -180,6 +209,16 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
                         source_kind="crewai_agent",
                         identifier=kw_strings["role"][:60],
                         system_prompt=crew_prompt,
+                    )
+                )
+            elif crew_task is not None:
+                found.append(
+                    DiscoveredPrompt(
+                        file=str(path),
+                        line=node.lineno,
+                        source_kind="crewai_task",
+                        identifier=crew_task[0],
+                        system_prompt=crew_task[1],
                     )
                 )
             elif lc is not None:
