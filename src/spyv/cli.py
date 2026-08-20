@@ -63,6 +63,49 @@ def _load_target(path: Path) -> dict[str, Any]:
 
 _SEVERITY_EXIT = {"info": 0, "low": 0, "medium": 1, "high": 2, "critical": 3}
 
+# Ordering used by --fail-on. Kept separate from _SEVERITY_EXIT, which maps a
+# severity to a legacy process exit code rather than to a rank.
+_SEVERITY_RANK = {"info": 0, "low": 1, "medium": 2, "high": 3, "critical": 4}
+
+GATE_CHOICES = ("none", "low", "medium", "high", "critical")
+
+# Exit code used when a severity gate trips. Distinct from 2, which means the
+# run itself failed (bad target, provider error), so CI can tell a real finding
+# from a broken invocation.
+GATE_EXIT = 1
+
+
+def _worst(severities: list[str]) -> str:
+    if not severities:
+        return "info"
+    return max(severities, key=lambda s: _SEVERITY_RANK.get(s, 0))
+
+
+def _report_max_severity(report: Report) -> str:
+    return _worst(
+        [f.severity for f in report.quality.findings]
+        + [f.severity for f in report.optimization.findings]
+        + [v.severity for v in report.vulnerabilities]
+        + [m.severity for m in report.guardrails.missing]
+    )
+
+
+def _gate_tripped(max_severity: str, fail_on: str | None) -> bool:
+    if not fail_on or fail_on == "none":
+        return False
+    return _SEVERITY_RANK.get(max_severity, 0) >= _SEVERITY_RANK.get(fail_on, 99)
+
+
+def _emit_sarif(document: dict[str, Any], out: Path) -> None:
+    from spyv.report.sarif import write_sarif
+
+    try:
+        write_sarif(document, out)
+    except OSError as exc:
+        click.echo(f"Error writing --sarif: {exc}", err=True)
+        sys.exit(2)
+
+
 
 def _exit_code_for(report: Report) -> int:
     max_sev = 0
@@ -156,6 +199,20 @@ def init_cmd(consent: bool) -> None:
     type=click.Choice(["text", "md", "json"]),
     default="text",
 )
+@click.option(
+    "--sarif",
+    "sarif_path",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Write SARIF 2.1.0 to this path (for GitHub/GitLab code scanning).",
+)
+@click.option(
+    "--fail-on",
+    "fail_on",
+    type=click.Choice(GATE_CHOICES),
+    default=None,
+    help="Exit 1 if any finding is at or above this severity. Use in CI.",
+)
 @click.option("--no-color", is_flag=True, help="Disable ANSI colors.")
 def test_cmd(
     path: Path,
@@ -167,6 +224,8 @@ def test_cmd(
     json_out: bool,
     out_path: Path | None,
     fmt: str,
+    sarif_path: Path | None,
+    fail_on: str | None,
     no_color: bool,
 ) -> None:
     if no_color:
@@ -228,6 +287,7 @@ def test_cmd(
             sys.exit(2)
 
     exit_code = _exit_code_for(report)
+    max_severity = _report_max_severity(report)
 
     if attack:
         from spyv.redteam import redteam as run_redteam
@@ -246,6 +306,19 @@ def test_cmd(
             terminal.render_redteam_report(rt)
         if rt.breached and exit_code < 2:
             exit_code = 2
+        if rt.breached:
+            # A confirmed breach outranks anything the static audit predicted.
+            max_severity = "critical"
+
+    if sarif_path is not None:
+        from spyv.report.sarif import report_to_sarif
+
+        _emit_sarif(
+            report_to_sarif(report, target_path=str(path), tool_version=VERSION), sarif_path
+        )
+
+    if fail_on is not None:
+        sys.exit(GATE_EXIT if _gate_tripped(max_severity, fail_on) else 0)
 
     sys.exit(exit_code)
 
@@ -342,6 +415,20 @@ def probe_cmd(
 @click.option("--concurrency", "concurrency", default=8, help="Prompts audited in parallel (default: 8).")
 @click.option("--ci", "ci", is_flag=True, help="Non-interactive JSON output.")
 @click.option("--json", "json_out", is_flag=True, help="Emit JSON to stdout.")
+@click.option(
+    "--sarif",
+    "sarif_path",
+    type=click.Path(path_type=Path),
+    default=None,
+    help="Write SARIF 2.1.0 to this path (for GitHub/GitLab code scanning).",
+)
+@click.option(
+    "--fail-on",
+    "fail_on",
+    type=click.Choice(GATE_CHOICES),
+    default=None,
+    help="Exit 1 if any prompt has a finding at or above this severity.",
+)
 @click.option("--no-color", is_flag=True, help="Disable ANSI colors.")
 def scan_cmd(
     path: Path,
@@ -352,6 +439,8 @@ def scan_cmd(
     concurrency: int,
     ci: bool,
     json_out: bool,
+    sarif_path: Path | None,
+    fail_on: str | None,
     no_color: bool,
 ) -> None:
     if no_color:
@@ -389,6 +478,17 @@ def scan_cmd(
         terminal.emit_project_json(report)
     else:
         terminal.render_project_report(report)
+
+    if sarif_path is not None:
+        from spyv.report.sarif import project_report_to_sarif
+
+        _emit_sarif(project_report_to_sarif(report, tool_version=VERSION), sarif_path)
+
+    if fail_on is not None:
+        # Gated on the same prompts SARIF reports, so a tripped gate always has
+        # a corresponding alert. Prompts that reached 'ship' are excluded.
+        worst = _worst([r.max_severity for r in report.results if r.overall_verdict != "ship"])
+        sys.exit(GATE_EXIT if _gate_tripped(worst, fail_on) else 0)
 
     sys.exit(0 if report.unsafe == 0 else 2)
 
