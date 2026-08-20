@@ -471,6 +471,66 @@ def verify_cmd(run_id: str | None) -> None:
     sys.exit(3)
 
 
+@main.command("bench")
+@click.option("--dataset", "dataset", type=click.Path(path_type=Path), default=None,
+              help="Labeled dataset YAML (default: bundled seed set).")
+@click.option("--tier", type=click.Choice(["deterministic", "llm", "all"]), default="deterministic",
+              help="deterministic (no key) | llm | all (adds redteam).")
+@click.option("--provider", "provider_name", default="auto", help="LLM provider (default: auto).")
+@click.option("--model", "model", default=None, help="Model name (needed for llm/all tiers).")
+@click.option("--base-url", "base_url", default=None, help="Base URL for local/compatible endpoints.")
+@click.option("--repeat", "repeat", default=1, help="Repeat each case K times (consistency).")
+@click.option("--json", "json_out", is_flag=True, help="Emit JSON instead of the pretty report.")
+@click.option("--out", "out_path", type=click.Path(path_type=Path), default=None,
+              help="Write full JSON results to this path.")
+def bench_cmd(
+    dataset: Path | None,
+    tier: str,
+    provider_name: str,
+    model: str | None,
+    base_url: str | None,
+    repeat: int,
+    json_out: bool,
+    out_path: Path | None,
+) -> None:
+    """Measure spyv against a labeled dataset.
+
+    Deterministic and LLM-judge accuracy are reported SEPARATELY. The
+    deterministic tier needs no API key and is fully reproducible. Exit code is
+    non-zero if a known deterministic-detectable case is missed (CI regression
+    guard).
+    """
+    import json as _json
+
+    from spyv.bench import format_report, run_benchmark
+    from spyv.providers.base import ProviderError
+
+    try:
+        results = run_benchmark(
+            dataset_path=dataset,
+            tier=tier,
+            provider_name=provider_name,
+            model=model,
+            base_url=base_url,
+            repeat=repeat,
+            out=out_path,
+        )
+    except ProviderError as exc:
+        click.echo(f"Provider error: {exc}", err=True)
+        sys.exit(2)
+    except Exception as exc:
+        click.echo(f"Benchmark error: {exc}", err=True)
+        sys.exit(2)
+
+    if json_out:
+        click.echo(_json.dumps(results, indent=2))
+    else:
+        click.echo(format_report(results))
+
+    det = results["tiers"]["deterministic"]["metrics"]
+    sys.exit(1 if det["fn"] > 0 else 0)
+
+
 if __name__ == "__main__":
     try:
         main()
