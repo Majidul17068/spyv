@@ -1,0 +1,38 @@
+name: Benchmark regression
+
+# The deterministic benchmark tier needs no API key and is fully reproducible,
+# so it can gate every pull request. It fails when a case that a regex checker
+# is supposed to catch stops being caught -- the regression this project most
+# needs to never ship. The LLM-judge tier is deliberately not run here: it is
+# advisory, costs money, and is not reproducible enough to gate a build.
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+    branches: [main]
+
+jobs:
+  deterministic:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Install
+        run: |
+          python -m pip install --upgrade pip
+          pip install -e .
+      - name: Deterministic benchmark
+        run: python -m spyv.bench --json --out bench-results.json
+      - name: Human-readable summary
+        if: always()
+        run: python -m spyv.bench
+      - name: Upload results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: bench-results
+          path: bench-results.json
+          if-no-files-found: ignore

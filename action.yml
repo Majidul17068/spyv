@@ -1,0 +1,152 @@
+name: "Spyv prompt security"
+description: "Discover and audit LLM prompts across CrewAI, LangChain and OpenAI code, emit SARIF, and gate the build on severity."
+author: "Majidul Islam"
+
+branding:
+  icon: shield
+  color: purple
+
+inputs:
+  path:
+    description: "Directory to scan, or a single prompt file when mode is 'test'."
+    required: false
+    default: "."
+  mode:
+    description: "scan (project-wide discovery) or test (one prompt file)."
+    required: false
+    default: "scan"
+  model:
+    description: "Model name passed to spyv, e.g. gpt-4o."
+    required: true
+  provider:
+    description: "LLM provider: auto, openai, anthropic, gemini, or an OpenAI-compatible name."
+    required: false
+    default: "auto"
+  base-url:
+    description: "Base URL for a local or OpenAI-compatible endpoint (vLLM, Ollama, LM Studio, TGI)."
+    required: false
+    default: ""
+  fail-on:
+    description: "Fail the build when a finding is at or above this severity: none, low, medium, high, critical."
+    required: false
+    default: "high"
+  sarif-file:
+    description: "Where to write the SARIF report."
+    required: false
+    default: "spyv.sarif"
+  upload-sarif:
+    description: "Upload the SARIF to GitHub code scanning. Needs permissions: security-events: write."
+    required: false
+    default: "true"
+  max-prompts:
+    description: "Cap on prompts analyzed per scan."
+    required: false
+    default: "25"
+  concurrency:
+    description: "Prompts audited in parallel."
+    required: false
+    default: "8"
+  spyv-version:
+    description: "Version to install, e.g. 0.4.0. Empty installs the latest release."
+    required: false
+    default: ""
+  python-version:
+    description: "Python used to run spyv."
+    required: false
+    default: "3.12"
+
+outputs:
+  sarif-file:
+    description: "Path to the SARIF report that was written."
+    value: ${{ inputs.sarif-file }}
+  exit-code:
+    description: "spyv's exit code: 0 clean, 1 gate tripped, 2 the run failed."
+    value: ${{ steps.spyv.outputs.exit-code }}
+  gate-tripped:
+    description: "true when a finding met or exceeded fail-on."
+    value: ${{ steps.spyv.outputs.gate-tripped }}
+
+runs:
+  using: composite
+  steps:
+    - name: Set up Python
+      uses: actions/setup-python@v5
+      with:
+        python-version: ${{ inputs.python-version }}
+
+    - name: Install spyv
+      shell: bash
+      run: |
+        python -m pip install --upgrade pip
+        if [ -n "${{ inputs.spyv-version }}" ]; then
+          pip install "spyv==${{ inputs.spyv-version }}"
+        else
+          pip install spyv
+        fi
+        spyv --version
+
+    - name: Accept acceptable-use policy
+      shell: bash
+      run: spyv init --consent
+
+    - name: Run spyv
+      id: spyv
+      shell: bash
+      run: |
+        set +e
+        if [ "${{ inputs.mode }}" = "test" ]; then
+          spyv test "${{ inputs.path }}" \
+            --model "${{ inputs.model }}" \
+            --provider "${{ inputs.provider }}" \
+            ${{ inputs.base-url && format('--base-url {0}', inputs.base-url) || '' }} \
+            --ci \
+            --sarif "${{ inputs.sarif-file }}" \
+            --fail-on "${{ inputs.fail-on }}"
+        else
+          spyv scan "${{ inputs.path }}" \
+            --model "${{ inputs.model }}" \
+            --provider "${{ inputs.provider }}" \
+            ${{ inputs.base-url && format('--base-url {0}', inputs.base-url) || '' }} \
+            --max-prompts "${{ inputs.max-prompts }}" \
+            --concurrency "${{ inputs.concurrency }}" \
+            --ci \
+            --sarif "${{ inputs.sarif-file }}" \
+            --fail-on "${{ inputs.fail-on }}"
+        fi
+        code=$?
+        set -e
+        echo "exit-code=$code" >> "$GITHUB_OUTPUT"
+        # 1 means the severity gate tripped; 2 means spyv could not run at all.
+        if [ "$code" = "1" ]; then
+          echo "gate-tripped=true" >> "$GITHUB_OUTPUT"
+        else
+          echo "gate-tripped=false" >> "$GITHUB_OUTPUT"
+        fi
+        if [ "$code" = "2" ]; then
+          echo "::error::spyv failed to run (exit 2). Check the model, provider and API key."
+          exit 2
+        fi
+
+    # Uploaded before the gate is enforced, so alerts still appear on the PR
+    # when the build is about to fail.
+    - name: Upload SARIF to code scanning
+      if: ${{ inputs.upload-sarif == 'true' && hashFiles(inputs.sarif-file) != '' }}
+      uses: github/codeql-action/upload-sarif@v3
+      with:
+        sarif_file: ${{ inputs.sarif-file }}
+        category: spyv
+
+    - name: Attach SARIF as an artifact
+      if: ${{ hashFiles(inputs.sarif-file) != '' }}
+      uses: actions/upload-artifact@v4
+      with:
+        name: spyv-sarif
+        path: ${{ inputs.sarif-file }}
+        if-no-files-found: ignore
+
+    - name: Enforce severity gate
+      if: ${{ steps.spyv.outputs.gate-tripped == 'true' }}
+      shell: bash
+      run: |
+        echo "::error::spyv found a finding at or above '${{ inputs.fail-on }}'. See the code-scanning alerts for details."
+        exit 1
