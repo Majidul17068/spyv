@@ -631,6 +631,68 @@ def bench_cmd(
     sys.exit(1 if det["fn"] > 0 else 0)
 
 
+@main.command("corpus")
+@click.argument("paths", nargs=-1, required=True, type=click.Path(path_type=Path))
+@click.option("--name", "names", multiple=True, help="Label for each path, in order (repeatable).")
+@click.option("--json", "json_out", is_flag=True, help="Emit JSON instead of the pretty report.")
+@click.option("--out", "out_path", type=click.Path(path_type=Path), default=None, help="Write full JSON results here.")
+@click.option(
+    "--reveal",
+    is_flag=True,
+    help="Do NOT redact matched evidence. Requires --out; never prints secrets to stdout.",
+)
+@click.option(
+    "--fail-on-exposure",
+    is_flag=True,
+    help="Exit 1 if any real prompt contains a secret or personal data.",
+)
+def corpus_cmd(
+    paths: tuple[Path, ...],
+    names: tuple[str, ...],
+    json_out: bool,
+    out_path: Path | None,
+    reveal: bool,
+    fail_on_exposure: bool,
+) -> None:
+    """Benchmark discovery and the deterministic checkers against real repositories.
+
+    Needs no API key and calls no model, so results are reproducible. Measures
+    discovery yield by construct, agreement with a naive grep baseline, and
+    credentials or personal data sitting in prompts that are already committed.
+
+    Matched evidence is redacted unless --reveal is passed, and --reveal refuses
+    to print to stdout: a credential in a public repository is still live.
+    """
+    import json as _json
+
+    from spyv.bench import format_corpus_report, run_corpus
+
+    if reveal and out_path is None:
+        click.echo("Error: --reveal requires --out (evidence is never printed to stdout).", err=True)
+        sys.exit(2)
+
+    results = run_corpus(list(paths), names=list(names) or None, reveal=reveal)
+
+    if out_path is not None:
+        try:
+            out_path.parent.mkdir(parents=True, exist_ok=True)
+            out_path.write_text(_json.dumps(results, indent=2), encoding="utf-8")
+        except OSError as exc:
+            click.echo(f"Error writing --out: {exc}", err=True)
+            sys.exit(2)
+
+    if json_out:
+        # Redact the stdout copy even when --out holds the unredacted findings.
+        safe = {**results, "repos": [{**r, "findings": []} for r in results["repos"]]} if reveal else results
+        click.echo(_json.dumps(safe, indent=2))
+    else:
+        click.echo(format_corpus_report(results))
+
+    if fail_on_exposure and results["totals"]["exposure"]["prompts_with_hits"] > 0:
+        sys.exit(GATE_EXIT)
+    sys.exit(0)
+
+
 if __name__ == "__main__":
     try:
         main()

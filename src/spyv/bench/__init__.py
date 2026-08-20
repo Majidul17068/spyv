@@ -7,9 +7,11 @@ CLI:
     python -m spyv.bench                 # deterministic tier, no key, reproducible
     python -m spyv.bench --tier llm --provider openai --model gpt-4o
     spyv bench --tier all --model gpt-4o
+    spyv corpus ../some-repo ../another-repo   # real code, no key
 """
 from __future__ import annotations
 
+from .corpus import format_corpus_report, run_corpus, run_repo
 from .harness import (
     DATASET_DEFAULT,
     format_report,
@@ -22,10 +24,13 @@ from .harness import (
 
 __all__ = [
     "DATASET_DEFAULT",
+    "format_corpus_report",
     "format_report",
     "load_dataset",
     "run_benchmark",
+    "run_corpus",
     "run_deterministic_tier",
     "run_llm_tier",
     "run_redteam_tier",
+    "run_repo",
 ]
