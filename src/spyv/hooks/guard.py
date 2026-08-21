@@ -19,6 +19,8 @@ from .watch import _now_iso, _resolve_output_mode
 F = TypeVar("F", bound=Callable[..., Any])
 
 _logger = logging.getLogger("spyv.guard")
+# Suppress logging's lastResort stderr fallback; see the note in _emit.
+_logger.addHandler(logging.NullHandler())
 
 _SEVERITY_STYLE = {
     "critical": "bold white on red",
@@ -234,14 +236,14 @@ def _emit(
             "ts": _now_iso(),
         }
         line = _json.dumps(payload, ensure_ascii=False, default=str)
-        # Emit exactly once. When the application has configured logging, route
-        # through it so the event reaches the app's handlers; otherwise write to
-        # stderr directly. Doing both meant a breach was recorded twice, which
-        # double-counts in any log-based alerting.
-        if _logger.handlers or logging.getLogger().handlers:
-            _logger.warning(line)
-        else:
-            print(line, file=sys.stderr, flush=True)
+        # stderr is the documented channel and always carries the event. The
+        # logger is the opt-in channel for an application that wants breaches in
+        # its own log pipeline. The NullHandler installed on _logger is what
+        # keeps these from becoming one duplicated line: without it, logging's
+        # lastResort handler writes the same JSON to stderr a second time
+        # whenever the application has not configured logging.
+        print(line, file=sys.stderr, flush=True)
+        _logger.warning(line)
 
 
 def _label_of(fn: Callable[..., Any], override: str | None) -> str:

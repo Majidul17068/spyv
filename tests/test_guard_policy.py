@@ -261,13 +261,14 @@ def test_custom_tool_call_extractor_is_used():
 # --- emission ---------------------------------------------------------------
 
 
-def test_a_breach_is_emitted_exactly_once(capsys, monkeypatch):
-    """Both printing to stderr and logging meant one breach was recorded twice,
-    which double-counts in log-based alerting."""
-    import logging
+def test_a_breach_reaches_stderr_exactly_once(capsys, monkeypatch):
+    """Regression: the event used to land on stderr twice.
 
-    monkeypatch.setattr(logging.getLogger(), "handlers", [])
-    monkeypatch.setattr(logging.getLogger("spyv.guard"), "handlers", [])
+    stderr is the documented channel, and the logger is the opt-in one. Without
+    a NullHandler on spyv.guard, logging's lastResort handler wrote the same
+    JSON to stderr a second time whenever the application had not configured
+    logging, so every breach was recorded twice.
+    """
     monkeypatch.setenv("SPYV_OUTPUT", "json")
 
     @guard(label="agent", policy=[PolicyRule(id="no-x", kind="deny", tool="x")])
