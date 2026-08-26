@@ -395,6 +395,10 @@ import atexit, importlib.util, sys
 try:
     _spec = importlib.util.spec_from_file_location("_spyv_runtime", {runtime_file!r})
     _mod = importlib.util.module_from_spec(_spec)
+    # Register before executing: @dataclass resolves its own module through
+    # sys.modules[cls.__module__], which is None for a module loaded by path
+    # alone, and the decorator dies with an AttributeError on NoneType.
+    sys.modules["_spyv_runtime"] = _mod
     _spec.loader.exec_module(_mod)
 
     _rec = _mod.Recorder()
