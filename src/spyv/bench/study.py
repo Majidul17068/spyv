@@ -313,14 +313,71 @@ def run_rq3() -> dict[str, Any]:
     }
 
 
+def run_stratified() -> dict[str, Any]:
+    """Every headline statistic, split by scaffolding, per PROTOCOL_SCAFFOLDING.md.
+
+    Reported for production, scaffolding and all paths side by side. The protocol
+    commits to all three because reporting only the flattering stratum would make
+    the split a way of choosing a number rather than a way of describing two
+    populations.
+    """
+    import statistics as st
+
+    from .fetch import DEFAULT_CACHE, load_manifest
+    from .scaffolding import stratify
+    from .visibility import run_visibility
+
+    rows: list[dict[str, Any]] = []
+    for ref in load_manifest():
+        path = DEFAULT_CACHE / ref.name
+        if not path.exists():
+            continue
+        result = run_visibility(path, name=ref.name)
+        if result.error or not result.sites:
+            continue
+        row = stratify(ref.name, result.sites, demonstrative=ref.demonstrative).metrics()
+        row["framework"] = ref.framework
+        rows.append(row)
+
+    out: dict[str, Any] = {"repos": rows, "strata": {}}
+    total_scaf = sum(r["scaffolding"]["sites"] for r in rows)
+    total_prod = sum(r["production"]["sites"] for r in rows)
+    denom = total_scaf + total_prod
+    out["scaffolding_share_pooled"] = total_scaf / denom if denom else None
+    out["excluded_no_production"] = [r["repo"] for r in rows if not r["has_production"]]
+
+    for key in ("all_paths", "production", "scaffolding"):
+        vals = [r[key]["spv_partial"] for r in rows if r[key]["sites"]]
+        ks = [r[key]["static"] + r[key]["partial"] for r in rows if r[key]["sites"]]
+        ns = [r[key]["sites"] for r in rows if r[key]["sites"]]
+        lo, hi = cluster_bootstrap(vals, st.median)
+        out["strata"][key] = {
+            "repos": len(vals),
+            "median_spv_partial": st.median(vals),
+            "ci95": [lo, hi],
+            "pooled_spv_partial": sum(ks) / sum(ns) if ns else None,
+            "design_effect": design_effect([k / n for k, n in zip(ks, ns, strict=False)], ns),
+        }
+    return out
+
+
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="spyv.bench.study")
     ap.add_argument("--rq", type=int, choices=[1, 2, 3], default=None)
     ap.add_argument("--ladder", action="store_true", help="measure the recoverability frontier")
+    ap.add_argument("--stratified", action="store_true",
+                    help="split every statistic by scaffolding vs production")
     ap.add_argument("--out", type=Path, default=RESULTS)
     args = ap.parse_args(argv)
 
     args.out.mkdir(parents=True, exist_ok=True)
+    if args.stratified:
+        print("stratifying by scaffolding ...", flush=True)
+        data = run_stratified()
+        path = args.out / "stratified.json"
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        print(f"  wrote {path}")
+        return 0
     if args.ladder:
         print("running the recoverability ladder ...", flush=True)
         data = run_ladder()
