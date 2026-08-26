@@ -89,5 +89,6 @@ def test_repo_ref_serializes_for_the_results_file():
         "url": "https://x/y",
         "framework": "crewai",
         "sha": "deadbeef",
+        "demonstrative": False,
         "error": None,
     }

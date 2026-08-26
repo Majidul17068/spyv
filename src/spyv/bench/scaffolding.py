@@ -63,6 +63,7 @@ class StratifiedRepo:
     name: str
     production: list[Any] = field(default_factory=list)
     scaffolding: list[Any] = field(default_factory=list)
+    demonstrative: bool = False
 
     @property
     def has_production(self) -> bool:
@@ -78,13 +79,21 @@ class StratifiedRepo:
             "scaffolding": _rates(self.scaffolding),
             "scaffolding_share": len(self.scaffolding) / total if total else None,
             "has_production": self.has_production,
+            "demonstrative": self.demonstrative,
         }
 
 
-def stratify(name: str, sites: Iterable[Any]) -> StratifiedRepo:
-    out = StratifiedRepo(name=name)
+def stratify(name: str, sites: Iterable[Any], demonstrative: bool = False) -> StratifiedRepo:
+    """Split one repository's sites.
+
+    `demonstrative` marks a repository that exists wholly to be read, such as an
+    examples collection. Every site in it is scaffolding regardless of path,
+    because its internal layout looks like any ordinary project and no path rule
+    can detect it.
+    """
+    out = StratifiedRepo(name=name, demonstrative=demonstrative)
     for site in sites:
-        if classify_path(site.file) == "scaffolding":
+        if demonstrative or classify_path(site.file) == "scaffolding":
             out.scaffolding.append(site)
         else:
             out.production.append(site)

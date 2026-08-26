@@ -184,8 +184,15 @@ def classify_at(
     return "opaque"
 
 
-def measure_repo(root: str | Path, level: int) -> dict[str, int]:  # noqa: F821
-    """Classify every prompt site in a repository at one rung of the ladder."""
+def measure_repo(root: str | Path, level: int,  # noqa: F821
+                 stratum: str | None = None) -> dict[str, int]:
+    """Classify every prompt site in a repository at one rung of the ladder.
+
+    `stratum` restricts the measurement to "production" or "scaffolding" files,
+    per PROTOCOL_SCAFFOLDING.md. Pooling the two conflates populations whose
+    recoverability differs by a wide margin, so the ladder has to be reported
+    per stratum rather than only in aggregate.
+    """
     from pathlib import Path as _P
 
     from .headroom import _locate_expressions
@@ -224,6 +231,10 @@ def measure_repo(root: str | Path, level: int) -> dict[str, int]:  # noqa: F821
             rel = path.relative_to(root).as_posix()
         except ValueError:
             rel = path.as_posix()
+        if stratum is not None:
+            from .scaffolding import classify_path
+            if classify_path(rel) != stratum:
+                continue
         sites = sites_in_source(src, rel)
         if not sites:
             continue

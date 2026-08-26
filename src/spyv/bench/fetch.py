@@ -32,6 +32,10 @@ class RepoRef:
     url: str
     framework: str = "unknown"
     sha: str = ""
+    # A repository that exists wholly to demonstrate. Path classification cannot
+    # detect this: an examples collection's internal paths look ordinary, so no
+    # directory component marks them. Declared per repository instead.
+    demonstrative: bool = False
     path: Path | None = None
     error: str | None = None
 
@@ -41,6 +45,7 @@ class RepoRef:
             "url": self.url,
             "framework": self.framework,
             "sha": self.sha,
+            "demonstrative": self.demonstrative,
             "error": self.error,
         }
 
@@ -63,6 +68,7 @@ def load_manifest(path: str | Path | None = None) -> list[RepoRef]:
                 url=url,
                 framework=str(entry.get("framework", "unknown")),
                 sha=str(entry.get("sha") or ""),
+                demonstrative=bool(entry.get("demonstrative", False)),
             )
         )
     return refs

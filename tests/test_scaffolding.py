@@ -63,3 +63,12 @@ def test_rates_are_none_not_zero_for_an_empty_stratum():
     """A missing rate must not be reported as a real 0.0 measurement."""
     r = stratify("x", [_site("src/a.py")])
     assert r.metrics()["scaffolding"]["spv_static"] is None
+
+
+def test_demonstrative_repo_puts_every_site_in_scaffolding():
+    """An examples collection's internal paths look ordinary; no path rule sees it."""
+    r = stratify("crewai-examples", [_site("src/app.py"), _site("main.py")],
+                 demonstrative=True)
+    assert r.production == [] and len(r.scaffolding) == 2
+    assert r.has_production is False
+    assert r.metrics()["scaffolding_share"] == 1.0
