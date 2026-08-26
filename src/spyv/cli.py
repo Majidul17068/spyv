@@ -693,6 +693,95 @@ def corpus_cmd(
     sys.exit(0)
 
 
+@main.command("annotate")
+@click.option("--sample", "sample_n", type=int, default=None,
+              help="Draw a new stratified sample of N sites.")
+@click.option("--resume", "resume_path", type=click.Path(path_type=Path), default=None,
+              help="Continue labelling an existing file.")
+@click.option("--score", "score_path", type=click.Path(path_type=Path), default=None,
+              help="Report precision and agreement.")
+@click.option("--second", "second_path", type=click.Path(path_type=Path), default=None,
+              help="A second independent labelling pass, for agreement.")
+@click.option("--out", "out_path", type=click.Path(path_type=Path), default=Path("labels.json"))
+def annotate_cmd(
+    sample_n: int | None,
+    resume_path: Path | None,
+    score_path: Path | None,
+    second_path: Path | None,
+    out_path: Path,
+) -> None:
+    """Label a sample of prompt sites by hand, to measure detector precision.
+
+    The visibility metric's denominator is whatever the detectors enumerate, so
+    every figure derived from it inherits their precision -- and nothing in the
+    pipeline checks it. This does.
+
+    Write your labelling rules down before you start. A documented rule applied
+    consistently is defensible; a judgement call remembered afterwards is not.
+    """
+    import json as _json
+
+    from spyv.bench.annotate import attach_snippets, draw_sample, load, save, score
+
+    if score_path is not None:
+        items, _meta = load(score_path)
+        second = load(second_path)[0] if second_path else None
+        click.echo(_json.dumps(score(items, second), indent=2))
+        return
+
+    if resume_path is not None:
+        items, meta = load(resume_path)
+        out_path = resume_path
+    elif sample_n is not None:
+        click.echo(f"Drawing a stratified sample of {sample_n} sites ...", err=True)
+        items = draw_sample(sample_n)
+        if not items:
+            click.echo("No sites found. Fetch the corpus first.", err=True)
+            sys.exit(2)
+        attach_snippets(items)
+        meta = {"sample_size": len(items)}
+        save(items, out_path, meta)
+    else:
+        click.echo("Give --sample N to start, --resume FILE to continue, or --score FILE.", err=True)
+        sys.exit(2)
+
+    todo = [i for i in items if not i.labelled]
+    click.echo(f"\n{len(items) - len(todo)}/{len(items)} already labelled. "
+               f"Ctrl-C saves and exits.\n", err=True)
+
+    try:
+        for idx, item in enumerate(todo, 1):
+            click.echo("=" * 72)
+            click.echo(f"[{idx}/{len(todo)}]  {item.repo}/{item.file}:{item.line}")
+            click.echo(f"construct: {item.construct}   detector says: {item.predicted_visibility}")
+            if item.predicted_text:
+                click.echo(f"recovered: {item.predicted_text[:200]!r}")
+            click.echo("-" * 72)
+            click.echo(item.snippet or "(source unavailable)")
+            click.echo("-" * 72)
+
+            ans = click.prompt("Is this a prompt site? [y]es / [n]o / [s]kip", default="y")
+            if ans.lower().startswith("s"):
+                continue
+            item.is_prompt_site = ans.lower().startswith("y")
+            if item.is_prompt_site:
+                item.true_visibility = click.prompt(
+                    "Visibility: [1] static  [2] partial  [3] opaque",
+                    type=click.Choice(["1", "2", "3"]), show_choices=False,
+                    default={"static": "1", "partial": "2", "opaque": "3"}[item.predicted_visibility],
+                )
+                item.true_visibility = {"1": "static", "2": "partial", "3": "opaque"}[item.true_visibility]
+            item.note = click.prompt("note (optional)", default="", show_default=False)
+            save(items, out_path, meta)
+    except (KeyboardInterrupt, click.Abort):
+        click.echo("\nSaved.", err=True)
+
+    save(items, out_path, meta)
+    done = sum(1 for i in items if i.labelled)
+    click.echo(f"\n{done}/{len(items)} labelled -> {out_path}", err=True)
+    click.echo(f"Score it with:  spyv annotate --score {out_path}", err=True)
+
+
 if __name__ == "__main__":
     try:
         main()
