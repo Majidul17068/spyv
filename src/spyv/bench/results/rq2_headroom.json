@@ -1,0 +1,247 @@
+{
+  "rq": 2,
+  "opaque_sites": 4113,
+  "buckets": {
+    "undetermined": 3481,
+    "runtime_bound": 498,
+    "reachable": 134
+  },
+  "shares": {
+    "undetermined": 0.8463408704108923,
+    "runtime_bound": 0.12107950401167031,
+    "reachable": 0.03257962557743739
+  },
+  "ci95": {
+    "undetermined": [
+      0.8349968969129477,
+      0.8570384731144055
+    ],
+    "runtime_bound": [
+      0.11146166369398057,
+      0.1314045179924851
+    ],
+    "reachable": [
+      0.027575095903143467,
+      0.03845649491638185
+    ]
+  },
+  "note": "runtime_bound is classifier output, not a bound: most of it rests on an identifier heuristic or an unconditional subscript rule rather than on evidence from reading a callee. See METRICS.md and the paper's Section V.",
+  "reasons_top": {
+    "callee_outside_repository": 1142,
+    "method_call_needs_type_inference": 951,
+    "constant_not_resolvable": 449,
+    "expr:BoolOp": 207,
+    "callee_unresolved": 195,
+    "subscript_of_runtime_value": 156,
+    "attribute_needs_type_inference": 139,
+    "constant_resolved_cross_module": 97,
+    "expr:IfExp": 97,
+    "attribute_value_opaque": 52,
+    "expr:BinOp": 51,
+    "expr:Await": 49,
+    "io_call_by_name:get": 44,
+    "attribute_not_assigned_in_module": 42,
+    "callee_returns_literals": 27,
+    "resolution_depth_exceeded": 25,
+    "io_call_by_name:generate_prompt_with_tmpl_filename": 24,
+    "expr:JoinedStr": 18,
+    "return_depends_on:io:read_text": 12,
+    "io_call_by_name:read_text": 12,
+    "return_depends_on:parameter:prompt": 10,
+    "io_call_by_name:read_agent_prompt": 10,
+    "io_call_by_name:get_prompt_from_key": 10,
+    "io_call_by_name:read_tools_prompt": 9,
+    "expr:List": 9
+  },
+  "repos": [
+    {
+      "name": "crewai",
+      "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+      "opaque_sites": 300,
+      "buckets": {
+        "undetermined": 217,
+        "runtime_bound": 50,
+        "reachable": 33
+      }
+    },
+    {
+      "name": "crewai-examples",
+      "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+      "opaque_sites": 53,
+      "buckets": {
+        "undetermined": 43,
+        "runtime_bound": 10
+      }
+    },
+    {
+      "name": "langgraph",
+      "sha": "38031739e551638e373fb553453256c23feeb41f",
+      "opaque_sites": 41,
+      "buckets": {
+        "undetermined": 33,
+        "runtime_bound": 8
+      }
+    },
+    {
+      "name": "langchain",
+      "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+      "opaque_sites": 755,
+      "buckets": {
+        "undetermined": 662,
+        "reachable": 42,
+        "runtime_bound": 51
+      }
+    },
+    {
+      "name": "autogen",
+      "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "opaque_sites": 137,
+      "buckets": {
+        "undetermined": 119,
+        "runtime_bound": 16,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "metagpt",
+      "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+      "opaque_sites": 233,
+      "buckets": {
+        "undetermined": 179,
+        "runtime_bound": 44,
+        "reachable": 10
+      }
+    },
+    {
+      "name": "superagi",
+      "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+      "opaque_sites": 104,
+      "buckets": {
+        "undetermined": 76,
+        "runtime_bound": 28
+      }
+    },
+    {
+      "name": "gpt-engineer",
+      "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+      "opaque_sites": 52,
+      "buckets": {
+        "runtime_bound": 18,
+        "undetermined": 34
+      }
+    },
+    {
+      "name": "babyagi",
+      "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+      "opaque_sites": 8,
+      "buckets": {
+        "undetermined": 3,
+        "reachable": 5
+      }
+    },
+    {
+      "name": "camel",
+      "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+      "opaque_sites": 417,
+      "buckets": {
+        "runtime_bound": 45,
+        "undetermined": 351,
+        "reachable": 21
+      }
+    },
+    {
+      "name": "agentverse",
+      "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+      "opaque_sites": 29,
+      "buckets": {
+        "undetermined": 27,
+        "runtime_bound": 2
+      }
+    },
+    {
+      "name": "open-interpreter",
+      "sha": "5b07159c477920c159d8892d112b480e7307f257",
+      "opaque_sites": 12,
+      "buckets": {
+        "undetermined": 7,
+        "runtime_bound": 5
+      }
+    },
+    {
+      "name": "gpt-researcher",
+      "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+      "opaque_sites": 48,
+      "buckets": {
+        "runtime_bound": 19,
+        "undetermined": 28,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "chatdev",
+      "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+      "opaque_sites": 18,
+      "buckets": {
+        "runtime_bound": 8,
+        "undetermined": 10
+      }
+    },
+    {
+      "name": "agno",
+      "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+      "opaque_sites": 508,
+      "buckets": {
+        "runtime_bound": 67,
+        "undetermined": 439,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "pydantic-ai",
+      "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+      "opaque_sites": 343,
+      "buckets": {
+        "undetermined": 306,
+        "runtime_bound": 36,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "smolagents",
+      "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+      "opaque_sites": 35,
+      "buckets": {
+        "undetermined": 29,
+        "runtime_bound": 6
+      }
+    },
+    {
+      "name": "swarm",
+      "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+      "opaque_sites": 12,
+      "buckets": {
+        "undetermined": 11,
+        "runtime_bound": 1
+      }
+    },
+    {
+      "name": "taskweaver",
+      "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+      "opaque_sites": 60,
+      "buckets": {
+        "undetermined": 50,
+        "runtime_bound": 10
+      }
+    },
+    {
+      "name": "llama-index",
+      "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+      "opaque_sites": 948,
+      "buckets": {
+        "runtime_bound": 74,
+        "undetermined": 857,
+        "reachable": 17
+      }
+    }
+  ]
+}

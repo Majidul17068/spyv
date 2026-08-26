@@ -1,0 +1,201 @@
+{
+  "rq": 3,
+  "recoverable_prompts": 8647,
+  "m1_credentials": {
+    "prompts": 0,
+    "rate": 0.0,
+    "ci95": [
+      0.0,
+      0.00044407240100200184
+    ],
+    "hit_classes": {},
+    "note": "no credential-shaped match of any class occurred; the classification apparatus was never exercised for M1."
+  },
+  "m2_personal_data": {
+    "prompts": 0,
+    "rate": 0.0,
+    "ci95": [
+      0.0,
+      0.00044407240100200184
+    ],
+    "hit_classes": {
+      "low_entropy": 2,
+      "context_excluded": 1,
+      "placeholder": 2
+    }
+  },
+  "m3_interpolation": {
+    "prompts": 1030,
+    "rate": 0.11911645657453453,
+    "ci95": [
+      0.11245741105810689,
+      0.12611378183022434
+    ]
+  },
+  "m4_guardrails": {
+    "withdrawn": true,
+    "note": "keyword families were wrong in both directions; no rate is reported."
+  },
+  "repos": [
+    {
+      "name": "crewai",
+      "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+      "recoverable_prompts": 3308,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 149
+    },
+    {
+      "name": "crewai-examples",
+      "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+      "recoverable_prompts": 57,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 3
+    },
+    {
+      "name": "langgraph",
+      "sha": "38031739e551638e373fb553453256c23feeb41f",
+      "recoverable_prompts": 30,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 9
+    },
+    {
+      "name": "langchain",
+      "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+      "recoverable_prompts": 620,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 199
+    },
+    {
+      "name": "autogen",
+      "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "recoverable_prompts": 205,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 30
+    },
+    {
+      "name": "metagpt",
+      "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+      "recoverable_prompts": 189,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 118
+    },
+    {
+      "name": "superagi",
+      "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+      "recoverable_prompts": 43,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 22
+    },
+    {
+      "name": "gpt-engineer",
+      "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+      "recoverable_prompts": 21,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 7
+    },
+    {
+      "name": "babyagi",
+      "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+      "recoverable_prompts": 28,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 17
+    },
+    {
+      "name": "camel",
+      "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+      "recoverable_prompts": 423,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 77
+    },
+    {
+      "name": "agentverse",
+      "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+      "recoverable_prompts": 10,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 8
+    },
+    {
+      "name": "open-interpreter",
+      "sha": "5b07159c477920c159d8892d112b480e7307f257",
+      "recoverable_prompts": 9,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 0
+    },
+    {
+      "name": "gpt-researcher",
+      "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+      "recoverable_prompts": 53,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 13
+    },
+    {
+      "name": "chatdev",
+      "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+      "recoverable_prompts": 7,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 5
+    },
+    {
+      "name": "agno",
+      "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+      "recoverable_prompts": 2534,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 139
+    },
+    {
+      "name": "pydantic-ai",
+      "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+      "recoverable_prompts": 678,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 12
+    },
+    {
+      "name": "smolagents",
+      "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+      "recoverable_prompts": 17,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 2
+    },
+    {
+      "name": "swarm",
+      "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+      "recoverable_prompts": 31,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 7
+    },
+    {
+      "name": "taskweaver",
+      "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+      "recoverable_prompts": 6,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 1
+    },
+    {
+      "name": "llama-index",
+      "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+      "recoverable_prompts": 378,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 212
+    }
+  ]
+}
