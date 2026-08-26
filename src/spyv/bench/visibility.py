@@ -19,7 +19,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal
 
-from ..discovery import _SKIP_DIRS, _name_matches, _string_bindings
+from ..discovery import _SKIP_DIRS, _name_matches, _static_text, _string_bindings
 
 Visibility = Literal["static", "partial", "opaque"]
 
@@ -55,6 +55,7 @@ class PromptSite:
     construct: str
     visibility: Visibility
     reason: str = ""
+    text: str = ""
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -64,6 +65,7 @@ class PromptSite:
             "construct": self.construct,
             "visibility": self.visibility,
             "reason": self.reason,
+            "text": self.text,
         }
 
 
@@ -146,6 +148,24 @@ def classify(node: ast.expr | None, bindings: dict[str, str]) -> tuple[Visibilit
     return "opaque", "unsupported_expression"
 
 
+def resolve_text(node: ast.expr | None, bindings: dict[str, str]) -> str:
+    """The prompt text a static reader recovers, with interpolated holes marked.
+
+    Mirrors classify's resolution exactly, so a site marked static or partial
+    always has text and an opaque one never does.
+    """
+    if node is None:
+        return ""
+    direct = _static_text(node)
+    if direct is not None:
+        return direct
+    if isinstance(node, ast.Name):
+        return bindings.get(node.id, "")
+    if isinstance(node, ast.Attribute):
+        return bindings.get(node.attr, "")
+    return ""
+
+
 def _callee(node: ast.Call) -> str:
     func = node.func
     return getattr(func, "id", None) or getattr(func, "attr", None) or ""
@@ -170,6 +190,7 @@ def _sites_from_call(
                 construct=construct,
                 visibility=vis,
                 reason=reason,
+                text=resolve_text(value, bindings) if vis != "opaque" else "",
             )
         )
 
@@ -225,6 +246,7 @@ def _sites_from_dict(node: ast.Dict, path: str, bindings: dict[str, str]) -> lis
             construct="message.system",
             visibility=vis,
             reason=reason,
+            text=resolve_text(content, bindings) if vis != "opaque" else "",
         )
     ]
 
@@ -247,6 +269,7 @@ def _sites_from_tuple(node: ast.Tuple, path: str, bindings: dict[str, str]) -> l
             construct="system_tuple",
             visibility=vis,
             reason=reason,
+            text=resolve_text(second, bindings) if vis != "opaque" else "",
         )
     ]
 
@@ -272,6 +295,7 @@ def _sites_from_assign(
                 construct=f"const.{name}",
                 visibility=vis,
                 reason=reason,
+                text=resolve_text(node.value, bindings) if vis != "opaque" else "",
             )
         )
     return out
@@ -374,6 +398,7 @@ __all__ = [
     "VisibilityResult",
     "classify",
     "is_stringish",
+    "resolve_text",
     "run_visibility",
     "sites_in_source",
 ]
