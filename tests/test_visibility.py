@@ -8,7 +8,7 @@ import pytest
 
 from spyv.bench.visibility import classify, is_stringish, run_visibility, sites_in_source
 
-LONG = "You are a clinical reviewer who audits care plans for unmitigated risk."
+LONG = "You are a triage reviewer who audits incident reports for unresolved issues."
 
 
 def _expr(code: str) -> ast.expr:
@@ -147,7 +147,7 @@ def test_generic_system_prompt_kwarg_is_a_site():
 
 
 def test_a_site_is_counted_once_per_location():
-    src = "from crewai import Task\nt = Task(description='Audit the care plan for risk.', expected_output='A list.')\n"
+    src = "from crewai import Task\nt = Task(description='Audit the incident report for issues.', expected_output='A list.')\n"
     sites = sites_in_source(src, "m.py")
     assert len(sites) == len({(s.file, s.line, s.construct) for s in sites})
 
@@ -162,7 +162,7 @@ def test_syntax_error_yields_no_sites_rather_than_raising():
 def test_metrics_add_up(tmp_path):
     (tmp_path / "m.py").write_text(
         "from crewai import Task\n"
-        "t1 = Task(description='Audit the care plan and list risks.', expected_output='A list.')\n"
+        "t1 = Task(description='Audit the report and list issues.', expected_output='A list.')\n"
         "t2 = Task(description=self._build(), expected_output='A list.')\n"
         "t3 = Task(description=f'Audit {name} for risk in the plan.', expected_output='A list.')\n",
         encoding="utf-8",

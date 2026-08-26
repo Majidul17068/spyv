@@ -23,7 +23,7 @@ def project(tmp_path):
     )
     (tmp_path / "prompts" / "triage.yaml").write_text(
         "system_prompt: |\n"
-        "  You are a clinical triage nurse who assesses symptoms and escalates emergencies.\n"
+        "  You are a support triage agent who assesses tickets and escalates outages.\n"
         "tools:\n"
         "  - lookup_patient\n"
     )
@@ -72,8 +72,8 @@ def test_discover_catches_crewai_agent(tmp_path):
         "from crewai import Agent\n"
         "def make():\n"
         "    return Agent(\n"
-        '        role="COPD Care Plan Specialist",\n'
-        '        goal="Generate person-centred COPD care plans from clinical guidelines.",\n'
+        '        role="Release Notes Specialist",\n'
+        '        goal="Generate customer-facing release notes from changelog entries.",\n'
         '        backstory="You are an experienced nurse specialising in COPD and long-term care.",\n'
         "        verbose=False,\n"
         "    )\n"
@@ -81,7 +81,7 @@ def test_discover_catches_crewai_agent(tmp_path):
     prompts, _ = discover(tmp_path)
     crew = [p for p in prompts if p.source_kind == "crewai_agent"]
     assert len(crew) == 1
-    assert crew[0].identifier == "COPD Care Plan Specialist"
+    assert crew[0].identifier == "Release Notes Specialist"
     assert "ROLE:" in crew[0].system_prompt
     assert "GOAL:" in crew[0].system_prompt
     assert "BACKSTORY:" in crew[0].system_prompt

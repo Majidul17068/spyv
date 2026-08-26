@@ -10,10 +10,10 @@ from __future__ import annotations
 from spyv.discovery import discover
 
 _LONG = (
-    "Review the resident care plan and identify every risk that is not already "
-    "mitigated, then summarise each one for the clinical lead."
+    "Review the incident report and identify every unresolved issue that is not already "
+    "addressed, then summarise each one for the on-call engineer."
 )
-_OUT = "A markdown list of risks, each with a severity and a suggested mitigation."
+_OUT = "A markdown list of issues, each with a severity and a suggested remediation."
 
 
 def _write(tmp_path, body: str):
@@ -70,11 +70,11 @@ def test_short_description_is_below_the_precision_floor(tmp_path):
 def test_identifier_is_the_first_line_of_the_description(tmp_path):
     prompts = _write(
         tmp_path,
-        'from crewai import Task\nt = Task(description="""Audit the plan.\nThen report every gap you can find in it.""")\n',
+        'from crewai import Task\nt = Task(description="""Audit the report.\nThen report every gap you can find in it.""")\n',
     )
     tasks = [p for p in prompts if p.source_kind == "crewai_task"]
     assert tasks
-    assert tasks[0].identifier == "Audit the plan."
+    assert tasks[0].identifier == "Audit the report."
 
 
 def test_agent_still_wins_over_task_when_role_and_goal_are_present(tmp_path):
@@ -82,8 +82,8 @@ def test_agent_still_wins_over_task_when_role_and_goal_are_present(tmp_path):
     prompts = _write(
         tmp_path,
         'from crewai import Agent\n'
-        'a = Agent(role="Clinical reviewer", goal="Find unmitigated risks in the care plan", '
-        'backstory="You have audited care plans for fifteen years and miss nothing.")\n',
+        'a = Agent(role="Triage reviewer", goal="Find unresolved issues in the report", '
+        'backstory="You have triaged incident reports for fifteen years and miss nothing.")\n',
     )
     kinds = {p.source_kind for p in prompts}
     assert "crewai_agent" in kinds
@@ -94,8 +94,8 @@ def test_task_and_agent_in_one_file_are_both_found(tmp_path):
     prompts = _write(
         tmp_path,
         'from crewai import Agent, Task\n'
-        'a = Agent(role="Clinical reviewer", goal="Find unmitigated risks in the care plan", '
-        'backstory="You have audited care plans for fifteen years and miss nothing.")\n'
+        'a = Agent(role="Triage reviewer", goal="Find unresolved issues in the report", '
+        'backstory="You have triaged incident reports for fifteen years and miss nothing.")\n'
         f't = Task(description="{_LONG}", expected_output="{_OUT}")\n',
     )
     kinds = [p.source_kind for p in prompts]

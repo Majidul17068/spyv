@@ -169,7 +169,7 @@ def _string_bindings(tree: ast.AST) -> dict[str, str]:
     Prompts are commonly assembled into a local and then passed by name, which
     leaves the call site holding an ast.Name rather than a literal:
 
-        description = f"You are a clinical reviewer. {context}"
+        description = f"You are a triage reviewer. {context}"
         Task(description=description)
 
     A name bound to two *different* strings anywhere in the file is dropped

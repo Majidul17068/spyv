@@ -10,14 +10,14 @@ from __future__ import annotations
 from spyv.discovery import discover
 
 _LONG = (
-    "You are a clinical reviewer. Read the care plan and list every risk that is "
-    "not already mitigated, with a severity for each."
+    "You are a triage reviewer. Read the incident report and list every issue that is "
+    "not already resolved, with a severity for each."
 )
 _OTHER = (
-    "You are a billing assistant. Reconcile the invoice against the purchase order "
+    "You are a ledger assistant. Reconcile the invoice against the purchase order "
     "and report any discrepancy you find."
 )
-_OUT = "A markdown list of risks, each with a severity and a suggested mitigation."
+_OUT = "A markdown list of issues, each with a severity and a suggested remediation."
 
 
 def _discover(tmp_path, body: str):
@@ -34,7 +34,7 @@ def test_description_bound_to_a_local_is_resolved(tmp_path):
     )
     tasks = [p for p in prompts if p.source_kind == "crewai_task"]
     assert len(tasks) == 1
-    assert "clinical reviewer" in tasks[0].system_prompt
+    assert "triage reviewer" in tasks[0].system_prompt
 
 
 def test_fstring_bound_to_a_local_is_resolved(tmp_path):
@@ -106,14 +106,14 @@ def test_crewai_agent_fields_resolve_through_bindings_too(tmp_path):
     prompts = _discover(
         tmp_path,
         "from crewai import Agent\n"
-        'role = "Clinical reviewer"\n'
-        'goal = "Find every unmitigated risk in the resident care plan"\n'
-        'backstory = "You have audited care plans for fifteen years and miss nothing."\n'
+        'role = "Triage reviewer"\n'
+        'goal = "Find every unresolved issue in the record report"\n'
+        'backstory = "You have audited reports for fifteen years and miss nothing."\n'
         "a = Agent(role=role, goal=goal, backstory=backstory)\n",
     )
     agents = [p for p in prompts if p.source_kind == "crewai_agent"]
     assert len(agents) == 1
-    assert "Clinical reviewer" in agents[0].system_prompt
+    assert "Triage reviewer" in agents[0].system_prompt
 
 
 def test_binding_does_not_invent_a_prompt_from_a_short_string(tmp_path):
