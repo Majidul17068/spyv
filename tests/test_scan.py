@@ -74,7 +74,7 @@ def test_discover_catches_crewai_agent(tmp_path):
         "    return Agent(\n"
         '        role="Release Notes Specialist",\n'
         '        goal="Generate customer-facing release notes from changelog entries.",\n'
-        '        backstory="You are an experienced nurse specialising in COPD and long-term care.",\n'
+        '        backstory="You are an experienced technical writer specialising in developer tooling.",\n'
         "        verbose=False,\n"
         "    )\n"
     )
