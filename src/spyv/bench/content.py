@@ -70,6 +70,21 @@ def shannon_entropy(value: str) -> float:
     return -sum((c / n) * math.log2(c / n) for c in counts.values())
 
 
+_PLACEHOLDER_RE = re.compile(
+    r"(?:^|[^a-z0-9])(" + "|".join(_PLACEHOLDER_WORDS) + r")(?:[^a-z0-9]|$)"
+)
+
+
+def _has_placeholder_word(lowered: str) -> bool:
+    """Match placeholder vocabulary on token boundaries.
+
+    Bare substring containment classified `barbara.jones@acme.com` as a
+    placeholder, because it contains "bar". Real addresses were being discarded
+    as fake by an accident of spelling.
+    """
+    return bool(_PLACEHOLDER_RE.search(lowered))
+
+
 def _path_is_excluded(file_path: str) -> bool:
     parts = [p.lower() for p in Path(file_path).parts]
     stem = Path(file_path).stem.lower()
@@ -78,25 +93,37 @@ def _path_is_excluded(file_path: str) -> bool:
     return stem.startswith("test_") or stem.endswith("_test")
 
 
-def classify_hit(evidence: str, file_path: str) -> HitClass:
+def classify_hit(evidence: str, file_path: str, checker: str = "secrets") -> HitClass:
     """Sort a checker hit before it is counted. Order matters and is fixed here.
 
-    Placeholder-ness is checked first because a placeholder in production code is
-    still a placeholder, and context last because an excluded path is the weakest
-    of the three signals -- a real key committed under examples/ is still a real
-    key, but it is not evidence about production prompts.
+    Placeholder-ness first, because a placeholder in production code is still a
+    placeholder. Then context, then entropy.
+
+    Two corrections over the original ordering, both of which changed published
+    counts. The entropy floor is a test for *credentials*: real provider keys are
+    high-entropy and placeholders are not. It is meaningless for personal data,
+    because most PII formats are structurally low-entropy -- the maximum
+    attainable Shannon entropy of a ten-digit numeric string is log2(10) = 3.32,
+    below which sit ordinary phone numbers, national identifiers and card
+    numbers. Applying a credential threshold to them manufactured `low_entropy`
+    verdicts on genuine PII, and both such verdicts in our published results were
+    phone numbers. The floor now applies only to credential hits.
+
+    Context is now tested before entropy, so a hit under a test or example path
+    is attributed to the reason that actually disqualifies it rather than to
+    whichever heuristic happens to fire first.
     """
     lowered = evidence.lower()
     if any(known.lower() in lowered for known in _KNOWN_EXAMPLE_SECRETS):
         return "placeholder"
-    if any(word in lowered for word in _PLACEHOLDER_WORDS):
+    if _has_placeholder_word(lowered):
         return "placeholder"
     if _PLACEHOLDER_SHAPE.match(evidence.strip()) or _REPEATED_CHAR.search(evidence):
         return "placeholder"
-    if shannon_entropy(evidence) < ENTROPY_FLOOR:
-        return "low_entropy"
     if _path_is_excluded(file_path):
         return "context_excluded"
+    if checker == "secrets" and shannon_entropy(evidence) < ENTROPY_FLOOR:
+        return "low_entropy"
     return "plausible"
 
 
@@ -175,7 +202,7 @@ def analyze_sites(sites: list[PromptSite], *, name: str = "") -> ContentResult:
 
         plausible_secret = False
         for hit in secret_hits:
-            klass = classify_hit(hit.evidence, site.file)
+            klass = classify_hit(hit.evidence, site.file, "secrets")
             result.secret_classes[klass] += 1
             if klass == "plausible":
                 plausible_secret = True
@@ -185,7 +212,7 @@ def analyze_sites(sites: list[PromptSite], *, name: str = "") -> ContentResult:
 
         plausible_pii = False
         for hit in pii_hits:
-            klass = classify_hit(hit.evidence, site.file)
+            klass = classify_hit(hit.evidence, site.file, "pii")
             result.pii_classes[klass] += 1
             if klass == "plausible":
                 plausible_pii = True

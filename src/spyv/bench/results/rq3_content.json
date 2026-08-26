@@ -1,35 +1,49 @@
 {
   "rq": 3,
   "recoverable_prompts": 8647,
+  "clustering": {
+    "icc": 0.2825118849633392,
+    "mean_cluster_size_arithmetic": 432.35,
+    "mean_cluster_size_kish": 2153.256736440384,
+    "m_zero_unequal": 341.7759612399798,
+    "design_effect": 609.0381075368176,
+    "effective_n": 14.19779795877103
+  },
+  "null_upper_bound_design_adjusted": 0.21130037268537674,
   "m1_credentials": {
     "prompts": 0,
     "rate": 0.0,
-    "ci95": [
+    "ci95_naive_binomial": [
       0.0,
       0.00044407240100200184
     ],
+    "upper_bound_design_adjusted": 0.21130037268537674,
     "hit_classes": {},
-    "note": "no credential-shaped match of any class occurred; the classification apparatus was never exercised for M1."
+    "note": "no credential-shaped match of any class occurred; the classification apparatus was never exercised for M1. The binomial bound presumes independent prompts and is not the one to quote."
   },
   "m2_personal_data": {
     "prompts": 0,
     "rate": 0.0,
-    "ci95": [
+    "ci95_naive_binomial": [
       0.0,
       0.00044407240100200184
     ],
+    "upper_bound_design_adjusted": 0.21130037268537674,
     "hit_classes": {
-      "low_entropy": 2,
-      "context_excluded": 1,
+      "context_excluded": 3,
       "placeholder": 2
     }
   },
   "m3_interpolation": {
     "prompts": 1030,
     "rate": 0.11911645657453453,
-    "ci95": [
+    "ci95_naive_binomial": [
       0.11245741105810689,
       0.12611378183022434
+    ],
+    "ci95_cluster_bootstrap": [
+      0.06509684770224079,
+      0.33382515676872004
     ]
   },
   "m4_guardrails": {

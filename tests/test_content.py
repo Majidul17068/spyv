@@ -136,3 +136,51 @@ def test_guardrail_detection_is_a_lower_bound_not_a_census():
     """
     missed = "Extract entities. Do not paraphrase or normalize. Do not include pronouns."
     assert analyze_sites([_site(missed)]).metrics()["m4_guardrails"]["prompts"] == 0
+
+
+# --- regressions: defects a reviewer found by re-executing the corpus --------
+
+
+@pytest.mark.parametrize("pii", [
+    "415-555-0132",        # US phone: max attainable entropy log2(10) = 3.32
+    "123-45-6789",         # national identifier
+    "4539148803436467",    # Luhn-valid card number
+])
+def test_structurally_low_entropy_pii_is_not_sunk_by_the_credential_floor(pii):
+    """The entropy floor is a credential test and was applied to personal data too.
+
+    No ten-digit numeric string can exceed log2(10) = 3.32 bits per character, so
+    a floor of 3.0 calibrated for provider keys discards most real PII formats.
+    Two of the five hits our corpus produced were phone numbers recorded as
+    low-entropy; the reason they did not count was their path, not their entropy.
+    """
+    assert classify_hit(pii, "app/main.py", "pii") == "plausible"
+
+
+def test_the_floor_still_applies_to_credentials():
+    assert classify_hit("sk-aaaaaaaaaaaaaaaaaa", "app/main.py", "secrets") in {
+        "placeholder", "low_entropy"
+    }
+
+
+def test_context_is_decided_before_entropy():
+    """A hit under a test path should be attributed to the path, which is what
+    actually disqualifies it, rather than to whichever heuristic fires first."""
+    assert classify_hit("415-555-0132", "tests/test_x.py", "pii") == "context_excluded"
+
+
+@pytest.mark.parametrize("email", [
+    "barbara.jones@acme.com",   # contains "bar"
+    "theresa.chen@acme.com",    # contains "here"
+    "adhere.ops@acme.com",      # contains "here"
+    "mockingbird@acme.com",     # contains "mock"
+])
+def test_placeholder_matching_uses_token_boundaries(email):
+    """Bare substring containment discarded real addresses as fake by an accident
+    of spelling."""
+    assert classify_hit(email, "app/main.py", "pii") == "plausible"
+
+
+@pytest.mark.parametrize("value", ["sk-YOUR-KEY-HERE-0123456", "your_api_key_here", "test-key-abcdefgh"])
+def test_real_placeholders_are_still_caught(value):
+    assert classify_hit(value, "app/main.py", "secrets") == "placeholder"

@@ -29,14 +29,20 @@
     0.68822628214783
   ],
   "pooled_ci95_design_adjusted": [
-    0.5664032172496735,
-    0.7675598750577254
+    0.45373075657210293,
+    0.8280546356731631
+  ],
+  "pooled_ci95_cluster_bootstrap": [
+    0.4274770173646578,
+    0.8119038099046095
   ],
   "clustering": {
-    "icc": 0.2487002626621529,
-    "mean_cluster_size": 643.1,
-    "design_effect": 160.69043865536838,
-    "effective_n": 80.04209900493855
+    "icc": 0.27498348522374627,
+    "mean_cluster_size_arithmetic": 643.1,
+    "mean_cluster_size_kish": 2197.600528689162,
+    "m_zero_unequal": 561.2841827005705,
+    "design_effect": 605.0288690232694,
+    "effective_n": 21.25848973250453
   },
   "repos": [
     {

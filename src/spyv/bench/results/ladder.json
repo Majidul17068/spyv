@@ -967,5 +967,42 @@
       ]
     }
   },
+  "paired_increments": {
+    "L0->L1": {
+      "mean_pp": 4.060528595030825,
+      "ci95_pp": [
+        2.62337424972383,
+        5.679134627801111
+      ]
+    },
+    "L1->L2": {
+      "mean_pp": 0.7872688437798864,
+      "ci95_pp": [
+        0.05607381459153849,
+        1.919723901799373
+      ]
+    },
+    "L2->L3": {
+      "mean_pp": 1.343077268978119,
+      "ci95_pp": [
+        0.33839828716761555,
+        2.909313451773233
+      ]
+    },
+    "L3->L4": {
+      "mean_pp": 2.0503843252685816,
+      "ci95_pp": [
+        0.5943549311536078,
+        4.073166511837332
+      ]
+    },
+    "L0->L4": {
+      "mean_pp": 8.241259033057414,
+      "ci95_pp": [
+        5.797673478939737,
+        10.974033168992712
+      ]
+    }
+  },
   "note": "Each level is strictly stronger than the last, and the classifier is monotone by construction (asserted in tests). The gain from L0 to L4 bounds how much of the unreadable share is attributable to analysis strength rather than to the programs."
 }
