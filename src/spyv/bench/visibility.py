@@ -56,6 +56,11 @@ class PromptSite:
     visibility: Visibility
     reason: str = ""
     text: str = ""
+    # Span of the enclosing expression. A runtime frame reports the line of the
+    # *call*, while `line` points at the argument inside it, so matching a
+    # runtime observation to a site needs the whole span, not the argument line.
+    call_line: int = 0
+    call_end_line: int = 0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -66,6 +71,8 @@ class PromptSite:
             "visibility": self.visibility,
             "reason": self.reason,
             "text": self.text,
+            "call_line": self.call_line,
+            "call_end_line": self.call_end_line,
         }
 
 
@@ -311,13 +318,21 @@ def sites_in_source(source: str, path: str) -> list[PromptSite]:
     out: list[PromptSite] = []
     for node in ast.walk(tree):
         if isinstance(node, ast.Call):
-            out.extend(_sites_from_call(node, path, bindings))
+            found = _sites_from_call(node, path, bindings)
         elif isinstance(node, ast.Dict):
-            out.extend(_sites_from_dict(node, path, bindings))
+            found = _sites_from_dict(node, path, bindings)
         elif isinstance(node, ast.Tuple):
-            out.extend(_sites_from_tuple(node, path, bindings))
+            found = _sites_from_tuple(node, path, bindings)
         elif isinstance(node, (ast.Assign, ast.AnnAssign)):
-            out.extend(_sites_from_assign(node, path, bindings))
+            found = _sites_from_assign(node, path, bindings)
+        else:
+            continue
+        span_start = getattr(node, "lineno", 0)
+        span_end = getattr(node, "end_lineno", None) or span_start
+        for site in found:
+            site.call_line = span_start
+            site.call_end_line = span_end
+        out.extend(found)
 
     # One physical location can be reached by more than one walk branch.
     seen: set[tuple[str, int, str]] = set()
