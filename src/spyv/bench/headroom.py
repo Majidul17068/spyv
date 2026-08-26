@@ -185,6 +185,48 @@ def _judge_attribute(attr: str, index: _Index, bindings: dict[str, str]) -> tupl
     return "reachable", "attribute_assigned_literal"
 
 
+def _locate_expressions(
+    tree: ast.AST, wanted: set[tuple[int, str]]
+) -> dict[tuple[int, str], ast.expr]:
+    """Map each (line, construct) to the expression that construct names.
+
+    Matching on line number alone is wrong: `t = Task(description=f(), ...)`
+    puts the Assign value, the Task call and the keyword value all on one line,
+    and the outermost of those is not the prompt expression.
+    """
+    located: dict[tuple[int, str], ast.expr] = {}
+
+    def offer(line: int, construct: str, expr: ast.expr | None) -> None:
+        if expr is None or (line, construct) not in wanted:
+            return
+        located.setdefault((line, construct), expr)
+
+    for node in ast.walk(tree):
+        if isinstance(node, ast.Call):
+            kwargs = {kw.arg: kw.value for kw in node.keywords if kw.arg}
+            callee = getattr(node.func, "id", None) or getattr(node.func, "attr", None) or ""
+            for arg_name, value in kwargs.items():
+                line = getattr(value, "lineno", node.lineno)
+                for construct in (f"Agent.{arg_name}", f"Task.{arg_name}", f"kwarg.{arg_name}"):
+                    offer(line, construct, value)
+            first = kwargs.get("content") or kwargs.get("template") or (node.args[0] if node.args else None)
+            if first is not None:
+                offer(getattr(first, "lineno", node.lineno), callee, first)
+        elif isinstance(node, (ast.Assign, ast.AnnAssign)) and node.value is not None:
+            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
+            for t in targets:
+                nm = getattr(t, "id", None) or getattr(t, "attr", None)
+                if nm:
+                    offer(node.lineno, f"const.{nm}", node.value)
+        elif isinstance(node, ast.Dict):
+            for k, v in zip(node.keys, node.values, strict=False):
+                if isinstance(k, ast.Constant) and k.value == "content":
+                    offer(getattr(v, "lineno", node.lineno), "message.system", v)
+        elif isinstance(node, ast.Tuple) and len(node.elts) >= 2:
+            offer(getattr(node.elts[1], "lineno", node.lineno), "system_tuple", node.elts[1])
+    return located
+
+
 def analyze_source(source: str, path: str) -> list[OpaqueVerdict]:
     """Bucket every opaque prompt site in one module."""
     try:
@@ -211,41 +253,8 @@ def analyze_source(source: str, path: str) -> list[OpaqueVerdict]:
     # line number alone is wrong: `t = Task(description=f(), ...)` puts the
     # Assign value, the Task call and the keyword value all on one line, and the
     # outermost of those is not the prompt expression.
-    located: dict[tuple[int, str], ast.expr] = {}
+    located = _locate_expressions(tree, set(opaque))
     handled: set[tuple[int, str]] = set()
-
-    def offer(line: int, construct: str, expr: ast.expr | None) -> None:
-        if expr is None or (line, construct) not in opaque:
-            return
-        located.setdefault((line, construct), expr)
-
-    for node in ast.walk(tree):
-        if isinstance(node, ast.Call):
-            kwargs = {kw.arg: kw.value for kw in node.keywords if kw.arg}
-            callee = getattr(node.func, "id", None) or getattr(node.func, "attr", None) or ""
-            for arg_name, value in kwargs.items():
-                line = getattr(value, "lineno", node.lineno)
-                for construct in (
-                    f"Agent.{arg_name}",
-                    f"Task.{arg_name}",
-                    f"kwarg.{arg_name}",
-                ):
-                    offer(line, construct, value)
-            first = kwargs.get("content") or kwargs.get("template") or (node.args[0] if node.args else None)
-            if first is not None:
-                offer(getattr(first, "lineno", node.lineno), callee, first)
-        elif isinstance(node, (ast.Assign, ast.AnnAssign)) and node.value is not None:
-            targets = node.targets if isinstance(node, ast.Assign) else [node.target]
-            for t in targets:
-                name = getattr(t, "id", None) or getattr(t, "attr", None)
-                if name:
-                    offer(node.lineno, f"const.{name}", node.value)
-        elif isinstance(node, ast.Dict):
-            for k, v in zip(node.keys, node.values, strict=False):
-                if isinstance(k, ast.Constant) and k.value == "content":
-                    offer(getattr(v, "lineno", node.lineno), "message.system", v)
-        elif isinstance(node, ast.Tuple) and len(node.elts) >= 2:
-            offer(getattr(node.elts[1], "lineno", node.lineno), "system_tuple", node.elts[1])
 
     for (line, construct), site in opaque.items():
         expr = located.get((line, construct))
@@ -300,3 +309,144 @@ def run_headroom(root: str | Path, *, name: str | None = None) -> dict[str, Any]
 
 
 __all__ = ["Bucket", "OpaqueVerdict", "analyze_source", "run_headroom"]
+
+
+# ---------------------------------------------------------------------------
+# Cross-module resolution
+#
+# The module-local pass above leaves most sites undetermined because the callee
+# lives in another file. These follow the import graph, which is what it takes
+# to say anything about how much a stronger static analysis would actually gain.
+# ---------------------------------------------------------------------------
+
+
+def _judge_expr_project(
+    expr: ast.expr,
+    origin: Any,
+    index: Any,
+    bindings: dict[str, str],
+    depth: int = 0,
+) -> tuple[Bucket, str]:
+    from .project import MAX_DEPTH
+
+    if depth > MAX_DEPTH:
+        return "undetermined", "resolution_depth_exceeded"
+
+    if isinstance(expr, ast.Subscript):
+        return "runtime_bound", "subscript_of_runtime_value"
+
+    if isinstance(expr, ast.Name):
+        found = index.resolve_constant(expr.id, origin)
+        if found is None:
+            return "undetermined", "constant_not_resolvable"
+        value, owner = found
+        vis, _ = classify(value, {})
+        if vis != "opaque":
+            return "reachable", "constant_resolved_cross_module"
+        return _judge_expr_project(value, owner, index, bindings, depth + 1)
+
+    if isinstance(expr, ast.Attribute):
+        # `self.x` is in reach; `obj.x` on an unknown type is not, and guessing
+        # would be inventing a result.
+        if isinstance(expr.value, ast.Name) and expr.value.id == "self":
+            return _judge_attribute(expr.attr, _Index(origin.tree), bindings)
+        return "undetermined", "attribute_needs_type_inference"
+
+    if not isinstance(expr, ast.Call):
+        return "undetermined", f"expr:{type(expr).__name__}"
+
+    func = expr.func
+    if isinstance(func, ast.Attribute) and not (
+        isinstance(func.value, ast.Name) and func.value.id == "self"
+    ):
+        io = _looks_like_io(expr)
+        if io:
+            return "runtime_bound", f"io_call_by_name:{io}"
+        return "undetermined", "method_call_needs_type_inference"
+
+    name = getattr(func, "id", None) or getattr(func, "attr", None) or ""
+    found = index.resolve_function(name, origin)
+    if found is None:
+        if name in origin.imports:
+            return "undetermined", "callee_outside_repository"
+        io = _looks_like_io(expr)
+        if io:
+            return "runtime_bound", f"io_call_by_name:{io}"
+        return "undetermined", "callee_unresolved"
+
+    fn, owner = found
+    returns = _returns_of(fn)
+    if not returns:
+        return "undetermined", "no_return_found"
+
+    params = _param_names(fn)
+    local = _string_bindings(fn)
+
+    nested: list[tuple[Bucket, str]] = []
+    for r in returns:
+        dep = _depends_on_runtime(r, params)
+        if dep:
+            return "runtime_bound", f"return_depends_on:{dep}"
+        vis, _ = classify(r, local)
+        if vis != "opaque":
+            continue
+        nested.append(_judge_expr_project(r, owner, index, local, depth + 1))
+
+    if not nested:
+        return "reachable", "callee_returns_literals"
+    if any(b == "runtime_bound" for b, _ in nested):
+        return "runtime_bound", "callee_returns_runtime_value"
+    if all(b == "reachable" for b, _ in nested):
+        return "reachable", "callee_chain_resolved"
+    return "undetermined", nested[0][1]
+
+
+def run_headroom_project(root: str | Path, *, name: str | None = None) -> dict[str, Any]:
+    """Headroom analysis with the import graph followed across files."""
+    from .project import ProjectIndex
+
+    root_path = Path(root)
+    index = ProjectIndex(root_path)
+    verdicts: list[OpaqueVerdict] = []
+
+    for module in index.modules.values():
+        try:
+            source = module.path.read_text(encoding="utf-8")
+        except (OSError, UnicodeDecodeError):
+            continue
+        try:
+            rel = module.path.relative_to(root_path).as_posix()
+        except ValueError:
+            rel = module.path.as_posix()
+
+        local_verdicts = analyze_source(source, rel)
+        if not local_verdicts:
+            continue
+        bindings = _string_bindings(module.tree)
+        located = _locate_expressions(module.tree, {(v.line, v.construct) for v in local_verdicts})
+
+        for v in local_verdicts:
+            expr = located.get((v.line, v.construct))
+            if expr is None:
+                verdicts.append(v)
+                continue
+            bucket, detail = _judge_expr_project(expr, module, index, bindings)
+            verdicts.append(
+                OpaqueVerdict(
+                    file=v.file, line=v.line, construct=v.construct,
+                    reason=v.reason, bucket=bucket, detail=detail,
+                )
+            )
+
+    buckets = Counter(v.bucket for v in verdicts)
+    total = len(verdicts)
+    return {
+        "name": name or root_path.name,
+        "opaque_sites": total,
+        "buckets": dict(buckets),
+        "reachable_share": buckets["reachable"] / total if total else 0.0,
+        "runtime_bound_share": buckets["runtime_bound"] / total if total else 0.0,
+        "undetermined_share": buckets["undetermined"] / total if total else 0.0,
+        "details": dict(Counter(v.detail for v in verdicts).most_common(15)),
+        "index": index.stats(),
+    }
