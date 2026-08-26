@@ -135,6 +135,44 @@ def run_rq2() -> dict[str, Any]:
     }
 
 
+def run_ladder() -> dict[str, Any]:
+    """The recoverability frontier: what each rung of analysis recovers.
+
+    A single number invites the objection that it measures our analyser rather
+    than static analysis. A curve answers it: where the curve flattens is where
+    the residue stops being a tool limitation.
+    """
+    from .ladder import LEVEL_NAMES, measure_repo
+
+    levels: dict[str, Any] = {}
+    for level in range(5):
+        per_repo = []
+        for name, path, sha in _repos():
+            counts = measure_repo(path, level)
+            n = sum(counts.values())
+            if not n:
+                continue
+            per_repo.append({"name": name, "sha": sha, **counts, "sites": n,
+                             "spv_partial": (counts["static"] + counts["partial"]) / n})
+        rates = [r["spv_partial"] for r in per_repo]
+        k = sum(r["static"] + r["partial"] for r in per_repo)
+        n_total = sum(r["sites"] for r in per_repo)
+        levels[str(level)] = {
+            "name": LEVEL_NAMES[level],
+            "pooled": k / n_total,
+            "median": st.median(rates),
+            "mean": st.mean(rates),
+            "median_ci95": cluster_bootstrap(rates, st.median),
+            "opaque": sum(r["opaque"] for r in per_repo),
+            "repos": per_repo,
+        }
+    return {"rq": "ladder", "levels": levels,
+            "note": ("Each level is strictly stronger than the last, and the classifier is "
+                     "monotone by construction (asserted in tests). The gain from L0 to L4 "
+                     "bounds how much of the unreadable share is attributable to analysis "
+                     "strength rather than to the programs.")}
+
+
 def run_rq3() -> dict[str, Any]:
     from .content import analyze_sites
     from .visibility import run_visibility
@@ -178,10 +216,19 @@ def run_rq3() -> dict[str, Any]:
 def main(argv: list[str] | None = None) -> int:
     ap = argparse.ArgumentParser(prog="spyv.bench.study")
     ap.add_argument("--rq", type=int, choices=[1, 2, 3], default=None)
+    ap.add_argument("--ladder", action="store_true", help="measure the recoverability frontier")
     ap.add_argument("--out", type=Path, default=RESULTS)
     args = ap.parse_args(argv)
 
     args.out.mkdir(parents=True, exist_ok=True)
+    if args.ladder:
+        print("running the recoverability ladder ...", flush=True)
+        data = run_ladder()
+        path = args.out / "ladder.json"
+        path.write_text(json.dumps(data, indent=2), encoding="utf-8")
+        print(f"  wrote {path}")
+        return 0
+
     wanted = [args.rq] if args.rq else [1, 2, 3]
     for rq, fn, name in ((1, run_rq1, "rq1_visibility"), (2, run_rq2, "rq2_headroom"), (3, run_rq3, "rq3_content")):
         if rq not in wanted:

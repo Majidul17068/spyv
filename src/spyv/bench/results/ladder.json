@@ -1,0 +1,971 @@
+{
+  "rq": "ladder",
+  "levels": {
+    "0": {
+      "name": "literals",
+      "pooled": 0.6400248794899704,
+      "median": 0.4104064039408867,
+      "mean": 0.44998227097057697,
+      "median_ci95": [
+        0.3130081300813008,
+        0.5459989870853381
+      ],
+      "opaque": 4630,
+      "repos": [
+        {
+          "name": "crewai",
+          "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+          "static": 3259,
+          "partial": 32,
+          "opaque": 323,
+          "sites": 3614,
+          "spv_partial": 0.9106253458771444
+        },
+        {
+          "name": "crewai-examples",
+          "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+          "static": 54,
+          "partial": 3,
+          "opaque": 53,
+          "sites": 110,
+          "spv_partial": 0.5181818181818182
+        },
+        {
+          "name": "langgraph",
+          "sha": "38031739e551638e373fb553453256c23feeb41f",
+          "static": 24,
+          "partial": 2,
+          "opaque": 45,
+          "sites": 71,
+          "spv_partial": 0.36619718309859156
+        },
+        {
+          "name": "langchain",
+          "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+          "static": 509,
+          "partial": 37,
+          "opaque": 846,
+          "sites": 1392,
+          "spv_partial": 0.3922413793103448
+        },
+        {
+          "name": "autogen",
+          "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+          "static": 192,
+          "partial": 14,
+          "opaque": 153,
+          "sites": 359,
+          "spv_partial": 0.5738161559888579
+        },
+        {
+          "name": "metagpt",
+          "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+          "static": 163,
+          "partial": 26,
+          "opaque": 241,
+          "sites": 430,
+          "spv_partial": 0.43953488372093025
+        },
+        {
+          "name": "superagi",
+          "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+          "static": 31,
+          "partial": 5,
+          "opaque": 113,
+          "sites": 149,
+          "spv_partial": 0.24161073825503357
+        },
+        {
+          "name": "gpt-engineer",
+          "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+          "static": 13,
+          "partial": 2,
+          "opaque": 59,
+          "sites": 74,
+          "spv_partial": 0.20270270270270271
+        },
+        {
+          "name": "babyagi",
+          "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+          "static": 10,
+          "partial": 16,
+          "opaque": 10,
+          "sites": 36,
+          "spv_partial": 0.7222222222222222
+        },
+        {
+          "name": "camel",
+          "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+          "static": 262,
+          "partial": 50,
+          "opaque": 536,
+          "sites": 848,
+          "spv_partial": 0.36792452830188677
+        },
+        {
+          "name": "agentverse",
+          "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+          "static": 10,
+          "partial": 2,
+          "opaque": 29,
+          "sites": 41,
+          "spv_partial": 0.2926829268292683
+        },
+        {
+          "name": "open-interpreter",
+          "sha": "5b07159c477920c159d8892d112b480e7307f257",
+          "static": 9,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 21,
+          "spv_partial": 0.42857142857142855
+        },
+        {
+          "name": "gpt-researcher",
+          "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+          "static": 43,
+          "partial": 10,
+          "opaque": 54,
+          "sites": 107,
+          "spv_partial": 0.4953271028037383
+        },
+        {
+          "name": "chatdev",
+          "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+          "static": 6,
+          "partial": 1,
+          "opaque": 18,
+          "sites": 25,
+          "spv_partial": 0.28
+        },
+        {
+          "name": "agno",
+          "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+          "static": 2383,
+          "partial": 50,
+          "opaque": 618,
+          "sites": 3051,
+          "spv_partial": 0.7974434611602753
+        },
+        {
+          "name": "pydantic-ai",
+          "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+          "static": 646,
+          "partial": 10,
+          "opaque": 371,
+          "sites": 1027,
+          "spv_partial": 0.6387536514118792
+        },
+        {
+          "name": "smolagents",
+          "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+          "static": 16,
+          "partial": 2,
+          "opaque": 36,
+          "sites": 54,
+          "spv_partial": 0.3333333333333333
+        },
+        {
+          "name": "swarm",
+          "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+          "static": 30,
+          "partial": 0,
+          "opaque": 13,
+          "sites": 43,
+          "spv_partial": 0.6976744186046512
+        },
+        {
+          "name": "taskweaver",
+          "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+          "static": 4,
+          "partial": 1,
+          "opaque": 63,
+          "sites": 68,
+          "spv_partial": 0.07352941176470588
+        },
+        {
+          "name": "llama-index",
+          "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+          "static": 289,
+          "partial": 16,
+          "opaque": 1037,
+          "sites": 1342,
+          "spv_partial": 0.22727272727272727
+        }
+      ]
+    },
+    "1": {
+      "name": "+ constant propagation",
+      "pooled": 0.6799875602550147,
+      "median": 0.4578772387062283,
+      "mean": 0.49058755692088524,
+      "median_ci95": [
+        0.3269326373353219,
+        0.5848931351365423
+      ],
+      "opaque": 4116,
+      "repos": [
+        {
+          "name": "crewai",
+          "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+          "static": 3281,
+          "partial": 33,
+          "opaque": 300,
+          "sites": 3614,
+          "spv_partial": 0.9169894853348091
+        },
+        {
+          "name": "crewai-examples",
+          "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+          "static": 54,
+          "partial": 3,
+          "opaque": 53,
+          "sites": 110,
+          "spv_partial": 0.5181818181818182
+        },
+        {
+          "name": "langgraph",
+          "sha": "38031739e551638e373fb553453256c23feeb41f",
+          "static": 26,
+          "partial": 4,
+          "opaque": 41,
+          "sites": 71,
+          "spv_partial": 0.4225352112676056
+        },
+        {
+          "name": "langchain",
+          "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+          "static": 597,
+          "partial": 40,
+          "opaque": 755,
+          "sites": 1392,
+          "spv_partial": 0.45761494252873564
+        },
+        {
+          "name": "autogen",
+          "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+          "static": 203,
+          "partial": 19,
+          "opaque": 137,
+          "sites": 359,
+          "spv_partial": 0.6183844011142061
+        },
+        {
+          "name": "metagpt",
+          "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+          "static": 177,
+          "partial": 20,
+          "opaque": 233,
+          "sites": 430,
+          "spv_partial": 0.45813953488372094
+        },
+        {
+          "name": "superagi",
+          "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+          "static": 38,
+          "partial": 7,
+          "opaque": 104,
+          "sites": 149,
+          "spv_partial": 0.30201342281879195
+        },
+        {
+          "name": "gpt-engineer",
+          "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+          "static": 20,
+          "partial": 2,
+          "opaque": 52,
+          "sites": 74,
+          "spv_partial": 0.2972972972972973
+        },
+        {
+          "name": "babyagi",
+          "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+          "static": 12,
+          "partial": 16,
+          "opaque": 8,
+          "sites": 36,
+          "spv_partial": 0.7777777777777778
+        },
+        {
+          "name": "camel",
+          "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+          "static": 367,
+          "partial": 64,
+          "opaque": 417,
+          "sites": 848,
+          "spv_partial": 0.5082547169811321
+        },
+        {
+          "name": "agentverse",
+          "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+          "static": 10,
+          "partial": 2,
+          "opaque": 29,
+          "sites": 41,
+          "spv_partial": 0.2926829268292683
+        },
+        {
+          "name": "open-interpreter",
+          "sha": "5b07159c477920c159d8892d112b480e7307f257",
+          "static": 9,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 21,
+          "spv_partial": 0.42857142857142855
+        },
+        {
+          "name": "gpt-researcher",
+          "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+          "static": 44,
+          "partial": 15,
+          "opaque": 48,
+          "sites": 107,
+          "spv_partial": 0.5514018691588785
+        },
+        {
+          "name": "chatdev",
+          "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+          "static": 6,
+          "partial": 1,
+          "opaque": 18,
+          "sites": 25,
+          "spv_partial": 0.28
+        },
+        {
+          "name": "agno",
+          "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+          "static": 2483,
+          "partial": 58,
+          "opaque": 510,
+          "sites": 3051,
+          "spv_partial": 0.8328416912487709
+        },
+        {
+          "name": "pydantic-ai",
+          "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+          "static": 668,
+          "partial": 15,
+          "opaque": 344,
+          "sites": 1027,
+          "spv_partial": 0.6650438169425511
+        },
+        {
+          "name": "smolagents",
+          "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+          "static": 17,
+          "partial": 2,
+          "opaque": 35,
+          "sites": 54,
+          "spv_partial": 0.35185185185185186
+        },
+        {
+          "name": "swarm",
+          "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+          "static": 31,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 43,
+          "spv_partial": 0.7209302325581395
+        },
+        {
+          "name": "taskweaver",
+          "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+          "static": 6,
+          "partial": 2,
+          "opaque": 60,
+          "sites": 68,
+          "spv_partial": 0.11764705882352941
+        },
+        {
+          "name": "llama-index",
+          "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+          "static": 369,
+          "partial": 25,
+          "opaque": 948,
+          "sites": 1342,
+          "spv_partial": 0.293591654247392
+        }
+      ]
+    },
+    "2": {
+      "name": "+ interprocedural",
+      "pooled": 0.6816202767843259,
+      "median": 0.48437637121544536,
+      "mean": 0.4984602453586841,
+      "median_ci95": [
+        0.33592592592592596,
+        0.5848931351365423
+      ],
+      "opaque": 4095,
+      "repos": [
+        {
+          "name": "crewai",
+          "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+          "static": 3289,
+          "partial": 35,
+          "opaque": 290,
+          "sites": 3614,
+          "spv_partial": 0.9197565024903155
+        },
+        {
+          "name": "crewai-examples",
+          "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+          "static": 54,
+          "partial": 3,
+          "opaque": 53,
+          "sites": 110,
+          "spv_partial": 0.5181818181818182
+        },
+        {
+          "name": "langgraph",
+          "sha": "38031739e551638e373fb553453256c23feeb41f",
+          "static": 26,
+          "partial": 4,
+          "opaque": 41,
+          "sites": 71,
+          "spv_partial": 0.4225352112676056
+        },
+        {
+          "name": "langchain",
+          "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+          "static": 597,
+          "partial": 40,
+          "opaque": 755,
+          "sites": 1392,
+          "spv_partial": 0.45761494252873564
+        },
+        {
+          "name": "autogen",
+          "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+          "static": 203,
+          "partial": 19,
+          "opaque": 137,
+          "sites": 359,
+          "spv_partial": 0.6183844011142061
+        },
+        {
+          "name": "metagpt",
+          "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+          "static": 177,
+          "partial": 20,
+          "opaque": 233,
+          "sites": 430,
+          "spv_partial": 0.45813953488372094
+        },
+        {
+          "name": "superagi",
+          "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+          "static": 38,
+          "partial": 7,
+          "opaque": 104,
+          "sites": 149,
+          "spv_partial": 0.30201342281879195
+        },
+        {
+          "name": "gpt-engineer",
+          "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+          "static": 20,
+          "partial": 3,
+          "opaque": 51,
+          "sites": 74,
+          "spv_partial": 0.3108108108108108
+        },
+        {
+          "name": "babyagi",
+          "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+          "static": 12,
+          "partial": 16,
+          "opaque": 8,
+          "sites": 36,
+          "spv_partial": 0.7777777777777778
+        },
+        {
+          "name": "camel",
+          "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+          "static": 367,
+          "partial": 66,
+          "opaque": 415,
+          "sites": 848,
+          "spv_partial": 0.5106132075471698
+        },
+        {
+          "name": "agentverse",
+          "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+          "static": 10,
+          "partial": 2,
+          "opaque": 29,
+          "sites": 41,
+          "spv_partial": 0.2926829268292683
+        },
+        {
+          "name": "open-interpreter",
+          "sha": "5b07159c477920c159d8892d112b480e7307f257",
+          "static": 9,
+          "partial": 2,
+          "opaque": 10,
+          "sites": 21,
+          "spv_partial": 0.5238095238095238
+        },
+        {
+          "name": "gpt-researcher",
+          "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+          "static": 44,
+          "partial": 15,
+          "opaque": 48,
+          "sites": 107,
+          "spv_partial": 0.5514018691588785
+        },
+        {
+          "name": "chatdev",
+          "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+          "static": 6,
+          "partial": 2,
+          "opaque": 17,
+          "sites": 25,
+          "spv_partial": 0.32
+        },
+        {
+          "name": "agno",
+          "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+          "static": 2483,
+          "partial": 60,
+          "opaque": 508,
+          "sites": 3051,
+          "spv_partial": 0.8334972140281874
+        },
+        {
+          "name": "pydantic-ai",
+          "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+          "static": 669,
+          "partial": 17,
+          "opaque": 341,
+          "sites": 1027,
+          "spv_partial": 0.667964946445959
+        },
+        {
+          "name": "smolagents",
+          "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+          "static": 17,
+          "partial": 2,
+          "opaque": 35,
+          "sites": 54,
+          "spv_partial": 0.35185185185185186
+        },
+        {
+          "name": "swarm",
+          "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+          "static": 31,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 43,
+          "spv_partial": 0.7209302325581395
+        },
+        {
+          "name": "taskweaver",
+          "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+          "static": 6,
+          "partial": 2,
+          "opaque": 60,
+          "sites": 68,
+          "spv_partial": 0.11764705882352941
+        },
+        {
+          "name": "llama-index",
+          "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+          "static": 369,
+          "partial": 25,
+          "opaque": 948,
+          "sites": 1342,
+          "spv_partial": 0.293591654247392
+        }
+      ]
+    },
+    "3": {
+      "name": "+ import resolution",
+      "pooled": 0.689939356243197,
+      "median": 0.5001110240334379,
+      "mean": 0.5118910180484653,
+      "median_ci95": [
+        0.3516016016016016,
+        0.5890714081170436
+      ],
+      "opaque": 3988,
+      "repos": [
+        {
+          "name": "crewai",
+          "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+          "static": 3291,
+          "partial": 57,
+          "opaque": 266,
+          "sites": 3614,
+          "spv_partial": 0.9263973436635307
+        },
+        {
+          "name": "crewai-examples",
+          "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+          "static": 54,
+          "partial": 3,
+          "opaque": 53,
+          "sites": 110,
+          "spv_partial": 0.5181818181818182
+        },
+        {
+          "name": "langgraph",
+          "sha": "38031739e551638e373fb553453256c23feeb41f",
+          "static": 26,
+          "partial": 4,
+          "opaque": 41,
+          "sites": 71,
+          "spv_partial": 0.4225352112676056
+        },
+        {
+          "name": "langchain",
+          "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+          "static": 631,
+          "partial": 40,
+          "opaque": 721,
+          "sites": 1392,
+          "spv_partial": 0.48204022988505746
+        },
+        {
+          "name": "autogen",
+          "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+          "static": 205,
+          "partial": 20,
+          "opaque": 134,
+          "sites": 359,
+          "spv_partial": 0.6267409470752089
+        },
+        {
+          "name": "metagpt",
+          "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+          "static": 186,
+          "partial": 21,
+          "opaque": 223,
+          "sites": 430,
+          "spv_partial": 0.4813953488372093
+        },
+        {
+          "name": "superagi",
+          "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+          "static": 38,
+          "partial": 7,
+          "opaque": 104,
+          "sites": 149,
+          "spv_partial": 0.30201342281879195
+        },
+        {
+          "name": "gpt-engineer",
+          "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+          "static": 20,
+          "partial": 6,
+          "opaque": 48,
+          "sites": 74,
+          "spv_partial": 0.35135135135135137
+        },
+        {
+          "name": "babyagi",
+          "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+          "static": 17,
+          "partial": 16,
+          "opaque": 3,
+          "sites": 36,
+          "spv_partial": 0.9166666666666666
+        },
+        {
+          "name": "camel",
+          "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+          "static": 380,
+          "partial": 66,
+          "opaque": 402,
+          "sites": 848,
+          "spv_partial": 0.5259433962264151
+        },
+        {
+          "name": "agentverse",
+          "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+          "static": 10,
+          "partial": 2,
+          "opaque": 29,
+          "sites": 41,
+          "spv_partial": 0.2926829268292683
+        },
+        {
+          "name": "open-interpreter",
+          "sha": "5b07159c477920c159d8892d112b480e7307f257",
+          "static": 9,
+          "partial": 2,
+          "opaque": 10,
+          "sites": 21,
+          "spv_partial": 0.5238095238095238
+        },
+        {
+          "name": "gpt-researcher",
+          "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+          "static": 44,
+          "partial": 15,
+          "opaque": 48,
+          "sites": 107,
+          "spv_partial": 0.5514018691588785
+        },
+        {
+          "name": "chatdev",
+          "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+          "static": 6,
+          "partial": 2,
+          "opaque": 17,
+          "sites": 25,
+          "spv_partial": 0.32
+        },
+        {
+          "name": "agno",
+          "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+          "static": 2483,
+          "partial": 60,
+          "opaque": 508,
+          "sites": 3051,
+          "spv_partial": 0.8334972140281874
+        },
+        {
+          "name": "pydantic-ai",
+          "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+          "static": 669,
+          "partial": 17,
+          "opaque": 341,
+          "sites": 1027,
+          "spv_partial": 0.667964946445959
+        },
+        {
+          "name": "smolagents",
+          "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+          "static": 17,
+          "partial": 2,
+          "opaque": 35,
+          "sites": 54,
+          "spv_partial": 0.35185185185185186
+        },
+        {
+          "name": "swarm",
+          "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+          "static": 31,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 43,
+          "spv_partial": 0.7209302325581395
+        },
+        {
+          "name": "taskweaver",
+          "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+          "static": 6,
+          "partial": 2,
+          "opaque": 60,
+          "sites": 68,
+          "spv_partial": 0.11764705882352941
+        },
+        {
+          "name": "llama-index",
+          "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+          "static": 390,
+          "partial": 19,
+          "opaque": 933,
+          "sites": 1342,
+          "spv_partial": 0.30476900149031294
+        }
+      ]
+    },
+    "4": {
+      "name": "+ string expressions",
+      "pooled": 0.7009018815114291,
+      "median": 0.520995670995671,
+      "mean": 0.5323948613011511,
+      "median_ci95": [
+        0.36292682926829267,
+        0.6431301418669431
+      ],
+      "opaque": 3847,
+      "repos": [
+        {
+          "name": "crewai",
+          "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+          "static": 3291,
+          "partial": 61,
+          "opaque": 262,
+          "sites": 3614,
+          "spv_partial": 0.9275041505257332
+        },
+        {
+          "name": "crewai-examples",
+          "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+          "static": 54,
+          "partial": 3,
+          "opaque": 53,
+          "sites": 110,
+          "spv_partial": 0.5181818181818182
+        },
+        {
+          "name": "langgraph",
+          "sha": "38031739e551638e373fb553453256c23feeb41f",
+          "static": 26,
+          "partial": 4,
+          "opaque": 41,
+          "sites": 71,
+          "spv_partial": 0.4225352112676056
+        },
+        {
+          "name": "langchain",
+          "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+          "static": 631,
+          "partial": 40,
+          "opaque": 721,
+          "sites": 1392,
+          "spv_partial": 0.48204022988505746
+        },
+        {
+          "name": "autogen",
+          "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+          "static": 205,
+          "partial": 23,
+          "opaque": 131,
+          "sites": 359,
+          "spv_partial": 0.6350974930362117
+        },
+        {
+          "name": "metagpt",
+          "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+          "static": 186,
+          "partial": 94,
+          "opaque": 150,
+          "sites": 430,
+          "spv_partial": 0.6511627906976745
+        },
+        {
+          "name": "superagi",
+          "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+          "static": 38,
+          "partial": 7,
+          "opaque": 104,
+          "sites": 149,
+          "spv_partial": 0.30201342281879195
+        },
+        {
+          "name": "gpt-engineer",
+          "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+          "static": 20,
+          "partial": 6,
+          "opaque": 48,
+          "sites": 74,
+          "spv_partial": 0.35135135135135137
+        },
+        {
+          "name": "babyagi",
+          "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+          "static": 17,
+          "partial": 16,
+          "opaque": 3,
+          "sites": 36,
+          "spv_partial": 0.9166666666666666
+        },
+        {
+          "name": "camel",
+          "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+          "static": 380,
+          "partial": 87,
+          "opaque": 381,
+          "sites": 848,
+          "spv_partial": 0.5507075471698113
+        },
+        {
+          "name": "agentverse",
+          "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+          "static": 10,
+          "partial": 5,
+          "opaque": 26,
+          "sites": 41,
+          "spv_partial": 0.36585365853658536
+        },
+        {
+          "name": "open-interpreter",
+          "sha": "5b07159c477920c159d8892d112b480e7307f257",
+          "static": 9,
+          "partial": 2,
+          "opaque": 10,
+          "sites": 21,
+          "spv_partial": 0.5238095238095238
+        },
+        {
+          "name": "gpt-researcher",
+          "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+          "static": 44,
+          "partial": 22,
+          "opaque": 41,
+          "sites": 107,
+          "spv_partial": 0.616822429906542
+        },
+        {
+          "name": "chatdev",
+          "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+          "static": 6,
+          "partial": 3,
+          "opaque": 16,
+          "sites": 25,
+          "spv_partial": 0.36
+        },
+        {
+          "name": "agno",
+          "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+          "static": 2483,
+          "partial": 81,
+          "opaque": 487,
+          "sites": 3051,
+          "spv_partial": 0.8403802032120616
+        },
+        {
+          "name": "pydantic-ai",
+          "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+          "static": 670,
+          "partial": 19,
+          "opaque": 338,
+          "sites": 1027,
+          "spv_partial": 0.6708860759493671
+        },
+        {
+          "name": "smolagents",
+          "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+          "static": 17,
+          "partial": 2,
+          "opaque": 35,
+          "sites": 54,
+          "spv_partial": 0.35185185185185186
+        },
+        {
+          "name": "swarm",
+          "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+          "static": 31,
+          "partial": 0,
+          "opaque": 12,
+          "sites": 43,
+          "spv_partial": 0.7209302325581395
+        },
+        {
+          "name": "taskweaver",
+          "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+          "static": 6,
+          "partial": 3,
+          "opaque": 59,
+          "sites": 68,
+          "spv_partial": 0.1323529411764706
+        },
+        {
+          "name": "llama-index",
+          "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+          "static": 390,
+          "partial": 23,
+          "opaque": 929,
+          "sites": 1342,
+          "spv_partial": 0.30774962742175854
+        }
+      ]
+    }
+  },
+  "note": "Each level is strictly stronger than the last, and the classifier is monotone by construction (asserted in tests). The gain from L0 to L4 bounds how much of the unreadable share is attributable to analysis strength rather than to the programs."
+}
