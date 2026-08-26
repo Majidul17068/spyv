@@ -144,7 +144,7 @@ def test_discover_finds_langchain_patterns(tmp_path):
         "from langchain_core.messages import SystemMessage\n"
         "from langchain_core.prompts import ChatPromptTemplate, PromptTemplate\n"
         'm = SystemMessage(content="You are a research assistant. Always cite sources and never fabricate facts.")\n'
-        'm2 = SystemMessage("You are a triage nurse who escalates emergencies and never gives a diagnosis.")\n'
+        'm2 = SystemMessage("You are a support triage agent who escalates outages and never promises a refund.")\n'
         'tpl = ChatPromptTemplate.from_messages([("system", "You are a legal assistant. Never give binding legal advice."), ("user", "{q}")])\n'
         'pt = PromptTemplate(template="You are a SQL expert. Convert the question into a safe read-only query only.")\n'
     )
@@ -204,12 +204,12 @@ def test_discover_catches_fstring_prompts(tmp_path):
 
 def test_discover_catches_concatenated_prompts(tmp_path):
     (tmp_path / "concat.py").write_text(
-        'SYS_PROMPT = "You are a triage nurse. " + "Assess symptoms and escalate emergencies to a clinician."\n'
+        'SYS_PROMPT = "You are a support triage agent. " + "Assess tickets and escalate outages to an engineer."\n'
     )
     from spyv.discovery import discover
 
     prompts, _ = discover(tmp_path)
-    assert any("triage nurse" in p.system_prompt for p in prompts)
+    assert any("support triage agent" in p.system_prompt for p in prompts)
 
 
 def test_static_text_ignores_pure_dynamic_fstring():
