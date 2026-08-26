@@ -25,80 +25,80 @@ repos:
   - name: crewai
     url: https://github.com/crewAIInc/crewAI
     framework: crewai
-    sha: ""
+    sha: "871c9c5131f4097cf8c5bafe228e84b697361a43"
   - name: crewai-examples
     url: https://github.com/crewAIInc/crewAI-examples
     framework: crewai
-    sha: ""
+    sha: "da94a91e691e1cf5b3151416bb15b5b62729bea8"
   - name: langgraph
     url: https://github.com/langchain-ai/langgraph
     framework: langgraph
-    sha: ""
+    sha: "38031739e551638e373fb553453256c23feeb41f"
   - name: langchain
     url: https://github.com/langchain-ai/langchain
     framework: langchain
-    sha: ""
+    sha: "43bed06205603e6e4f0ce8fc80a73f92910a9cd5"
   - name: autogen
     url: https://github.com/microsoft/autogen
     framework: autogen
-    sha: ""
+    sha: "027ecf0a379bcc1d09956d46d12d44a3ad9cee14"
   - name: metagpt
     url: https://github.com/geekan/MetaGPT
     framework: custom
-    sha: ""
+    sha: "11cdf466d042aece04fc6cfd13b28e1a70341b1f"
   - name: superagi
     url: https://github.com/TransformerOptimus/SuperAGI
     framework: custom
-    sha: ""
+    sha: "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6"
   - name: gpt-engineer
     url: https://github.com/gpt-engineer-org/gpt-engineer
     framework: openai
-    sha: ""
+    sha: "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e"
   - name: babyagi
     url: https://github.com/yoheinakajima/babyagi
     framework: openai
-    sha: ""
+    sha: "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2"
   - name: camel
     url: https://github.com/camel-ai/camel
     framework: custom
-    sha: ""
+    sha: "13dc7a7dda66d943949e5448d55e70d5a9481cfe"
   - name: agentverse
     url: https://github.com/OpenBMB/AgentVerse
     framework: custom
-    sha: ""
+    sha: "f90c4bd9680fdd3bcff8c52c9170911a59b23478"
   - name: open-interpreter
     url: https://github.com/OpenInterpreter/open-interpreter
     framework: openai
-    sha: ""
+    sha: "5b07159c477920c159d8892d112b480e7307f257"
   - name: gpt-researcher
     url: https://github.com/assafelovic/gpt-researcher
     framework: langchain
-    sha: ""
+    sha: "6f998577d547b1e54ec662dac63583aa11e3b84b"
   - name: chatdev
     url: https://github.com/OpenBMB/ChatDev
     framework: custom
-    sha: ""
+    sha: "4fb2db0ea90375ce1059f44fe03ffbd191a7a169"
   - name: agno
     url: https://github.com/agno-agi/agno
     framework: custom
-    sha: ""
+    sha: "edeec13d9dad793c29b13468fb1bb90f46aa111f"
   - name: pydantic-ai
     url: https://github.com/pydantic/pydantic-ai
     framework: custom
-    sha: ""
+    sha: "b48ee3808631ea8796a7c3b6941863bde47e10be"
   - name: smolagents
     url: https://github.com/huggingface/smolagents
     framework: custom
-    sha: ""
+    sha: "30bb1161095dbae2271e6bc3cc4c219cc3897a57"
   - name: swarm
     url: https://github.com/openai/swarm
     framework: openai
-    sha: ""
+    sha: "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22"
   - name: taskweaver
     url: https://github.com/microsoft/TaskWeaver
     framework: custom
-    sha: ""
+    sha: "d44ddef23f90059fb17999d3095db4240e98f955"
   - name: llama-index
     url: https://github.com/run-llama/llama_index
     framework: custom
-    sha: ""
+    sha: "d8021225eb7e7b276d5ceb476b0a4650240f27f8"
