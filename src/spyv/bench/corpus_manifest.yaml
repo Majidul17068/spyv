@@ -1,0 +1,104 @@
+# Public agent-codebase corpus.
+#
+# Selection criteria, fixed BEFORE any repository was measured:
+#   1. Public, OSI-licensed, on GitHub.
+#   2. Contains agent/LLM prompt surface in Python (CrewAI, LangChain/LangGraph,
+#      OpenAI SDK, or a framework-free system prompt).
+#   3. Not a fork or a mirror of another entry.
+#   4. Not a tutorial repo consisting solely of a single notebook.
+#
+# Exclusions, also fixed in advance:
+#   - Any private, internal, or employer codebase. The corpus is public-only so
+#     the number is reproducible by a stranger, and so that no proprietary code
+#     is ever measured. This is enforced by construction: only repositories
+#     listed here are cloned, and each is fetched from its public URL.
+#   - spyv itself, which would be self-measurement.
+#
+# `sha` is filled in on first fetch and then frozen, so a rerun measures the
+# same bytes. An empty sha means "not yet pinned" -- the fetcher records the
+# resolved commit and the runner reports it alongside the result.
+
+version: 1
+corpus: public-agent-repos-v1
+
+repos:
+  - name: crewai
+    url: https://github.com/crewAIInc/crewAI
+    framework: crewai
+    sha: ""
+  - name: crewai-examples
+    url: https://github.com/crewAIInc/crewAI-examples
+    framework: crewai
+    sha: ""
+  - name: langgraph
+    url: https://github.com/langchain-ai/langgraph
+    framework: langgraph
+    sha: ""
+  - name: langchain
+    url: https://github.com/langchain-ai/langchain
+    framework: langchain
+    sha: ""
+  - name: autogen
+    url: https://github.com/microsoft/autogen
+    framework: autogen
+    sha: ""
+  - name: metagpt
+    url: https://github.com/geekan/MetaGPT
+    framework: custom
+    sha: ""
+  - name: superagi
+    url: https://github.com/TransformerOptimus/SuperAGI
+    framework: custom
+    sha: ""
+  - name: gpt-engineer
+    url: https://github.com/gpt-engineer-org/gpt-engineer
+    framework: openai
+    sha: ""
+  - name: babyagi
+    url: https://github.com/yoheinakajima/babyagi
+    framework: openai
+    sha: ""
+  - name: camel
+    url: https://github.com/camel-ai/camel
+    framework: custom
+    sha: ""
+  - name: agentverse
+    url: https://github.com/OpenBMB/AgentVerse
+    framework: custom
+    sha: ""
+  - name: open-interpreter
+    url: https://github.com/OpenInterpreter/open-interpreter
+    framework: openai
+    sha: ""
+  - name: gpt-researcher
+    url: https://github.com/assafelovic/gpt-researcher
+    framework: langchain
+    sha: ""
+  - name: chatdev
+    url: https://github.com/OpenBMB/ChatDev
+    framework: custom
+    sha: ""
+  - name: agno
+    url: https://github.com/agno-agi/agno
+    framework: custom
+    sha: ""
+  - name: pydantic-ai
+    url: https://github.com/pydantic/pydantic-ai
+    framework: custom
+    sha: ""
+  - name: smolagents
+    url: https://github.com/huggingface/smolagents
+    framework: custom
+    sha: ""
+  - name: swarm
+    url: https://github.com/openai/swarm
+    framework: openai
+    sha: ""
+  - name: taskweaver
+    url: https://github.com/microsoft/TaskWeaver
+    framework: custom
+    sha: ""
+  - name: llama-index
+    url: https://github.com/run-llama/llama_index
+    framework: custom
+    sha: ""
