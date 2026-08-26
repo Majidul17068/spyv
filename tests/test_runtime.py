@@ -122,3 +122,51 @@ def test_corrupting_static_text_degrades_correctness_monotonically():
         scores.append(compare(obs, mutated)["recovery"]["correctness"])
     assert scores == sorted(scores, reverse=True)
     assert scores[0] < 1.0 and scores[-1] == 0.0
+
+
+# --- the injected hook must survive a foreign virtualenv ---------------------
+
+
+def test_runtime_module_loads_by_path_without_importing_spyv():
+    """Capture runs inside the subject repo's venv, which lacks spyv's deps.
+
+    Importing spyv.bench.runtime pulls in spyv/__init__.py and the console
+    stack, so the hooks died with ModuleNotFoundError('rich') in every venv
+    that did not happen to install rich, and reported zero observations.
+    Registering in sys.modules is required too: @dataclass resolves its own
+    module through sys.modules[cls.__module__] while processing the class.
+    """
+    import importlib.util
+    import sys
+    from pathlib import Path
+
+    source = Path(__import__("spyv.bench.runtime", fromlist=["x"]).__file__)
+    name = "_spyv_runtime_isolated"
+    spec = importlib.util.spec_from_file_location(name, source)
+    module = importlib.util.module_from_spec(spec)
+    sys.modules[name] = module
+    try:
+        spec.loader.exec_module(module)
+        assert module.Recorder is not None
+        assert callable(module.install)
+        rec = module.Recorder()
+        rec.add("Agent.role", "hello")
+        assert len(rec.observations) == 1
+    finally:
+        sys.modules.pop(name, None)
+
+
+def test_injected_sitecustomize_registers_the_module_before_executing():
+    """Guards the ordering, which is what actually broke."""
+    from spyv.bench.runtime import _SITECUSTOMIZE
+
+    body = _SITECUSTOMIZE
+    assert "sys.modules[" in body
+    assert body.index("sys.modules[") < body.index("exec_module")
+
+    # It must not reach for the spyv package inside the subject's interpreter.
+    # Checked on code lines only: the comments deliberately mention the import
+    # they exist to warn against.
+    code = "\n".join(ln for ln in body.splitlines()
+                      if not ln.lstrip().startswith(("#", '"""')))
+    assert "import spyv" not in code and "from spyv" not in code
