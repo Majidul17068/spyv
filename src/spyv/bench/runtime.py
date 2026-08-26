@@ -385,24 +385,40 @@ __all__ = ["Observation", "Recorder", "compare", "install", "load", "save", "uni
 # running a repository's own test suite under the hooks
 # ---------------------------------------------------------------------------
 _SITECUSTOMIZE = '''"""Injected by spyv to capture prompt construction. Not part of the project."""
-import atexit, json, os, sys
+import atexit, importlib.util, sys
 
-sys.path.insert(0, {spyv_src!r})
+# Load this module by path rather than importing the spyv package. Capture runs
+# inside the subject repository's virtualenv, which has no obligation to carry
+# spyv's dependencies, and `import spyv` pulls in the console stack through
+# spyv/__init__.py. Every held-out repository silently captured nothing because
+# `rich` was absent, and the hook failure was written to a stderr nobody read.
 try:
-    from spyv.bench.runtime import Recorder, install, save
-    from pathlib import Path
+    _spec = importlib.util.spec_from_file_location("_spyv_runtime", {runtime_file!r})
+    _mod = importlib.util.module_from_spec(_spec)
+    _spec.loader.exec_module(_mod)
 
-    _rec = Recorder()
-    install(_rec)
+    _rec = _mod.Recorder()
+    _mod.install(_rec)
 
     @atexit.register
     def _dump():
+        from pathlib import Path
         try:
-            save(_rec, Path({out!r}))
-        except Exception:
-            pass
+            _mod.save(_rec, Path({out!r}))
+        except Exception as exc:
+            sys.stderr.write("spyv capture failed to save: %r\\n" % (exc,))
 except Exception as exc:  # capture must never break the suite it observes
     sys.stderr.write("spyv runtime hook failed: %r\\n" % (exc,))
+    # Leave a breadcrumb: a run that captured nothing must be distinguishable
+    # from a run whose hooks never installed.
+    try:
+        import json as _json
+        from pathlib import Path as _P
+        _P({out!r}).parent.mkdir(parents=True, exist_ok=True)
+        _P({out!r}).write_text(_json.dumps(
+            {{"observations": [], "hook_errors": {{"install_failed": repr(exc)}}}}))
+    except Exception:
+        pass
 '''
 
 
@@ -427,11 +443,12 @@ def run_test_suite(
 
     repo_path = Path(repo).resolve()
     out_path = Path(out).resolve()
-    spyv_src = str(Path(__file__).resolve().parents[2])
+    runtime_file = str(Path(__file__).resolve())
 
     with tempfile.TemporaryDirectory() as tmp:
         (Path(tmp) / "sitecustomize.py").write_text(
-            _SITECUSTOMIZE.format(spyv_src=spyv_src, out=str(out_path)), encoding="utf-8"
+            _SITECUSTOMIZE.format(runtime_file=runtime_file, out=str(out_path)),
+            encoding="utf-8",
         )
         env = dict(os.environ)
         env["PYTHONPATH"] = tmp + os.pathsep + env.get("PYTHONPATH", "")
