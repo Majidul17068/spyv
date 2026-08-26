@@ -114,6 +114,28 @@ _GENERIC_KWARGS = ("system_prompt", "system_message", "system_instruction",
                    "instructions", "preamble", "persona")
 
 
+def _record_messages(rec: Recorder, messages: Any) -> None:
+    """Record system-role content from a provider `messages` argument.
+
+    Only the system role is taken: user turns are runtime input, not authored
+    instruction text, and counting them would inflate the observation set with
+    strings no prompt site could ever have supplied.
+    """
+    if not isinstance(messages, list):
+        return
+    for msg in messages:
+        role = msg.get("role") if isinstance(msg, dict) else getattr(msg, "role", None)
+        if role != "system":
+            continue
+        content = msg.get("content") if isinstance(msg, dict) else getattr(msg, "content", None)
+        if isinstance(content, str):
+            rec.add("message.system", content)
+        elif isinstance(content, list):
+            for block in content:
+                if isinstance(block, dict) and block.get("type") == "text":
+                    rec.add("message.system", block.get("text"))
+
+
 def _wrap_init(cls: Any, fields: tuple[str, ...], prefix: str, rec: Recorder) -> Any:
     original = cls.__init__
 
@@ -159,6 +181,16 @@ def install(rec: Recorder) -> list[tuple[Any, str, Any]]:
     except Exception:
         rec.errors["langchain_unavailable"] += 1
 
+    # pydantic-ai carries the prompt on its own Agent, and its tests drive a
+    # TestModel rather than a provider, so no provider hook ever fires.
+    try:
+        import pydantic_ai  # type: ignore
+
+        undo.append((pydantic_ai.Agent, "__init__",
+                     _wrap_init(pydantic_ai.Agent, _GENERIC_KWARGS, "Agent", rec)))
+    except Exception:
+        rec.errors["pydantic_ai_unavailable"] += 1
+
     # OpenAI chat completions: the system message is the prompt that ships.
     try:
         from openai.resources.chat import completions as oc  # type: ignore
@@ -166,15 +198,35 @@ def install(rec: Recorder) -> list[tuple[Any, str, Any]]:
         original_create = oc.Completions.create
 
         def patched_create(self: Any, *a: Any, **kw: Any) -> Any:
-            for msg in kw.get("messages", []) or []:
-                if isinstance(msg, dict) and msg.get("role") == "system":
-                    rec.add("message.system", msg.get("content"))
+            _record_messages(rec, kw.get("messages"))
             return original_create(self, *a, **kw)
 
         oc.Completions.create = patched_create
         undo.append((oc.Completions, "create", original_create))
     except Exception:
         rec.errors["openai_unavailable"] += 1
+
+    # Anthropic puts the system prompt in its own top-level argument.
+    try:
+        from anthropic.resources import messages as am  # type: ignore
+
+        original_msg = am.Messages.create
+
+        def patched_msg(self: Any, *a: Any, **kw: Any) -> Any:
+            system = kw.get("system")
+            if isinstance(system, str):
+                rec.add("message.system", system)
+            elif isinstance(system, list):
+                for block in system:
+                    if isinstance(block, dict):
+                        rec.add("message.system", block.get("text"))
+            _record_messages(rec, kw.get("messages"))
+            return original_msg(self, *a, **kw)
+
+        am.Messages.create = patched_msg
+        undo.append((am.Messages, "create", original_msg))
+    except Exception:
+        rec.errors["anthropic_unavailable"] += 1
 
     return undo
 
