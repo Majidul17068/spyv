@@ -264,6 +264,24 @@ def _skeleton_matches(static_text: str, runtime_text: str) -> bool:
     return True
 
 
+# One authored system instruction has several spellings, and the runtime hook
+# does not see which one was written. langchain normalises a
+# {"role": "system", ...} dict into a SystemMessage before our constructor hook
+# fires, so the hook reports "SystemMessage" for a site the static pass names
+# "message.system". Matching on the raw name scored a held-out repository at
+# 7.4% recall purely on this mismatch. Canonicalise for matching only; reporting
+# keeps the observed name.
+_CONSTRUCT_ALIASES = {
+    "SystemMessage": "system-instruction",
+    "SystemMessagePromptTemplate": "system-instruction",
+    "message.system": "system-instruction",
+}
+
+
+def _canonical_construct(name: str) -> str:
+    return _CONSTRUCT_ALIASES.get(name, name)
+
+
 def _site_matches_line(site: Any, line: int) -> bool:
     """Does a runtime line fall inside this site's enclosing expression?"""
     start = getattr(site, "call_line", 0) or site.line
@@ -280,9 +298,10 @@ def _resolve(obs: Observation, by_key: dict[tuple[str, str], list[Any]]) -> tupl
     authored site (depth 0) from one reached through framework re-materialisation.
     """
     frames = obs.stack or [[obs.file, obs.line]]
+    want = _canonical_construct(obs.construct)
     for depth, entry in enumerate(frames):
         path, line = entry[0], entry[1]
-        candidates = by_key.get((path, obs.construct))
+        candidates = by_key.get((path, want))
         if not candidates:
             continue
         spanned = [c for c in candidates if _site_matches_line(c, line)]
@@ -296,7 +315,7 @@ def compare(observations: list[Observation], sites: list[Any]) -> dict[str, Any]
     """Diff runtime observations against static sites."""
     by_key: dict[tuple[str, str], list[Any]] = {}
     for s in sites:
-        by_key.setdefault((s.file, s.construct), []).append(s)
+        by_key.setdefault((s.file, _canonical_construct(s.construct)), []).append(s)
 
     matched = missed = 0
     direct = 0  # matched at stack depth 0: the frame that wrote the text

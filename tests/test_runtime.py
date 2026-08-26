@@ -170,3 +170,22 @@ def test_injected_sitecustomize_registers_the_module_before_executing():
     code = "\n".join(ln for ln in body.splitlines()
                       if not ln.lstrip().startswith(("#", '"""')))
     assert "import spyv" not in code and "from spyv" not in code
+
+
+def test_system_message_spellings_match_the_same_site():
+    """langchain turns a role/content dict into a SystemMessage before we see it.
+
+    The hook therefore reports "SystemMessage" for a site the static pass names
+    "message.system". Matching on the raw name scored a held-out repository at
+    7.4% recall on this alone.
+    """
+    site = _site(construct="message.system", text="Be terse")
+    r = compare([_obs("SystemMessage", "Be terse", [("a.py", 1)])], [site])
+    assert r["observed_but_not_enumerated"] == 0
+    assert r["recovery"]["exact"] == 1
+
+
+def test_unrelated_constructs_still_do_not_match():
+    site = _site(construct="Agent.role", text="Be terse")
+    r = compare([_obs("SystemMessage", "Be terse", [("a.py", 1)])], [site])
+    assert r["observed_but_not_enumerated"] == 1
