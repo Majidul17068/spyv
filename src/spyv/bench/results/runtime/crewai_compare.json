@@ -1,0 +1,194 @@
+{
+  "observations": 2801,
+  "matched_to_a_static_site": 2695,
+  "matched_at_authoring_frame": 2388,
+  "matched_via_framework_reuse": 307,
+  "observed_but_not_enumerated": 106,
+  "recall_of_site_enumeration": 0.9621563727240271,
+  "recovery": {
+    "exact": 2215,
+    "skeleton_consistent": 5,
+    "wrong": 0,
+    "site_was_opaque": 81,
+    "not_line_resolvable": 394,
+    "correctness": 1.0,
+    "note": "Correctness is over sites where the static pass claimed text AND the site was exercised AND an enumerated expression spans the executing line. Opaque sites are excluded: they make no claim to be wrong about. Observations that resolve only to a file and construct are counted in not_line_resolvable rather than scored, since text equality would not be attributable to a specific enumerated expression."
+  },
+  "examples": [
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "Worker"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "Do work"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "Does things."
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "Manager"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "Coordinate work"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "Keeps the work moving."
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.description",
+      "runtime_text": "Do work"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.expected_output",
+      "runtime_text": "Work done"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "researcher role"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "researcher goal"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "researcher backstory"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "writer role"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "writer goal"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "writer backstory"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.description",
+      "runtime_text": "Do research"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.expected_output",
+      "runtime_text": "Findings"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.description",
+      "runtime_text": "Write report"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.expected_output",
+      "runtime_text": "Report"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "worker role"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "worker goal"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "worker backstory"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.role",
+      "runtime_text": "manager role"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.goal",
+      "runtime_text": "manager goal"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 103,
+      "construct": "Agent.backstory",
+      "runtime_text": "manager backstory"
+    },
+    {
+      "kind": "missed_site",
+      "file": "lib/crewai/src/crewai/project/crew_loader.py",
+      "line": 135,
+      "construct": "Task.description",
+      "runtime_text": "Do work"
+    }
+  ]
+}

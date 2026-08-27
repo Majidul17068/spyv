@@ -72,3 +72,10 @@ def test_demonstrative_repo_puts_every_site_in_scaffolding():
     assert r.production == [] and len(r.scaffolding) == 2
     assert r.has_production is False
     assert r.metrics()["scaffolding_share"] == 1.0
+
+
+def test_cohort_defaults_to_original_for_unmarked_manifest_entries():
+    """Existing entries predate the expansion, so absence means the original 20."""
+    from spyv.bench.fetch import RepoRef
+
+    assert RepoRef(name="a", url="https://x/y").cohort == "original"

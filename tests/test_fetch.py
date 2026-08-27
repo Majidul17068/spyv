@@ -90,5 +90,6 @@ def test_repo_ref_serializes_for_the_results_file():
         "framework": "crewai",
         "sha": "deadbeef",
         "demonstrative": False,
+        "cohort": "original",
         "error": None,
     }

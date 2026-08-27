@@ -337,6 +337,7 @@ def run_stratified() -> dict[str, Any]:
             continue
         row = stratify(ref.name, result.sites, demonstrative=ref.demonstrative).metrics()
         row["framework"] = ref.framework
+        row["cohort"] = ref.cohort
         rows.append(row)
 
     out: dict[str, Any] = {"repos": rows, "strata": {}}
@@ -346,17 +347,38 @@ def run_stratified() -> dict[str, Any]:
     out["scaffolding_share_pooled"] = total_scaf / denom if denom else None
     out["excluded_no_production"] = [r["repo"] for r in rows if not r["has_production"]]
 
-    for key in ("all_paths", "production", "scaffolding"):
-        vals = [r[key]["spv_partial"] for r in rows if r[key]["sites"]]
-        ks = [r[key]["static"] + r[key]["partial"] for r in rows if r[key]["sites"]]
-        ns = [r[key]["sites"] for r in rows if r[key]["sites"]]
+    def summarise(subset: list[dict[str, Any]], key: str) -> dict[str, Any] | None:
+        vals = [r[key]["spv_partial"] for r in subset if r[key]["sites"]]
+        if not vals:
+            return None
+        ks = [r[key]["static"] + r[key]["partial"] for r in subset if r[key]["sites"]]
+        ns = [r[key]["sites"] for r in subset if r[key]["sites"]]
         lo, hi = cluster_bootstrap(vals, st.median)
-        out["strata"][key] = {
+        summary = {
             "repos": len(vals),
             "median_spv_partial": st.median(vals),
             "ci95": [lo, hi],
             "pooled_spv_partial": sum(ks) / sum(ns) if ns else None,
-            "design_effect": design_effect([k / n for k, n in zip(ks, ns, strict=False)], ns),
+        }
+        if len(ns) > 1:
+            summary["design_effect"] = design_effect(
+                [k / n for k, n in zip(ks, ns, strict=False)], ns)
+        return summary
+
+    for key in ("all_paths", "production", "scaffolding"):
+        out["strata"][key] = summarise(rows, key)
+
+    # PROTOCOL_CORPUS.md commits to reporting the two selection processes
+    # separately, whichever way the comparison falls. The mechanically selected
+    # cohort is the only one with a defined procedure and acts as a check on the
+    # convenience sample.
+    out["by_cohort"] = {}
+    for cohort in sorted({r["cohort"] for r in rows}):
+        subset = [r for r in rows if r["cohort"] == cohort]
+        out["by_cohort"][cohort] = {
+            "repos": len(subset),
+            "strata": {k: summarise(subset, k) for k in
+                       ("all_paths", "production", "scaffolding")},
         }
     return out
 

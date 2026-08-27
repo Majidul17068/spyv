@@ -36,6 +36,10 @@ class RepoRef:
     # detect this: an examples collection's internal paths look ordinary, so no
     # directory component marks them. Declared per repository instead.
     demonstrative: bool = False
+    # Which selection process produced this entry. The original twenty were
+    # chosen by convenience and the expansion mechanically, so a mixed corpus
+    # has no single sampling interpretation and the two must stay separable.
+    cohort: str = "original"
     path: Path | None = None
     error: str | None = None
 
@@ -46,6 +50,7 @@ class RepoRef:
             "framework": self.framework,
             "sha": self.sha,
             "demonstrative": self.demonstrative,
+            "cohort": self.cohort,
             "error": self.error,
         }
 
@@ -69,6 +74,7 @@ def load_manifest(path: str | Path | None = None) -> list[RepoRef]:
                 framework=str(entry.get("framework", "unknown")),
                 sha=str(entry.get("sha") or ""),
                 demonstrative=bool(entry.get("demonstrative", False)),
+                cohort=str(entry.get("cohort", "original")),
             )
         )
     return refs
