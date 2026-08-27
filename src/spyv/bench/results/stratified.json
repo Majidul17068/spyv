@@ -29,7 +29,8 @@
       "scaffolding_share": 0.9200332042058661,
       "has_production": true,
       "demonstrative": false,
-      "framework": "crewai"
+      "framework": "crewai",
+      "cohort": "original"
     },
     {
       "repo": "crewai-examples",
@@ -60,7 +61,8 @@
       "scaffolding_share": 1.0,
       "has_production": false,
       "demonstrative": true,
-      "framework": "crewai"
+      "framework": "crewai",
+      "cohort": "original"
     },
     {
       "repo": "langgraph",
@@ -91,7 +93,8 @@
       "scaffolding_share": 0.8028169014084507,
       "has_production": true,
       "demonstrative": false,
-      "framework": "langgraph"
+      "framework": "langgraph",
+      "cohort": "original"
     },
     {
       "repo": "langchain",
@@ -122,7 +125,8 @@
       "scaffolding_share": 0.5984195402298851,
       "has_production": true,
       "demonstrative": false,
-      "framework": "langchain"
+      "framework": "langchain",
+      "cohort": "original"
     },
     {
       "repo": "autogen",
@@ -153,7 +157,8 @@
       "scaffolding_share": 0.6044568245125348,
       "has_production": true,
       "demonstrative": false,
-      "framework": "autogen"
+      "framework": "autogen",
+      "cohort": "original"
     },
     {
       "repo": "metagpt",
@@ -184,7 +189,8 @@
       "scaffolding_share": 0.20465116279069767,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "superagi",
@@ -215,7 +221,8 @@
       "scaffolding_share": 0.22818791946308725,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "gpt-engineer",
@@ -246,7 +253,8 @@
       "scaffolding_share": 0.6081081081081081,
       "has_production": true,
       "demonstrative": false,
-      "framework": "openai"
+      "framework": "openai",
+      "cohort": "original"
     },
     {
       "repo": "babyagi",
@@ -277,7 +285,8 @@
       "scaffolding_share": 0.0,
       "has_production": true,
       "demonstrative": false,
-      "framework": "openai"
+      "framework": "openai",
+      "cohort": "original"
     },
     {
       "repo": "camel",
@@ -308,7 +317,8 @@
       "scaffolding_share": 0.6214622641509434,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "agentverse",
@@ -339,7 +349,8 @@
       "scaffolding_share": 0.04878048780487805,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "open-interpreter",
@@ -370,7 +381,8 @@
       "scaffolding_share": 0.6666666666666666,
       "has_production": true,
       "demonstrative": false,
-      "framework": "openai"
+      "framework": "openai",
+      "cohort": "original"
     },
     {
       "repo": "gpt-researcher",
@@ -401,7 +413,8 @@
       "scaffolding_share": 0.14018691588785046,
       "has_production": true,
       "demonstrative": false,
-      "framework": "langchain"
+      "framework": "langchain",
+      "cohort": "original"
     },
     {
       "repo": "chatdev",
@@ -432,7 +445,8 @@
       "scaffolding_share": 0.0,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "agno",
@@ -463,7 +477,8 @@
       "scaffolding_share": 0.8846279908226811,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "pydantic-ai",
@@ -494,7 +509,8 @@
       "scaffolding_share": 0.7848101265822784,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "smolagents",
@@ -525,7 +541,8 @@
       "scaffolding_share": 0.5185185185185185,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "swarm",
@@ -556,7 +573,8 @@
       "scaffolding_share": 0.9302325581395349,
       "has_production": true,
       "demonstrative": false,
-      "framework": "openai"
+      "framework": "openai",
+      "cohort": "original"
     },
     {
       "repo": "taskweaver",
@@ -587,7 +605,8 @@
       "scaffolding_share": 0.11764705882352941,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
     },
     {
       "repo": "llama-index",
@@ -618,64 +637,1139 @@
       "scaffolding_share": 0.3390461997019374,
       "has_production": true,
       "demonstrative": false,
-      "framework": "custom"
+      "framework": "custom",
+      "cohort": "original"
+    },
+    {
+      "repo": "hermes-agent",
+      "all_paths": {
+        "sites": 1411,
+        "static": 551,
+        "partial": 57,
+        "opaque": 803,
+        "spv_static": 0.3905031892274982,
+        "spv_partial": 0.43090007087172216
+      },
+      "production": {
+        "sites": 700,
+        "static": 115,
+        "partial": 44,
+        "opaque": 541,
+        "spv_static": 0.16428571428571428,
+        "spv_partial": 0.22714285714285715
+      },
+      "scaffolding": {
+        "sites": 711,
+        "static": 436,
+        "partial": 13,
+        "opaque": 262,
+        "spv_static": 0.6132208157524613,
+        "spv_partial": 0.6315049226441631
+      },
+      "scaffolding_share": 0.5038979447200567,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "awesome-llm-apps",
+      "all_paths": {
+        "sites": 481,
+        "static": 249,
+        "partial": 111,
+        "opaque": 121,
+        "spv_static": 0.5176715176715176,
+        "spv_partial": 0.7484407484407485
+      },
+      "production": {
+        "sites": 479,
+        "static": 249,
+        "partial": 111,
+        "opaque": 119,
+        "spv_static": 0.5198329853862212,
+        "spv_partial": 0.7515657620041754
+      },
+      "scaffolding": {
+        "sites": 2,
+        "static": 0,
+        "partial": 0,
+        "opaque": 2,
+        "spv_static": 0.0,
+        "spv_partial": 0.0
+      },
+      "scaffolding_share": 0.004158004158004158,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "agno",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "moneyprinterturbo",
+      "all_paths": {
+        "sites": 40,
+        "static": 1,
+        "partial": 0,
+        "opaque": 39,
+        "spv_static": 0.025,
+        "spv_partial": 0.025
+      },
+      "production": {
+        "sites": 32,
+        "static": 1,
+        "partial": 0,
+        "opaque": 31,
+        "spv_static": 0.03125,
+        "spv_partial": 0.03125
+      },
+      "scaffolding": {
+        "sites": 8,
+        "static": 0,
+        "partial": 0,
+        "opaque": 8,
+        "spv_static": 0.0,
+        "spv_partial": 0.0
+      },
+      "scaffolding_share": 0.2,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "browser-use",
+      "all_paths": {
+        "sites": 202,
+        "static": 39,
+        "partial": 23,
+        "opaque": 140,
+        "spv_static": 0.19306930693069307,
+        "spv_partial": 0.3069306930693069
+      },
+      "production": {
+        "sites": 99,
+        "static": 10,
+        "partial": 14,
+        "opaque": 75,
+        "spv_static": 0.10101010101010101,
+        "spv_partial": 0.24242424242424243
+      },
+      "scaffolding": {
+        "sites": 103,
+        "static": 29,
+        "partial": 9,
+        "opaque": 65,
+        "spv_static": 0.2815533980582524,
+        "spv_partial": 0.36893203883495146
+      },
+      "scaffolding_share": 0.5099009900990099,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "tradingagents",
+      "all_paths": {
+        "sites": 47,
+        "static": 3,
+        "partial": 13,
+        "opaque": 31,
+        "spv_static": 0.06382978723404255,
+        "spv_partial": 0.3404255319148936
+      },
+      "production": {
+        "sites": 40,
+        "static": 3,
+        "partial": 13,
+        "opaque": 24,
+        "spv_static": 0.075,
+        "spv_partial": 0.4
+      },
+      "scaffolding": {
+        "sites": 7,
+        "static": 0,
+        "partial": 0,
+        "opaque": 7,
+        "spv_static": 0.0,
+        "spv_partial": 0.0
+      },
+      "scaffolding_share": 0.14893617021276595,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain-core",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "paddleocr",
+      "all_paths": {
+        "sites": 7,
+        "static": 0,
+        "partial": 1,
+        "opaque": 6,
+        "spv_static": 0.0,
+        "spv_partial": 0.14285714285714285
+      },
+      "production": {
+        "sites": 7,
+        "static": 0,
+        "partial": 1,
+        "opaque": 6,
+        "spv_static": 0.0,
+        "spv_partial": 0.14285714285714285
+      },
+      "scaffolding": {
+        "sites": 0,
+        "static": 0,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": null,
+        "spv_partial": null
+      },
+      "scaffolding_share": 0.0,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain-core",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "deer-flow",
+      "all_paths": {
+        "sites": 409,
+        "static": 196,
+        "partial": 24,
+        "opaque": 189,
+        "spv_static": 0.4792176039119804,
+        "spv_partial": 0.5378973105134475
+      },
+      "production": {
+        "sites": 119,
+        "static": 40,
+        "partial": 17,
+        "opaque": 62,
+        "spv_static": 0.33613445378151263,
+        "spv_partial": 0.4789915966386555
+      },
+      "scaffolding": {
+        "sites": 290,
+        "static": 156,
+        "partial": 7,
+        "opaque": 127,
+        "spv_static": 0.5379310344827586,
+        "spv_partial": 0.5620689655172414
+      },
+      "scaffolding_share": 0.7090464547677262,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "learn-claude-code",
+      "all_paths": {
+        "sites": 64,
+        "static": 8,
+        "partial": 40,
+        "opaque": 16,
+        "spv_static": 0.125,
+        "spv_partial": 0.75
+      },
+      "production": {
+        "sites": 60,
+        "static": 8,
+        "partial": 40,
+        "opaque": 12,
+        "spv_static": 0.13333333333333333,
+        "spv_partial": 0.8
+      },
+      "scaffolding": {
+        "sites": 4,
+        "static": 0,
+        "partial": 0,
+        "opaque": 4,
+        "spv_static": 0.0,
+        "spv_partial": 0.0
+      },
+      "scaffolding_share": 0.0625,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "mem0",
+      "all_paths": {
+        "sites": 123,
+        "static": 70,
+        "partial": 11,
+        "opaque": 42,
+        "spv_static": 0.5691056910569106,
+        "spv_partial": 0.6585365853658537
+      },
+      "production": {
+        "sites": 43,
+        "static": 8,
+        "partial": 4,
+        "opaque": 31,
+        "spv_static": 0.18604651162790697,
+        "spv_partial": 0.27906976744186046
+      },
+      "scaffolding": {
+        "sites": 80,
+        "static": 62,
+        "partial": 7,
+        "opaque": 11,
+        "spv_static": 0.775,
+        "spv_partial": 0.8625
+      },
+      "scaffolding_share": 0.6504065040650406,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "daily_stock_analysis",
+      "all_paths": {
+        "sites": 242,
+        "static": 97,
+        "partial": 9,
+        "opaque": 136,
+        "spv_static": 0.40082644628099173,
+        "spv_partial": 0.4380165289256198
+      },
+      "production": {
+        "sites": 120,
+        "static": 34,
+        "partial": 7,
+        "opaque": 79,
+        "spv_static": 0.2833333333333333,
+        "spv_partial": 0.3416666666666667
+      },
+      "scaffolding": {
+        "sites": 122,
+        "static": 63,
+        "partial": 2,
+        "opaque": 57,
+        "spv_static": 0.5163934426229508,
+        "spv_partial": 0.5327868852459017
+      },
+      "scaffolding_share": 0.5041322314049587,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "ai-engineering-from-scratch",
+      "all_paths": {
+        "sites": 146,
+        "static": 54,
+        "partial": 4,
+        "opaque": 88,
+        "spv_static": 0.3698630136986301,
+        "spv_partial": 0.3972602739726027
+      },
+      "production": {
+        "sites": 124,
+        "static": 52,
+        "partial": 4,
+        "opaque": 68,
+        "spv_static": 0.41935483870967744,
+        "spv_partial": 0.45161290322580644
+      },
+      "scaffolding": {
+        "sites": 22,
+        "static": 2,
+        "partial": 0,
+        "opaque": 20,
+        "spv_static": 0.09090909090909091,
+        "spv_partial": 0.09090909090909091
+      },
+      "scaffolding_share": 0.1506849315068493,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "nanobot",
+      "all_paths": {
+        "sites": 189,
+        "static": 73,
+        "partial": 5,
+        "opaque": 111,
+        "spv_static": 0.3862433862433862,
+        "spv_partial": 0.4126984126984127
+      },
+      "production": {
+        "sites": 43,
+        "static": 10,
+        "partial": 5,
+        "opaque": 28,
+        "spv_static": 0.23255813953488372,
+        "spv_partial": 0.3488372093023256
+      },
+      "scaffolding": {
+        "sites": 146,
+        "static": 63,
+        "partial": 0,
+        "opaque": 83,
+        "spv_static": 0.4315068493150685,
+        "spv_partial": 0.4315068493150685
+      },
+      "scaffolding_share": 0.7724867724867724,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "agentic-awesome-skills",
+      "all_paths": {
+        "sites": 251,
+        "static": 41,
+        "partial": 31,
+        "opaque": 179,
+        "spv_static": 0.16334661354581673,
+        "spv_partial": 0.2868525896414343
+      },
+      "production": {
+        "sites": 6,
+        "static": 6,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": 1.0,
+        "spv_partial": 1.0
+      },
+      "scaffolding": {
+        "sites": 245,
+        "static": 35,
+        "partial": 31,
+        "opaque": 179,
+        "spv_static": 0.14285714285714285,
+        "spv_partial": 0.2693877551020408
+      },
+      "scaffolding_share": 0.9760956175298805,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "ai-agent-book",
+      "all_paths": {
+        "sites": 792,
+        "static": 312,
+        "partial": 127,
+        "opaque": 353,
+        "spv_static": 0.3939393939393939,
+        "spv_partial": 0.5542929292929293
+      },
+      "production": {
+        "sites": 667,
+        "static": 232,
+        "partial": 117,
+        "opaque": 318,
+        "spv_static": 0.34782608695652173,
+        "spv_partial": 0.5232383808095952
+      },
+      "scaffolding": {
+        "sites": 125,
+        "static": 80,
+        "partial": 10,
+        "opaque": 35,
+        "spv_static": 0.64,
+        "spv_partial": 0.72
+      },
+      "scaffolding_share": 0.15782828282828282,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "langchain-chatchat",
+      "all_paths": {
+        "sites": 75,
+        "static": 12,
+        "partial": 1,
+        "opaque": 62,
+        "spv_static": 0.16,
+        "spv_partial": 0.17333333333333334
+      },
+      "production": {
+        "sites": 74,
+        "static": 12,
+        "partial": 1,
+        "opaque": 61,
+        "spv_static": 0.16216216216216217,
+        "spv_partial": 0.17567567567567569
+      },
+      "scaffolding": {
+        "sites": 1,
+        "static": 0,
+        "partial": 0,
+        "opaque": 1,
+        "spv_static": 0.0,
+        "spv_partial": 0.0
+      },
+      "scaffolding_share": 0.013333333333333334,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "deeptutor",
+      "all_paths": {
+        "sites": 496,
+        "static": 95,
+        "partial": 17,
+        "opaque": 384,
+        "spv_static": 0.19153225806451613,
+        "spv_partial": 0.22580645161290322
+      },
+      "production": {
+        "sites": 408,
+        "static": 53,
+        "partial": 17,
+        "opaque": 338,
+        "spv_static": 0.12990196078431374,
+        "spv_partial": 0.1715686274509804
+      },
+      "scaffolding": {
+        "sites": 88,
+        "static": 42,
+        "partial": 0,
+        "opaque": 46,
+        "spv_static": 0.4772727272727273,
+        "spv_partial": 0.4772727272727273
+      },
+      "scaffolding_share": 0.1774193548387097,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "500-ai-agents-projects",
+      "all_paths": {
+        "sites": 103,
+        "static": 82,
+        "partial": 20,
+        "opaque": 1,
+        "spv_static": 0.7961165048543689,
+        "spv_partial": 0.9902912621359223
+      },
+      "production": {
+        "sites": 103,
+        "static": 82,
+        "partial": 20,
+        "opaque": 1,
+        "spv_static": 0.7961165048543689,
+        "spv_partial": 0.9902912621359223
+      },
+      "scaffolding": {
+        "sites": 0,
+        "static": 0,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": null,
+        "spv_partial": null
+      },
+      "scaffolding_share": 0.0,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "crewai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "pageindex",
+      "all_paths": {
+        "sites": 40,
+        "static": 15,
+        "partial": 17,
+        "opaque": 8,
+        "spv_static": 0.375,
+        "spv_partial": 0.8
+      },
+      "production": {
+        "sites": 37,
+        "static": 14,
+        "partial": 17,
+        "opaque": 6,
+        "spv_static": 0.3783783783783784,
+        "spv_partial": 0.8378378378378378
+      },
+      "scaffolding": {
+        "sites": 3,
+        "static": 1,
+        "partial": 0,
+        "opaque": 2,
+        "spv_static": 0.3333333333333333,
+        "spv_partial": 0.3333333333333333
+      },
+      "scaffolding_share": 0.075,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "qwenpaw",
+      "all_paths": {
+        "sites": 355,
+        "static": 97,
+        "partial": 23,
+        "opaque": 235,
+        "spv_static": 0.27323943661971833,
+        "spv_partial": 0.3380281690140845
+      },
+      "production": {
+        "sites": 241,
+        "static": 81,
+        "partial": 23,
+        "opaque": 137,
+        "spv_static": 0.3360995850622407,
+        "spv_partial": 0.4315352697095436
+      },
+      "scaffolding": {
+        "sites": 114,
+        "static": 16,
+        "partial": 0,
+        "opaque": 98,
+        "spv_static": 0.14035087719298245,
+        "spv_partial": 0.14035087719298245
+      },
+      "scaffolding_share": 0.3211267605633803,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "sglang",
+      "all_paths": {
+        "sites": 1187,
+        "static": 387,
+        "partial": 19,
+        "opaque": 781,
+        "spv_static": 0.32603201347935973,
+        "spv_partial": 0.34203875315922494
+      },
+      "production": {
+        "sites": 502,
+        "static": 97,
+        "partial": 1,
+        "opaque": 404,
+        "spv_static": 0.19322709163346613,
+        "spv_partial": 0.1952191235059761
+      },
+      "scaffolding": {
+        "sites": 685,
+        "static": 290,
+        "partial": 18,
+        "opaque": 377,
+        "spv_static": 0.4233576642335766,
+        "spv_partial": 0.44963503649635034
+      },
+      "scaffolding_share": 0.5770850884582982,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "vibe-trading",
+      "all_paths": {
+        "sites": 147,
+        "static": 69,
+        "partial": 6,
+        "opaque": 72,
+        "spv_static": 0.46938775510204084,
+        "spv_partial": 0.5102040816326531
+      },
+      "production": {
+        "sites": 59,
+        "static": 12,
+        "partial": 6,
+        "opaque": 41,
+        "spv_static": 0.2033898305084746,
+        "spv_partial": 0.3050847457627119
+      },
+      "scaffolding": {
+        "sites": 88,
+        "static": 57,
+        "partial": 0,
+        "opaque": 31,
+        "spv_static": 0.6477272727272727,
+        "spv_partial": 0.6477272727272727
+      },
+      "scaffolding_share": 0.5986394557823129,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "graphiti",
+      "all_paths": {
+        "sites": 52,
+        "static": 24,
+        "partial": 11,
+        "opaque": 17,
+        "spv_static": 0.46153846153846156,
+        "spv_partial": 0.6730769230769231
+      },
+      "production": {
+        "sites": 46,
+        "static": 21,
+        "partial": 11,
+        "opaque": 14,
+        "spv_static": 0.45652173913043476,
+        "spv_partial": 0.6956521739130435
+      },
+      "scaffolding": {
+        "sites": 6,
+        "static": 3,
+        "partial": 0,
+        "opaque": 3,
+        "spv_static": 0.5,
+        "spv_partial": 0.5
+      },
+      "scaffolding_share": 0.11538461538461539,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "cognee",
+      "all_paths": {
+        "sites": 436,
+        "static": 124,
+        "partial": 22,
+        "opaque": 290,
+        "spv_static": 0.28440366972477066,
+        "spv_partial": 0.3348623853211009
+      },
+      "production": {
+        "sites": 305,
+        "static": 55,
+        "partial": 21,
+        "opaque": 229,
+        "spv_static": 0.18032786885245902,
+        "spv_partial": 0.24918032786885247
+      },
+      "scaffolding": {
+        "sites": 131,
+        "static": 69,
+        "partial": 1,
+        "opaque": 61,
+        "spv_static": 0.5267175572519084,
+        "spv_partial": 0.5343511450381679
+      },
+      "scaffolding_share": 0.30045871559633025,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "scrapegraph-ai",
+      "all_paths": {
+        "sites": 191,
+        "static": 38,
+        "partial": 0,
+        "opaque": 153,
+        "spv_static": 0.19895287958115182,
+        "spv_partial": 0.19895287958115182
+      },
+      "production": {
+        "sites": 163,
+        "static": 11,
+        "partial": 0,
+        "opaque": 152,
+        "spv_static": 0.06748466257668712,
+        "spv_partial": 0.06748466257668712
+      },
+      "scaffolding": {
+        "sites": 28,
+        "static": 27,
+        "partial": 0,
+        "opaque": 1,
+        "spv_static": 0.9642857142857143,
+        "spv_partial": 0.9642857142857143
+      },
+      "scaffolding_share": 0.14659685863874344,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "agentscope",
+      "all_paths": {
+        "sites": 231,
+        "static": 135,
+        "partial": 6,
+        "opaque": 90,
+        "spv_static": 0.5844155844155844,
+        "spv_partial": 0.6103896103896104
+      },
+      "production": {
+        "sites": 69,
+        "static": 19,
+        "partial": 3,
+        "opaque": 47,
+        "spv_static": 0.2753623188405797,
+        "spv_partial": 0.3188405797101449
+      },
+      "scaffolding": {
+        "sites": 162,
+        "static": 116,
+        "partial": 3,
+        "opaque": 43,
+        "spv_static": 0.7160493827160493,
+        "spv_partial": 0.7345679012345679
+      },
+      "scaffolding_share": 0.7012987012987013,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "anthropic",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "openai-agents-python",
+      "all_paths": {
+        "sites": 799,
+        "static": 552,
+        "partial": 29,
+        "opaque": 218,
+        "spv_static": 0.690863579474343,
+        "spv_partial": 0.7271589486858573
+      },
+      "production": {
+        "sites": 71,
+        "static": 12,
+        "partial": 0,
+        "opaque": 59,
+        "spv_static": 0.16901408450704225,
+        "spv_partial": 0.16901408450704225
+      },
+      "scaffolding": {
+        "sites": 728,
+        "static": 540,
+        "partial": 29,
+        "opaque": 159,
+        "spv_static": 0.7417582417582418,
+        "spv_partial": 0.7815934065934066
+      },
+      "scaffolding_share": 0.9111389236545682,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "deepagents",
+      "all_paths": {
+        "sites": 661,
+        "static": 212,
+        "partial": 21,
+        "opaque": 428,
+        "spv_static": 0.3207261724659607,
+        "spv_partial": 0.3524962178517398
+      },
+      "production": {
+        "sites": 221,
+        "static": 43,
+        "partial": 14,
+        "opaque": 164,
+        "spv_static": 0.19457013574660634,
+        "spv_partial": 0.2579185520361991
+      },
+      "scaffolding": {
+        "sites": 440,
+        "static": 169,
+        "partial": 7,
+        "opaque": 264,
+        "spv_static": 0.3840909090909091,
+        "spv_partial": 0.4
+      },
+      "scaffolding_share": 0.6656580937972768,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "haystack",
+      "all_paths": {
+        "sites": 184,
+        "static": 101,
+        "partial": 0,
+        "opaque": 83,
+        "spv_static": 0.5489130434782609,
+        "spv_partial": 0.5489130434782609
+      },
+      "production": {
+        "sites": 48,
+        "static": 9,
+        "partial": 0,
+        "opaque": 39,
+        "spv_static": 0.1875,
+        "spv_partial": 0.1875
+      },
+      "scaffolding": {
+        "sites": 136,
+        "static": 92,
+        "partial": 0,
+        "opaque": 44,
+        "spv_static": 0.6764705882352942,
+        "spv_partial": 0.6764705882352942
+      },
+      "scaffolding_share": 0.7391304347826086,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "kotaemon",
+      "all_paths": {
+        "sites": 155,
+        "static": 55,
+        "partial": 3,
+        "opaque": 97,
+        "spv_static": 0.3548387096774194,
+        "spv_partial": 0.3741935483870968
+      },
+      "production": {
+        "sites": 127,
+        "static": 44,
+        "partial": 3,
+        "opaque": 80,
+        "spv_static": 0.3464566929133858,
+        "spv_partial": 0.3700787401574803
+      },
+      "scaffolding": {
+        "sites": 28,
+        "static": 11,
+        "partial": 0,
+        "opaque": 17,
+        "spv_static": 0.39285714285714285,
+        "spv_partial": 0.39285714285714285
+      },
+      "scaffolding_share": 0.18064516129032257,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain",
+      "cohort": "expansion"
+    },
+    {
+      "repo": "mlc-llm",
+      "all_paths": {
+        "sites": 136,
+        "static": 85,
+        "partial": 6,
+        "opaque": 45,
+        "spv_static": 0.625,
+        "spv_partial": 0.6691176470588235
+      },
+      "production": {
+        "sites": 86,
+        "static": 57,
+        "partial": 1,
+        "opaque": 28,
+        "spv_static": 0.6627906976744186,
+        "spv_partial": 0.6744186046511628
+      },
+      "scaffolding": {
+        "sites": 50,
+        "static": 28,
+        "partial": 5,
+        "opaque": 17,
+        "spv_static": 0.56,
+        "spv_partial": 0.66
+      },
+      "scaffolding_share": 0.36764705882352944,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai",
+      "cohort": "expansion"
     }
   ],
   "strata": {
     "all_paths": {
-      "repos": 20,
-      "median_spv_partial": 0.4578772387062283,
+      "repos": 50,
+      "median_spv_partial": 0.434458299898671,
       "ci95": [
-        0.3269326373353219,
-        0.5848931351365423
+        0.3524962178517398,
+        0.5378973105134475
       ],
-      "pooled_spv_partial": 0.6802208054734878,
+      "pooled_spv_partial": 0.5855467708981078,
       "design_effect": {
-        "icc": 0.27498348522374627,
-        "mean_cluster_size_arithmetic": 643.1,
-        "mean_cluster_size_kish": 2197.600528689162,
-        "m_zero_unequal": 561.2841827005705,
-        "design_effect": 605.0288690232694,
-        "effective_n": 21.25848973250453
+        "icc": 0.23303744190490555,
+        "mean_cluster_size_arithmetic": 450.28,
+        "mean_cluster_size_kish": 1544.8009238695922,
+        "m_zero_unequal": 427.9428382883757,
+        "design_effect": 360.7634181089996,
+        "effective_n": 62.406549195067534
       }
     },
     "production": {
-      "repos": 19,
-      "median_spv_partial": 0.28027681660899656,
+      "repos": 49,
+      "median_spv_partial": 0.2834890965732087,
       "ci95": [
-        0.20869565217391303,
-        0.3333333333333333
+        0.24242424242424243,
+        0.3700787401574803
       ],
-      "pooled_spv_partial": 0.2627142455745996,
+      "pooled_spv_partial": 0.32802032802032804,
       "design_effect": {
-        "icc": 0.07618392571107223,
-        "mean_cluster_size_arithmetic": 187.31578947368422,
-        "mean_cluster_size_kish": 456.92245012644,
-        "m_zero_unequal": 172.33764165964223,
-        "design_effect": 35.73396207044274,
-        "effective_n": 99.5971281601549
+        "icc": 0.1694821733301189,
+        "mean_cluster_size_arithmetic": 176.69387755102042,
+        "mean_cluster_size_kish": 410.94109494109495,
+        "m_zero_unequal": 171.81372718872717,
+        "design_effect": 70.47770770794538,
+        "effective_n": 122.84735530670403
       }
     },
     "scaffolding": {
-      "repos": 18,
-      "median_spv_partial": 0.551948051948052,
+      "repos": 46,
+      "median_spv_partial": 0.5239260739260739,
       "ci95": [
-        0.48684210526315785,
-        0.6959203036053131
+        0.4444444444444444,
+        0.5726290516206483
       ],
-      "pooled_spv_partial": 0.8399441040524562,
+      "pooled_spv_partial": 0.7464636258660509,
       "design_effect": {
-        "icc": 0.2417460615549747,
-        "mean_cluster_size_arithmetic": 516.8333333333334,
-        "mean_cluster_size_kish": 2176.1518864882296,
-        "m_zero_unequal": 419.2263596183395,
-        "design_effect": 526.8344018424028,
-        "effective_n": 17.658300155544698
+        "icc": 0.263697827539831,
+        "mean_cluster_size_arithmetic": 301.2173913043478,
+        "mean_cluster_size_kish": 1605.8852482678983,
+        "m_zero_unequal": 272.2247722607134,
+        "design_effect": 424.20475341896713,
+        "effective_n": 32.66347179828765
       }
     }
   },
-  "scaffolding_share_pooled": 0.7232934224848391,
+  "scaffolding_share_pooled": 0.6154392822243937,
   "excluded_no_production": [
     "crewai-examples"
-  ]
+  ],
+  "by_cohort": {
+    "expansion": {
+      "repos": 30,
+      "strata": {
+        "all_paths": {
+          "repos": 30,
+          "median_spv_partial": 0.42179924178506745,
+          "ci95": [
+            0.34123214253705925,
+            0.5516029863855951
+          ],
+          "pooled_spv_partial": 0.4593866556154165,
+          "design_effect": {
+            "icc": 0.11859664151672913,
+            "mean_cluster_size_arithmetic": 321.73333333333335,
+            "mean_cluster_size_kish": 674.8974305843349,
+            "m_zero_unequal": 309.55526101433327,
+            "design_effect": 80.92197199405521,
+            "effective_n": 119.27539285262434
+          }
+        },
+        "production": {
+          "repos": 30,
+          "median_spv_partial": 0.3302536231884058,
+          "ci95": [
+            0.24580228514654745,
+            0.44157408646767504
+          ],
+          "pooled_spv_partial": 0.373602667189645,
+          "design_effect": {
+            "icc": 0.21271627958343453,
+            "mean_cluster_size_arithmetic": 169.96666666666667,
+            "mean_cluster_size_kish": 378.8470288291822,
+            "m_zero_unequal": 162.7638955576144,
+            "design_effect": 81.37421422419837,
+            "effective_n": 62.66112734374894
+          }
+        },
+        "scaffolding": {
+          "repos": 28,
+          "median_spv_partial": 0.46345388188453884,
+          "ci95": [
+            0.3511326860841424,
+            0.5967869440807023
+          ],
+          "pooled_spv_partial": 0.555457939819899,
+          "design_effect": {
+            "icc": 0.13268342571735256,
+            "mean_cluster_size_arithmetic": 162.60714285714286,
+            "mean_cluster_size_kish": 440.6775752251263,
+            "m_zero_unequal": 152.30823795462496,
+            "design_effect": 59.337926891968735,
+            "effective_n": 76.73001465469531
+          }
+        }
+      }
+    },
+    "original": {
+      "repos": 20,
+      "strata": {
+        "all_paths": {
+          "repos": 20,
+          "median_spv_partial": 0.4578772387062283,
+          "ci95": [
+            0.3269326373353219,
+            0.5848931351365423
+          ],
+          "pooled_spv_partial": 0.6802208054734878,
+          "design_effect": {
+            "icc": 0.27498348522374627,
+            "mean_cluster_size_arithmetic": 643.1,
+            "mean_cluster_size_kish": 2197.600528689162,
+            "m_zero_unequal": 561.2841827005705,
+            "design_effect": 605.0288690232694,
+            "effective_n": 21.25848973250453
+          }
+        },
+        "production": {
+          "repos": 19,
+          "median_spv_partial": 0.28027681660899656,
+          "ci95": [
+            0.20869565217391303,
+            0.3333333333333333
+          ],
+          "pooled_spv_partial": 0.2627142455745996,
+          "design_effect": {
+            "icc": 0.07618392571107223,
+            "mean_cluster_size_arithmetic": 187.31578947368422,
+            "mean_cluster_size_kish": 456.92245012644,
+            "m_zero_unequal": 172.33764165964223,
+            "design_effect": 35.73396207044274,
+            "effective_n": 99.5971281601549
+          }
+        },
+        "scaffolding": {
+          "repos": 18,
+          "median_spv_partial": 0.551948051948052,
+          "ci95": [
+            0.48684210526315785,
+            0.6959203036053131
+          ],
+          "pooled_spv_partial": 0.8399441040524562,
+          "design_effect": {
+            "icc": 0.2417460615549747,
+            "mean_cluster_size_arithmetic": 516.8333333333334,
+            "mean_cluster_size_kish": 2176.1518864882296,
+            "m_zero_unequal": 419.2263596183395,
+            "design_effect": 526.8344018424028,
+            "effective_n": 17.658300155544698
+          }
+        }
+      }
+    }
+  }
 }
