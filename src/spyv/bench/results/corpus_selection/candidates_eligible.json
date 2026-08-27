@@ -1,0 +1,3572 @@
+[
+  {
+    "full_name": "NousResearch/hermes-agent",
+    "clone_url": "https://github.com/NousResearch/hermes-agent.git",
+    "stars": 237053,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:25Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "huggingface/transformers",
+    "clone_url": "https://github.com/huggingface/transformers.git",
+    "stars": 164487,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:24Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "Shubhamsaboo/awesome-llm-apps",
+    "clone_url": "https://github.com/Shubhamsaboo/awesome-llm-apps.git",
+    "stars": 134647,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-22T04:01:54Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "harry0703/MoneyPrinterTurbo",
+    "clone_url": "https://github.com/harry0703/MoneyPrinterTurbo.git",
+    "stars": 117038,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:37:30Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "browser-use/browser-use",
+    "clone_url": "https://github.com/browser-use/browser-use.git",
+    "stars": 111258,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:41:37Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Graphify-Labs/graphify",
+    "clone_url": "https://github.com/Graphify-Labs/graphify.git",
+    "stars": 111193,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T17:43:30Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "TauricResearch/TradingAgents",
+    "clone_url": "https://github.com/TauricResearch/TradingAgents.git",
+    "stars": 100803,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-18T15:55:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "vllm-project/vllm",
+    "clone_url": "https://github.com/vllm-project/vllm.git",
+    "stars": 90190,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:32:11Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "PaddlePaddle/PaddleOCR",
+    "clone_url": "https://github.com/PaddlePaddle/PaddleOCR.git",
+    "stars": 88330,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-22T11:59:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "bytedance/deer-flow",
+    "clone_url": "https://github.com/bytedance/deer-flow.git",
+    "stars": 80978,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:59:33Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "shareAI-lab/learn-claude-code",
+    "clone_url": "https://github.com/shareAI-lab/learn-claude-code.git",
+    "stars": 75422,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T16:38:22Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "unslothai/unsloth",
+    "clone_url": "https://github.com/unslothai/unsloth.git",
+    "stars": 74925,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:05:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "hiyouga/LlamaFactory",
+    "clone_url": "https://github.com/hiyouga/LlamaFactory.git",
+    "stars": 74391,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T21:14:26Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "headroomlabs-ai/headroom",
+    "clone_url": "https://github.com/headroomlabs-ai/headroom.git",
+    "stars": 67744,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:52:29Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "mem0ai/mem0",
+    "clone_url": "https://github.com/mem0ai/mem0.git",
+    "stars": 64155,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T17:28:49Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ZhuLinsen/daily_stock_analysis",
+    "clone_url": "https://github.com/ZhuLinsen/daily_stock_analysis.git",
+    "stars": 64067,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:25:39Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "MemPalace/mempalace",
+    "clone_url": "https://github.com/MemPalace/mempalace.git",
+    "stars": 58673,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:13:28Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "rohitg00/ai-engineering-from-scratch",
+    "clone_url": "https://github.com/rohitg00/ai-engineering-from-scratch.git",
+    "stars": 49785,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T20:29:51Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "HKUDS/nanobot",
+    "clone_url": "https://github.com/HKUDS/nanobot.git",
+    "stars": 47448,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:38:49Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "zhayujie/CowAgent",
+    "clone_url": "https://github.com/zhayujie/CowAgent.git",
+    "stars": 46697,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:54:18Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "sickn33/agentic-awesome-skills",
+    "clone_url": "https://github.com/sickn33/agentic-awesome-skills.git",
+    "stars": 45500,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T04:51:10Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ray-project/ray",
+    "clone_url": "https://github.com/ray-project/ray.git",
+    "stars": 43616,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T03:55:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "bojieli/ai-agent-book",
+    "clone_url": "https://github.com/bojieli/ai-agent-book.git",
+    "stars": 42653,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:17:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "HKUDS/LightRAG",
+    "clone_url": "https://github.com/HKUDS/LightRAG.git",
+    "stars": 39214,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:53:51Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "wshobson/agents",
+    "clone_url": "https://github.com/wshobson/agents.git",
+    "stars": 39176,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T12:14:16Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "chatchat-space/Langchain-Chatchat",
+    "clone_url": "https://github.com/chatchat-space/Langchain-Chatchat.git",
+    "stars": 38585,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-10T09:27:42Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "google/langextract",
+    "clone_url": "https://github.com/google/langextract.git",
+    "stars": 38492,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T07:21:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "HKUDS/DeepTutor",
+    "clone_url": "https://github.com/HKUDS/DeepTutor.git",
+    "stars": 37634,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T18:41:02Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ashishpatel26/500-AI-Agents-Projects",
+    "clone_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects.git",
+    "stars": 37041,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-27T05:40:40Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "MadsLorentzen/ai-job-search",
+    "clone_url": "https://github.com/MadsLorentzen/ai-job-search.git",
+    "stars": 36813,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:07:41Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "microsoft/graphrag",
+    "clone_url": "https://github.com/microsoft/graphrag.git",
+    "stars": 35702,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T18:30:25Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "VectifyAI/PageIndex",
+    "clone_url": "https://github.com/VectifyAI/PageIndex.git",
+    "stars": 35335,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:44:53Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "agentscope-ai/QwenPaw",
+    "clone_url": "https://github.com/agentscope-ai/QwenPaw.git",
+    "stars": 34532,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:34:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "sgl-project/sglang",
+    "clone_url": "https://github.com/sgl-project/sglang.git",
+    "stars": 32539,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:06:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "HKUDS/Vibe-Trading",
+    "clone_url": "https://github.com/HKUDS/Vibe-Trading.git",
+    "stars": 31830,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:02:29Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "mukul975/Anthropic-Cybersecurity-Skills",
+    "clone_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git",
+    "stars": 31309,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T11:12:27Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "tirth8205/code-review-graph",
+    "clone_url": "https://github.com/tirth8205/code-review-graph.git",
+    "stars": 30907,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T13:06:29Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "CloakHQ/CloakBrowser",
+    "clone_url": "https://github.com/CloakHQ/CloakBrowser.git",
+    "stars": 30859,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:24:51Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "getzep/graphiti",
+    "clone_url": "https://github.com/getzep/graphiti.git",
+    "stars": 30334,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:28:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "topoteretes/cognee",
+    "clone_url": "https://github.com/topoteretes/cognee.git",
+    "stars": 30289,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:01:44Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ScrapeGraphAI/Scrapegraph-ai",
+    "clone_url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai.git",
+    "stars": 29975,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T13:18:10Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "agentscope-ai/agentscope",
+    "clone_url": "https://github.com/agentscope-ai/agentscope.git",
+    "stars": 29758,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:17:10Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "openai/openai-agents-python",
+    "clone_url": "https://github.com/openai/openai-agents-python.git",
+    "stars": 29000,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:02:52Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "langchain-ai/deepagents",
+    "clone_url": "https://github.com/langchain-ai/deepagents.git",
+    "stars": 28575,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:38:28Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "mlflow/mlflow",
+    "clone_url": "https://github.com/mlflow/mlflow.git",
+    "stars": 27688,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:35:56Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "ahujasid/blender-mcp",
+    "clone_url": "https://github.com/ahujasid/blender-mcp.git",
+    "stars": 26365,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T07:39:51Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "deepset-ai/haystack",
+    "clone_url": "https://github.com/deepset-ai/haystack.git",
+    "stars": 26329,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:25:53Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "virgiliojr94/book-to-skill",
+    "clone_url": "https://github.com/virgiliojr94/book-to-skill.git",
+    "stars": 25995,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T00:08:14Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Cinnamon/kotaemon",
+    "clone_url": "https://github.com/Cinnamon/kotaemon.git",
+    "stars": 25717,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-14T16:53:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "alirezarezvani/claude-skills",
+    "clone_url": "https://github.com/alirezarezvani/claude-skills.git",
+    "stars": 25054,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T15:12:59Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "titanwings/distilly",
+    "clone_url": "https://github.com/titanwings/distilly.git",
+    "stars": 24035,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T07:18:07Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "mlc-ai/mlc-llm",
+    "clone_url": "https://github.com/mlc-ai/mlc-llm.git",
+    "stars": 23098,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T20:50:06Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "microsoft/unilm",
+    "clone_url": "https://github.com/microsoft/unilm.git",
+    "stars": 22194,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T08:16:01Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "huggingface/datasets",
+    "clone_url": "https://github.com/huggingface/datasets.git",
+    "stars": 21872,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T12:48:03Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "QwenLM/Qwen",
+    "clone_url": "https://github.com/QwenLM/Qwen.git",
+    "stars": 21657,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-03-05T13:55:17Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "comet-ml/opik",
+    "clone_url": "https://github.com/comet-ml/opik.git",
+    "stars": 21629,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:05:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "huggingface/peft",
+    "clone_url": "https://github.com/huggingface/peft.git",
+    "stars": 21600,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:43:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "vectorize-io/hindsight",
+    "clone_url": "https://github.com/vectorize-io/hindsight.git",
+    "stars": 21478,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:10:53Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "google/adk-python",
+    "clone_url": "https://github.com/google/adk-python.git",
+    "stars": 21303,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:36:33Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "jundot/omlx",
+    "clone_url": "https://github.com/jundot/omlx.git",
+    "stars": 20784,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:32:42Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "SWE-agent/SWE-agent",
+    "clone_url": "https://github.com/SWE-agent/SWE-agent.git",
+    "stars": 20149,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T22:03:09Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "KKKKhazix/khazix-skills",
+    "clone_url": "https://github.com/KKKKhazix/khazix-skills.git",
+    "stars": 20118,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-16T08:49:13Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "modelscope/FunASR",
+    "clone_url": "https://github.com/modelscope/FunASR.git",
+    "stars": 20044,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T16:55:58Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Alibaba-NLP/DeepResearch",
+    "clone_url": "https://github.com/Alibaba-NLP/DeepResearch.git",
+    "stars": 19880,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-27T13:12:11Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "eosphoros-ai/DB-GPT",
+    "clone_url": "https://github.com/eosphoros-ai/DB-GPT.git",
+    "stars": 19803,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T11:10:31Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "hummingbot/hummingbot",
+    "clone_url": "https://github.com/hummingbot/hummingbot.git",
+    "stars": 19641,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:38:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ymcui/Chinese-LLaMA-Alpaca",
+    "clone_url": "https://github.com/ymcui/Chinese-LLaMA-Alpaca.git",
+    "stars": 18932,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-19T00:58:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "emcie-co/parlant",
+    "clone_url": "https://github.com/emcie-co/parlant.git",
+    "stars": 18270,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-12T19:40:55Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "arc53/DocsGPT",
+    "clone_url": "https://github.com/arc53/DocsGPT.git",
+    "stars": 18230,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T15:37:05Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "confident-ai/deepeval",
+    "clone_url": "https://github.com/confident-ai/deepeval.git",
+    "stars": 17893,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T07:53:19Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "microsoft/agent-lightning",
+    "clone_url": "https://github.com/microsoft/agent-lightning.git",
+    "stars": 17869,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:41:50Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "nesquena/hermes-webui",
+    "clone_url": "https://github.com/nesquena/hermes-webui.git",
+    "stars": 17767,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T01:03:47Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "langbot-app/LangBot",
+    "clone_url": "https://github.com/langbot-app/LangBot.git",
+    "stars": 17566,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:03:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "browser-use/browser-harness",
+    "clone_url": "https://github.com/browser-use/browser-harness.git",
+    "stars": 17170,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:33:23Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "cft0808/edict",
+    "clone_url": "https://github.com/cft0808/edict.git",
+    "stars": 16639,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-03T11:24:42Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "owainlewis/awesome-artificial-intelligence",
+    "clone_url": "https://github.com/owainlewis/awesome-artificial-intelligence.git",
+    "stars": 16212,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-15T08:12:01Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "raga-ai-hub/RagaAI-Catalyst",
+    "clone_url": "https://github.com/raga-ai-hub/RagaAI-Catalyst.git",
+    "stars": 16150,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-11T14:43:33Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "xbtlin/ai-berkshire",
+    "clone_url": "https://github.com/xbtlin/ai-berkshire.git",
+    "stars": 15922,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:12:17Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "ag-ui-protocol/ag-ui",
+    "clone_url": "https://github.com/ag-ui-protocol/ag-ui.git",
+    "stars": 15568,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:37:33Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "vibrantlabsai/ragas",
+    "clone_url": "https://github.com/vibrantlabsai/ragas.git",
+    "stars": 15495,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-24T07:47:19Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "modelscope/ms-swift",
+    "clone_url": "https://github.com/modelscope/ms-swift.git",
+    "stars": 15374,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T03:39:43Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "wanshuiyin/Auto-claude-code-research-in-sleep",
+    "clone_url": "https://github.com/wanshuiyin/Auto-claude-code-research-in-sleep.git",
+    "stars": 15320,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:30:40Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "GeeeekExplorer/nano-vllm",
+    "clone_url": "https://github.com/GeeeekExplorer/nano-vllm.git",
+    "stars": 15176,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-26T05:10:12Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "GreyDGL/PentestGPT",
+    "clone_url": "https://github.com/GreyDGL/PentestGPT.git",
+    "stars": 15095,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-14T12:58:31Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "NVIDIA/SkillSpector",
+    "clone_url": "https://github.com/NVIDIA/SkillSpector.git",
+    "stars": 15017,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:41:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "llmware-ai/llmware",
+    "clone_url": "https://github.com/llmware-ai/llmware.git",
+    "stars": 14851,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-17T13:53:37Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "opensandbox-group/OpenSandbox",
+    "clone_url": "https://github.com/opensandbox-group/OpenSandbox.git",
+    "stars": 14746,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:18:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "microsoft/RD-Agent",
+    "clone_url": "https://github.com/microsoft/RD-Agent.git",
+    "stars": 14344,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-04T11:50:56Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "aiming-lab/AutoResearchClaw",
+    "clone_url": "https://github.com/aiming-lab/AutoResearchClaw.git",
+    "stars": 14257,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T03:35:13Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "img2threejs/img2threejs",
+    "clone_url": "https://github.com/img2threejs/img2threejs.git",
+    "stars": 14081,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T11:20:20Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "earthtojake/text-to-cad",
+    "clone_url": "https://github.com/earthtojake/text-to-cad.git",
+    "stars": 13941,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:10Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Lightning-AI/litgpt",
+    "clone_url": "https://github.com/Lightning-AI/litgpt.git",
+    "stars": 13631,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T10:24:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "e2b-dev/E2B",
+    "clone_url": "https://github.com/e2b-dev/E2B.git",
+    "stars": 13562,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:22:31Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Arindam200/awesome-ai-apps",
+    "clone_url": "https://github.com/Arindam200/awesome-ai-apps.git",
+    "stars": 13511,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T05:04:11Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "microsoft/agent-framework",
+    "clone_url": "https://github.com/microsoft/agent-framework.git",
+    "stars": 13142,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T23:53:44Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ShishirPatil/gorilla",
+    "clone_url": "https://github.com/ShishirPatil/gorilla.git",
+    "stars": 13008,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-13T03:19:45Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "zai-org/CogVideo",
+    "clone_url": "https://github.com/zai-org/CogVideo.git",
+    "stars": 12979,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-04T11:19:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "PaddlePaddle/PaddleNLP",
+    "clone_url": "https://github.com/PaddlePaddle/PaddleNLP.git",
+    "stars": 12967,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-23T02:54:28Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500"
+  },
+  {
+    "full_name": "neuml/txtai",
+    "clone_url": "https://github.com/neuml/txtai.git",
+    "stars": 12910,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T12:30:37Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "StarTrail-org/LEANN",
+    "clone_url": "https://github.com/StarTrail-org/LEANN.git",
+    "stars": 12837,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T18:44:24Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge",
+    "clone_url": "https://github.com/The-Pocket/PocketFlow-Tutorial-Codebase-Knowledge.git",
+    "stars": 12632,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-31T01:26:41Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "EverMind-AI/EverOS",
+    "clone_url": "https://github.com/EverMind-AI/EverOS.git",
+    "stars": 12463,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T07:17:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "simular-ai/Agent-S",
+    "clone_url": "https://github.com/simular-ai/Agent-S.git",
+    "stars": 12192,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-01T03:31:09Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "dataelement/bisheng",
+    "clone_url": "https://github.com/dataelement/bisheng.git",
+    "stars": 11913,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:28:01Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "0x4m4/hexstrike-ai",
+    "clone_url": "https://github.com/0x4m4/hexstrike-ai.git",
+    "stars": 11388,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-03T14:33:09Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Jeffallan/claude-skills",
+    "clone_url": "https://github.com/Jeffallan/claude-skills.git",
+    "stars": 11186,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-07T20:19:18Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "The-Pocket/PocketFlow",
+    "clone_url": "https://github.com/The-Pocket/PocketFlow.git",
+    "stars": 11134,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-26T16:13:20Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ValueCell-ai/valuecell",
+    "clone_url": "https://github.com/ValueCell-ai/valuecell.git",
+    "stars": 11005,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-03-09T08:30:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "semantica-agi/semantica",
+    "clone_url": "https://github.com/semantica-agi/semantica.git",
+    "stars": 10984,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:06:23Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "yizhiyanhua-ai/fireworks-tech-graph",
+    "clone_url": "https://github.com/yizhiyanhua-ai/fireworks-tech-graph.git",
+    "stars": 10937,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T22:56:41Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "OpenPipe/ART",
+    "clone_url": "https://github.com/OpenPipe/ART.git",
+    "stars": 10667,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:01:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "langchain-ai/open-swe",
+    "clone_url": "https://github.com/langchain-ai/open-swe.git",
+    "stars": 10619,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:11:20Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "yzhao062/pyod",
+    "clone_url": "https://github.com/yzhao062/pyod.git",
+    "stars": 9977,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T03:12:27Z",
+    "license": "BSD-2-Clause",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "StarTrail-org/PixelRAG",
+    "clone_url": "https://github.com/StarTrail-org/PixelRAG.git",
+    "stars": 9745,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-31T08:52:00Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "omnigent-ai/omnigent",
+    "clone_url": "https://github.com/omnigent-ai/omnigent.git",
+    "stars": 9327,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:01:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "langchain-ai/local-deep-researcher",
+    "clone_url": "https://github.com/langchain-ai/local-deep-researcher.git",
+    "stars": 9320,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T02:42:55Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "droidrun/mobilerun",
+    "clone_url": "https://github.com/droidrun/mobilerun.git",
+    "stars": 9132,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T11:05:21Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Future-House/paper-qa",
+    "clone_url": "https://github.com/Future-House/paper-qa.git",
+    "stars": 9107,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T11:53:52Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "LearningCircuit/local-deep-research",
+    "clone_url": "https://github.com/LearningCircuit/local-deep-research.git",
+    "stars": 8997,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:48:41Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "MervinPraison/PraisonAI",
+    "clone_url": "https://github.com/MervinPraison/PraisonAI.git",
+    "stars": 8967,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:03:15Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "bentoml/BentoML",
+    "clone_url": "https://github.com/bentoml/BentoML.git",
+    "stars": 8809,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T07:56:48Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "lastmile-ai/mcp-agent",
+    "clone_url": "https://github.com/lastmile-ai/mcp-agent.git",
+    "stars": 8519,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-01-25T16:35:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "jamwithai/production-agentic-rag-course",
+    "clone_url": "https://github.com/jamwithai/production-agentic-rag-course.git",
+    "stars": 8505,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-05T07:23:49Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "zilliztech/deep-searcher",
+    "clone_url": "https://github.com/zilliztech/deep-searcher.git",
+    "stars": 8226,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-19T06:04:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "GetStream/Vision-Agents",
+    "clone_url": "https://github.com/GetStream/Vision-Agents.git",
+    "stars": 8100,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:22:58Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "SciPhi-AI/R2R",
+    "clone_url": "https://github.com/SciPhi-AI/R2R.git",
+    "stars": 7978,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-07T01:02:44Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "Upsonic/Upsonic",
+    "clone_url": "https://github.com/Upsonic/Upsonic.git",
+    "stars": 7948,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-18T14:55:50Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "traceloop/openllmetry",
+    "clone_url": "https://github.com/traceloop/openllmetry.git",
+    "stars": 7402,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-10T08:49:01Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "rocketride-org/rocketride-server",
+    "clone_url": "https://github.com/rocketride-org/rocketride-server.git",
+    "stars": 7322,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:05:00Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "kyegomez/swarms",
+    "clone_url": "https://github.com/kyegomez/swarms.git",
+    "stars": 7087,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:11:14Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "strands-agents/harness-sdk",
+    "clone_url": "https://github.com/strands-agents/harness-sdk.git",
+    "stars": 7028,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:00:20Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "zhouxiaoka/autoclip",
+    "clone_url": "https://github.com/zhouxiaoka/autoclip.git",
+    "stars": 7021,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-03T12:23:37Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "SWE-agent/mini-swe-agent",
+    "clone_url": "https://github.com/SWE-agent/mini-swe-agent.git",
+    "stars": 6798,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T22:03:16Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "adbar/trafilatura",
+    "clone_url": "https://github.com/adbar/trafilatura.git",
+    "stars": 6711,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T16:08:46Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "opensquilla/opensquilla",
+    "clone_url": "https://github.com/opensquilla/opensquilla.git",
+    "stars": 6696,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:12:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "julep-ai/julep",
+    "clone_url": "https://github.com/julep-ai/julep.git",
+    "stars": 6591,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-06T05:17:30Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "xerrors/Yuxi",
+    "clone_url": "https://github.com/xerrors/Yuxi.git",
+    "stars": 6568,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T16:26:46Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "airweave-ai/airweave",
+    "clone_url": "https://github.com/airweave-ai/airweave.git",
+    "stars": 6564,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-05T09:52:19Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "GoogleCloudPlatform/agent-starter-pack",
+    "clone_url": "https://github.com/GoogleCloudPlatform/agent-starter-pack.git",
+    "stars": 6545,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-21T23:42:40Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "WenyuChiou/awesome-agentic-ai-zh",
+    "clone_url": "https://github.com/WenyuChiou/awesome-agentic-ai-zh.git",
+    "stars": 6423,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:00:26Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "aymericdamien/TopDeepLearning",
+    "clone_url": "https://github.com/aymericdamien/TopDeepLearning.git",
+    "stars": 6294,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-15T02:19:53Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "microsoft/agent-governance-toolkit",
+    "clone_url": "https://github.com/microsoft/agent-governance-toolkit.git",
+    "stars": 6132,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T18:09:18Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "ModelEngine-Group/nexent",
+    "clone_url": "https://github.com/ModelEngine-Group/nexent.git",
+    "stars": 5839,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:15:30Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "rllm-org/rllm",
+    "clone_url": "https://github.com/rllm-org/rllm.git",
+    "stars": 5804,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T06:46:08Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "AgentOps-AI/agentops",
+    "clone_url": "https://github.com/AgentOps-AI/agentops.git",
+    "stars": 5798,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-25T08:25:03Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Klavis-AI/klavis",
+    "clone_url": "https://github.com/Klavis-AI/klavis.git",
+    "stars": 5793,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-01T21:21:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Q00/ouroboros",
+    "clone_url": "https://github.com/Q00/ouroboros.git",
+    "stars": 5707,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:02:48Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "potpie-ai/potpie",
+    "clone_url": "https://github.com/potpie-ai/potpie.git",
+    "stars": 5699,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:20:20Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "OpenBMB/UltraRAG",
+    "clone_url": "https://github.com/OpenBMB/UltraRAG.git",
+    "stars": 5671,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T05:03:22Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "zenml-io/zenml",
+    "clone_url": "https://github.com/zenml-io/zenml.git",
+    "stars": 5564,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:30Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "volcengine/MineContext",
+    "clone_url": "https://github.com/volcengine/MineContext.git",
+    "stars": 5492,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-07T13:23:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "browser-act/skills",
+    "clone_url": "https://github.com/browser-act/skills.git",
+    "stars": 5487,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T14:56:52Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "PurpleAILAB/Decepticon",
+    "clone_url": "https://github.com/PurpleAILAB/Decepticon.git",
+    "stars": 5339,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T10:21:06Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "superduper-io/superduper",
+    "clone_url": "https://github.com/superduper-io/superduper.git",
+    "stars": 5316,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-09-01T15:20:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "PacktPublishing/LLM-Engineers-Handbook",
+    "clone_url": "https://github.com/PacktPublishing/LLM-Engineers-Handbook.git",
+    "stars": 5300,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-22T08:25:03Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "Galaxy-Dawn/claude-scholar",
+    "clone_url": "https://github.com/Galaxy-Dawn/claude-scholar.git",
+    "stars": 5221,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T07:40:33Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "huangruiteng/loopx",
+    "clone_url": "https://github.com/huangruiteng/loopx.git",
+    "stars": 5213,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:02:28Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "camel-ai/oasis",
+    "clone_url": "https://github.com/camel-ai/oasis.git",
+    "stars": 5063,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:40:41Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "icip-cas/PPTAgent",
+    "clone_url": "https://github.com/icip-cas/PPTAgent.git",
+    "stars": 4956,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T20:52:49Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "SolaceLabs/solace-agent-mesh",
+    "clone_url": "https://github.com/SolaceLabs/solace-agent-mesh.git",
+    "stars": 4952,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-20T17:32:38Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "wuyoscar/GPT-Image2-Skill",
+    "clone_url": "https://github.com/wuyoscar/GPT-Image2-Skill.git",
+    "stars": 4932,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-10T12:36:52Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "yanshengjia/ml-road",
+    "clone_url": "https://github.com/yanshengjia/ml-road.git",
+    "stars": 4920,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-01T12:36:17Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ag2ai/ag2",
+    "clone_url": "https://github.com/ag2ai/ag2.git",
+    "stars": 4891,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T19:16:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "aipotheosis-labs/aci",
+    "clone_url": "https://github.com/aipotheosis-labs/aci.git",
+    "stars": 4885,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-28T11:32:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "getzep/zep",
+    "clone_url": "https://github.com/getzep/zep.git",
+    "stars": 4870,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:35:45Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "vitali87/code-graph-rag",
+    "clone_url": "https://github.com/vitali87/code-graph-rag.git",
+    "stars": 4831,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:48Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "Osmantic/ODS",
+    "clone_url": "https://github.com/Osmantic/ODS.git",
+    "stars": 4719,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T17:18:44Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "feyninc/chonkie",
+    "clone_url": "https://github.com/feyninc/chonkie.git",
+    "stars": 4704,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:50:39Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "RLinf/RLinf",
+    "clone_url": "https://github.com/RLinf/RLinf.git",
+    "stars": 4663,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:20:31Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ruc-datalab/DeepAnalyze",
+    "clone_url": "https://github.com/ruc-datalab/DeepAnalyze.git",
+    "stars": 4566,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T14:01:40Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "EvoScientist/EvoScientist",
+    "clone_url": "https://github.com/EvoScientist/EvoScientist.git",
+    "stars": 4501,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:04:13Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "FlowElement-xinliuyuansu/m_flow",
+    "clone_url": "https://github.com/FlowElement-xinliuyuansu/m_flow.git",
+    "stars": 4500,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-03T12:06:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "Awarexone/Agentic-Bug-Hunter",
+    "clone_url": "https://github.com/Awarexone/Agentic-Bug-Hunter.git",
+    "stars": 4468,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T09:31:47Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "JoshuaC215/agent-service-toolkit",
+    "clone_url": "https://github.com/JoshuaC215/agent-service-toolkit.git",
+    "stars": 4443,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T21:08:25Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "gptme/gptme",
+    "clone_url": "https://github.com/gptme/gptme.git",
+    "stars": 4399,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:53:09Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "decodingai-magazine/llm-twin-course",
+    "clone_url": "https://github.com/decodingai-magazine/llm-twin-course.git",
+    "stars": 4385,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-20T10:53:45Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "IBM/mcp-context-forge",
+    "clone_url": "https://github.com/IBM/mcp-context-forge.git",
+    "stars": 4373,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:16:37Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "algorithmicsuperintelligence/optillm",
+    "clone_url": "https://github.com/algorithmicsuperintelligence/optillm.git",
+    "stars": 4252,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-18T12:56:27Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "SylphAI-Inc/AdalFlow",
+    "clone_url": "https://github.com/SylphAI-Inc/AdalFlow.git",
+    "stars": 4211,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-29T05:49:13Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "eugeniughelbur/obsidian-second-brain",
+    "clone_url": "https://github.com/eugeniughelbur/obsidian-second-brain.git",
+    "stars": 4210,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T23:06:25Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "didilili/ai-agents-from-zero",
+    "clone_url": "https://github.com/didilili/ai-agents-from-zero.git",
+    "stars": 4113,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-23T16:29:23Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "langroid/langroid",
+    "clone_url": "https://github.com/langroid/langroid.git",
+    "stars": 4101,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T23:24:57Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "lemony-ai/cascadeflow",
+    "clone_url": "https://github.com/lemony-ai/cascadeflow.git",
+    "stars": 3979,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-06T19:29:00Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "gusye1234/nano-graphrag",
+    "clone_url": "https://github.com/gusye1234/nano-graphrag.git",
+    "stars": 3974,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-01-27T07:50:55Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "muxuuu/serenity-skill",
+    "clone_url": "https://github.com/muxuuu/serenity-skill.git",
+    "stars": 3899,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-05T03:23:53Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "LazyAGI/LazyLLM",
+    "clone_url": "https://github.com/LazyAGI/LazyLLM.git",
+    "stars": 3876,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T03:39:24Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "VectifyAI/OpenKB",
+    "clone_url": "https://github.com/VectifyAI/OpenKB.git",
+    "stars": 3849,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-22T03:45:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "HKUDS/Paper2Slides",
+    "clone_url": "https://github.com/HKUDS/Paper2Slides.git",
+    "stars": 3822,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-20T09:08:14Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "aiming-lab/SimpleMem",
+    "clone_url": "https://github.com/aiming-lab/SimpleMem.git",
+    "stars": 3721,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-24T07:40:38Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "pipeshub-ai/pipeshub-ai",
+    "clone_url": "https://github.com/pipeshub-ai/pipeshub-ai.git",
+    "stars": 3694,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:05:49Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "EverMind-AI/Raven",
+    "clone_url": "https://github.com/EverMind-AI/Raven.git",
+    "stars": 3649,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:49:55Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "microsoft/apm",
+    "clone_url": "https://github.com/microsoft/apm.git",
+    "stars": 3644,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T00:08:33Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "langchain-ai/langchain-mcp-adapters",
+    "clone_url": "https://github.com/langchain-ai/langchain-mcp-adapters.git",
+    "stars": 3642,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:27:12Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "truera/trulens",
+    "clone_url": "https://github.com/truera/trulens.git",
+    "stars": 3525,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:58:32Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "SamurAIGPT/llm-wiki-agent",
+    "clone_url": "https://github.com/SamurAIGPT/llm-wiki-agent.git",
+    "stars": 3460,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T04:07:01Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "Mirix-AI/MIRIX",
+    "clone_url": "https://github.com/Mirix-AI/MIRIX.git",
+    "stars": 3435,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-20T13:59:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Intelligent-Internet/ii-agent",
+    "clone_url": "https://github.com/Intelligent-Internet/ii-agent.git",
+    "stars": 3381,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-16T15:45:25Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "agentscope-ai/ReMe",
+    "clone_url": "https://github.com/agentscope-ai/ReMe.git",
+    "stars": 3357,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:06:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "awslabs/agentcore-samples",
+    "clone_url": "https://github.com/awslabs/agentcore-samples.git",
+    "stars": 3316,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T14:40:31Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "modelscope/evalscope",
+    "clone_url": "https://github.com/modelscope/evalscope.git",
+    "stars": 3314,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:13:45Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "kirodotdev/KiroCrew",
+    "clone_url": "https://github.com/kirodotdev/KiroCrew.git",
+    "stars": 3291,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:02:45Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "stickerdaniel/linkedin-mcp-server",
+    "clone_url": "https://github.com/stickerdaniel/linkedin-mcp-server.git",
+    "stars": 3232,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T04:27:57Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "MakazhanAlpamys/Soup",
+    "clone_url": "https://github.com/MakazhanAlpamys/Soup.git",
+    "stars": 3206,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T13:32:02Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "MemMachine/MemMachine",
+    "clone_url": "https://github.com/MemMachine/MemMachine.git",
+    "stars": 3201,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:55:52Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "google-antigravity/antigravity-sdk-python",
+    "clone_url": "https://github.com/google-antigravity/antigravity-sdk-python.git",
+    "stars": 3191,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T19:04:13Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "qdrant/fastembed",
+    "clone_url": "https://github.com/qdrant/fastembed.git",
+    "stars": 3167,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T01:00:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "TurixAI/TuriX-CUA",
+    "clone_url": "https://github.com/TurixAI/TuriX-CUA.git",
+    "stars": 3156,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-30T06:01:01Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "liaohch3/claude-tap",
+    "clone_url": "https://github.com/liaohch3/claude-tap.git",
+    "stars": 3126,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T03:05:32Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "NVIDIA/skills",
+    "clone_url": "https://github.com/NVIDIA/skills.git",
+    "stars": 3114,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T21:11:32Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "simonlin1212/TradingAgents-astock",
+    "clone_url": "https://github.com/simonlin1212/TradingAgents-astock.git",
+    "stars": 3084,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T07:50:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "swirlai/swirl-search",
+    "clone_url": "https://github.com/swirlai/swirl-search.git",
+    "stars": 3043,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T19:06:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "open-webui/open-terminal",
+    "clone_url": "https://github.com/open-webui/open-terminal.git",
+    "stars": 3027,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T20:42:19Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Tiger3807861189/J-Space-Cognition-Suite-V3.7",
+    "clone_url": "https://github.com/Tiger3807861189/J-Space-Cognition-Suite-V3.7.git",
+    "stars": 3017,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T07:27:40Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "foryourhealth111-pixel/Vibe-Skills",
+    "clone_url": "https://github.com/foryourhealth111-pixel/Vibe-Skills.git",
+    "stars": 3015,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-11T15:42:32Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "GH05TCREW/pentestagent",
+    "clone_url": "https://github.com/GH05TCREW/pentestagent.git",
+    "stars": 3012,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-04T04:39:26Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "eli64s/readme-ai",
+    "clone_url": "https://github.com/eli64s/readme-ai.git",
+    "stars": 2979,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T02:49:26Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "memodb-io/memobase",
+    "clone_url": "https://github.com/memodb-io/memobase.git",
+    "stars": 2862,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-01-11T03:51:40Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "superlinked/sie",
+    "clone_url": "https://github.com/superlinked/sie.git",
+    "stars": 2831,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T20:28:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "datachain-ai/datachain",
+    "clone_url": "https://github.com/datachain-ai/datachain.git",
+    "stars": 2812,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T14:34:25Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "mll-lab-nu/RAGEN",
+    "clone_url": "https://github.com/mll-lab-nu/RAGEN.git",
+    "stars": 2779,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T22:59:46Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "MetapriseAI/OrgKernel",
+    "clone_url": "https://github.com/MetapriseAI/OrgKernel.git",
+    "stars": 2700,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-06T19:46:41Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "wesammustafa/Claude-Code-Everything-You-Need-to-Know",
+    "clone_url": "https://github.com/wesammustafa/Claude-Code-Everything-You-Need-to-Know.git",
+    "stars": 2692,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-28T11:00:38Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "refraction-ray/xalpha",
+    "clone_url": "https://github.com/refraction-ray/xalpha.git",
+    "stars": 2685,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-25T13:45:32Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "Ontos-AI/knowhere",
+    "clone_url": "https://github.com/Ontos-AI/knowhere.git",
+    "stars": 2683,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T02:54:17Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "jeremylongshore/tons-of-skills-marketplace",
+    "clone_url": "https://github.com/jeremylongshore/tons-of-skills-marketplace.git",
+    "stars": 2679,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:07:15Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "om-ai-lab/OmAgent",
+    "clone_url": "https://github.com/om-ai-lab/OmAgent.git",
+    "stars": 2665,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-03-19T11:36:13Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "wassim249/fastapi-langgraph-agent-production-ready-template",
+    "clone_url": "https://github.com/wassim249/fastapi-langgraph-agent-production-ready-template.git",
+    "stars": 2618,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-16T17:35:22Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "plexe-ai/plexe",
+    "clone_url": "https://github.com/plexe-ai/plexe.git",
+    "stars": 2614,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-03-06T11:41:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "NVIDIA/NeMo-Agent-Toolkit",
+    "clone_url": "https://github.com/NVIDIA/NeMo-Agent-Toolkit.git",
+    "stars": 2604,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T22:59:02Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "griptape-ai/griptape",
+    "clone_url": "https://github.com/griptape-ai/griptape.git",
+    "stars": 2574,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T20:11:39Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "kayba-ai/agentic-context-engine",
+    "clone_url": "https://github.com/kayba-ai/agentic-context-engine.git",
+    "stars": 2559,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-08T23:36:10Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "yaojingang/yao-meta-skill",
+    "clone_url": "https://github.com/yaojingang/yao-meta-skill.git",
+    "stars": 2531,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T09:19:43Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "apache/burr",
+    "clone_url": "https://github.com/apache/burr.git",
+    "stars": 2528,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T21:51:19Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "AMAP-ML/SkillClaw",
+    "clone_url": "https://github.com/AMAP-ML/SkillClaw.git",
+    "stars": 2517,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T08:48:07Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "zilliztech/memsearch",
+    "clone_url": "https://github.com/zilliztech/memsearch.git",
+    "stars": 2515,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T04:54:01Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200"
+  },
+  {
+    "full_name": "InternLM/HuixiangDou",
+    "clone_url": "https://github.com/InternLM/HuixiangDou.git",
+    "stars": 2500,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-24T11:17:29Z",
+    "license": "BSD-3-Clause",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "microsoft/PIKE-RAG",
+    "clone_url": "https://github.com/microsoft/PIKE-RAG.git",
+    "stars": 2480,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-09-10T09:10:28Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "Zleap-AI/SAG",
+    "clone_url": "https://github.com/Zleap-AI/SAG.git",
+    "stars": 2425,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T19:25:25Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "beenuar/AiSOC",
+    "clone_url": "https://github.com/beenuar/AiSOC.git",
+    "stars": 2409,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T06:14:35Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "samugit83/redamon",
+    "clone_url": "https://github.com/samugit83/redamon.git",
+    "stars": 2354,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T13:27:08Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "1517005260/graph-rag-agent",
+    "clone_url": "https://github.com/1517005260/graph-rag-agent.git",
+    "stars": 2327,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-05T08:15:51Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "vearch/vearch",
+    "clone_url": "https://github.com/vearch/vearch.git",
+    "stars": 2321,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-27T05:29:53Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "llmsresearch/paperbanana",
+    "clone_url": "https://github.com/llmsresearch/paperbanana.git",
+    "stars": 2281,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T18:00:05Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "InternLM/lagent",
+    "clone_url": "https://github.com/InternLM/lagent.git",
+    "stars": 2278,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-03T07:18:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "beir-cellar/beir",
+    "clone_url": "https://github.com/beir-cellar/beir.git",
+    "stars": 2275,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-10-16T06:38:03Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "qhjqhj00/MemoRAG",
+    "clone_url": "https://github.com/qhjqhj00/MemoRAG.git",
+    "stars": 2265,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-09-11T08:51:14Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "GammaLabTechnologies/harmonist",
+    "clone_url": "https://github.com/GammaLabTechnologies/harmonist.git",
+    "stars": 2258,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-09T23:15:07Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "langfengQ/verl-agent",
+    "clone_url": "https://github.com/langfengQ/verl-agent.git",
+    "stars": 2256,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-09T13:35:49Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "guy-hartstein/company-research-agent",
+    "clone_url": "https://github.com/guy-hartstein/company-research-agent.git",
+    "stars": 2251,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-12T03:29:03Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "IBM/AssetOpsBench",
+    "clone_url": "https://github.com/IBM/AssetOpsBench.git",
+    "stars": 2240,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:34:01Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Accenture/AmpliGraph",
+    "clone_url": "https://github.com/Accenture/AmpliGraph.git",
+    "stars": 2238,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-06T22:50:36Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "antoinezambelli/forge",
+    "clone_url": "https://github.com/antoinezambelli/forge.git",
+    "stars": 2228,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T20:53:16Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "bcefghj/ai-agent-interview-guide",
+    "clone_url": "https://github.com/bcefghj/ai-agent-interview-guide.git",
+    "stars": 2228,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-01T12:38:52Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "ai-christianson/RA.Aid",
+    "clone_url": "https://github.com/ai-christianson/RA.Aid.git",
+    "stars": 2223,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-01-30T16:24:40Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "slavakurilyak/awesome-ai-agents",
+    "clone_url": "https://github.com/slavakurilyak/awesome-ai-agents.git",
+    "stars": 2191,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-09-09T22:33:26Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "agentstack-ai/AgentStack",
+    "clone_url": "https://github.com/agentstack-ai/AgentStack.git",
+    "stars": 2187,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-07-11T21:39:44Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "NVIDIA-NeMo/DataDesigner",
+    "clone_url": "https://github.com/NVIDIA-NeMo/DataDesigner.git",
+    "stars": 2186,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T21:35:22Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "NanoNets/docext",
+    "clone_url": "https://github.com/NanoNets/docext.git",
+    "stars": 2085,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-03-17T09:41:55Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "lupantech/AgentFlow",
+    "clone_url": "https://github.com/lupantech/AgentFlow.git",
+    "stars": 2018,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-08T14:00:53Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "HKUDS/MiniRAG",
+    "clone_url": "https://github.com/HKUDS/MiniRAG.git",
+    "stars": 2008,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-10-16T07:43:16Z",
+    "license": "MIT",
+    "query": "language:python topic:rag stars:>500"
+  },
+  {
+    "full_name": "doobidoo/mcp-memory-service",
+    "clone_url": "https://github.com/doobidoo/mcp-memory-service.git",
+    "stars": 1908,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:43:02Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "iniwap/AIWriteX",
+    "clone_url": "https://github.com/iniwap/AIWriteX.git",
+    "stars": 1901,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-20T07:53:29Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "vstorm-co/full-stack-ai-agent-template",
+    "clone_url": "https://github.com/vstorm-co/full-stack-ai-agent-template.git",
+    "stars": 1858,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-07T04:07:30Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "future-agi/future-agi",
+    "clone_url": "https://github.com/future-agi/future-agi.git",
+    "stars": 1839,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:59:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "undertheseanlp/underthesea",
+    "clone_url": "https://github.com/undertheseanlp/underthesea.git",
+    "stars": 1804,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:11:25Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "zi-yue-1129/DATAGEN",
+    "clone_url": "https://github.com/zi-yue-1129/DATAGEN.git",
+    "stars": 1793,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-16T08:38:07Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "HKUDS/VideoAgent",
+    "clone_url": "https://github.com/HKUDS/VideoAgent.git",
+    "stars": 1754,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-22T01:44:05Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "ginlix-ai/LangAlpha",
+    "clone_url": "https://github.com/ginlix-ai/LangAlpha.git",
+    "stars": 1697,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:45:37Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "neural-maze/ava-whatsapp-agent-course",
+    "clone_url": "https://github.com/neural-maze/ava-whatsapp-agent-course.git",
+    "stars": 1673,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-10-20T19:12:20Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "amrzv/awesome-colab-notebooks",
+    "clone_url": "https://github.com/amrzv/awesome-colab-notebooks.git",
+    "stars": 1656,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-06T12:47:58Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "langchain-ai/langgraph-supervisor-py",
+    "clone_url": "https://github.com/langchain-ai/langgraph-supervisor-py.git",
+    "stars": 1646,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-15T06:32:54Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "AgentEra/Agently",
+    "clone_url": "https://github.com/AgentEra/Agently.git",
+    "stars": 1645,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:17:52Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "feiskyer/claude-code-settings",
+    "clone_url": "https://github.com/feiskyer/claude-code-settings.git",
+    "stars": 1640,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-13T13:10:25Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "K-Dense-AI/karpathy",
+    "clone_url": "https://github.com/K-Dense-AI/karpathy.git",
+    "stars": 1532,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-18T23:06:42Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "TIGER-AI-Lab/TheoremExplainAgent",
+    "clone_url": "https://github.com/TIGER-AI-Lab/TheoremExplainAgent.git",
+    "stars": 1499,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-07-27T02:56:48Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "octotools/octotools",
+    "clone_url": "https://github.com/octotools/octotools.git",
+    "stars": 1488,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-02T18:40:21Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "DemonDamon/FinnewsHunter",
+    "clone_url": "https://github.com/DemonDamon/FinnewsHunter.git",
+    "stars": 1487,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-05T07:03:44Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "openonion/connectonion",
+    "clone_url": "https://github.com/openonion/connectonion.git",
+    "stars": 1476,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:34:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "stanford-iris-lab/meta-harness",
+    "clone_url": "https://github.com/stanford-iris-lab/meta-harness.git",
+    "stars": 1467,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-11T22:25:06Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Open-Source-Legal/OpenContracts",
+    "clone_url": "https://github.com/Open-Source-Legal/OpenContracts.git",
+    "stars": 1452,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T14:11:30Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "VersusControl/devops-ai-guidelines",
+    "clone_url": "https://github.com/VersusControl/devops-ai-guidelines.git",
+    "stars": 1431,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T12:12:33Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "evo-hq/evo",
+    "clone_url": "https://github.com/evo-hq/evo.git",
+    "stars": 1422,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-17T16:52:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "strnad/CrewAI-Studio",
+    "clone_url": "https://github.com/strnad/CrewAI-Studio.git",
+    "stars": 1346,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-03T11:44:15Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Dataojitori/nocturne_memory",
+    "clone_url": "https://github.com/Dataojitori/nocturne_memory.git",
+    "stars": 1334,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T00:22:48Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ray-r-ren/agent-apprenticeship",
+    "clone_url": "https://github.com/ray-r-ren/agent-apprenticeship.git",
+    "stars": 1334,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-06T15:17:36Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "tigerless-labs/autoharness",
+    "clone_url": "https://github.com/tigerless-labs/autoharness.git",
+    "stars": 1273,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-28T21:33:18Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "plurai-ai/intellagent",
+    "clone_url": "https://github.com/plurai-ai/intellagent.git",
+    "stars": 1257,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-14T06:23:01Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "EmergenceAI/Agent-E",
+    "clone_url": "https://github.com/EmergenceAI/Agent-E.git",
+    "stars": 1248,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-04T07:51:00Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "NabidAlam/road-to-machine-learning",
+    "clone_url": "https://github.com/NabidAlam/road-to-machine-learning.git",
+    "stars": 1240,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-18T22:49:48Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "conorluddy/ios-simulator-skill",
+    "clone_url": "https://github.com/conorluddy/ios-simulator-skill.git",
+    "stars": 1234,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-18T15:29:20Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "razzant/ouroboros",
+    "clone_url": "https://github.com/razzant/ouroboros.git",
+    "stars": 1231,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:53:31Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "TencentCloud/Octop",
+    "clone_url": "https://github.com/TencentCloud/Octop.git",
+    "stars": 1219,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:05:03Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "bowang-lab/MedRAX",
+    "clone_url": "https://github.com/bowang-lab/MedRAX.git",
+    "stars": 1218,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-10-31T00:31:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "Arize-ai/openinference",
+    "clone_url": "https://github.com/Arize-ai/openinference.git",
+    "stars": 1178,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:13:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "strands-agents/tools",
+    "clone_url": "https://github.com/strands-agents/tools.git",
+    "stars": 1159,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T14:56:52Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "i-am-bee/agentstack",
+    "clone_url": "https://github.com/i-am-bee/agentstack.git",
+    "stars": 1149,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T16:24:33Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "itsmostafa/aws-agent-skills",
+    "clone_url": "https://github.com/itsmostafa/aws-agent-skills.git",
+    "stars": 1149,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T09:38:40Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "fetchai/innovation-lab-examples",
+    "clone_url": "https://github.com/fetchai/innovation-lab-examples.git",
+    "stars": 1132,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-13T23:08:09Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "vndee/llm-sandbox",
+    "clone_url": "https://github.com/vndee/llm-sandbox.git",
+    "stars": 1114,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T14:40:14Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "agentlas-ai/Agentlas-OS",
+    "clone_url": "https://github.com/agentlas-ai/Agentlas-OS.git",
+    "stars": 1109,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:08:20Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Rath-Team/OpenRath",
+    "clone_url": "https://github.com/Rath-Team/OpenRath.git",
+    "stars": 1097,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-31T05:04:23Z",
+    "license": "BSD-3-Clause",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "nvk/llm-wiki",
+    "clone_url": "https://github.com/nvk/llm-wiki.git",
+    "stars": 1097,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T23:09:42Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "RinDig/Interpretable-Context-Methodology",
+    "clone_url": "https://github.com/RinDig/Interpretable-Context-Methodology.git",
+    "stars": 1090,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-25T16:17:00Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "amruth-sn/kong",
+    "clone_url": "https://github.com/amruth-sn/kong.git",
+    "stars": 1088,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-04-03T02:39:01Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "XiaoLuoLYG/GOD",
+    "clone_url": "https://github.com/XiaoLuoLYG/GOD.git",
+    "stars": 1073,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-22T09:14:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "JudgmentLabs/judgeval",
+    "clone_url": "https://github.com/JudgmentLabs/judgeval.git",
+    "stars": 1058,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T00:18:45Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "Lazarus-AI/clearwing",
+    "clone_url": "https://github.com/Lazarus-AI/clearwing.git",
+    "stars": 1056,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T21:57:18Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "vstorm-co/pydantic-deepagents",
+    "clone_url": "https://github.com/vstorm-co/pydantic-deepagents.git",
+    "stars": 1045,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-22T14:57:43Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "splx-ai/agentic-radar",
+    "clone_url": "https://github.com/splx-ai/agentic-radar.git",
+    "stars": 1043,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-27T15:28:44Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ApodexAI/FrontierAgent",
+    "clone_url": "https://github.com/ApodexAI/FrontierAgent.git",
+    "stars": 1039,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:43:06Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "ArcadeAI/arcade-mcp",
+    "clone_url": "https://github.com/ArcadeAI/arcade-mcp.git",
+    "stars": 1009,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:03:53Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "themanojdesai/python-a2a",
+    "clone_url": "https://github.com/themanojdesai/python-a2a.git",
+    "stars": 1008,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-09-06T08:10:09Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "shanraisshan/codex-cli-best-practice",
+    "clone_url": "https://github.com/shanraisshan/codex-cli-best-practice.git",
+    "stars": 975,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-04T18:46:09Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "souvikmajumder26/Multi-Agent-Medical-Assistant",
+    "clone_url": "https://github.com/souvikmajumder26/Multi-Agent-Medical-Assistant.git",
+    "stars": 961,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-05-03T04:43:30Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "FareedKhan-dev/production-grade-agentic-system",
+    "clone_url": "https://github.com/FareedKhan-dev/production-grade-agentic-system.git",
+    "stars": 934,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-12-18T08:12:56Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "cognizant-ai-lab/neuro-san-studio",
+    "clone_url": "https://github.com/cognizant-ai-lab/neuro-san-studio.git",
+    "stars": 933,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T01:01:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "Human-Agent-Society/CORAL",
+    "clone_url": "https://github.com/Human-Agent-Society/CORAL.git",
+    "stars": 928,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T02:42:55Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "finaldie/auto-news",
+    "clone_url": "https://github.com/finaldie/auto-news.git",
+    "stars": 905,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-07-19T06:31:38Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "iam-veeramalla/ai-assisted-devops",
+    "clone_url": "https://github.com/iam-veeramalla/ai-assisted-devops.git",
+    "stars": 891,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-13T16:35:00Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "agentic-community/mcp-gateway-registry",
+    "clone_url": "https://github.com/agentic-community/mcp-gateway-registry.git",
+    "stars": 880,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:46:26Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "promptise-com/Foundry",
+    "clone_url": "https://github.com/promptise-com/Foundry.git",
+    "stars": 868,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-20T11:06:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "agentscope-ai/agentscope-runtime",
+    "clone_url": "https://github.com/agentscope-ai/agentscope-runtime.git",
+    "stars": 861,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-04T03:57:19Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "pat-jj/s3",
+    "clone_url": "https://github.com/pat-jj/s3.git",
+    "stars": 848,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-05T02:15:04Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "strands-agents/samples",
+    "clone_url": "https://github.com/strands-agents/samples.git",
+    "stars": 835,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-12T20:54:28Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:agentic-ai stars:>200"
+  },
+  {
+    "full_name": "victordibia/designing-multiagent-systems",
+    "clone_url": "https://github.com/victordibia/designing-multiagent-systems.git",
+    "stars": 825,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T21:11:06Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Technion-Kishony-lab/data-to-paper",
+    "clone_url": "https://github.com/Technion-Kishony-lab/data-to-paper.git",
+    "stars": 818,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-07-19T15:01:19Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "AIScientists-Dev/WorldSeed",
+    "clone_url": "https://github.com/AIScientists-Dev/WorldSeed.git",
+    "stars": 811,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-08T05:24:35Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "vince-lam/awesome-local-llms",
+    "clone_url": "https://github.com/vince-lam/awesome-local-llms.git",
+    "stars": 803,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T09:36:45Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "chirpz-ai/pandaprobe",
+    "clone_url": "https://github.com/chirpz-ai/pandaprobe.git",
+    "stars": 781,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T04:37:13Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "LvcidPsyche/auto-browser",
+    "clone_url": "https://github.com/LvcidPsyche/auto-browser.git",
+    "stars": 776,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T09:22:21Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Purewhiter/mobilegym",
+    "clone_url": "https://github.com/Purewhiter/mobilegym.git",
+    "stars": 776,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T14:42:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "microsoft/sammo",
+    "clone_url": "https://github.com/microsoft/sammo.git",
+    "stars": 775,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-06-23T15:43:04Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "indranilbanerjee/digital-marketing-pro",
+    "clone_url": "https://github.com/indranilbanerjee/digital-marketing-pro.git",
+    "stars": 771,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T10:50:14Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "alexfazio/viral-clips-crew",
+    "clone_url": "https://github.com/alexfazio/viral-clips-crew.git",
+    "stars": 761,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-16T13:10:52Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "aws/bedrock-agentcore-sdk-python",
+    "clone_url": "https://github.com/aws/bedrock-agentcore-sdk-python.git",
+    "stars": 755,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T15:05:26Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "microsoft/Trace",
+    "clone_url": "https://github.com/microsoft/Trace.git",
+    "stars": 754,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-17T20:56:34Z",
+    "license": "MIT",
+    "query": "language:python \"autogen\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "Scottcjn/Rustchain",
+    "clone_url": "https://github.com/Scottcjn/Rustchain.git",
+    "stars": 723,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T23:08:48Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "neo4j-labs/create-context-graph",
+    "clone_url": "https://github.com/neo4j-labs/create-context-graph.git",
+    "stars": 714,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-20T19:55:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "sbhooley/ainativelang",
+    "clone_url": "https://github.com/sbhooley/ainativelang.git",
+    "stars": 690,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-25T08:30:27Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "usemoss/moss",
+    "clone_url": "https://github.com/usemoss/moss.git",
+    "stars": 668,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T02:30:50Z",
+    "license": "BSD-2-Clause",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "AgentEra/Agently-Daily-News-Collector",
+    "clone_url": "https://github.com/AgentEra/Agently-Daily-News-Collector.git",
+    "stars": 639,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-03-10T12:54:53Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "maze-agent/Maze",
+    "clone_url": "https://github.com/maze-agent/Maze.git",
+    "stars": 609,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-13T06:25:37Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "shuxiachai/academic-commercialization-agent",
+    "clone_url": "https://github.com/shuxiachai/academic-commercialization-agent.git",
+    "stars": 582,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:54:28Z",
+    "license": "MIT",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100"
+  },
+  {
+    "full_name": "hello-diana/MASCOT",
+    "clone_url": "https://github.com/hello-diana/MASCOT.git",
+    "stars": 528,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T05:53:56Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "StonyBrookNLP/appworld",
+    "clone_url": "https://github.com/StonyBrookNLP/appworld.git",
+    "stars": 491,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-02-17T22:41:42Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Optima-CityU/LLM4AD_Next",
+    "clone_url": "https://github.com/Optima-CityU/LLM4AD_Next.git",
+    "stars": 483,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T01:24:00Z",
+    "license": "BSD-3-Clause",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "gaotiexinqu/OneResearchClaw",
+    "clone_url": "https://github.com/gaotiexinqu/OneResearchClaw.git",
+    "stars": 443,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-05-09T01:58:28Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "alexisfox7/PRO-LONG",
+    "clone_url": "https://github.com/alexisfox7/PRO-LONG.git",
+    "stars": 413,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-21T23:48:30Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "Arvo-AI/aurora",
+    "clone_url": "https://github.com/Arvo-AI/aurora.git",
+    "stars": 399,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T23:19:54Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "i3T4AN/KADATH",
+    "clone_url": "https://github.com/i3T4AN/KADATH.git",
+    "stars": 296,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-09T21:01:28Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "huygiatrng/AlpacaTradingAgent",
+    "clone_url": "https://github.com/huygiatrng/AlpacaTradingAgent.git",
+    "stars": 254,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-18T17:31:43Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "jdrhyne/agent-skills",
+    "clone_url": "https://github.com/jdrhyne/agent-skills.git",
+    "stars": 241,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-29T16:17:41Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "microsoft/Memora",
+    "clone_url": "https://github.com/microsoft/Memora.git",
+    "stars": 240,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-06-16T16:26:50Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "HKUSTDial/DeepEye",
+    "clone_url": "https://github.com/HKUSTDial/DeepEye.git",
+    "stars": 231,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-09T11:06:57Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "EverMind-AI/SkillCorpus",
+    "clone_url": "https://github.com/EverMind-AI/SkillCorpus.git",
+    "stars": 225,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:55:28Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "svd-ai-lab/sim-cli",
+    "clone_url": "https://github.com/svd-ai-lab/sim-cli.git",
+    "stars": 211,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-18T16:02:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm-agents stars:>200"
+  },
+  {
+    "full_name": "aliaihub/awesome-hermes-usecases",
+    "clone_url": "https://github.com/aliaihub/awesome-hermes-usecases.git",
+    "stars": 203,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T01:58:33Z",
+    "license": "MIT",
+    "query": "language:python topic:llm-agents stars:>200"
+  }
+]

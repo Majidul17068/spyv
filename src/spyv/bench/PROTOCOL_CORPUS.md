@@ -91,3 +91,72 @@ documented and more example-heavy than typical private code. The expansion makes
 the corpus larger and its selection reproducible; it does not make it
 representative of agent code in general, and no claim of representativeness is
 made anywhere in this study.
+
+---
+
+# Amendment 1: screening on declared dependency
+
+Recorded before any recoverability figure was computed for any new repository.
+The only measurements taken under the original rule were a site *count*, which is
+part of screening, and no `SPV` value was computed for any candidate.
+
+## What the original rule produced
+
+Step 4 as originally written required the repository to *import* a modelled
+framework or provider anywhere in its sources. Executed in the fixed order, it
+accepted 19 of the first 21 candidates screened, a rejection rate of under 10%.
+The accepted set included `huggingface/transformers`, `vllm-project/vllm`,
+`PaddlePaddle/PaddleOCR`, `unslothai/unsloth`, `hiyouga/LlamaFactory` and
+`Shubhamsaboo/awesome-llm-apps`: a model library, an inference server, an OCR
+toolkit, two fine-tuning tools and a curated list of demos.
+
+None of those is an agent codebase. A single `import openai` in one file of a
+five-thousand-file OCR project satisfied the rule, and `vllm` alone would have
+contributed 1,760 prompt sites, more than every repository in the original corpus
+except `crewai`. The rule did not select the population this study claims to
+describe, and pooled statistics would have been dominated by code that does not
+build agents.
+
+The full candidate list and the original rule's screening log are committed under
+`results/corpus_selection/` so this can be checked rather than taken on trust.
+
+## The amended rule
+
+Step 4's first condition is replaced. A repository is screened in when:
+
+**S1.** It declares a *runtime* dependency on a modelled framework or provider,
+parsed from `[project.dependencies]` or `[tool.poetry.dependencies]` in
+`pyproject.toml`, from a root `requirements.txt`, or from `install_requires` in
+`setup.py`. Optional extras, dev groups and test groups do not count: depending on
+`openai` to run a test does not make a project an agent system.
+
+**S2.** The analyser enumerates at least one prompt site in it. Unchanged.
+
+A dependency declaration is the project's own statement about what it is built on,
+which is what distinguishes a system that uses a framework from one that merely
+mentions or tests against it.
+
+## A criterion considered and rejected
+
+We also evaluated requiring at least one prompt site in a *production* path. It
+was dropped because it fires for every candidate tested and therefore excludes
+nothing. Keeping a criterion that cannot reject is decoration, and it would have
+implied a selectivity the procedure does not have.
+
+## Known misclassifications, not tuned away
+
+The amended rule is mechanical and imperfect in both directions, and we state the
+errors we already know about rather than adjusting the rule until they disappear.
+
+- `ai-engineering-from-scratch`, a tutorial repository, is *included*: it declares
+  `openai` and `anthropic` as runtime dependencies.
+- `deer-flow` and `headroom` are *excluded* despite being LLM-centric. Neither
+  declares dependencies in a location the parser reads.
+
+We deliberately stopped adjusting the rule at this point. An earlier iteration was
+scored against hand-written labels of which repositories "are really agents", and
+two of the four apparent failures turned out to be errors in the labels rather
+than in the rule. Fitting a selection criterion to a researcher's own intuitions
+about the sample is a way of choosing the sample by hand while appearing not to.
+The rule is justified by what a dependency declaration means, not by how well it
+reproduces our expectations.

@@ -1,0 +1,21 @@
+  [ 1/30] ACCEPT NousResearch/hermes-agent                    openai       1,411 sites
+  [ 2/30] ACCEPT huggingface/transformers                     openai       881 sites
+  [ 3/30] ACCEPT Shubhamsaboo/awesome-llm-apps                openai       481 sites
+  [ 4/30] ACCEPT harry0703/MoneyPrinterTurbo                  openai       40 sites
+  [ 5/30] ACCEPT browser-use/browser-use                      openai       202 sites
+  [ 6/30] ACCEPT Graphify-Labs/graphify                       openai       32 sites
+  [ 7/30] ACCEPT TauricResearch/TradingAgents                 langchain    47 sites
+  [ 8/30] ACCEPT vllm-project/vllm                            openai       1,760 sites
+  [ 9/30] ACCEPT PaddlePaddle/PaddleOCR                       langchain    7 sites
+  [10/30] ACCEPT bytedance/deer-flow                          langchain    409 sites
+  [11/30] ACCEPT shareAI-lab/learn-claude-code                anthropic    64 sites
+  [12/30] ACCEPT unslothai/unsloth                            openai       596 sites
+  [13/30] ACCEPT hiyouga/LlamaFactory                         openai       111 sites
+  [14/30] ACCEPT headroomlabs-ai/headroom                     anthropic    513 sites
+  [15/30] ACCEPT mem0ai/mem0                                  langchain    123 sites
+  [16/30] ACCEPT ZhuLinsen/daily_stock_analysis               openai       242 sites
+  reject (no modelled import) MemPalace/mempalace
+  [17/30] ACCEPT rohitg00/ai-engineering-from-scratch         openai       146 sites
+  [18/30] ACCEPT HKUDS/nanobot                                openai       189 sites
+  reject (no modelled import) zhayujie/CowAgent
+  [19/30] ACCEPT sickn33/agentic-awesome-skills               anthropic    251 sites
