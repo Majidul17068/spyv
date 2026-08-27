@@ -1,0 +1,742 @@
+[
+  {
+    "full_name": "NousResearch/hermes-agent",
+    "clone_url": "https://github.com/NousResearch/hermes-agent.git",
+    "stars": 237053,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:25Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 1411
+  },
+  {
+    "full_name": "huggingface/transformers",
+    "clone_url": "https://github.com/huggingface/transformers.git",
+    "stars": 164487,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:57:24Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "Shubhamsaboo/awesome-llm-apps",
+    "clone_url": "https://github.com/Shubhamsaboo/awesome-llm-apps.git",
+    "stars": 134647,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-22T04:01:54Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "agno",
+      "anthropic",
+      "autogen",
+      "autogen-agentchat",
+      "crewai",
+      "crewai-tools",
+      "langchain",
+      "langchain-community",
+      "langchain-core",
+      "langchain-openai",
+      "langgraph",
+      "llama-index",
+      "openai",
+      "pydantic-ai"
+    ],
+    "sites": 481
+  },
+  {
+    "full_name": "harry0703/MoneyPrinterTurbo",
+    "clone_url": "https://github.com/harry0703/MoneyPrinterTurbo.git",
+    "stars": 117038,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:37:30Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 40
+  },
+  {
+    "full_name": "browser-use/browser-use",
+    "clone_url": "https://github.com/browser-use/browser-use.git",
+    "stars": 111258,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:41:37Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 202
+  },
+  {
+    "full_name": "Graphify-Labs/graphify",
+    "clone_url": "https://github.com/Graphify-Labs/graphify.git",
+    "stars": 111193,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T17:43:30Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "TauricResearch/TradingAgents",
+    "clone_url": "https://github.com/TauricResearch/TradingAgents.git",
+    "stars": 100803,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-18T15:55:05Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain-core",
+      "langchain-openai",
+      "langgraph"
+    ],
+    "sites": 47
+  },
+  {
+    "full_name": "vllm-project/vllm",
+    "clone_url": "https://github.com/vllm-project/vllm.git",
+    "stars": 90190,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:32:11Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "PaddlePaddle/PaddleOCR",
+    "clone_url": "https://github.com/PaddlePaddle/PaddleOCR.git",
+    "stars": 88330,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-22T11:59:34Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain-core"
+    ],
+    "sites": 7
+  },
+  {
+    "full_name": "bytedance/deer-flow",
+    "clone_url": "https://github.com/bytedance/deer-flow.git",
+    "stars": 80978,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:59:33Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-openai",
+      "langgraph"
+    ],
+    "sites": 409
+  },
+  {
+    "full_name": "shareAI-lab/learn-claude-code",
+    "clone_url": "https://github.com/shareAI-lab/learn-claude-code.git",
+    "stars": 75422,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T16:38:22Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic"
+    ],
+    "sites": 64
+  },
+  {
+    "full_name": "unslothai/unsloth",
+    "clone_url": "https://github.com/unslothai/unsloth.git",
+    "stars": 74925,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:05:18Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "hiyouga/LlamaFactory",
+    "clone_url": "https://github.com/hiyouga/LlamaFactory.git",
+    "stars": 74391,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T21:14:26Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "headroomlabs-ai/headroom",
+    "clone_url": "https://github.com/headroomlabs-ai/headroom.git",
+    "stars": 67744,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:52:29Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "mem0ai/mem0",
+    "clone_url": "https://github.com/mem0ai/mem0.git",
+    "stars": 64155,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T17:28:49Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 123
+  },
+  {
+    "full_name": "ZhuLinsen/daily_stock_analysis",
+    "clone_url": "https://github.com/ZhuLinsen/daily_stock_analysis.git",
+    "stars": 64067,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:25:39Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 242
+  },
+  {
+    "full_name": "MemPalace/mempalace",
+    "clone_url": "https://github.com/MemPalace/mempalace.git",
+    "stars": 58673,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T09:13:28Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "rohitg00/ai-engineering-from-scratch",
+    "clone_url": "https://github.com/rohitg00/ai-engineering-from-scratch.git",
+    "stars": 49785,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T20:29:51Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 146
+  },
+  {
+    "full_name": "HKUDS/nanobot",
+    "clone_url": "https://github.com/HKUDS/nanobot.git",
+    "stars": 47448,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:38:49Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 189
+  },
+  {
+    "full_name": "zhayujie/CowAgent",
+    "clone_url": "https://github.com/zhayujie/CowAgent.git",
+    "stars": 46697,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:54:18Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "sickn33/agentic-awesome-skills",
+    "clone_url": "https://github.com/sickn33/agentic-awesome-skills.git",
+    "stars": 45500,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T04:51:10Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic"
+    ],
+    "sites": 251
+  },
+  {
+    "full_name": "ray-project/ray",
+    "clone_url": "https://github.com/ray-project/ray.git",
+    "stars": 43616,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T03:55:07Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "bojieli/ai-agent-book",
+    "clone_url": "https://github.com/bojieli/ai-agent-book.git",
+    "stars": 42653,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:17:16Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "langchain-openai",
+      "openai"
+    ],
+    "sites": 792
+  },
+  {
+    "full_name": "HKUDS/LightRAG",
+    "clone_url": "https://github.com/HKUDS/LightRAG.git",
+    "stars": 39214,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:53:51Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "wshobson/agents",
+    "clone_url": "https://github.com/wshobson/agents.git",
+    "stars": 39176,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T12:14:16Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "chatchat-space/Langchain-Chatchat",
+    "clone_url": "https://github.com/chatchat-space/Langchain-Chatchat.git",
+    "stars": 38585,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2025-11-10T09:27:42Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-community",
+      "langchain-openai",
+      "openai"
+    ],
+    "sites": 75
+  },
+  {
+    "full_name": "google/langextract",
+    "clone_url": "https://github.com/google/langextract.git",
+    "stars": 38492,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-19T07:21:21Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "HKUDS/DeepTutor",
+    "clone_url": "https://github.com/HKUDS/DeepTutor.git",
+    "stars": 37634,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T18:41:02Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "llama-index",
+      "openai"
+    ],
+    "sites": 496
+  },
+  {
+    "full_name": "ashishpatel26/500-AI-Agents-Projects",
+    "clone_url": "https://github.com/ashishpatel26/500-AI-Agents-Projects.git",
+    "stars": 37041,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-27T05:40:40Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "crewai",
+      "langchain",
+      "langchain-community",
+      "langchain-core",
+      "langchain-openai",
+      "langgraph",
+      "llama-index"
+    ],
+    "sites": 103
+  },
+  {
+    "full_name": "MadsLorentzen/ai-job-search",
+    "clone_url": "https://github.com/MadsLorentzen/ai-job-search.git",
+    "stars": 36813,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:07:41Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "microsoft/graphrag",
+    "clone_url": "https://github.com/microsoft/graphrag.git",
+    "stars": 35702,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T18:30:25Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "VectifyAI/PageIndex",
+    "clone_url": "https://github.com/VectifyAI/PageIndex.git",
+    "stars": 35335,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:44:53Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 40
+  },
+  {
+    "full_name": "agentscope-ai/QwenPaw",
+    "clone_url": "https://github.com/agentscope-ai/QwenPaw.git",
+    "stars": 34532,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:34:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 355
+  },
+  {
+    "full_name": "sgl-project/sglang",
+    "clone_url": "https://github.com/sgl-project/sglang.git",
+    "stars": 32539,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:06:35Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 1187
+  },
+  {
+    "full_name": "HKUDS/Vibe-Trading",
+    "clone_url": "https://github.com/HKUDS/Vibe-Trading.git",
+    "stars": 31830,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:02:29Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-core",
+      "langchain-openai",
+      "langgraph"
+    ],
+    "sites": 147
+  },
+  {
+    "full_name": "mukul975/Anthropic-Cybersecurity-Skills",
+    "clone_url": "https://github.com/mukul975/Anthropic-Cybersecurity-Skills.git",
+    "stars": 31309,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-24T11:12:27Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "tirth8205/code-review-graph",
+    "clone_url": "https://github.com/tirth8205/code-review-graph.git",
+    "stars": 30907,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T13:06:29Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "CloakHQ/CloakBrowser",
+    "clone_url": "https://github.com/CloakHQ/CloakBrowser.git",
+    "stars": 30859,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T22:24:51Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "getzep/graphiti",
+    "clone_url": "https://github.com/getzep/graphiti.git",
+    "stars": 30334,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T18:28:50Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 52
+  },
+  {
+    "full_name": "topoteretes/cognee",
+    "clone_url": "https://github.com/topoteretes/cognee.git",
+    "stars": 30289,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T08:01:44Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 436
+  },
+  {
+    "full_name": "ScrapeGraphAI/Scrapegraph-ai",
+    "clone_url": "https://github.com/ScrapeGraphAI/Scrapegraph-ai.git",
+    "stars": 29975,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-23T13:18:10Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-openai"
+    ],
+    "sites": 191
+  },
+  {
+    "full_name": "agentscope-ai/agentscope",
+    "clone_url": "https://github.com/agentscope-ai/agentscope.git",
+    "stars": 29758,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:17:10Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "anthropic",
+      "openai"
+    ],
+    "sites": 231
+  },
+  {
+    "full_name": "openai/openai-agents-python",
+    "clone_url": "https://github.com/openai/openai-agents-python.git",
+    "stars": 29000,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:02:52Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 799
+  },
+  {
+    "full_name": "langchain-ai/deepagents",
+    "clone_url": "https://github.com/langchain-ai/deepagents.git",
+    "stars": 28575,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T05:38:28Z",
+    "license": "MIT",
+    "query": "language:python \"langgraph\" in:name,description,readme stars:>100",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-core",
+      "langchain-openai",
+      "langgraph"
+    ],
+    "sites": 661
+  },
+  {
+    "full_name": "mlflow/mlflow",
+    "clone_url": "https://github.com/mlflow/mlflow.git",
+    "stars": 27688,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T07:35:56Z",
+    "license": "Apache-2.0",
+    "query": "language:python \"crewai\" in:name,description,readme stars:>100",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "ahujasid/blender-mcp",
+    "clone_url": "https://github.com/ahujasid/blender-mcp.git",
+    "stars": 26365,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T07:39:51Z",
+    "license": "MIT",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "deepset-ai/haystack",
+    "clone_url": "https://github.com/deepset-ai/haystack.git",
+    "stars": 26329,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-27T06:25:53Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 184
+  },
+  {
+    "full_name": "virgiliojr94/book-to-skill",
+    "clone_url": "https://github.com/virgiliojr94/book-to-skill.git",
+    "stars": 25995,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T00:08:14Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "Cinnamon/kotaemon",
+    "clone_url": "https://github.com/Cinnamon/kotaemon.git",
+    "stars": 25717,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-07-14T16:53:59Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:rag stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "langchain",
+      "langchain-community",
+      "langchain-openai",
+      "llama-index",
+      "openai"
+    ],
+    "sites": 155
+  },
+  {
+    "full_name": "alirezarezvani/claude-skills",
+    "clone_url": "https://github.com/alirezarezvani/claude-skills.git",
+    "stars": 25054,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-26T15:12:59Z",
+    "license": "MIT",
+    "query": "language:python topic:agentic-ai stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "titanwings/distilly",
+    "clone_url": "https://github.com/titanwings/distilly.git",
+    "stars": 24035,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-25T07:18:07Z",
+    "license": "MIT",
+    "query": "language:python topic:ai-agents stars:>200",
+    "verdict": "no_declared_runtime_dep"
+  },
+  {
+    "full_name": "mlc-ai/mlc-llm",
+    "clone_url": "https://github.com/mlc-ai/mlc-llm.git",
+    "stars": 23098,
+    "fork": false,
+    "archived": false,
+    "pushed_at": "2026-08-17T20:50:06Z",
+    "license": "Apache-2.0",
+    "query": "language:python topic:llm stars:>500",
+    "verdict": "accepted",
+    "deps": [
+      "openai"
+    ],
+    "sites": 136
+  }
+]

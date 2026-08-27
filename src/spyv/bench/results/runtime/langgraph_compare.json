@@ -1,0 +1,159 @@
+{
+  "observations": 54,
+  "matched_to_a_static_site": 34,
+  "matched_at_authoring_frame": 34,
+  "matched_via_framework_reuse": 0,
+  "observed_but_not_enumerated": 20,
+  "recall_of_site_enumeration": 0.6296296296296297,
+  "recovery": {
+    "exact": 4,
+    "skeleton_consistent": 0,
+    "wrong": 0,
+    "site_was_opaque": 0,
+    "not_line_resolvable": 30,
+    "correctness": 1.0,
+    "note": "Correctness is over sites where the static pass claimed text AND the site was exercised AND an enumerated expression spans the executing line. Opaque sites are excluded: they make no claim to be wrong about. Observations that resolve only to a file and construct are counted in not_line_resolvable rather than scored, since text equality would not be attributable to a specific enumerated expression."
+  },
+  "examples": [
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel.py",
+      "line": 3821,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    },
+    {
+      "kind": "missed_site",
+      "file": "libs/langgraph/tests/test_pregel_async.py",
+      "line": 5589,
+      "construct": "SystemMessage",
+      "runtime_text": "You are a nice assistant."
+    }
+  ]
+}

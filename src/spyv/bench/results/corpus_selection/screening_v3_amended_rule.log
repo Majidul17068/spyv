@@ -1,0 +1,54 @@
+  [ 1/30] ACCEPT NousResearch/hermes-agent                  openai                         1,411 sites
+  reject (no declared dep) huggingface/transformers
+  [ 2/30] ACCEPT Shubhamsaboo/awesome-llm-apps              agno,anthropic,autogen,autog   481 sites
+  [ 3/30] ACCEPT harry0703/MoneyPrinterTurbo                openai                         40 sites
+  [ 4/30] ACCEPT browser-use/browser-use                    anthropic,openai               202 sites
+  reject (no declared dep) Graphify-Labs/graphify
+  [ 5/30] ACCEPT TauricResearch/TradingAgents               langchain-core,langchain-ope   47 sites
+  reject (no declared dep) vllm-project/vllm
+  [ 6/30] ACCEPT PaddlePaddle/PaddleOCR                     langchain-core                 7 sites
+  [ 7/30] ACCEPT bytedance/deer-flow                        langchain,langchain-openai,l   409 sites
+  [ 8/30] ACCEPT shareAI-lab/learn-claude-code              anthropic                      64 sites
+  reject (no declared dep) unslothai/unsloth
+  reject (no declared dep) hiyouga/LlamaFactory
+  reject (no declared dep) headroomlabs-ai/headroom
+  [ 9/30] ACCEPT mem0ai/mem0                                anthropic,openai               123 sites
+  [10/30] ACCEPT ZhuLinsen/daily_stock_analysis             openai                         242 sites
+  reject (no declared dep) MemPalace/mempalace
+  [11/30] ACCEPT rohitg00/ai-engineering-from-scratch       anthropic,openai               146 sites
+  [12/30] ACCEPT HKUDS/nanobot                              anthropic,openai               189 sites
+  reject (no declared dep) zhayujie/CowAgent
+  [13/30] ACCEPT sickn33/agentic-awesome-skills             anthropic                      251 sites
+  reject (no declared dep) ray-project/ray
+  [14/30] ACCEPT bojieli/ai-agent-book                      anthropic,langchain-openai,o   792 sites
+  reject (no declared dep) HKUDS/LightRAG
+  reject (no declared dep) wshobson/agents
+  [15/30] ACCEPT chatchat-space/Langchain-Chatchat          langchain,langchain-communit   75 sites
+  reject (no declared dep) google/langextract
+  [16/30] ACCEPT HKUDS/DeepTutor                            anthropic,llama-index,openai   496 sites
+  [17/30] ACCEPT ashishpatel26/500-AI-Agents-Projects       crewai,langchain,langchain-c   103 sites
+  reject (no declared dep) MadsLorentzen/ai-job-search
+  reject (no declared dep) microsoft/graphrag
+  [18/30] ACCEPT VectifyAI/PageIndex                        anthropic,openai               40 sites
+  [19/30] ACCEPT agentscope-ai/QwenPaw                      openai                         355 sites
+  [20/30] ACCEPT sgl-project/sglang                         anthropic,openai               1,187 sites
+  [21/30] ACCEPT HKUDS/Vibe-Trading                         langchain,langchain-core,lan   147 sites
+  reject (no declared dep) mukul975/Anthropic-Cybersecurity-Skills
+  reject (no declared dep) tirth8205/code-review-graph
+  reject (no declared dep) CloakHQ/CloakBrowser
+  [22/30] ACCEPT getzep/graphiti                            openai                         52 sites
+  [23/30] ACCEPT topoteretes/cognee                         openai                         436 sites
+  [24/30] ACCEPT ScrapeGraphAI/Scrapegraph-ai               langchain,langchain-openai     191 sites
+  [25/30] ACCEPT agentscope-ai/agentscope                   anthropic,openai               231 sites
+  [26/30] ACCEPT openai/openai-agents-python                openai                         799 sites
+  [27/30] ACCEPT langchain-ai/deepagents                    langchain,langchain-core,lan   661 sites
+  reject (no declared dep) mlflow/mlflow
+  reject (no declared dep) ahujasid/blender-mcp
+  [28/30] ACCEPT deepset-ai/haystack                        openai                         184 sites
+  reject (no declared dep) virgiliojr94/book-to-skill
+  [29/30] ACCEPT Cinnamon/kotaemon                          langchain,langchain-communit   155 sites
+  reject (no declared dep) alirezarezvani/claude-skills
+  reject (no declared dep) titanwings/distilly
+  [30/30] ACCEPT mlc-ai/mlc-llm                             openai                         136 sites
+
+DONE accepted=30 screened=52

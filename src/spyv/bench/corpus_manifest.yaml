@@ -105,3 +105,159 @@ repos:
     url: https://github.com/run-llama/llama_index
     framework: custom
     sha: "d8021225eb7e7b276d5ceb476b0a4650240f27f8"
+
+  # --- Expansion cohort (PROTOCOL_CORPUS.md + Amendment 1) ---
+  # Selected mechanically: pre-registered queries, ordered by stars, screened
+  # on a declared runtime dependency. SHAs are the commit cloned at screening
+  # time and are never updated.
+
+  - name: hermes-agent
+    url: https://github.com/NousResearch/hermes-agent
+    framework: openai
+    sha: "93a29d110db7724f18959cb941aae3520fb587ac"
+    cohort: expansion
+  - name: awesome-llm-apps
+    url: https://github.com/Shubhamsaboo/awesome-llm-apps
+    framework: agno
+    sha: "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0"
+    cohort: expansion
+  - name: moneyprinterturbo
+    url: https://github.com/harry0703/MoneyPrinterTurbo
+    framework: openai
+    sha: "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80"
+    cohort: expansion
+  - name: browser-use
+    url: https://github.com/browser-use/browser-use
+    framework: anthropic
+    sha: "28670f720f63cc5f525a2acd6d6072867689ab68"
+    cohort: expansion
+  - name: tradingagents
+    url: https://github.com/TauricResearch/TradingAgents
+    framework: langchain-core
+    sha: "a33fd4c0f134485a43553a2c23a63cb14adbd88f"
+    cohort: expansion
+  - name: paddleocr
+    url: https://github.com/PaddlePaddle/PaddleOCR
+    framework: langchain-core
+    sha: "2661c7c0ef5c613e8f93c6e93b2e052399f0f854"
+    cohort: expansion
+  - name: deer-flow
+    url: https://github.com/bytedance/deer-flow
+    framework: langchain
+    sha: "bdd68469c156877daa3facb547314b8391cabf73"
+    cohort: expansion
+  - name: learn-claude-code
+    url: https://github.com/shareAI-lab/learn-claude-code
+    framework: anthropic
+    sha: "0dcafa2ae053a1ddd6a72f265431104b08a5aa13"
+    cohort: expansion
+  - name: mem0
+    url: https://github.com/mem0ai/mem0
+    framework: anthropic
+    sha: "39bc02330563764e7d4465f1ecff5f002d94da1a"
+    cohort: expansion
+  - name: daily_stock_analysis
+    url: https://github.com/ZhuLinsen/daily_stock_analysis
+    framework: openai
+    sha: "fb4735a1055caefa2396982af3b09121feb9ff30"
+    cohort: expansion
+  - name: ai-engineering-from-scratch
+    url: https://github.com/rohitg00/ai-engineering-from-scratch
+    framework: anthropic
+    sha: "39ea8a1c6d0b61f071226eff7ede4d4105fed820"
+    cohort: expansion
+  - name: nanobot
+    url: https://github.com/HKUDS/nanobot
+    framework: anthropic
+    sha: "d6c112ab741b67489021b8efd98e6121f0a50f4d"
+    cohort: expansion
+  - name: agentic-awesome-skills
+    url: https://github.com/sickn33/agentic-awesome-skills
+    framework: anthropic
+    sha: "5cf4dfeb13ea966daa1e117897689cd7991e3f44"
+    cohort: expansion
+  - name: ai-agent-book
+    url: https://github.com/bojieli/ai-agent-book
+    framework: anthropic
+    sha: "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15"
+    cohort: expansion
+  - name: langchain-chatchat
+    url: https://github.com/chatchat-space/Langchain-Chatchat
+    framework: langchain
+    sha: "49165d6af4438aa7e8a1f71ce276db55f4405151"
+    cohort: expansion
+  - name: deeptutor
+    url: https://github.com/HKUDS/DeepTutor
+    framework: anthropic
+    sha: "3e82f130422a813cdd73c10b21a44e9325f5821a"
+    cohort: expansion
+  - name: 500-ai-agents-projects
+    url: https://github.com/ashishpatel26/500-AI-Agents-Projects
+    framework: crewai
+    sha: "9beeb721c2af551bacaab827a76bddaecaa0ca5e"
+    cohort: expansion
+  - name: pageindex
+    url: https://github.com/VectifyAI/PageIndex
+    framework: anthropic
+    sha: "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789"
+    cohort: expansion
+  - name: qwenpaw
+    url: https://github.com/agentscope-ai/QwenPaw
+    framework: openai
+    sha: "b3123ebc815b0212736dfb869f1e70d8e8183f37"
+    cohort: expansion
+  - name: sglang
+    url: https://github.com/sgl-project/sglang
+    framework: anthropic
+    sha: "c608f9bf7581ea87dd2efccfc34093e22b3e8810"
+    cohort: expansion
+  - name: vibe-trading
+    url: https://github.com/HKUDS/Vibe-Trading
+    framework: langchain
+    sha: "80ffdda44c5c4db0dd84d70e051cca591cea67df"
+    cohort: expansion
+  - name: graphiti
+    url: https://github.com/getzep/graphiti
+    framework: openai
+    sha: "683a8539c8925de69071a1305dc8bf0e52e17c65"
+    cohort: expansion
+  - name: cognee
+    url: https://github.com/topoteretes/cognee
+    framework: openai
+    sha: "690c0ec023719a2a277dc893cdecfec1ca8012cc"
+    cohort: expansion
+  - name: scrapegraph-ai
+    url: https://github.com/ScrapeGraphAI/Scrapegraph-ai
+    framework: langchain
+    sha: "5b833057ee5effa322cc26dcd534e892793700d6"
+    cohort: expansion
+  - name: agentscope
+    url: https://github.com/agentscope-ai/agentscope
+    framework: anthropic
+    sha: "9983e76d1ee70052d31c01d224a477c5788cbe33"
+    cohort: expansion
+  - name: openai-agents-python
+    url: https://github.com/openai/openai-agents-python
+    framework: openai
+    sha: "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e"
+    cohort: expansion
+  - name: deepagents
+    url: https://github.com/langchain-ai/deepagents
+    framework: langchain
+    sha: "92e15dc0cb6d39fce1024483c30408f1b33e7549"
+    cohort: expansion
+  - name: haystack
+    url: https://github.com/deepset-ai/haystack
+    framework: openai
+    sha: "4a63df73bc171e7c4251daa60263b1019c45d02e"
+    cohort: expansion
+  - name: kotaemon
+    url: https://github.com/Cinnamon/kotaemon
+    framework: langchain
+    sha: "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9"
+    cohort: expansion
+  - name: mlc-llm
+    url: https://github.com/mlc-ai/mlc-llm
+    framework: openai
+    sha: "9fa644f54b04983adea4d0168f49fc6af4a893ba"
+    cohort: expansion
