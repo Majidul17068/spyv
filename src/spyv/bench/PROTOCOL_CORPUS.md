@@ -160,3 +160,33 @@ than in the rule. Fitting a selection criterion to a researcher's own intuitions
 about the sample is a way of choosing the sample by hand while appearing not to.
 The rule is justified by what a dependency declaration means, not by how well it
 reproduces our expectations.
+
+## Correction 1a: monorepo dependency manifests
+
+The first implementation of S1 read `pyproject.toml`, `requirements.txt` and
+`setup.py` at the repository root only. Monorepos declare dependencies in
+subprojects, so it rejected every one of them: `langchain-ai/deepagents` declares
+under `libs/`, `bytedance/deer-flow` under `backend/`. Of the repositories already
+in the corpus, `langgraph`, `crewai`, `langchain`, `llama-index` and `autogen` all
+declare in subprojects and would have failed their own screen.
+
+This is a defect in the implementation of S1, not a change to S1. The criterion
+was always "declares a runtime dependency"; the code failed to look where the
+declaration lives. It is corrected to search manifests up to four directories
+deep, skipping scaffolding directories so that a dependency declared only to run
+examples or tests still does not qualify. Screening was re-run from the start of
+the ordered candidate list so that "the first 30 that pass" remains well defined.
+
+The bias this removed was systematic and in one direction: it excluded
+well-structured multi-package projects, which is the opposite of the population
+the corpus is meant to represent.
+
+## A property of S1, not a defect
+
+`agno` and `pydantic-ai` declare no LLM provider in their core dependencies and
+offer them as optional extras instead. S1 excludes extras, so both fail the
+screen. This is the criterion behaving as specified rather than a bug: a
+framework that can be installed without any provider has not declared itself to
+be built on one. Both are already in the corpus through the original cohort, so
+the study still covers them, but a reader should know that S1 systematically
+excludes provider-agnostic frameworks from the expansion cohort.
