@@ -1,0 +1,681 @@
+{
+  "repos": [
+    {
+      "repo": "crewai",
+      "all_paths": {
+        "sites": 3614,
+        "static": 3281,
+        "partial": 33,
+        "opaque": 300,
+        "spv_static": 0.9078583287216381,
+        "spv_partial": 0.9169894853348091
+      },
+      "production": {
+        "sites": 289,
+        "static": 65,
+        "partial": 16,
+        "opaque": 208,
+        "spv_static": 0.22491349480968859,
+        "spv_partial": 0.28027681660899656
+      },
+      "scaffolding": {
+        "sites": 3325,
+        "static": 3216,
+        "partial": 17,
+        "opaque": 92,
+        "spv_static": 0.967218045112782,
+        "spv_partial": 0.9723308270676692
+      },
+      "scaffolding_share": 0.9200332042058661,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "crewai"
+    },
+    {
+      "repo": "crewai-examples",
+      "all_paths": {
+        "sites": 110,
+        "static": 54,
+        "partial": 3,
+        "opaque": 53,
+        "spv_static": 0.4909090909090909,
+        "spv_partial": 0.5181818181818182
+      },
+      "production": {
+        "sites": 0,
+        "static": 0,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": null,
+        "spv_partial": null
+      },
+      "scaffolding": {
+        "sites": 110,
+        "static": 54,
+        "partial": 3,
+        "opaque": 53,
+        "spv_static": 0.4909090909090909,
+        "spv_partial": 0.5181818181818182
+      },
+      "scaffolding_share": 1.0,
+      "has_production": false,
+      "demonstrative": true,
+      "framework": "crewai"
+    },
+    {
+      "repo": "langgraph",
+      "all_paths": {
+        "sites": 71,
+        "static": 26,
+        "partial": 4,
+        "opaque": 41,
+        "spv_static": 0.36619718309859156,
+        "spv_partial": 0.4225352112676056
+      },
+      "production": {
+        "sites": 14,
+        "static": 3,
+        "partial": 0,
+        "opaque": 11,
+        "spv_static": 0.21428571428571427,
+        "spv_partial": 0.21428571428571427
+      },
+      "scaffolding": {
+        "sites": 57,
+        "static": 23,
+        "partial": 4,
+        "opaque": 30,
+        "spv_static": 0.40350877192982454,
+        "spv_partial": 0.47368421052631576
+      },
+      "scaffolding_share": 0.8028169014084507,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langgraph"
+    },
+    {
+      "repo": "langchain",
+      "all_paths": {
+        "sites": 1392,
+        "static": 597,
+        "partial": 40,
+        "opaque": 755,
+        "spv_static": 0.42887931034482757,
+        "spv_partial": 0.45761494252873564
+      },
+      "production": {
+        "sites": 559,
+        "static": 155,
+        "partial": 5,
+        "opaque": 399,
+        "spv_static": 0.2772808586762075,
+        "spv_partial": 0.28622540250447226
+      },
+      "scaffolding": {
+        "sites": 833,
+        "static": 442,
+        "partial": 35,
+        "opaque": 356,
+        "spv_static": 0.5306122448979592,
+        "spv_partial": 0.5726290516206483
+      },
+      "scaffolding_share": 0.5984195402298851,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain"
+    },
+    {
+      "repo": "autogen",
+      "all_paths": {
+        "sites": 359,
+        "static": 203,
+        "partial": 19,
+        "opaque": 137,
+        "spv_static": 0.5654596100278552,
+        "spv_partial": 0.6183844011142061
+      },
+      "production": {
+        "sites": 142,
+        "static": 47,
+        "partial": 7,
+        "opaque": 88,
+        "spv_static": 0.33098591549295775,
+        "spv_partial": 0.38028169014084506
+      },
+      "scaffolding": {
+        "sites": 217,
+        "static": 156,
+        "partial": 12,
+        "opaque": 49,
+        "spv_static": 0.7188940092165899,
+        "spv_partial": 0.7741935483870968
+      },
+      "scaffolding_share": 0.6044568245125348,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "autogen"
+    },
+    {
+      "repo": "metagpt",
+      "all_paths": {
+        "sites": 430,
+        "static": 177,
+        "partial": 20,
+        "opaque": 233,
+        "spv_static": 0.4116279069767442,
+        "spv_partial": 0.45813953488372094
+      },
+      "production": {
+        "sites": 342,
+        "static": 133,
+        "partial": 14,
+        "opaque": 195,
+        "spv_static": 0.3888888888888889,
+        "spv_partial": 0.4298245614035088
+      },
+      "scaffolding": {
+        "sites": 88,
+        "static": 44,
+        "partial": 6,
+        "opaque": 38,
+        "spv_static": 0.5,
+        "spv_partial": 0.5681818181818182
+      },
+      "scaffolding_share": 0.20465116279069767,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "superagi",
+      "all_paths": {
+        "sites": 149,
+        "static": 38,
+        "partial": 7,
+        "opaque": 104,
+        "spv_static": 0.2550335570469799,
+        "spv_partial": 0.30201342281879195
+      },
+      "production": {
+        "sites": 115,
+        "static": 17,
+        "partial": 7,
+        "opaque": 91,
+        "spv_static": 0.14782608695652175,
+        "spv_partial": 0.20869565217391303
+      },
+      "scaffolding": {
+        "sites": 34,
+        "static": 21,
+        "partial": 0,
+        "opaque": 13,
+        "spv_static": 0.6176470588235294,
+        "spv_partial": 0.6176470588235294
+      },
+      "scaffolding_share": 0.22818791946308725,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "gpt-engineer",
+      "all_paths": {
+        "sites": 74,
+        "static": 20,
+        "partial": 2,
+        "opaque": 52,
+        "spv_static": 0.2702702702702703,
+        "spv_partial": 0.2972972972972973
+      },
+      "production": {
+        "sites": 29,
+        "static": 2,
+        "partial": 0,
+        "opaque": 27,
+        "spv_static": 0.06896551724137931,
+        "spv_partial": 0.06896551724137931
+      },
+      "scaffolding": {
+        "sites": 45,
+        "static": 18,
+        "partial": 2,
+        "opaque": 25,
+        "spv_static": 0.4,
+        "spv_partial": 0.4444444444444444
+      },
+      "scaffolding_share": 0.6081081081081081,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai"
+    },
+    {
+      "repo": "babyagi",
+      "all_paths": {
+        "sites": 36,
+        "static": 12,
+        "partial": 16,
+        "opaque": 8,
+        "spv_static": 0.3333333333333333,
+        "spv_partial": 0.7777777777777778
+      },
+      "production": {
+        "sites": 36,
+        "static": 12,
+        "partial": 16,
+        "opaque": 8,
+        "spv_static": 0.3333333333333333,
+        "spv_partial": 0.7777777777777778
+      },
+      "scaffolding": {
+        "sites": 0,
+        "static": 0,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": null,
+        "spv_partial": null
+      },
+      "scaffolding_share": 0.0,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai"
+    },
+    {
+      "repo": "camel",
+      "all_paths": {
+        "sites": 848,
+        "static": 367,
+        "partial": 64,
+        "opaque": 417,
+        "spv_static": 0.43278301886792453,
+        "spv_partial": 0.5082547169811321
+      },
+      "production": {
+        "sites": 321,
+        "static": 65,
+        "partial": 26,
+        "opaque": 230,
+        "spv_static": 0.20249221183800623,
+        "spv_partial": 0.2834890965732087
+      },
+      "scaffolding": {
+        "sites": 527,
+        "static": 302,
+        "partial": 38,
+        "opaque": 187,
+        "spv_static": 0.573055028462998,
+        "spv_partial": 0.6451612903225806
+      },
+      "scaffolding_share": 0.6214622641509434,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "agentverse",
+      "all_paths": {
+        "sites": 41,
+        "static": 10,
+        "partial": 2,
+        "opaque": 29,
+        "spv_static": 0.24390243902439024,
+        "spv_partial": 0.2926829268292683
+      },
+      "production": {
+        "sites": 39,
+        "static": 9,
+        "partial": 2,
+        "opaque": 28,
+        "spv_static": 0.23076923076923078,
+        "spv_partial": 0.28205128205128205
+      },
+      "scaffolding": {
+        "sites": 2,
+        "static": 1,
+        "partial": 0,
+        "opaque": 1,
+        "spv_static": 0.5,
+        "spv_partial": 0.5
+      },
+      "scaffolding_share": 0.04878048780487805,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "open-interpreter",
+      "all_paths": {
+        "sites": 21,
+        "static": 9,
+        "partial": 0,
+        "opaque": 12,
+        "spv_static": 0.42857142857142855,
+        "spv_partial": 0.42857142857142855
+      },
+      "production": {
+        "sites": 7,
+        "static": 6,
+        "partial": 0,
+        "opaque": 1,
+        "spv_static": 0.8571428571428571,
+        "spv_partial": 0.8571428571428571
+      },
+      "scaffolding": {
+        "sites": 14,
+        "static": 3,
+        "partial": 0,
+        "opaque": 11,
+        "spv_static": 0.21428571428571427,
+        "spv_partial": 0.21428571428571427
+      },
+      "scaffolding_share": 0.6666666666666666,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai"
+    },
+    {
+      "repo": "gpt-researcher",
+      "all_paths": {
+        "sites": 107,
+        "static": 44,
+        "partial": 15,
+        "opaque": 48,
+        "spv_static": 0.411214953271028,
+        "spv_partial": 0.5514018691588785
+      },
+      "production": {
+        "sites": 92,
+        "static": 39,
+        "partial": 15,
+        "opaque": 38,
+        "spv_static": 0.42391304347826086,
+        "spv_partial": 0.5869565217391305
+      },
+      "scaffolding": {
+        "sites": 15,
+        "static": 5,
+        "partial": 0,
+        "opaque": 10,
+        "spv_static": 0.3333333333333333,
+        "spv_partial": 0.3333333333333333
+      },
+      "scaffolding_share": 0.14018691588785046,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "langchain"
+    },
+    {
+      "repo": "chatdev",
+      "all_paths": {
+        "sites": 25,
+        "static": 6,
+        "partial": 1,
+        "opaque": 18,
+        "spv_static": 0.24,
+        "spv_partial": 0.28
+      },
+      "production": {
+        "sites": 25,
+        "static": 6,
+        "partial": 1,
+        "opaque": 18,
+        "spv_static": 0.24,
+        "spv_partial": 0.28
+      },
+      "scaffolding": {
+        "sites": 0,
+        "static": 0,
+        "partial": 0,
+        "opaque": 0,
+        "spv_static": null,
+        "spv_partial": null
+      },
+      "scaffolding_share": 0.0,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "agno",
+      "all_paths": {
+        "sites": 3051,
+        "static": 2483,
+        "partial": 60,
+        "opaque": 508,
+        "spv_static": 0.8138315306456899,
+        "spv_partial": 0.8334972140281874
+      },
+      "production": {
+        "sites": 352,
+        "static": 60,
+        "partial": 16,
+        "opaque": 276,
+        "spv_static": 0.17045454545454544,
+        "spv_partial": 0.2159090909090909
+      },
+      "scaffolding": {
+        "sites": 2699,
+        "static": 2423,
+        "partial": 44,
+        "opaque": 232,
+        "spv_static": 0.8977399036680251,
+        "spv_partial": 0.9140422378658762
+      },
+      "scaffolding_share": 0.8846279908226811,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "pydantic-ai",
+      "all_paths": {
+        "sites": 1027,
+        "static": 669,
+        "partial": 15,
+        "opaque": 343,
+        "spv_static": 0.6514118792599806,
+        "spv_partial": 0.6660175267770204
+      },
+      "production": {
+        "sites": 221,
+        "static": 22,
+        "partial": 5,
+        "opaque": 194,
+        "spv_static": 0.09954751131221719,
+        "spv_partial": 0.12217194570135746
+      },
+      "scaffolding": {
+        "sites": 806,
+        "static": 647,
+        "partial": 10,
+        "opaque": 149,
+        "spv_static": 0.8027295285359801,
+        "spv_partial": 0.815136476426799
+      },
+      "scaffolding_share": 0.7848101265822784,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "smolagents",
+      "all_paths": {
+        "sites": 54,
+        "static": 17,
+        "partial": 2,
+        "opaque": 35,
+        "spv_static": 0.3148148148148148,
+        "spv_partial": 0.35185185185185186
+      },
+      "production": {
+        "sites": 26,
+        "static": 4,
+        "partial": 0,
+        "opaque": 22,
+        "spv_static": 0.15384615384615385,
+        "spv_partial": 0.15384615384615385
+      },
+      "scaffolding": {
+        "sites": 28,
+        "static": 13,
+        "partial": 2,
+        "opaque": 13,
+        "spv_static": 0.4642857142857143,
+        "spv_partial": 0.5357142857142857
+      },
+      "scaffolding_share": 0.5185185185185185,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "swarm",
+      "all_paths": {
+        "sites": 43,
+        "static": 31,
+        "partial": 0,
+        "opaque": 12,
+        "spv_static": 0.7209302325581395,
+        "spv_partial": 0.7209302325581395
+      },
+      "production": {
+        "sites": 3,
+        "static": 1,
+        "partial": 0,
+        "opaque": 2,
+        "spv_static": 0.3333333333333333,
+        "spv_partial": 0.3333333333333333
+      },
+      "scaffolding": {
+        "sites": 40,
+        "static": 30,
+        "partial": 0,
+        "opaque": 10,
+        "spv_static": 0.75,
+        "spv_partial": 0.75
+      },
+      "scaffolding_share": 0.9302325581395349,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "openai"
+    },
+    {
+      "repo": "taskweaver",
+      "all_paths": {
+        "sites": 68,
+        "static": 6,
+        "partial": 2,
+        "opaque": 60,
+        "spv_static": 0.08823529411764706,
+        "spv_partial": 0.11764705882352941
+      },
+      "production": {
+        "sites": 60,
+        "static": 4,
+        "partial": 2,
+        "opaque": 54,
+        "spv_static": 0.06666666666666667,
+        "spv_partial": 0.1
+      },
+      "scaffolding": {
+        "sites": 8,
+        "static": 2,
+        "partial": 0,
+        "opaque": 6,
+        "spv_static": 0.25,
+        "spv_partial": 0.25
+      },
+      "scaffolding_share": 0.11764705882352941,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    },
+    {
+      "repo": "llama-index",
+      "all_paths": {
+        "sites": 1342,
+        "static": 369,
+        "partial": 25,
+        "opaque": 948,
+        "spv_static": 0.2749627421758569,
+        "spv_partial": 0.293591654247392
+      },
+      "production": {
+        "sites": 887,
+        "static": 140,
+        "partial": 13,
+        "opaque": 734,
+        "spv_static": 0.15783540022547915,
+        "spv_partial": 0.17249154453213078
+      },
+      "scaffolding": {
+        "sites": 455,
+        "static": 229,
+        "partial": 12,
+        "opaque": 214,
+        "spv_static": 0.5032967032967033,
+        "spv_partial": 0.5296703296703297
+      },
+      "scaffolding_share": 0.3390461997019374,
+      "has_production": true,
+      "demonstrative": false,
+      "framework": "custom"
+    }
+  ],
+  "strata": {
+    "all_paths": {
+      "repos": 20,
+      "median_spv_partial": 0.4578772387062283,
+      "ci95": [
+        0.3269326373353219,
+        0.5848931351365423
+      ],
+      "pooled_spv_partial": 0.6802208054734878,
+      "design_effect": {
+        "icc": 0.27498348522374627,
+        "mean_cluster_size_arithmetic": 643.1,
+        "mean_cluster_size_kish": 2197.600528689162,
+        "m_zero_unequal": 561.2841827005705,
+        "design_effect": 605.0288690232694,
+        "effective_n": 21.25848973250453
+      }
+    },
+    "production": {
+      "repos": 19,
+      "median_spv_partial": 0.28027681660899656,
+      "ci95": [
+        0.20869565217391303,
+        0.3333333333333333
+      ],
+      "pooled_spv_partial": 0.2627142455745996,
+      "design_effect": {
+        "icc": 0.07618392571107223,
+        "mean_cluster_size_arithmetic": 187.31578947368422,
+        "mean_cluster_size_kish": 456.92245012644,
+        "m_zero_unequal": 172.33764165964223,
+        "design_effect": 35.73396207044274,
+        "effective_n": 99.5971281601549
+      }
+    },
+    "scaffolding": {
+      "repos": 18,
+      "median_spv_partial": 0.551948051948052,
+      "ci95": [
+        0.48684210526315785,
+        0.6959203036053131
+      ],
+      "pooled_spv_partial": 0.8399441040524562,
+      "design_effect": {
+        "icc": 0.2417460615549747,
+        "mean_cluster_size_arithmetic": 516.8333333333334,
+        "mean_cluster_size_kish": 2176.1518864882296,
+        "m_zero_unequal": 419.2263596183395,
+        "design_effect": 526.8344018424028,
+        "effective_n": 17.658300155544698
+      }
+    }
+  },
+  "scaffolding_share_pooled": 0.7232934224848391,
+  "excluded_no_production": [
+    "crewai-examples"
+  ]
+}
