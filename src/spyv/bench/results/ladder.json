@@ -3,14 +3,14 @@
   "levels": {
     "0": {
       "name": "literals",
-      "pooled": 0.6400248794899704,
-      "median": 0.4104064039408867,
-      "mean": 0.44998227097057697,
+      "pooled": 0.5494803233543573,
+      "median": 0.40560365560365563,
+      "mean": 0.4401428266725437,
       "median_ci95": [
-        0.3130081300813008,
-        0.5459989870853381
+        0.3207261724659607,
+        0.5067544604927783
       ],
-      "opaque": 4630,
+      "opaque": 10143,
       "repos": [
         {
           "name": "crewai",
@@ -191,19 +191,289 @@
           "opaque": 1037,
           "sites": 1342,
           "spv_partial": 0.22727272727272727
+        },
+        {
+          "name": "hermes-agent",
+          "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+          "static": 527,
+          "partial": 55,
+          "opaque": 829,
+          "sites": 1411,
+          "spv_partial": 0.41247342310418145
+        },
+        {
+          "name": "awesome-llm-apps",
+          "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+          "static": 233,
+          "partial": 109,
+          "opaque": 139,
+          "sites": 481,
+          "spv_partial": 0.7110187110187111
+        },
+        {
+          "name": "moneyprinterturbo",
+          "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+          "static": 1,
+          "partial": 0,
+          "opaque": 39,
+          "sites": 40,
+          "spv_partial": 0.025
+        },
+        {
+          "name": "browser-use",
+          "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+          "static": 36,
+          "partial": 19,
+          "opaque": 147,
+          "sites": 202,
+          "spv_partial": 0.2722772277227723
+        },
+        {
+          "name": "tradingagents",
+          "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+          "static": 3,
+          "partial": 11,
+          "opaque": 33,
+          "sites": 47,
+          "spv_partial": 0.2978723404255319
+        },
+        {
+          "name": "paddleocr",
+          "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+          "static": 0,
+          "partial": 1,
+          "opaque": 6,
+          "sites": 7,
+          "spv_partial": 0.14285714285714285
+        },
+        {
+          "name": "deer-flow",
+          "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+          "static": 188,
+          "partial": 21,
+          "opaque": 200,
+          "sites": 409,
+          "spv_partial": 0.511002444987775
+        },
+        {
+          "name": "learn-claude-code",
+          "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+          "static": 6,
+          "partial": 40,
+          "opaque": 18,
+          "sites": 64,
+          "spv_partial": 0.71875
+        },
+        {
+          "name": "mem0",
+          "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+          "static": 68,
+          "partial": 10,
+          "opaque": 45,
+          "sites": 123,
+          "spv_partial": 0.6341463414634146
+        },
+        {
+          "name": "daily_stock_analysis",
+          "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+          "static": 91,
+          "partial": 8,
+          "opaque": 143,
+          "sites": 242,
+          "spv_partial": 0.4090909090909091
+        },
+        {
+          "name": "ai-engineering-from-scratch",
+          "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+          "static": 54,
+          "partial": 4,
+          "opaque": 88,
+          "sites": 146,
+          "spv_partial": 0.3972602739726027
+        },
+        {
+          "name": "nanobot",
+          "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+          "static": 72,
+          "partial": 4,
+          "opaque": 113,
+          "sites": 189,
+          "spv_partial": 0.4021164021164021
+        },
+        {
+          "name": "agentic-awesome-skills",
+          "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+          "static": 29,
+          "partial": 25,
+          "opaque": 197,
+          "sites": 251,
+          "spv_partial": 0.2151394422310757
+        },
+        {
+          "name": "ai-agent-book",
+          "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+          "static": 268,
+          "partial": 120,
+          "opaque": 404,
+          "sites": 792,
+          "spv_partial": 0.4898989898989899
+        },
+        {
+          "name": "langchain-chatchat",
+          "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+          "static": 10,
+          "partial": 0,
+          "opaque": 65,
+          "sites": 75,
+          "spv_partial": 0.13333333333333333
+        },
+        {
+          "name": "deeptutor",
+          "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+          "static": 85,
+          "partial": 15,
+          "opaque": 396,
+          "sites": 496,
+          "spv_partial": 0.20161290322580644
+        },
+        {
+          "name": "500-ai-agents-projects",
+          "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+          "static": 73,
+          "partial": 19,
+          "opaque": 11,
+          "sites": 103,
+          "spv_partial": 0.8932038834951457
+        },
+        {
+          "name": "pageindex",
+          "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+          "static": 15,
+          "partial": 17,
+          "opaque": 8,
+          "sites": 40,
+          "spv_partial": 0.8
+        },
+        {
+          "name": "qwenpaw",
+          "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+          "static": 84,
+          "partial": 21,
+          "opaque": 250,
+          "sites": 355,
+          "spv_partial": 0.29577464788732394
+        },
+        {
+          "name": "sglang",
+          "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+          "static": 355,
+          "partial": 18,
+          "opaque": 814,
+          "sites": 1187,
+          "spv_partial": 0.3142375737152485
+        },
+        {
+          "name": "vibe-trading",
+          "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+          "static": 69,
+          "partial": 5,
+          "opaque": 73,
+          "sites": 147,
+          "spv_partial": 0.5034013605442177
+        },
+        {
+          "name": "graphiti",
+          "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+          "static": 22,
+          "partial": 11,
+          "opaque": 19,
+          "sites": 52,
+          "spv_partial": 0.6346153846153846
+        },
+        {
+          "name": "cognee",
+          "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+          "static": 118,
+          "partial": 12,
+          "opaque": 306,
+          "sites": 436,
+          "spv_partial": 0.2981651376146789
+        },
+        {
+          "name": "scrapegraph-ai",
+          "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+          "static": 38,
+          "partial": 0,
+          "opaque": 153,
+          "sites": 191,
+          "spv_partial": 0.19895287958115182
+        },
+        {
+          "name": "agentscope",
+          "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+          "static": 129,
+          "partial": 5,
+          "opaque": 97,
+          "sites": 231,
+          "spv_partial": 0.5800865800865801
+        },
+        {
+          "name": "openai-agents-python",
+          "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+          "static": 541,
+          "partial": 29,
+          "opaque": 229,
+          "sites": 799,
+          "spv_partial": 0.7133917396745932
+        },
+        {
+          "name": "deepagents",
+          "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+          "static": 198,
+          "partial": 14,
+          "opaque": 449,
+          "sites": 661,
+          "spv_partial": 0.3207261724659607
+        },
+        {
+          "name": "haystack",
+          "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+          "static": 98,
+          "partial": 0,
+          "opaque": 86,
+          "sites": 184,
+          "spv_partial": 0.532608695652174
+        },
+        {
+          "name": "kotaemon",
+          "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+          "static": 47,
+          "partial": 2,
+          "opaque": 106,
+          "sites": 155,
+          "spv_partial": 0.3161290322580645
+        },
+        {
+          "name": "mlc-llm",
+          "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+          "static": 81,
+          "partial": 5,
+          "opaque": 50,
+          "sites": 136,
+          "spv_partial": 0.6323529411764706
         }
       ]
     },
     "1": {
       "name": "+ constant propagation",
-      "pooled": 0.6799875602550147,
-      "median": 0.4578772387062283,
-      "mean": 0.49058755692088524,
+      "pooled": 0.5853691036688283,
+      "median": 0.434458299898671,
+      "mean": 0.4740674053904807,
       "median_ci95": [
-        0.3269326373353219,
-        0.5848931351365423
+        0.3524962178517398,
+        0.5378973105134475
       ],
-      "opaque": 4116,
+      "opaque": 9335,
       "repos": [
         {
           "name": "crewai",
@@ -384,19 +654,289 @@
           "opaque": 948,
           "sites": 1342,
           "spv_partial": 0.293591654247392
+        },
+        {
+          "name": "hermes-agent",
+          "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+          "static": 551,
+          "partial": 57,
+          "opaque": 803,
+          "sites": 1411,
+          "spv_partial": 0.43090007087172216
+        },
+        {
+          "name": "awesome-llm-apps",
+          "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+          "static": 249,
+          "partial": 111,
+          "opaque": 121,
+          "sites": 481,
+          "spv_partial": 0.7484407484407485
+        },
+        {
+          "name": "moneyprinterturbo",
+          "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+          "static": 1,
+          "partial": 0,
+          "opaque": 39,
+          "sites": 40,
+          "spv_partial": 0.025
+        },
+        {
+          "name": "browser-use",
+          "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+          "static": 39,
+          "partial": 23,
+          "opaque": 140,
+          "sites": 202,
+          "spv_partial": 0.3069306930693069
+        },
+        {
+          "name": "tradingagents",
+          "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+          "static": 3,
+          "partial": 13,
+          "opaque": 31,
+          "sites": 47,
+          "spv_partial": 0.3404255319148936
+        },
+        {
+          "name": "paddleocr",
+          "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+          "static": 0,
+          "partial": 1,
+          "opaque": 6,
+          "sites": 7,
+          "spv_partial": 0.14285714285714285
+        },
+        {
+          "name": "deer-flow",
+          "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+          "static": 196,
+          "partial": 24,
+          "opaque": 189,
+          "sites": 409,
+          "spv_partial": 0.5378973105134475
+        },
+        {
+          "name": "learn-claude-code",
+          "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+          "static": 8,
+          "partial": 40,
+          "opaque": 16,
+          "sites": 64,
+          "spv_partial": 0.75
+        },
+        {
+          "name": "mem0",
+          "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+          "static": 70,
+          "partial": 11,
+          "opaque": 42,
+          "sites": 123,
+          "spv_partial": 0.6585365853658537
+        },
+        {
+          "name": "daily_stock_analysis",
+          "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+          "static": 97,
+          "partial": 9,
+          "opaque": 136,
+          "sites": 242,
+          "spv_partial": 0.4380165289256198
+        },
+        {
+          "name": "ai-engineering-from-scratch",
+          "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+          "static": 54,
+          "partial": 4,
+          "opaque": 88,
+          "sites": 146,
+          "spv_partial": 0.3972602739726027
+        },
+        {
+          "name": "nanobot",
+          "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+          "static": 73,
+          "partial": 5,
+          "opaque": 111,
+          "sites": 189,
+          "spv_partial": 0.4126984126984127
+        },
+        {
+          "name": "agentic-awesome-skills",
+          "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+          "static": 41,
+          "partial": 31,
+          "opaque": 179,
+          "sites": 251,
+          "spv_partial": 0.2868525896414343
+        },
+        {
+          "name": "ai-agent-book",
+          "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+          "static": 312,
+          "partial": 127,
+          "opaque": 353,
+          "sites": 792,
+          "spv_partial": 0.5542929292929293
+        },
+        {
+          "name": "langchain-chatchat",
+          "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+          "static": 12,
+          "partial": 1,
+          "opaque": 62,
+          "sites": 75,
+          "spv_partial": 0.17333333333333334
+        },
+        {
+          "name": "deeptutor",
+          "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+          "static": 95,
+          "partial": 17,
+          "opaque": 384,
+          "sites": 496,
+          "spv_partial": 0.22580645161290322
+        },
+        {
+          "name": "500-ai-agents-projects",
+          "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+          "static": 82,
+          "partial": 20,
+          "opaque": 1,
+          "sites": 103,
+          "spv_partial": 0.9902912621359223
+        },
+        {
+          "name": "pageindex",
+          "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+          "static": 15,
+          "partial": 17,
+          "opaque": 8,
+          "sites": 40,
+          "spv_partial": 0.8
+        },
+        {
+          "name": "qwenpaw",
+          "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+          "static": 97,
+          "partial": 23,
+          "opaque": 235,
+          "sites": 355,
+          "spv_partial": 0.3380281690140845
+        },
+        {
+          "name": "sglang",
+          "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+          "static": 387,
+          "partial": 19,
+          "opaque": 781,
+          "sites": 1187,
+          "spv_partial": 0.34203875315922494
+        },
+        {
+          "name": "vibe-trading",
+          "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+          "static": 69,
+          "partial": 6,
+          "opaque": 72,
+          "sites": 147,
+          "spv_partial": 0.5102040816326531
+        },
+        {
+          "name": "graphiti",
+          "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+          "static": 24,
+          "partial": 11,
+          "opaque": 17,
+          "sites": 52,
+          "spv_partial": 0.6730769230769231
+        },
+        {
+          "name": "cognee",
+          "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+          "static": 124,
+          "partial": 22,
+          "opaque": 290,
+          "sites": 436,
+          "spv_partial": 0.3348623853211009
+        },
+        {
+          "name": "scrapegraph-ai",
+          "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+          "static": 38,
+          "partial": 0,
+          "opaque": 153,
+          "sites": 191,
+          "spv_partial": 0.19895287958115182
+        },
+        {
+          "name": "agentscope",
+          "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+          "static": 135,
+          "partial": 6,
+          "opaque": 90,
+          "sites": 231,
+          "spv_partial": 0.6103896103896104
+        },
+        {
+          "name": "openai-agents-python",
+          "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+          "static": 552,
+          "partial": 29,
+          "opaque": 218,
+          "sites": 799,
+          "spv_partial": 0.7271589486858573
+        },
+        {
+          "name": "deepagents",
+          "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+          "static": 212,
+          "partial": 21,
+          "opaque": 428,
+          "sites": 661,
+          "spv_partial": 0.3524962178517398
+        },
+        {
+          "name": "haystack",
+          "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+          "static": 101,
+          "partial": 0,
+          "opaque": 83,
+          "sites": 184,
+          "spv_partial": 0.5489130434782609
+        },
+        {
+          "name": "kotaemon",
+          "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+          "static": 55,
+          "partial": 3,
+          "opaque": 97,
+          "sites": 155,
+          "spv_partial": 0.3741935483870968
+        },
+        {
+          "name": "mlc-llm",
+          "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+          "static": 85,
+          "partial": 5,
+          "opaque": 46,
+          "sites": 136,
+          "spv_partial": 0.6617647058823529
         }
       ]
     },
     "2": {
       "name": "+ interprocedural",
-      "pooled": 0.6816202767843259,
-      "median": 0.48437637121544536,
-      "mean": 0.4984602453586841,
+      "pooled": 0.5897219507861775,
+      "median": 0.4578772387062283,
+      "mean": 0.48194917674289306,
       "median_ci95": [
-        0.33592592592592596,
-        0.5848931351365423
+        0.36617632858016547,
+        0.5403422982885085
       ],
-      "opaque": 4095,
+      "opaque": 9237,
       "repos": [
         {
           "name": "crewai",
@@ -577,19 +1117,289 @@
           "opaque": 948,
           "sites": 1342,
           "spv_partial": 0.293591654247392
+        },
+        {
+          "name": "hermes-agent",
+          "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+          "static": 551,
+          "partial": 67,
+          "opaque": 793,
+          "sites": 1411,
+          "spv_partial": 0.4379872430900071
+        },
+        {
+          "name": "awesome-llm-apps",
+          "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+          "static": 249,
+          "partial": 112,
+          "opaque": 120,
+          "sites": 481,
+          "spv_partial": 0.7505197505197505
+        },
+        {
+          "name": "moneyprinterturbo",
+          "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+          "static": 1,
+          "partial": 0,
+          "opaque": 39,
+          "sites": 40,
+          "spv_partial": 0.025
+        },
+        {
+          "name": "browser-use",
+          "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+          "static": 39,
+          "partial": 23,
+          "opaque": 140,
+          "sites": 202,
+          "spv_partial": 0.3069306930693069
+        },
+        {
+          "name": "tradingagents",
+          "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+          "static": 3,
+          "partial": 14,
+          "opaque": 30,
+          "sites": 47,
+          "spv_partial": 0.3617021276595745
+        },
+        {
+          "name": "paddleocr",
+          "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+          "static": 0,
+          "partial": 1,
+          "opaque": 6,
+          "sites": 7,
+          "spv_partial": 0.14285714285714285
+        },
+        {
+          "name": "deer-flow",
+          "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+          "static": 197,
+          "partial": 24,
+          "opaque": 188,
+          "sites": 409,
+          "spv_partial": 0.5403422982885085
+        },
+        {
+          "name": "learn-claude-code",
+          "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+          "static": 8,
+          "partial": 41,
+          "opaque": 15,
+          "sites": 64,
+          "spv_partial": 0.765625
+        },
+        {
+          "name": "mem0",
+          "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+          "static": 70,
+          "partial": 14,
+          "opaque": 39,
+          "sites": 123,
+          "spv_partial": 0.6829268292682927
+        },
+        {
+          "name": "daily_stock_analysis",
+          "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+          "static": 97,
+          "partial": 15,
+          "opaque": 130,
+          "sites": 242,
+          "spv_partial": 0.4628099173553719
+        },
+        {
+          "name": "ai-engineering-from-scratch",
+          "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+          "static": 55,
+          "partial": 5,
+          "opaque": 86,
+          "sites": 146,
+          "spv_partial": 0.410958904109589
+        },
+        {
+          "name": "nanobot",
+          "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+          "static": 73,
+          "partial": 5,
+          "opaque": 111,
+          "sites": 189,
+          "spv_partial": 0.4126984126984127
+        },
+        {
+          "name": "agentic-awesome-skills",
+          "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+          "static": 41,
+          "partial": 40,
+          "opaque": 170,
+          "sites": 251,
+          "spv_partial": 0.32270916334661354
+        },
+        {
+          "name": "ai-agent-book",
+          "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+          "static": 313,
+          "partial": 142,
+          "opaque": 337,
+          "sites": 792,
+          "spv_partial": 0.5744949494949495
+        },
+        {
+          "name": "langchain-chatchat",
+          "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+          "static": 12,
+          "partial": 1,
+          "opaque": 62,
+          "sites": 75,
+          "spv_partial": 0.17333333333333334
+        },
+        {
+          "name": "deeptutor",
+          "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+          "static": 95,
+          "partial": 19,
+          "opaque": 382,
+          "sites": 496,
+          "spv_partial": 0.22983870967741934
+        },
+        {
+          "name": "500-ai-agents-projects",
+          "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+          "static": 82,
+          "partial": 20,
+          "opaque": 1,
+          "sites": 103,
+          "spv_partial": 0.9902912621359223
+        },
+        {
+          "name": "pageindex",
+          "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+          "static": 15,
+          "partial": 17,
+          "opaque": 8,
+          "sites": 40,
+          "spv_partial": 0.8
+        },
+        {
+          "name": "qwenpaw",
+          "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+          "static": 98,
+          "partial": 23,
+          "opaque": 234,
+          "sites": 355,
+          "spv_partial": 0.3408450704225352
+        },
+        {
+          "name": "sglang",
+          "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+          "static": 387,
+          "partial": 23,
+          "opaque": 777,
+          "sites": 1187,
+          "spv_partial": 0.34540859309182814
+        },
+        {
+          "name": "vibe-trading",
+          "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+          "static": 69,
+          "partial": 8,
+          "opaque": 70,
+          "sites": 147,
+          "spv_partial": 0.5238095238095238
+        },
+        {
+          "name": "graphiti",
+          "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+          "static": 24,
+          "partial": 11,
+          "opaque": 17,
+          "sites": 52,
+          "spv_partial": 0.6730769230769231
+        },
+        {
+          "name": "cognee",
+          "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+          "static": 124,
+          "partial": 23,
+          "opaque": 289,
+          "sites": 436,
+          "spv_partial": 0.33715596330275227
+        },
+        {
+          "name": "scrapegraph-ai",
+          "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+          "static": 38,
+          "partial": 0,
+          "opaque": 153,
+          "sites": 191,
+          "spv_partial": 0.19895287958115182
+        },
+        {
+          "name": "agentscope",
+          "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+          "static": 135,
+          "partial": 6,
+          "opaque": 90,
+          "sites": 231,
+          "spv_partial": 0.6103896103896104
+        },
+        {
+          "name": "openai-agents-python",
+          "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+          "static": 552,
+          "partial": 30,
+          "opaque": 217,
+          "sites": 799,
+          "spv_partial": 0.7284105131414268
+        },
+        {
+          "name": "deepagents",
+          "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+          "static": 212,
+          "partial": 33,
+          "opaque": 416,
+          "sites": 661,
+          "spv_partial": 0.37065052950075644
+        },
+        {
+          "name": "haystack",
+          "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+          "static": 101,
+          "partial": 3,
+          "opaque": 80,
+          "sites": 184,
+          "spv_partial": 0.5652173913043478
+        },
+        {
+          "name": "kotaemon",
+          "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+          "static": 55,
+          "partial": 3,
+          "opaque": 97,
+          "sites": 155,
+          "spv_partial": 0.3741935483870968
+        },
+        {
+          "name": "mlc-llm",
+          "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+          "static": 86,
+          "partial": 5,
+          "opaque": 45,
+          "sites": 136,
+          "spv_partial": 0.6691176470588235
         }
       ]
     },
     "3": {
       "name": "+ import resolution",
-      "pooled": 0.689939356243197,
-      "median": 0.5001110240334379,
-      "mean": 0.5118910180484653,
+      "pooled": 0.6002931509283113,
+      "median": 0.4817177893611334,
+      "mean": 0.4962340084439397,
       "median_ci95": [
-        0.3516016016016016,
-        0.5890714081170436
+        0.38240554437737534,
+        0.5483170714987546
       ],
-      "opaque": 3988,
+      "opaque": 8999,
       "repos": [
         {
           "name": "crewai",
@@ -770,19 +1580,289 @@
           "opaque": 933,
           "sites": 1342,
           "spv_partial": 0.30476900149031294
+        },
+        {
+          "name": "hermes-agent",
+          "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+          "static": 559,
+          "partial": 86,
+          "opaque": 766,
+          "sites": 1411,
+          "spv_partial": 0.4571226080793763
+        },
+        {
+          "name": "awesome-llm-apps",
+          "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+          "static": 249,
+          "partial": 112,
+          "opaque": 120,
+          "sites": 481,
+          "spv_partial": 0.7505197505197505
+        },
+        {
+          "name": "moneyprinterturbo",
+          "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+          "static": 1,
+          "partial": 0,
+          "opaque": 39,
+          "sites": 40,
+          "spv_partial": 0.025
+        },
+        {
+          "name": "browser-use",
+          "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+          "static": 39,
+          "partial": 25,
+          "opaque": 138,
+          "sites": 202,
+          "spv_partial": 0.31683168316831684
+        },
+        {
+          "name": "tradingagents",
+          "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+          "static": 4,
+          "partial": 14,
+          "opaque": 29,
+          "sites": 47,
+          "spv_partial": 0.3829787234042553
+        },
+        {
+          "name": "paddleocr",
+          "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+          "static": 0,
+          "partial": 1,
+          "opaque": 6,
+          "sites": 7,
+          "spv_partial": 0.14285714285714285
+        },
+        {
+          "name": "deer-flow",
+          "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+          "static": 199,
+          "partial": 24,
+          "opaque": 186,
+          "sites": 409,
+          "spv_partial": 0.5452322738386308
+        },
+        {
+          "name": "learn-claude-code",
+          "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+          "static": 8,
+          "partial": 41,
+          "opaque": 15,
+          "sites": 64,
+          "spv_partial": 0.765625
+        },
+        {
+          "name": "mem0",
+          "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+          "static": 75,
+          "partial": 14,
+          "opaque": 34,
+          "sites": 123,
+          "spv_partial": 0.7235772357723578
+        },
+        {
+          "name": "daily_stock_analysis",
+          "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+          "static": 104,
+          "partial": 18,
+          "opaque": 120,
+          "sites": 242,
+          "spv_partial": 0.5041322314049587
+        },
+        {
+          "name": "ai-engineering-from-scratch",
+          "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+          "static": 57,
+          "partial": 5,
+          "opaque": 84,
+          "sites": 146,
+          "spv_partial": 0.4246575342465753
+        },
+        {
+          "name": "nanobot",
+          "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+          "static": 73,
+          "partial": 5,
+          "opaque": 111,
+          "sites": 189,
+          "spv_partial": 0.4126984126984127
+        },
+        {
+          "name": "agentic-awesome-skills",
+          "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+          "static": 47,
+          "partial": 40,
+          "opaque": 164,
+          "sites": 251,
+          "spv_partial": 0.3466135458167331
+        },
+        {
+          "name": "ai-agent-book",
+          "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+          "static": 319,
+          "partial": 155,
+          "opaque": 318,
+          "sites": 792,
+          "spv_partial": 0.5984848484848485
+        },
+        {
+          "name": "langchain-chatchat",
+          "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+          "static": 12,
+          "partial": 1,
+          "opaque": 62,
+          "sites": 75,
+          "spv_partial": 0.17333333333333334
+        },
+        {
+          "name": "deeptutor",
+          "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+          "static": 97,
+          "partial": 22,
+          "opaque": 377,
+          "sites": 496,
+          "spv_partial": 0.2399193548387097
+        },
+        {
+          "name": "500-ai-agents-projects",
+          "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+          "static": 82,
+          "partial": 20,
+          "opaque": 1,
+          "sites": 103,
+          "spv_partial": 0.9902912621359223
+        },
+        {
+          "name": "pageindex",
+          "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+          "static": 15,
+          "partial": 17,
+          "opaque": 8,
+          "sites": 40,
+          "spv_partial": 0.8
+        },
+        {
+          "name": "qwenpaw",
+          "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+          "static": 98,
+          "partial": 27,
+          "opaque": 230,
+          "sites": 355,
+          "spv_partial": 0.352112676056338
+        },
+        {
+          "name": "sglang",
+          "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+          "static": 390,
+          "partial": 24,
+          "opaque": 773,
+          "sites": 1187,
+          "spv_partial": 0.34877843302443134
+        },
+        {
+          "name": "vibe-trading",
+          "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+          "static": 69,
+          "partial": 9,
+          "opaque": 69,
+          "sites": 147,
+          "spv_partial": 0.5306122448979592
+        },
+        {
+          "name": "graphiti",
+          "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+          "static": 24,
+          "partial": 11,
+          "opaque": 17,
+          "sites": 52,
+          "spv_partial": 0.6730769230769231
+        },
+        {
+          "name": "cognee",
+          "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+          "static": 129,
+          "partial": 24,
+          "opaque": 283,
+          "sites": 436,
+          "spv_partial": 0.35091743119266056
+        },
+        {
+          "name": "scrapegraph-ai",
+          "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+          "static": 46,
+          "partial": 3,
+          "opaque": 142,
+          "sites": 191,
+          "spv_partial": 0.25654450261780104
+        },
+        {
+          "name": "agentscope",
+          "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+          "static": 135,
+          "partial": 6,
+          "opaque": 90,
+          "sites": 231,
+          "spv_partial": 0.6103896103896104
+        },
+        {
+          "name": "openai-agents-python",
+          "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+          "static": 552,
+          "partial": 35,
+          "opaque": 212,
+          "sites": 799,
+          "spv_partial": 0.7346683354192741
+        },
+        {
+          "name": "deepagents",
+          "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+          "static": 212,
+          "partial": 33,
+          "opaque": 416,
+          "sites": 661,
+          "spv_partial": 0.37065052950075644
+        },
+        {
+          "name": "haystack",
+          "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+          "static": 105,
+          "partial": 3,
+          "opaque": 76,
+          "sites": 184,
+          "spv_partial": 0.5869565217391305
+        },
+        {
+          "name": "kotaemon",
+          "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+          "static": 65,
+          "partial": 3,
+          "opaque": 87,
+          "sites": 155,
+          "spv_partial": 0.43870967741935485
+        },
+        {
+          "name": "mlc-llm",
+          "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+          "static": 93,
+          "partial": 5,
+          "opaque": 38,
+          "sites": 136,
+          "spv_partial": 0.7205882352941176
         }
       ]
     },
     "4": {
       "name": "+ string expressions",
-      "pooled": 0.7009018815114291,
-      "median": 0.520995670995671,
-      "mean": 0.5323948613011511,
+      "pooled": 0.6130851914364396,
+      "median": 0.5001110240334379,
+      "mean": 0.5113227474447579,
       "median_ci95": [
-        0.36292682926829267,
-        0.6431301418669431
+        0.3857791225416036,
+        0.592391304347826
       ],
-      "opaque": 3847,
+      "opaque": 8711,
       "repos": [
         {
           "name": "crewai",
@@ -963,44 +2043,314 @@
           "opaque": 929,
           "sites": 1342,
           "spv_partial": 0.30774962742175854
+        },
+        {
+          "name": "hermes-agent",
+          "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+          "static": 568,
+          "partial": 108,
+          "opaque": 735,
+          "sites": 1411,
+          "spv_partial": 0.47909284195605956
+        },
+        {
+          "name": "awesome-llm-apps",
+          "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+          "static": 249,
+          "partial": 113,
+          "opaque": 119,
+          "sites": 481,
+          "spv_partial": 0.7525987525987526
+        },
+        {
+          "name": "moneyprinterturbo",
+          "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+          "static": 1,
+          "partial": 1,
+          "opaque": 38,
+          "sites": 40,
+          "spv_partial": 0.05
+        },
+        {
+          "name": "browser-use",
+          "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+          "static": 39,
+          "partial": 25,
+          "opaque": 138,
+          "sites": 202,
+          "spv_partial": 0.31683168316831684
+        },
+        {
+          "name": "tradingagents",
+          "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+          "static": 4,
+          "partial": 14,
+          "opaque": 29,
+          "sites": 47,
+          "spv_partial": 0.3829787234042553
+        },
+        {
+          "name": "paddleocr",
+          "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+          "static": 0,
+          "partial": 1,
+          "opaque": 6,
+          "sites": 7,
+          "spv_partial": 0.14285714285714285
+        },
+        {
+          "name": "deer-flow",
+          "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+          "static": 200,
+          "partial": 25,
+          "opaque": 184,
+          "sites": 409,
+          "spv_partial": 0.5501222493887531
+        },
+        {
+          "name": "learn-claude-code",
+          "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+          "static": 8,
+          "partial": 41,
+          "opaque": 15,
+          "sites": 64,
+          "spv_partial": 0.765625
+        },
+        {
+          "name": "mem0",
+          "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+          "static": 75,
+          "partial": 14,
+          "opaque": 34,
+          "sites": 123,
+          "spv_partial": 0.7235772357723578
+        },
+        {
+          "name": "daily_stock_analysis",
+          "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+          "static": 106,
+          "partial": 24,
+          "opaque": 112,
+          "sites": 242,
+          "spv_partial": 0.5371900826446281
+        },
+        {
+          "name": "ai-engineering-from-scratch",
+          "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+          "static": 57,
+          "partial": 9,
+          "opaque": 80,
+          "sites": 146,
+          "spv_partial": 0.4520547945205479
+        },
+        {
+          "name": "nanobot",
+          "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+          "static": 74,
+          "partial": 6,
+          "opaque": 109,
+          "sites": 189,
+          "spv_partial": 0.42328042328042326
+        },
+        {
+          "name": "agentic-awesome-skills",
+          "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+          "static": 47,
+          "partial": 46,
+          "opaque": 158,
+          "sites": 251,
+          "spv_partial": 0.3705179282868526
+        },
+        {
+          "name": "ai-agent-book",
+          "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+          "static": 319,
+          "partial": 193,
+          "opaque": 280,
+          "sites": 792,
+          "spv_partial": 0.6464646464646465
+        },
+        {
+          "name": "langchain-chatchat",
+          "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+          "static": 12,
+          "partial": 1,
+          "opaque": 62,
+          "sites": 75,
+          "spv_partial": 0.17333333333333334
+        },
+        {
+          "name": "deeptutor",
+          "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+          "static": 101,
+          "partial": 29,
+          "opaque": 366,
+          "sites": 496,
+          "spv_partial": 0.2620967741935484
+        },
+        {
+          "name": "500-ai-agents-projects",
+          "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+          "static": 82,
+          "partial": 20,
+          "opaque": 1,
+          "sites": 103,
+          "spv_partial": 0.9902912621359223
+        },
+        {
+          "name": "pageindex",
+          "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+          "static": 15,
+          "partial": 18,
+          "opaque": 7,
+          "sites": 40,
+          "spv_partial": 0.825
+        },
+        {
+          "name": "qwenpaw",
+          "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+          "static": 99,
+          "partial": 32,
+          "opaque": 224,
+          "sites": 355,
+          "spv_partial": 0.36901408450704226
+        },
+        {
+          "name": "sglang",
+          "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+          "static": 395,
+          "partial": 30,
+          "opaque": 762,
+          "sites": 1187,
+          "spv_partial": 0.35804549283909015
+        },
+        {
+          "name": "vibe-trading",
+          "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+          "static": 70,
+          "partial": 11,
+          "opaque": 66,
+          "sites": 147,
+          "spv_partial": 0.5510204081632653
+        },
+        {
+          "name": "graphiti",
+          "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+          "static": 24,
+          "partial": 11,
+          "opaque": 17,
+          "sites": 52,
+          "spv_partial": 0.6730769230769231
+        },
+        {
+          "name": "cognee",
+          "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+          "static": 129,
+          "partial": 30,
+          "opaque": 277,
+          "sites": 436,
+          "spv_partial": 0.3646788990825688
+        },
+        {
+          "name": "scrapegraph-ai",
+          "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+          "static": 46,
+          "partial": 4,
+          "opaque": 141,
+          "sites": 191,
+          "spv_partial": 0.2617801047120419
+        },
+        {
+          "name": "agentscope",
+          "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+          "static": 135,
+          "partial": 7,
+          "opaque": 89,
+          "sites": 231,
+          "spv_partial": 0.6147186147186147
+        },
+        {
+          "name": "openai-agents-python",
+          "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+          "static": 552,
+          "partial": 37,
+          "opaque": 210,
+          "sites": 799,
+          "spv_partial": 0.737171464330413
+        },
+        {
+          "name": "deepagents",
+          "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+          "static": 213,
+          "partial": 42,
+          "opaque": 406,
+          "sites": 661,
+          "spv_partial": 0.3857791225416036
+        },
+        {
+          "name": "haystack",
+          "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+          "static": 105,
+          "partial": 4,
+          "opaque": 75,
+          "sites": 184,
+          "spv_partial": 0.592391304347826
+        },
+        {
+          "name": "kotaemon",
+          "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+          "static": 65,
+          "partial": 3,
+          "opaque": 87,
+          "sites": 155,
+          "spv_partial": 0.43870967741935485
+        },
+        {
+          "name": "mlc-llm",
+          "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+          "static": 93,
+          "partial": 6,
+          "opaque": 37,
+          "sites": 136,
+          "spv_partial": 0.7279411764705882
         }
       ]
     }
   },
   "paired_increments": {
     "L0->L1": {
-      "mean_pp": 4.060528595030825,
+      "mean_pp": 3.3924578717937033,
       "ci95_pp": [
-        2.62337424972383,
-        5.679134627801111
+        2.6374822702730736,
+        4.221094282252934
       ]
     },
     "L1->L2": {
-      "mean_pp": 0.7872688437798864,
+      "mean_pp": 0.7881771352412378,
       "ci95_pp": [
-        0.05607381459153849,
-        1.919723901799373
+        0.40647379476379425,
+        1.2768225944415246
       ]
     },
     "L2->L3": {
-      "mean_pp": 1.343077268978119,
+      "mean_pp": 1.4284831701046683,
       "ci95_pp": [
-        0.33839828716761555,
-        2.909313451773233
+        0.83872761155796,
+        2.1585856161582653
       ]
     },
     "L3->L4": {
-      "mean_pp": 2.0503843252685816,
+      "mean_pp": 1.5088739000818148,
       "ci95_pp": [
-        0.5943549311536078,
-        4.073166511837332
+        0.8634405299843596,
+        2.391756803699459
       ]
     },
     "L0->L4": {
-      "mean_pp": 8.241259033057414,
+      "mean_pp": 7.117992077221425,
       "ci95_pp": [
-        5.797673478939737,
-        10.974033168992712
+        5.831787986301981,
+        8.50979112743205
       ]
     }
   },

@@ -1,49 +1,52 @@
 {
   "rq": 3,
-  "recoverable_prompts": 8647,
+  "recoverable_prompts": 12775,
   "clustering": {
-    "icc": 0.2825118849633392,
-    "mean_cluster_size_arithmetic": 432.35,
-    "mean_cluster_size_kish": 2153.256736440384,
-    "m_zero_unequal": 341.7759612399798,
-    "design_effect": 609.0381075368176,
-    "effective_n": 14.19779795877103
+    "icc": 0.2339306536810355,
+    "mean_cluster_size_arithmetic": 255.5,
+    "mean_cluster_size_kish": 1555.7085714285715,
+    "m_zero_unequal": 228.9651311953353,
+    "design_effect": 364.6939923977946,
+    "effective_n": 35.0293678160333
   },
-  "null_upper_bound_design_adjusted": 0.21130037268537674,
+  "null_upper_bound_design_adjusted": 0.0856424248292277,
   "m1_credentials": {
     "prompts": 0,
     "rate": 0.0,
     "ci95_naive_binomial": [
       0.0,
-      0.00044407240100200184
+      0.0003006219280470618
     ],
-    "upper_bound_design_adjusted": 0.21130037268537674,
-    "hit_classes": {},
+    "upper_bound_design_adjusted": 0.0856424248292277,
+    "hit_classes": {
+      "context_excluded": 1
+    },
     "note": "no credential-shaped match of any class occurred; the classification apparatus was never exercised for M1. The binomial bound presumes independent prompts and is not the one to quote."
   },
   "m2_personal_data": {
-    "prompts": 0,
-    "rate": 0.0,
+    "prompts": 1,
+    "rate": 7.827788649706458e-05,
     "ci95_naive_binomial": [
-      0.0,
-      0.00044407240100200184
+      1.3817747280106969e-05,
+      0.00044331288966275955
     ],
-    "upper_bound_design_adjusted": 0.21130037268537674,
+    "upper_bound_design_adjusted": 0.0856424248292277,
     "hit_classes": {
       "context_excluded": 3,
-      "placeholder": 2
+      "placeholder": 5,
+      "plausible": 1
     }
   },
   "m3_interpolation": {
-    "prompts": 1030,
-    "rate": 0.11911645657453453,
+    "prompts": 1901,
+    "rate": 0.14880626223091978,
     "ci95_naive_binomial": [
-      0.11245741105810689,
-      0.12611378183022434
+      0.14274022559159824,
+      0.1550834519473737
     ],
     "ci95_cluster_bootstrap": [
-      0.06509684770224079,
-      0.33382515676872004
+      0.09516038991712114,
+      0.26469588854909953
     ]
   },
   "m4_guardrails": {
@@ -210,6 +213,246 @@
       "m1_plausible": 0,
       "m2_plausible": 0,
       "m3_interpolating": 212
+    },
+    {
+      "name": "hermes-agent",
+      "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+      "recoverable_prompts": 532,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 75
+    },
+    {
+      "name": "awesome-llm-apps",
+      "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+      "recoverable_prompts": 360,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 117
+    },
+    {
+      "name": "moneyprinterturbo",
+      "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+      "recoverable_prompts": 1,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 0
+    },
+    {
+      "name": "browser-use",
+      "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+      "recoverable_prompts": 58,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 23
+    },
+    {
+      "name": "tradingagents",
+      "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+      "recoverable_prompts": 16,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 16
+    },
+    {
+      "name": "paddleocr",
+      "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+      "recoverable_prompts": 1,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 1
+    },
+    {
+      "name": "deer-flow",
+      "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+      "recoverable_prompts": 218,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 25
+    },
+    {
+      "name": "learn-claude-code",
+      "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+      "recoverable_prompts": 48,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 40
+    },
+    {
+      "name": "mem0",
+      "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+      "recoverable_prompts": 80,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 11
+    },
+    {
+      "name": "daily_stock_analysis",
+      "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+      "recoverable_prompts": 106,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 18
+    },
+    {
+      "name": "ai-engineering-from-scratch",
+      "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+      "recoverable_prompts": 57,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 9
+    },
+    {
+      "name": "nanobot",
+      "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+      "recoverable_prompts": 75,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 5
+    },
+    {
+      "name": "agentic-awesome-skills",
+      "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+      "recoverable_prompts": 72,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 50
+    },
+    {
+      "name": "ai-agent-book",
+      "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+      "recoverable_prompts": 426,
+      "m1_plausible": 0,
+      "m2_plausible": 1,
+      "m3_interpolating": 160
+    },
+    {
+      "name": "langchain-chatchat",
+      "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+      "recoverable_prompts": 13,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 7
+    },
+    {
+      "name": "deeptutor",
+      "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+      "recoverable_prompts": 93,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 17
+    },
+    {
+      "name": "500-ai-agents-projects",
+      "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+      "recoverable_prompts": 102,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 20
+    },
+    {
+      "name": "pageindex",
+      "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+      "recoverable_prompts": 32,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 18
+    },
+    {
+      "name": "qwenpaw",
+      "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+      "recoverable_prompts": 95,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 35
+    },
+    {
+      "name": "sglang",
+      "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+      "recoverable_prompts": 334,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 33
+    },
+    {
+      "name": "vibe-trading",
+      "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+      "recoverable_prompts": 73,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 9
+    },
+    {
+      "name": "graphiti",
+      "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+      "recoverable_prompts": 33,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 11
+    },
+    {
+      "name": "cognee",
+      "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+      "recoverable_prompts": 146,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 26
+    },
+    {
+      "name": "scrapegraph-ai",
+      "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+      "recoverable_prompts": 33,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 2
+    },
+    {
+      "name": "agentscope",
+      "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+      "recoverable_prompts": 128,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 13
+    },
+    {
+      "name": "openai-agents-python",
+      "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+      "recoverable_prompts": 575,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 31
+    },
+    {
+      "name": "deepagents",
+      "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+      "recoverable_prompts": 206,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 42
+    },
+    {
+      "name": "haystack",
+      "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+      "recoverable_prompts": 99,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 9
+    },
+    {
+      "name": "kotaemon",
+      "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+      "recoverable_prompts": 51,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 36
+    },
+    {
+      "name": "mlc-llm",
+      "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+      "recoverable_prompts": 65,
+      "m1_plausible": 0,
+      "m2_plausible": 0,
+      "m3_interpolating": 12
     }
   ]
 }
