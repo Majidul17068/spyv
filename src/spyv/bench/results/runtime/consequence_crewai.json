@@ -1,0 +1,42 @@
+{
+  "repo": "crewai",
+  "sites_with_runtime_evidence": 2587,
+  "interpolating": 10,
+  "constant": 177,
+  "undetermined": 2400,
+  "observations_not_line_resolvable": 759,
+  "detected": 8,
+  "missed_opaque": 2,
+  "missed_read_but_judged_constant": 0,
+  "enough_for_a_rate": true,
+  "recall": 0.8,
+  "recall_ci95": [
+    0.49015684672072335,
+    0.9433190520193067
+  ],
+  "share_of_misses_structural": 1.0,
+  "examples": [
+    {
+      "file": "lib/crewai/tests/agents/test_lite_agent.py",
+      "line": 1182,
+      "construct": "Agent.role",
+      "visibility": "opaque",
+      "distinct_texts": 4,
+      "sample": [
+        "agent",
+        "agent one"
+      ]
+    },
+    {
+      "file": "lib/crewai/src/crewai/tools/agent_tools/base_agent_tools.py",
+      "line": 113,
+      "construct": "Task.description",
+      "visibility": "opaque",
+      "distinct_texts": 13,
+      "sample": [
+        "Based on your expertise, what score would you give the title 'The impact of AI in the future of work'? Please consider the engagement potential, relevance, and clarity of the title when assigning the score, on a scale from 1 to 5.",
+        "Could you please say hi?"
+      ]
+    }
+  ]
+}
