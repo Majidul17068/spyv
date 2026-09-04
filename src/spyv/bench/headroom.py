@@ -34,6 +34,7 @@ of the tool examining it.
 from __future__ import annotations
 
 import ast
+import sys
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
@@ -41,6 +42,11 @@ from typing import Any, Literal
 
 from ..discovery import _SKIP_DIRS, _string_bindings
 from .visibility import classify, is_stringish, sites_in_source
+
+# Standard-library top-level names. Source for these is present on every machine,
+# so a callee here is not "outside the artefact" in any sense that puts it beyond
+# static analysis.
+_STDLIB_ROOTS = frozenset(getattr(sys, "stdlib_module_names", ()))
 
 Bucket = Literal["reachable", "runtime_bound", "undetermined"]
 
@@ -304,7 +310,10 @@ def run_headroom(root: str | Path, *, name: str | None = None) -> dict[str, Any]
         "reachable_share": buckets["reachable"] / total if total else 0.0,
         "runtime_bound_share": buckets["runtime_bound"] / total if total else 0.0,
         "undetermined_share": buckets["undetermined"] / total if total else 0.0,
-        "details": dict(Counter(v.detail for v in verdicts).most_common(12)),
+        # Every verdict, not the top few. Truncating here silently discarded a
+        # twelfth of the tally, and these counts are reported as shares of the
+        # residue, so the denominator has to be complete.
+        "details": dict(Counter(v.detail for v in verdicts).most_common()),
     }
 
 
@@ -318,6 +327,47 @@ __all__ = ["Bucket", "OpaqueVerdict", "analyze_source", "run_headroom"]
 # lives in another file. These follow the import graph, which is what it takes
 # to say anything about how much a stronger static analysis would actually gain.
 # ---------------------------------------------------------------------------
+
+
+def _classify_unresolved_import(name: str, origin: Any, index: Any) -> str:
+    """Say *why* an imported callee could not be resolved.
+
+    This distinction was previously collapsed into one label,
+    ``callee_outside_repository``, and that label was then read as evidence that
+    the defining source is absent and therefore beyond any static analysis. It
+    is not evidence of that. The label fires whenever our own import graph fails
+    to resolve the name, which happens for three quite different reasons:
+
+    * the target is in the standard library --- the source is present on every
+      machine, and ``textwrap.dedent`` of a string literal is recoverable by
+      inspection;
+    * the target is inside this repository but our index did not connect it ---
+      the source is in the artefact under analysis;
+    * the target is a genuinely third-party installed package --- the source is
+      outside the artefact, though a tool with a resolved environment can still
+      read it.
+
+    Only the third is even arguably out of reach, and conflating the three
+    overstates how much of the residue is irreducible.
+    """
+    target = (origin.imports.get(name) or ("", ""))[0]
+    if not target:
+        return "callee_unresolved"
+    root = target.split(".")[0]
+    if root in _STDLIB_ROOTS:
+        return "callee_in_stdlib"
+    if index._lookup_module(target) is not None or root in _repo_roots(index):
+        return "callee_in_repository_unresolved"
+    return "callee_third_party"
+
+
+def _repo_roots(index: Any) -> set[str]:
+    """Top-level package names actually present in the repository."""
+    cached = getattr(index, "_spyv_repo_roots", None)
+    if cached is None:
+        cached = {dotted.split(".")[0] for dotted in index.modules}
+        index._spyv_repo_roots = cached
+    return cached
 
 
 def _judge_expr_project(
@@ -368,7 +418,7 @@ def _judge_expr_project(
     found = index.resolve_function(name, origin)
     if found is None:
         if name in origin.imports:
-            return "undetermined", "callee_outside_repository"
+            return "undetermined", _classify_unresolved_import(name, origin, index)
         io = _looks_like_io(expr)
         if io:
             return "runtime_bound", f"io_call_by_name:{io}"

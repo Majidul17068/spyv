@@ -1855,32 +1855,32 @@
     },
     "4": {
       "name": "+ string expressions",
-      "pooled": 0.6130851914364396,
-      "median": 0.5001110240334379,
-      "mean": 0.5113227474447579,
+      "pooled": 0.6252553966420894,
+      "median": 0.5039316931591914,
+      "mean": 0.5257364591529845,
       "median_ci95": [
-        0.3857791225416036,
-        0.592391304347826
+        0.3888048411497731,
+        0.6147186147186147
       ],
-      "opaque": 8711,
+      "opaque": 8437,
       "repos": [
         {
           "name": "crewai",
           "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
-          "static": 3291,
+          "static": 3292,
           "partial": 61,
-          "opaque": 262,
+          "opaque": 261,
           "sites": 3614,
-          "spv_partial": 0.9275041505257332
+          "spv_partial": 0.9277808522412839
         },
         {
           "name": "crewai-examples",
           "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
-          "static": 54,
-          "partial": 3,
-          "opaque": 53,
+          "static": 82,
+          "partial": 18,
+          "opaque": 10,
           "sites": 110,
-          "spv_partial": 0.5181818181818182
+          "spv_partial": 0.9090909090909091
         },
         {
           "name": "langgraph",
@@ -1895,28 +1895,28 @@
           "name": "langchain",
           "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
           "static": 631,
-          "partial": 40,
-          "opaque": 721,
+          "partial": 41,
+          "opaque": 720,
           "sites": 1392,
-          "spv_partial": 0.48204022988505746
+          "spv_partial": 0.4827586206896552
         },
         {
           "name": "autogen",
           "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
-          "static": 205,
-          "partial": 23,
-          "opaque": 131,
+          "static": 207,
+          "partial": 25,
+          "opaque": 127,
           "sites": 359,
-          "spv_partial": 0.6350974930362117
+          "spv_partial": 0.6462395543175488
         },
         {
           "name": "metagpt",
           "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
           "static": 186,
-          "partial": 94,
-          "opaque": 150,
+          "partial": 96,
+          "opaque": 148,
           "sites": 430,
-          "spv_partial": 0.6511627906976745
+          "spv_partial": 0.6558139534883721
         },
         {
           "name": "superagi",
@@ -1948,11 +1948,11 @@
         {
           "name": "camel",
           "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
-          "static": 380,
-          "partial": 87,
-          "opaque": 381,
+          "static": 384,
+          "partial": 90,
+          "opaque": 374,
           "sites": 848,
-          "spv_partial": 0.5507075471698113
+          "spv_partial": 0.5589622641509434
         },
         {
           "name": "agentverse",
@@ -1976,10 +1976,10 @@
           "name": "gpt-researcher",
           "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
           "static": 44,
-          "partial": 22,
-          "opaque": 41,
+          "partial": 23,
+          "opaque": 40,
           "sites": 107,
-          "spv_partial": 0.616822429906542
+          "spv_partial": 0.6261682242990654
         },
         {
           "name": "chatdev",
@@ -1993,20 +1993,20 @@
         {
           "name": "agno",
           "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
-          "static": 2483,
-          "partial": 81,
-          "opaque": 487,
+          "static": 2601,
+          "partial": 86,
+          "opaque": 364,
           "sites": 3051,
-          "spv_partial": 0.8403802032120616
+          "spv_partial": 0.8806948541461815
         },
         {
           "name": "pydantic-ai",
           "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
-          "static": 670,
-          "partial": 19,
-          "opaque": 338,
+          "static": 684,
+          "partial": 15,
+          "opaque": 328,
           "sites": 1027,
-          "spv_partial": 0.6708860759493671
+          "spv_partial": 0.6806231742940604
         },
         {
           "name": "smolagents",
@@ -2038,47 +2038,47 @@
         {
           "name": "llama-index",
           "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
-          "static": 390,
+          "static": 391,
           "partial": 23,
-          "opaque": 929,
+          "opaque": 928,
           "sites": 1342,
-          "spv_partial": 0.30774962742175854
+          "spv_partial": 0.30849478390462
         },
         {
           "name": "hermes-agent",
           "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
-          "static": 568,
-          "partial": 108,
-          "opaque": 735,
+          "static": 571,
+          "partial": 112,
+          "opaque": 728,
           "sites": 1411,
-          "spv_partial": 0.47909284195605956
+          "spv_partial": 0.48405386250885896
         },
         {
           "name": "awesome-llm-apps",
           "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
-          "static": 249,
-          "partial": 113,
-          "opaque": 119,
+          "static": 281,
+          "partial": 115,
+          "opaque": 85,
           "sites": 481,
-          "spv_partial": 0.7525987525987526
+          "spv_partial": 0.8232848232848233
         },
         {
           "name": "moneyprinterturbo",
           "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
-          "static": 1,
-          "partial": 1,
-          "opaque": 38,
+          "static": 2,
+          "partial": 3,
+          "opaque": 35,
           "sites": 40,
-          "spv_partial": 0.05
+          "spv_partial": 0.125
         },
         {
           "name": "browser-use",
           "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
-          "static": 39,
+          "static": 47,
           "partial": 25,
-          "opaque": 138,
+          "opaque": 130,
           "sites": 202,
-          "spv_partial": 0.31683168316831684
+          "spv_partial": 0.3564356435643564
         },
         {
           "name": "tradingagents",
@@ -2119,11 +2119,11 @@
         {
           "name": "mem0",
           "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
-          "static": 75,
+          "static": 77,
           "partial": 14,
-          "opaque": 34,
+          "opaque": 32,
           "sites": 123,
-          "spv_partial": 0.7235772357723578
+          "spv_partial": 0.7398373983739838
         },
         {
           "name": "daily_stock_analysis",
@@ -2164,11 +2164,11 @@
         {
           "name": "ai-agent-book",
           "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
-          "static": 319,
+          "static": 323,
           "partial": 193,
-          "opaque": 280,
+          "opaque": 276,
           "sites": 792,
-          "spv_partial": 0.6464646464646465
+          "spv_partial": 0.6515151515151515
         },
         {
           "name": "langchain-chatchat",
@@ -2183,10 +2183,10 @@
           "name": "deeptutor",
           "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
           "static": 101,
-          "partial": 29,
-          "opaque": 366,
+          "partial": 30,
+          "opaque": 365,
           "sites": 496,
-          "spv_partial": 0.2620967741935484
+          "spv_partial": 0.26411290322580644
         },
         {
           "name": "500-ai-agents-projects",
@@ -2218,11 +2218,11 @@
         {
           "name": "sglang",
           "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
-          "static": 395,
-          "partial": 30,
-          "opaque": 762,
+          "static": 396,
+          "partial": 32,
+          "opaque": 759,
           "sites": 1187,
-          "spv_partial": 0.35804549283909015
+          "spv_partial": 0.36057287278854255
         },
         {
           "name": "vibe-trading",
@@ -2272,29 +2272,29 @@
         {
           "name": "openai-agents-python",
           "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
-          "static": 552,
-          "partial": 37,
-          "opaque": 210,
+          "static": 570,
+          "partial": 35,
+          "opaque": 194,
           "sites": 799,
-          "spv_partial": 0.737171464330413
+          "spv_partial": 0.7571964956195244
         },
         {
           "name": "deepagents",
           "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
-          "static": 213,
+          "static": 215,
           "partial": 42,
-          "opaque": 406,
+          "opaque": 404,
           "sites": 661,
-          "spv_partial": 0.3857791225416036
+          "spv_partial": 0.3888048411497731
         },
         {
           "name": "haystack",
           "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
-          "static": 105,
+          "static": 106,
           "partial": 4,
-          "opaque": 75,
+          "opaque": 74,
           "sites": 184,
-          "spv_partial": 0.592391304347826
+          "spv_partial": 0.5978260869565217
         },
         {
           "name": "kotaemon",
@@ -2340,17 +2340,17 @@
       ]
     },
     "L3->L4": {
-      "mean_pp": 1.5088739000818148,
+      "mean_pp": 2.9502450709044785,
       "ci95_pp": [
-        0.8634405299843596,
-        2.391756803699459
+        1.5831624685496235,
+        4.89841758323487
       ]
     },
     "L0->L4": {
-      "mean_pp": 7.117992077221425,
+      "mean_pp": 8.559363248044088,
       "ci95_pp": [
-        5.831787986301981,
-        8.50979112743205
+        6.937808823951322,
+        10.469314833318801
       ]
     }
   },

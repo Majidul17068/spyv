@@ -185,7 +185,10 @@ def run_rq2() -> dict[str, Any]:
         "note": ("runtime_bound is classifier output, not a bound: most of it rests on an "
                  "identifier heuristic or an unconditional subscript rule rather than on "
                  "evidence from reading a callee. See METRICS.md and the paper's Section V."),
-        "reasons_top": dict(reasons.most_common(25)),
+        # Complete, not top-25. These counts are reported as shares of the opaque
+        # residue, so a truncated tally makes the shares wrong by whatever it drops.
+        "reasons": dict(reasons.most_common()),
+        "reasons_total": sum(reasons.values()),
         "repos": rows,
     }
 

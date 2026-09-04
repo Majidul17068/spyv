@@ -45,6 +45,21 @@ LEVEL_NAMES = {
     4: "+ string expressions",
 }
 
+# Methods that change a string's layout but not the text a model receives.
+_WHITESPACE_METHODS = frozenset({"strip", "lstrip", "rstrip"})
+
+# Functions whose result is their literal argument, modulo indentation.
+_DEDENT_LIKE = frozenset({"dedent", "cleandoc"})
+
+
+def _is_dedent_like(func: ast.expr) -> bool:
+    """`dedent(...)`, `textwrap.dedent(...)`, or `inspect.cleandoc(...)`."""
+    if isinstance(func, ast.Name):
+        return func.id in _DEDENT_LIKE
+    if isinstance(func, ast.Attribute):
+        return func.attr in _DEDENT_LIKE
+    return False
+
 MAX_DEPTH = 3
 _HOLE = "{...}"
 
@@ -161,6 +176,18 @@ def classify_at(
                     if isinstance(arg, (ast.List, ast.Tuple)):
                         return _merge([classify_at(e, ctx, functions, depth + 1) for e in arg.elts])
                     return "opaque"
+            # Whitespace normalisers over a recoverable string preserve its value
+            # up to layout: "...".strip() is as readable as the literal it wraps.
+            if func.attr in _WHITESPACE_METHODS:
+                return classify_at(func.value, ctx, functions, depth + 1)
+
+        # --- L4: textwrap.dedent / inspect.cleandoc over a literal ----------
+        # The canonical way to write a multi-line prompt in Python. Treating it
+        # as an unresolvable call placed fully-literal prompt text in the opaque
+        # bucket, and that text was then described as beyond the reach of any
+        # static analysis. dedent of a literal is a literal.
+        if ctx.level >= 4 and _is_dedent_like(func) and node.args:
+            return classify_at(node.args[0], ctx, functions, depth + 1)
 
         # --- L2: a callee defined in this module ----------------------------
         name = _callee_name(node)

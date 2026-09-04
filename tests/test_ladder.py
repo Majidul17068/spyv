@@ -143,3 +143,49 @@ def test_measure_repo_recovers_more_as_the_level_rises(tmp_path):
 
 def test_measure_repo_on_empty_tree(tmp_path):
     assert sum(measure_repo(tmp_path, 4).values()) == 0
+
+
+# --- L4: the canonical multi-line prompt idiom ------------------------------
+
+
+def _classify_src(src: str, level: int) -> list[str]:
+    import ast
+
+    from spyv.bench.ladder import Ctx, classify_at
+    from spyv.discovery import _string_bindings
+
+    tree = ast.parse(src)
+    ctx = Ctx(level, _string_bindings(tree), None, None)
+    return [
+        classify_at(n.value, ctx, {}, 0) for n in ast.walk(tree) if isinstance(n, ast.Assign)
+    ]
+
+
+def test_dedent_of_a_literal_is_recovered_at_l4():
+    """textwrap.dedent is how multi-line prompts are written in Python.
+
+    Treating it as an unresolvable call put fully-literal prompt text into the
+    opaque bucket, which was then reported as beyond the reach of any static
+    analysis. It is a literal.
+    """
+    src = 'from textwrap import dedent\np = dedent("""\\n    Be terse.\\n    """)\n'
+    assert _classify_src(src, 0) == ["opaque"]
+    assert _classify_src(src, 4) == ["static"]
+
+
+def test_qualified_dedent_and_cleandoc_are_recognised():
+    for call in ("textwrap.dedent", "inspect.cleandoc"):
+        src = f'import x\np = {call}("""Be terse.""")\n'
+        assert _classify_src(src, 4) == ["static"], call
+
+
+def test_whitespace_methods_preserve_recoverability_at_l4():
+    src = 'p = "  Be terse.  ".strip()\n'
+    assert _classify_src(src, 0) == ["opaque"]
+    assert _classify_src(src, 4) == ["static"]
+
+
+def test_dedent_of_a_non_literal_stays_opaque():
+    """The rule must follow its argument, not fire on the call shape alone."""
+    src = "from textwrap import dedent\np = dedent(build())\n"
+    assert _classify_src(src, 4) == ["opaque"]
