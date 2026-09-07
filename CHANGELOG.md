@@ -2,6 +2,70 @@
 
 All notable changes to Spyv are recorded here. Dates are release dates.
 
+## 0.5.0 — Validation release
+
+0.4.0 could measure how much prompt surface a static reader recovers. It could
+not tell you whether that measurement was *right*. This release answers that
+question by capturing prompts as they actually materialise at run time, and it
+reports several findings that make spyv's own numbers look worse.
+
+### Added — runtime validation
+
+- **`spyv.bench.runtime`** — capture every instruction string an agent
+  constructs, by running a repository's own test suite under injected
+  constructor hooks. No API key is needed: capture happens at construction,
+  before dispatch, so a provider call that fails for lack of a key still reveals
+  what the agent was about to send. Hooks cover CrewAI, LangChain, pydantic-ai,
+  OpenAI and Anthropic.
+- **`compare()`** — diff captured prompts against the static inventory, giving
+  site-enumeration recall and recovery correctness. Attribution walks the whole
+  first-party stack rather than the innermost frame, because a framework that
+  re-materialises a caller's object otherwise looks like a site the static pass
+  missed. Matching uses the enclosing expression's line span, since a runtime
+  frame reports the line of the call while a site points at the argument inside
+  it.
+- **`spyv.bench.consequence`** — measure how much interpolation, the
+  precondition for prompt injection, a static check actually detects against
+  runtime ground truth.
+
+### Added — measurement
+
+- **`spyv.bench.scaffolding`** — split prompt sites into production and
+  scaffolding. Test and example code writes prompts as literals for
+  pedagogical reasons, so pooling the two inflates any coverage figure. On the
+  reference corpus 61.5% of sites are scaffolding, and the per-repository median
+  falls from 43.4% to 28.3% once they are separated.
+- **`spyv.bench.ladder`** — five analysers of increasing strength (`L0`–`L4`),
+  so headroom is reported as a frontier rather than asserted from one
+  implementation. `--ladder` and `--stratified` on `spyv.bench.study`.
+- **`spyv.bench.annotate`** — draw a stratified sample of prompt sites for hand
+  labelling, and score agreement. Refuses to compute recall, and refuses to
+  report a kappa for a single annotator.
+- Reference corpus expanded from 20 to 50 repositories, 30 of them selected by
+  a mechanical procedure fixed before any search was run. Selection queries,
+  screening logs and both versions of the screening rule ship with the package.
+
+### Fixed — cases where spyv was wrong in its own favour
+
+- **`textwrap.dedent` over a string literal was classified opaque.** It is the
+  ordinary way to write a multi-line prompt in Python, and instances carrying
+  hundreds of characters of literal prompt text were being reported as
+  unreadable. `dedent`, `cleandoc` and the whitespace-stripping methods now
+  resolve at `L4`; `L0` still treats them as calls, correctly. The corpus holds
+  540 such sites and fixing them nearly doubled the final rung of the ladder.
+- **`callee_outside_repository` conflated three situations.** It fired whenever
+  the import graph failed to resolve a name, and was then read as evidence the
+  defining source is absent. Split into `callee_in_stdlib`,
+  `callee_in_repository_unresolved` and `callee_third_party`: a third of that
+  bucket points at source that is plainly present.
+- **Residue tallies were truncated** to each repository's top twelve causes and
+  the study's top twenty-five, discarding roughly a twelfth of the counts before
+  reporting them as shares.
+- The capture hook loaded by path rather than importing the `spyv` package, so
+  it no longer fails in a subject repository's virtualenv that lacks spyv's
+  dependencies, and it records `install_failed` so a run that captured nothing
+  is distinguishable from one whose hooks never ran.
+
 ## 0.4.0 — Measurement release
 
 Spyv can now be gated on in CI, enforces policy on what an agent actually did,
