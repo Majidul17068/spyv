@@ -51,7 +51,7 @@ def test_fstring_bound_to_a_local_is_resolved(tmp_path):
     assert "{...}" in tasks[0].system_prompt, "the interpolated hole should be marked"
 
 
-def test_attribute_binding_is_resolved(tmp_path):
+def test_attribute_binding_requires_object_analysis(tmp_path):
     prompts = _discover(
         tmp_path,
         "from crewai import Task\n"
@@ -60,7 +60,7 @@ def test_attribute_binding_is_resolved(tmp_path):
         f'        self.description = "{_LONG}"\n'
         f'        return Task(description=self.description, expected_output="{_OUT}")\n',
     )
-    assert [p for p in prompts if p.source_kind == "crewai_task"]
+    assert not [p for p in prompts if p.source_kind == "crewai_task"]
 
 
 def test_a_name_bound_twice_to_the_same_text_still_resolves(tmp_path):

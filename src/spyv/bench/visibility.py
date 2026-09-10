@@ -1,14 +1,8 @@
-"""Static prompt visibility: how much prompt surface can a static analyzer recover?
+"""Candidate-conditioned text recovery for syntactically identified Python sites.
 
-Implements the metric defined in METRICS.md, which was committed before this
-file existed so the definition could not be fitted to the result.
-
-The design turns on one observation: a prompt *site* is statically identifiable
-even when its *argument* is not. `Task(description=self._build())` is plainly a
-prompt site -- the construct is right there in the AST -- but its content cannot
-be recovered without running the program. So sites are the denominator and
-content resolvability is what gets classified, which means the metric needs no
-hand-labelled ground truth.
+Candidate identification uses heuristic names and API shapes. Yield needs no
+labels, but interpreting it as prompt precision or coverage requires independent
+validation. Definitions and use-like constructs can refer to the same text.
 """
 
 from __future__ import annotations
@@ -19,7 +13,8 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any, Literal
 
-from ..discovery import _SKIP_DIRS, _name_matches, _static_text, _string_bindings
+from ..bindings import binding_contexts
+from ..discovery import _SKIP_DIRS, _name_matches, _static_text
 
 Visibility = Literal["static", "partial", "opaque"]
 
@@ -47,7 +42,7 @@ _GENERIC_PROMPT_KWARGS = {
 
 @dataclass
 class PromptSite:
-    """One source location that supplies instruction text to a model."""
+    """One syntactically identified candidate location, not a validated model input."""
 
     file: str
     line: int
@@ -61,6 +56,8 @@ class PromptSite:
     # runtime observation to a site needs the whole span, not the argument line.
     call_line: int = 0
     call_end_line: int = 0
+    call_col: int = 0
+    call_end_col: int = 0
 
     def to_dict(self) -> dict[str, Any]:
         return {
@@ -73,6 +70,8 @@ class PromptSite:
             "text": self.text,
             "call_line": self.call_line,
             "call_end_line": self.call_end_line,
+            "call_col": self.call_col,
+            "call_end_col": self.call_end_col,
         }
 
 
@@ -109,8 +108,7 @@ def classify(node: ast.expr | None, bindings: dict[str, str]) -> tuple[Visibilit
         # An f-string is partial exactly when it interpolates something.
         has_hole = any(isinstance(v, ast.FormattedValue) for v in node.values)
         has_literal = any(
-            isinstance(v, ast.Constant) and isinstance(v.value, str) and v.value.strip()
-            for v in node.values
+            isinstance(v, ast.Constant) and isinstance(v.value, str) and v.value.strip() for v in node.values
         )
         if not has_literal:
             return "opaque", "fstring_all_holes"
@@ -132,12 +130,14 @@ def classify(node: ast.expr | None, bindings: dict[str, str]) -> tuple[Visibilit
         if node.id in bindings:
             # The binding map only holds statically resolvable values, but the
             # bound text may itself have come from an f-string.
-            return ("partial", "via_binding_fstring") if "{...}" in bindings[node.id] else ("static", "")
+            return (
+                ("partial", "via_binding_fstring")
+                if getattr(bindings[node.id], "partial", "{...}" in bindings[node.id])
+                else ("static", "")
+            )
         return "opaque", "name_unresolved"
 
     if isinstance(node, ast.Attribute):
-        if node.attr in bindings:
-            return ("partial", "via_binding_fstring") if "{...}" in bindings[node.attr] else ("static", "")
         return "opaque", "attribute_unresolved"
 
     if isinstance(node, ast.Call):
@@ -163,14 +163,15 @@ def resolve_text(node: ast.expr | None, bindings: dict[str, str]) -> str:
     """
     if node is None:
         return ""
-    direct = _static_text(node)
-    if direct is not None:
-        return direct
     if isinstance(node, ast.Name):
         return bindings.get(node.id, "")
-    if isinstance(node, ast.Attribute):
-        return bindings.get(node.attr, "")
-    return ""
+    if isinstance(node, ast.BinOp) and isinstance(node.op, ast.Add):
+        return "".join(
+            "{...}" if classify(x, bindings)[0] == "opaque" else resolve_text(x, bindings)
+            for x in (node.left, node.right)
+        )
+    direct = _static_text(node)
+    return direct if direct is not None else ""
 
 
 def _callee(node: ast.Call) -> str:
@@ -178,9 +179,7 @@ def _callee(node: ast.Call) -> str:
     return getattr(func, "id", None) or getattr(func, "attr", None) or ""
 
 
-def _sites_from_call(
-    node: ast.Call, path: str, bindings: dict[str, str]
-) -> list[PromptSite]:
+def _sites_from_call(node: ast.Call, path: str, bindings: dict[str, str]) -> list[PromptSite]:
     name = _callee(node)
     kwargs = {kw.arg: kw.value for kw in node.keywords if kw.arg}
     out: list[PromptSite] = []
@@ -281,9 +280,7 @@ def _sites_from_tuple(node: ast.Tuple, path: str, bindings: dict[str, str]) -> l
     ]
 
 
-def _sites_from_assign(
-    node: ast.Assign | ast.AnnAssign, path: str, bindings: dict[str, str]
-) -> list[PromptSite]:
+def _sites_from_assign(node: ast.Assign | ast.AnnAssign, path: str, bindings: dict[str, str]) -> list[PromptSite]:
     """A constant whose *name* declares it a prompt, whatever its value turns out to be."""
     targets = node.targets if isinstance(node, ast.Assign) else [node.target]
     out: list[PromptSite] = []
@@ -308,15 +305,16 @@ def _sites_from_assign(
     return out
 
 
-def sites_in_source(source: str, path: str) -> list[PromptSite]:
-    """Enumerate every prompt site in one Python source file."""
+def sites_in_source(source: str, path: str, *, literal_only: bool = False) -> list[PromptSite]:
+    """Enumerate supported candidate shapes in one Python source file."""
     try:
         tree = ast.parse(source)
     except SyntaxError:
         return []
-    bindings = _string_bindings(tree)
+    contexts = {} if literal_only else binding_contexts(tree, _static_text)
     out: list[PromptSite] = []
     for node in ast.walk(tree):
+        bindings = contexts.get(node, {})
         if isinstance(node, ast.Call):
             found = _sites_from_call(node, path, bindings)
         elif isinstance(node, ast.Dict):
@@ -332,13 +330,23 @@ def sites_in_source(source: str, path: str) -> list[PromptSite]:
         for site in found:
             site.call_line = span_start
             site.call_end_line = span_end
+            site.call_col = getattr(node, "col_offset", 0)
+            site.call_end_col = getattr(node, "end_col_offset", 0) or 0
         out.extend(found)
 
     # One physical location can be reached by more than one walk branch.
-    seen: set[tuple[str, int, str]] = set()
+    seen: set[tuple[str, int, str, int, int, int, int]] = set()
     unique: list[PromptSite] = []
     for site in out:
-        key = (site.file, site.line, site.construct)
+        key = (
+            site.file,
+            site.line,
+            site.construct,
+            site.call_line,
+            site.call_col,
+            site.call_end_line,
+            site.call_end_col,
+        )
         if key in seen:
             continue
         seen.add(key)
@@ -370,9 +378,7 @@ class VisibilityResult:
             "opaque_rate": opaque / total if total else 0.0,
             "by_framework": _breakdown(self.sites, lambda s: s.framework),
             "by_construct": _breakdown(self.sites, lambda s: s.construct),
-            "opaque_reasons": dict(
-                Counter(s.reason for s in self.sites if s.visibility == "opaque").most_common()
-            ),
+            "opaque_reasons": dict(Counter(s.reason for s in self.sites if s.visibility == "opaque").most_common()),
         }
 
 

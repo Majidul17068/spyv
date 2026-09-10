@@ -4,6 +4,7 @@ import ast
 import json
 from pathlib import Path
 
+from .bindings import binding_contexts
 from .contracts import DiscoveredPrompt
 
 _NAME_HINTS = (
@@ -90,7 +91,7 @@ def _static_text(node: ast.expr | None) -> str | None:
         right = _static_text(node.right)
         if left is None and right is None:
             return None
-        return (left or "{...}") + (right or "{...}")
+        return (left if left is not None else "{...}") + (right if right is not None else "{...}")
     return None
 
 
@@ -206,8 +207,7 @@ def _resolve_text(node: ast.expr | None, bindings: dict[str, str]) -> str | None
         return direct
     if isinstance(node, ast.Name):
         return bindings.get(node.id)
-    if isinstance(node, ast.Attribute):
-        return bindings.get(node.attr)
+    # Attribute recovery requires object identity and mutation analysis.
     return None
 
 
@@ -218,9 +218,10 @@ def _from_python(path: Path, text: str) -> list[DiscoveredPrompt]:
     except SyntaxError:
         return found
 
-    bindings = _string_bindings(tree)
+    contexts = binding_contexts(tree, _static_text)
 
     for node in ast.walk(tree):
+        bindings = contexts.get(node, {})
         if isinstance(node, (ast.Assign, ast.AnnAssign)):
             value_text = _static_text(node.value)
             if value_text is None or len(value_text) < _MIN_LEN:
