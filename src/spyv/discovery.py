@@ -207,7 +207,8 @@ def _resolve_text(node: ast.expr | None, bindings: dict[str, str]) -> str | None
         return direct
     if isinstance(node, ast.Name):
         return bindings.get(node.id)
-    # Attribute recovery requires object identity and mutation analysis.
+    if isinstance(node, ast.Attribute) and isinstance(node.value, ast.Name) and node.value.id == "self":
+        return bindings.get(f"self.{node.attr}")
     return None
 
 
