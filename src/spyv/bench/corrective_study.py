@@ -15,8 +15,10 @@ import subprocess
 import time
 import tokenize
 from collections import Counter, defaultdict
+from collections.abc import Callable, Mapping, Sequence
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
+from typing import Any
 
 import yaml
 
@@ -28,19 +30,19 @@ SEED = 20260910
 DRAWS = 10000
 
 
-def git(root, *args):
+def git(root: str | Path, *args: str) -> bytes:
     return subprocess.check_output(["git", "-C", str(root), *args])
 
 
-def digest(data):
+def digest(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
 
-def identity(s):
+def identity(s: Any) -> tuple[Any, ...]:
     return (s.file, s.line, s.construct, s.call_line, s.call_col, s.call_end_line, s.call_end_col)
 
 
-def stratum(path, demo, scripts=True):
+def stratum(path: str, demo: bool, scripts: bool = True) -> str:
     p = PurePosixPath(path)
     dirs = SCAFFOLD_DIRS if scripts else SCAFFOLD_DIRS - {"scripts"}
     marked = any(x.lower() in dirs for x in p.parts[:-1])
@@ -49,13 +51,15 @@ def stratum(path, demo, scripts=True):
     return "scaffolding" if demo or marked else "other"
 
 
-def describe(counts):
+def describe(counts: Mapping[str, int]) -> dict[str, Any]:
     counts = {k: counts.get(k, 0) for k in ("static", "partial", "opaque")}
     n = sum(counts.values())
     return {**counts, "n": n, "yield": (counts["static"] + counts["partial"]) / n if n else None}
 
 
-def interval(values, estimator=statistics.median):
+def interval(
+    values: Sequence[float], estimator: Callable[[Sequence[float]], float] = statistics.median
+) -> list[float] | None:
     if not values:
         return None
     rng = random.Random(SEED)
@@ -63,7 +67,7 @@ def interval(values, estimator=statistics.median):
     return [draws[int(0.025 * DRAWS)], draws[int(0.975 * DRAWS) - 1]]
 
 
-def summarize(repos):
+def summarize(repos: Sequence[Mapping[str, Any]]) -> dict[str, Any]:
     result = {}
     for cohort in ("all", "original", "expansion"):
         selected = [r for r in repos if cohort == "all" or r["cohort"] == cohort]
@@ -97,7 +101,7 @@ def summarize(repos):
     return result
 
 
-def run(cache, out, manifest):
+def run(cache: Path, out: Path, manifest: Path) -> None:
     out.mkdir(parents=True, exist_ok=False)
     toolroot = Path(__file__).resolve().parents[3]
     started = datetime.now(timezone.utc).isoformat()
