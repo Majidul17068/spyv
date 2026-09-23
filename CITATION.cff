@@ -1,0 +1,29 @@
+cff-version: 1.2.0
+message: "If you use this software, please cite it as below."
+type: software
+title: "spyv"
+abstract: >-
+  Prompt-security testing for AI engineers. Discovers the prompts embedded in an
+  agent codebase across CrewAI, LangChain and the OpenAI and Anthropic SDKs, then
+  audits, red-teams and guards them. Includes deterministic checks for embedded
+  credentials, personal data and prompt leaks that do not depend on a model, a
+  tool-call policy engine, and a measurement suite for how much prompt surface a
+  static reader can recover.
+authors:
+  - family-names: "Islam"
+    given-names: "Md. Majidul"
+    orcid: "https://orcid.org/0009-0005-2971-8897"
+repository-code: "https://github.com/Majidul17068/spyv"
+url: "https://pypi.org/project/spyv/"
+license: Apache-2.0
+version: "0.5.0"
+date-released: "2026-09-07"
+keywords:
+  - prompt security
+  - large language models
+  - LLM agents
+  - prompt injection
+  - static analysis
+  - software repository mining
+  - guardrails
+  - red teaming
