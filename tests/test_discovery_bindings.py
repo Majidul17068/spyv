@@ -51,7 +51,7 @@ def test_fstring_bound_to_a_local_is_resolved(tmp_path):
     assert "{...}" in tasks[0].system_prompt, "the interpolated hole should be marked"
 
 
-def test_attribute_binding_is_resolved(tmp_path):
+def test_attribute_binding_resolves_conservatively(tmp_path):
     prompts = _discover(
         tmp_path,
         "from crewai import Task\n"
@@ -131,3 +131,67 @@ def test_unrelated_variable_is_not_pulled_into_a_call(tmp_path):
         f'unused = "{_LONG}"\nw = Widget(size=10)\n',
     )
     assert not [p for p in prompts if p.source_kind == "crewai_task"]
+
+
+# --- self-attribute recovery: sound only within one scope --------------------
+
+
+def _recover(src: str) -> str | None:
+    """Run discovery over one source string and return the recovered prompt."""
+    import pathlib
+    import tempfile
+
+    from spyv.discovery import _from_python
+
+    d = pathlib.Path(tempfile.mkdtemp())
+    p = d / "t.py"
+    p.write_text(src)
+    got = [g for g in _from_python(p, src) if g.source_kind != "python_var"]
+    return got[0].system_prompt if got else None
+
+
+_TMPL = (
+    "class A:\n"
+    "{setup}"
+    "    def run(self{arg}):\n"
+    "{body}"
+    '        Agent(role=self.role_prompt, goal="Do the thing well", '
+    'backstory="A backstory here")\n'
+)
+
+
+def test_self_attribute_recovered_within_one_method():
+    src = _TMPL.format(setup="", arg="", body='        self.role_prompt = "SAFE-LITERAL"\n')
+    assert "SAFE-LITERAL" in (_recover(src) or "")
+
+
+def test_self_attribute_not_carried_across_methods():
+    """__init__ assigns, run() reads. Another method may have mutated it since."""
+    src = _TMPL.format(
+        setup='    def __init__(self):\n        self.role_prompt = "FROM-INIT"\n',
+        arg="",
+        body="",
+    )
+    assert _recover(src) is None
+
+
+def test_self_attribute_invalidated_by_reassignment():
+    """The obsolete-literal bug: a later dynamic write must void the earlier one."""
+    src = _TMPL.format(
+        setup="",
+        arg=", x",
+        body='        self.role_prompt = "OBSOLETE"\n        self.role_prompt = x\n',
+    )
+    assert _recover(src) is None
+
+
+def test_self_attribute_not_recovered_when_mutated_elsewhere():
+    src = _TMPL.format(
+        setup=(
+            '    def __init__(self):\n        self.role_prompt = "STALE"\n'
+            "    def mutate(self, x):\n        self.role_prompt = x\n"
+        ),
+        arg="",
+        body="",
+    )
+    assert _recover(src) is None
