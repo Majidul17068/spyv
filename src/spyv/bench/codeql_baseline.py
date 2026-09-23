@@ -74,8 +74,10 @@ def codeql_strings(
 ) -> tuple[set[tuple[str, int, int]], str | None]:
     """Locations CodeQL resolves to a string constant. Returns (locations, error)."""
     db = work / "db" / name
-    if db.exists():
-        shutil.rmtree(db)
+    # Tolerate a partially-removed database left by an earlier failed run. The
+    # tree contains a copy of the source archive and rmtree can fail on it with
+    # "directory not empty"; --overwrite below is the authority on replacing it.
+    shutil.rmtree(db, ignore_errors=True)
     db.parent.mkdir(parents=True, exist_ok=True)
     build = subprocess.run(
         ["codeql", "database", "create", str(db), "--language=python",
@@ -87,8 +89,12 @@ def codeql_strings(
 
     csv_out = work / f"{name}.csv"
     run = subprocess.run(
+        # Points-to over a large repository exhausts the default heap. Raising it
+        # is a resource fix, not a change to what is measured: a repository that
+        # fails for want of memory would otherwise be silently absent from the
+        # sample, which is the one repository with the most opaque candidates.
         ["codeql", "query", "run", str(pack / "strings.ql"), f"--database={db}",
-         "--output", str(work / f"{name}.bqrs")],
+         "--ram=8000", "--output", str(work / f"{name}.bqrs")],
         capture_output=True, text=True,
     )
     if run.returncode != 0:
