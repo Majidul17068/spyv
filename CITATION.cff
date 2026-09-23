@@ -13,6 +13,7 @@ authors:
   - family-names: "Islam"
     given-names: "Md. Majidul"
     orcid: "https://orcid.org/0009-0005-2971-8897"
+    email: "contact.majidul.islam@gmail.com"
 repository-code: "https://github.com/Majidul17068/spyv"
 url: "https://pypi.org/project/spyv/"
 license: Apache-2.0
