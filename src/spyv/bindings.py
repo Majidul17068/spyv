@@ -39,6 +39,25 @@ def _has_holes(node: ast.AST | None) -> bool:
     return True
 
 
+def _is_self_attribute(node: ast.AST) -> bool:
+    """``self.x``, the only attribute shape we bind.
+
+    Attribute state is where an obsolete literal most easily survives a later
+    dynamic write, so the binding is confined to the one receiver whose identity
+    is unambiguous inside a method body.
+    """
+    return (
+        isinstance(node, ast.Attribute)
+        and isinstance(node.value, ast.Name)
+        and node.value.id == "self"
+    )
+
+
+def _is_bindable_target(node: ast.AST) -> bool:
+    """An assignment target a binding may be recorded against."""
+    return isinstance(node, ast.Name) or _is_self_attribute(node)
+
+
 def binding_contexts(tree: ast.AST, text_of: Callable) -> dict[ast.AST, dict[str, str]]:
     """Map candidate constructs to conservative, position-sensitive bindings.
 
@@ -85,18 +104,16 @@ def binding_contexts(tree: ast.AST, text_of: Callable) -> dict[ast.AST, dict[str
                 if value is not None:
                     value = BoundText(value, _has_holes(node.value))
                 for target in node.targets:
-                    if isinstance(target, ast.Name):
-                        assigned[target] = value
-                    elif isinstance(target, ast.Attribute) and isinstance(target.value, ast.Name) and target.value.id == "self":
+                    if _is_bindable_target(target):
                         assigned[target] = value
                 self.generic_visit(node)
 
             def visit_AnnAssign(self, node: ast.AnnAssign) -> None:
                 value = text_of(node.value) if node in direct else None
-                if isinstance(node.target, ast.Name):
-                    assigned[node.target] = BoundText(value, _has_holes(node.value)) if value is not None else None
-                elif isinstance(node.target, ast.Attribute) and isinstance(node.target.value, ast.Name) and node.target.value.id == "self":
-                    assigned[node.target] = BoundText(value, _has_holes(node.value)) if value is not None else None
+                if _is_bindable_target(node.target):
+                    assigned[node.target] = (
+                        BoundText(value, _has_holes(node.value)) if value is not None else None
+                    )
                 self.generic_visit(node)
 
             def visit_Name(self, node: ast.Name) -> None:
@@ -109,15 +126,14 @@ def binding_contexts(tree: ast.AST, text_of: Callable) -> dict[ast.AST, dict[str
                         values[node.id].append((value, (node.lineno, node.col_offset)))
 
             def visit_Attribute(self, node: ast.Attribute) -> None:
-                if isinstance(node.ctx, (ast.Store, ast.Del)):
-                    if isinstance(node.value, ast.Name) and node.value.id == "self":
-                        key = f"self.{node.attr}"
-                        locals_.add(key)
-                        value = assigned.get(node)
-                        if value is None:
-                            invalid.add(key)
-                        else:
-                            values[key].append((value, (node.lineno, node.col_offset)))
+                if isinstance(node.ctx, (ast.Store, ast.Del)) and _is_self_attribute(node):
+                    key = f"self.{node.attr}"
+                    locals_.add(key)
+                    value = assigned.get(node)
+                    if value is None:
+                        invalid.add(key)
+                    else:
+                        values[key].append((value, (node.lineno, node.col_offset)))
                 self.generic_visit(node)
 
             def visit_arg(self, node: ast.arg) -> None:
