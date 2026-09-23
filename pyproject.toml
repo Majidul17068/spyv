@@ -9,8 +9,8 @@ description = "Prompt-security testing for AI engineers. Discovers every prompt 
 readme = "README.md"
 license = "Apache-2.0"
 requires-python = ">=3.10"
-authors = [{ name = "Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
-maintainers = [{ name = "Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
+authors = [{ name = "Md. Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
+maintainers = [{ name = "Md. Majidul Islam", email = "contact.majidul.islam@gmail.com" }]
 keywords = [
     "llm",
     "security",
