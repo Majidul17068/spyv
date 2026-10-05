@@ -27,7 +27,10 @@ The labels are a person's. Nothing here generates them.
 from __future__ import annotations
 
 import ast
+import io
+import tokenize
 import warnings
+from collections import Counter
 from dataclasses import dataclass, field
 from pathlib import Path
 from typing import Any
@@ -82,6 +85,20 @@ def enumerate_frame(cache: Path | None = None, repos: list[str] | None = None) -
     return out
 
 
+def _read_source(path: Path) -> str:
+    """Decode a Python file the way Python itself would.
+
+    Plain UTF-8 is the wrong reader for source. A byte-order mark decodes to a
+    stray U+FEFF that makes an otherwise valid file unparseable, and a file with
+    a coding cookie is not UTF-8 at all. The corrective measurement reads through
+    ``tokenize.detect_encoding``, so this frame must too: a file the measurement
+    parsed must not be recorded here as one whose sites were all missed.
+    """
+    raw = path.read_bytes()
+    encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
+    return raw.decode(encoding)
+
+
 def _collect(refs: list[Any], root: Path, wanted: set[str] | None, out: list[FileRecord]) -> None:
     from .visibility import sites_in_source
 
@@ -106,8 +123,8 @@ def _collect(refs: list[Any], root: Path, wanted: set[str] | None, out: list[Fil
                 parse_ok=False,
             )
             try:
-                source = path.read_text(encoding="utf-8")
-            except (OSError, UnicodeDecodeError) as exc:
+                source = _read_source(path)
+            except (OSError, UnicodeError, SyntaxError, ValueError) as exc:
                 record.read_error = type(exc).__name__
                 out.append(record)
                 continue
@@ -250,7 +267,98 @@ def draw_sample(
     return out
 
 
+# ---------------------------------------------------------------------------
+# estimation
+# ---------------------------------------------------------------------------
+BOOTSTRAP_DRAWS = 2000
+BOOTSTRAP_SEED = 20260924
+
+
+def _ratio(files: list[SampledFile]) -> float:
+    """Weighted share of found sites that the extractor never enumerated."""
+    missed = sum(f.weight * f.missed for f in files)
+    total = sum(f.weight * f.sites for f in files)
+    return missed / total if total else 0.0
+
+
+def _repo_bootstrap(files: list[SampledFile], draws: int = BOOTSTRAP_DRAWS) -> tuple[float, float]:
+    """Resample repositories, not files: files in one repository are not independent.
+
+    This follows the clustering unit used everywhere else in this study. With a
+    file sample spread thinly over 50 repositories the interval it produces is
+    wide, and that width is the honest reading of the evidence rather than a
+    defect to tune away.
+    """
+    import random
+
+    by_repo: dict[str, list[SampledFile]] = {}
+    for f in files:
+        by_repo.setdefault(f.repo, []).append(f)
+    repos = sorted(by_repo)
+    if len(repos) < 2:
+        return (0.0, 1.0)
+    rng = random.Random(BOOTSTRAP_SEED)
+    stats = []
+    for _ in range(draws):
+        picked: list[SampledFile] = []
+        for _ in repos:
+            picked.extend(by_repo[rng.choice(repos)])
+        stats.append(_ratio(picked))
+    stats.sort()
+    return stats[int(0.025 * draws)], stats[int(0.975 * draws)]
+
+
+def estimate(sample: list[SampledFile]) -> dict[str, Any]:
+    """Weighted missed-site estimate, per arm and combined.
+
+    Dividing by the inclusion probability is what makes this an estimate about
+    the corpus rather than about the sample's arm mix, and the arm mix here is
+    deliberately nothing like the corpus's: arm B is sampled far below its share
+    of the frame precisely so that a wholly-missed file can turn up at all.
+    """
+    reviewed = [f for f in sample if f.reviewed]
+    human = [f for f in reviewed if f.label_source == "human"]
+    out: dict[str, Any] = {
+        "drawn": len(sample),
+        "reviewed": len(reviewed),
+        "unreviewed": len(sample) - len(reviewed),
+        "ai_assisted": len(reviewed) - len(human),
+        "parse_failures": sum(1 for f in reviewed if not f.parse_ok),
+        "uncertain_labels": sum(
+            1 for f in reviewed for s in f.found if s.confidence == "uncertain"
+        ),
+    }
+    if not reviewed:
+        out["note"] = "no files reviewed; nothing to estimate"
+        return out
+
+    for arm in ("A", "B"):
+        part = [f for f in reviewed if f.arm == arm]
+        out[f"arm_{arm}"] = {
+            "files": len(part),
+            "sites_found": sum(f.sites for f in part),
+            "missed": sum(f.missed for f in part),
+            "weighted_missed_rate": _ratio(part),
+            "files_with_a_missed_site": sum(1 for f in part if f.missed),
+        }
+
+    out["missed_site_rate"] = _ratio(reviewed)
+    out["missed_site_rate_ci95"] = list(_repo_bootstrap(reviewed))
+    out["by_cause"] = dict(sorted(
+        Counter(s.cause or "unspecified" for f in reviewed for s in f.found
+                if s.status == "missed").most_common()
+    ))
+    out["repos_represented"] = len({f.repo for f in reviewed})
+    if len(human) != len(reviewed):
+        out["warning"] = (
+            f"{len(reviewed) - len(human)} of {len(reviewed)} reviewed files carry "
+            "AI-assisted labels; these are not independent human ground truth"
+        )
+    return out
+
+
 __all__ = [
+    "BOOTSTRAP_DRAWS",
     "MISS_CAUSES",
     "SAMPLE_SEED",
     "FileRecord",
@@ -258,5 +366,6 @@ __all__ = [
     "SampledFile",
     "draw_sample",
     "enumerate_frame",
+    "estimate",
     "frame_summary",
 ]
