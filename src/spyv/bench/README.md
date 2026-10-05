@@ -42,6 +42,39 @@ Decision rule for the LLM tier: `predicted_vulnerable = overall_verdict != "ship
 `spyv bench` exits **non-zero if a known deterministic-detectable case is missed**
 — a regression guard you can gate CI on (runs with no key).
 
+## Two validation frames, and why there have to be two
+
+Every recovery figure this suite produces is **conditional on the candidate
+inventory** — the set of locations the detector enumerates. Two different
+questions hang off that, and one sampler cannot answer both.
+
+| | `spyv annotate` | `spyv missed-sites` |
+|---|---|---|
+| Samples | candidates | **files** |
+| Answers | are found sites real, and classified right? | **what was never found?** |
+| Protocol | `PROTOCOL_CONTENT.md` | `PROTOCOL_MISSED_SITES.md` |
+
+`annotate` draws from the detector's own output, so by construction it can never
+contain a site the detector missed — it measures precision, never recall.
+`missed-sites` draws files instead, **including files where nothing was
+detected**, and asks a reviewer to read them cold.
+
+```bash
+spyv missed-sites --draw 60 --out missed-sites.json   # stratified file draw
+spyv missed-sites --label missed-sites.json           # read files, record sites
+spyv missed-sites --score missed-sites.json           # weighted estimate
+```
+
+The draw is stratified by whether the detector fired, because a uniform sample
+would spend nearly all of a reviewer's hours on files with no instruction text
+at all. That is only legitimate because every file keeps a **known non-zero
+inclusion probability** stored on its record, and the estimator divides by it.
+Reporting an unweighted count over this sample would describe the sample's arm
+mix rather than the corpus. Intervals resample repositories, not files.
+
+Labels are a person's. Nothing in this module generates them, and AI-assisted
+labels are recorded in a separate field that makes the estimate carry a warning.
+
 ## Honesty (read before quoting any number)
 This ships a **self-authored seed set** (`dataset/seed.yaml`). It is a **smoke
 test and regression guard, not a publishable accuracy claim.** A real number
