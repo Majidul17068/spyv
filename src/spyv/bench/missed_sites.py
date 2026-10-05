@@ -140,7 +140,7 @@ def _collect(refs: list[Any], root: Path, wanted: set[str] | None, out: list[Fil
             out.append(record)
 
 
-def frame_summary(frame: list[FileRecord]) -> dict[str, object]:
+def frame_summary(frame: list[FileRecord]) -> dict[str, Any]:
     """Counts a reader needs to judge the sample before seeing any label."""
     arms: dict[str, int] = {"A": 0, "B": 0}
     strata: dict[str, int] = {"production": 0, "scaffolding": 0}

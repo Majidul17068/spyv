@@ -782,6 +782,115 @@ def annotate_cmd(
     click.echo(f"Score it with:  spyv annotate --score {out_path}", err=True)
 
 
+@main.command("missed-sites")
+@click.option("--draw", "draw_n", type=int, default=None,
+              help="Draw N files per arm and write them unlabelled.")
+@click.option("--label", "label_path", type=click.Path(path_type=Path), default=None,
+              help="Record what you find reading each drawn file.")
+@click.option("--score", "score_path", type=click.Path(path_type=Path), default=None,
+              help="Report the weighted missed-site estimate.")
+@click.option("--out", "out_path", type=click.Path(path_type=Path), default=Path("missed-sites.json"))
+def missed_sites_cmd(
+    draw_n: int | None,
+    label_path: Path | None,
+    score_path: Path | None,
+    out_path: Path,
+) -> None:
+    """Estimate what the detector never enumerated, by reading whole files.
+
+    `spyv annotate` draws from sites the detector already found, so it can never
+    contain a site the detector missed. This draws files instead, including
+    files where nothing was detected, and asks you to read them.
+
+    Read the file and record every instruction-bearing site in it, whether or
+    not the tool found it. A file with no instruction text is a real observation
+    and should be recorded as one, not skipped.
+    """
+    import json as _json
+
+    from spyv.bench.missed_sites import (
+        MISS_CAUSES,
+        FoundSite,
+        draw_sample,
+        enumerate_frame,
+        estimate,
+        frame_summary,
+        load,
+        save,
+    )
+
+    if score_path is not None:
+        files, _meta = load(score_path)
+        click.echo(_json.dumps(estimate(files), indent=2))
+        return
+
+    if label_path is not None:
+        files, meta = load(label_path)
+        out_path = label_path
+    elif draw_n is not None:
+        click.echo("Enumerating the file frame (this reads the whole corpus) ...", err=True)
+        frame = enumerate_frame()
+        if not frame:
+            click.echo("No files found. Fetch the corpus first.", err=True)
+            sys.exit(2)
+        meta = frame_summary(frame)
+        files = draw_sample(frame, n_a=draw_n, n_b=draw_n)
+        save(files, out_path, meta)
+        click.echo(f"Frame: {meta['files']:,} files, {meta['by_arm']['A']:,} with a "
+                   f"detected candidate and {meta['by_arm']['B']:,} without.", err=True)
+    else:
+        click.echo("Give --draw N to start, --label FILE to continue, or --score FILE.", err=True)
+        sys.exit(2)
+
+    todo = [f for f in files if not f.reviewed]
+    click.echo(f"\n{len(files) - len(todo)}/{len(files)} reviewed. Ctrl-C saves and exits.\n", err=True)
+    causes = sorted(MISS_CAUSES)
+
+    try:
+        for idx, item in enumerate(todo, 1):
+            click.echo("=" * 72)
+            click.echo(f"[{idx}/{len(todo)}]  {item.repo}/{item.path}  ({item.lines} lines)")
+            # The detected count is shown after you have read the file, not before,
+            # so it cannot steer what you look for.
+            click.echo(f"stratum: {item.stratum}" + ("" if item.parse_ok else "   PARSE FAILED"))
+            click.echo("-" * 72)
+            if not click.confirm("Read it now and record sites?", default=True):
+                continue
+            click.echo(f"(detector found {item.detected} candidate(s) here)")
+
+            while True:
+                line = click.prompt("line of an instruction site, or blank to finish",
+                                    default="", show_default=False)
+                if not line.strip():
+                    break
+                try:
+                    lineno = int(line)
+                except ValueError:
+                    click.echo("  give a line number", err=True)
+                    continue
+                construct = click.prompt("  what supplies the text")
+                status = click.prompt("  did the tool find it? [detected/missed]",
+                                      type=click.Choice(["detected", "missed"]))
+                cause = ""
+                if status == "missed":
+                    cause = click.prompt("  plausible cause", type=click.Choice(causes))
+                confidence = click.prompt("  confidence", type=click.Choice(["certain", "uncertain"]),
+                                          default="certain")
+                item.found.append(FoundSite(lineno, construct, status, cause, confidence))
+
+            item.no_instruction_text = not item.found
+            item.note = click.prompt("note (optional)", default="", show_default=False)
+            item.reviewed = True
+            save(files, out_path, meta)
+    except (KeyboardInterrupt, click.Abort):
+        click.echo("\nSaved.", err=True)
+
+    save(files, out_path, meta)
+    done = sum(1 for f in files if f.reviewed)
+    click.echo(f"\n{done}/{len(files)} reviewed -> {out_path}", err=True)
+    click.echo(f"Score it with:  spyv missed-sites --score {out_path}", err=True)
+
+
 if __name__ == "__main__":
     try:
         main()
