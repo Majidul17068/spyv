@@ -28,6 +28,7 @@ from __future__ import annotations
 
 import ast
 import io
+import json
 import tokenize
 import warnings
 from collections import Counter
@@ -268,6 +269,35 @@ def draw_sample(
 
 
 # ---------------------------------------------------------------------------
+# persistence
+# ---------------------------------------------------------------------------
+def save(sample: list[SampledFile], path: Path, meta: dict[str, Any] | None = None) -> None:
+    """Write the sample with the metadata an estimate cannot be read without.
+
+    The seed and the per-arm frame sizes travel with the labels because the
+    weights are meaningless without them, and a reviewer checking this work must
+    be able to redraw the identical sample.
+    """
+    from dataclasses import asdict
+
+    path.write_text(json.dumps({
+        "protocol": "PROTOCOL_MISSED_SITES.md",
+        "seed": SAMPLE_SEED,
+        "meta": meta or {},
+        "files": [asdict(f) for f in sample],
+    }, indent=2), encoding="utf-8")
+
+
+def load(path: Path) -> tuple[list[SampledFile], dict[str, Any]]:
+    data = json.loads(Path(path).read_text(encoding="utf-8"))
+    files = []
+    for d in data["files"]:
+        found = [FoundSite(**s) for s in d.pop("found", [])]
+        files.append(SampledFile(found=found, **d))
+    return files, data.get("meta", {})
+
+
+# ---------------------------------------------------------------------------
 # estimation
 # ---------------------------------------------------------------------------
 BOOTSTRAP_DRAWS = 2000
@@ -368,4 +398,6 @@ __all__ = [
     "enumerate_frame",
     "estimate",
     "frame_summary",
+    "load",
+    "save",
 ]

@@ -187,3 +187,23 @@ def test_files_with_no_instruction_text_still_carry_weight():
     result = estimate(sample)
     assert result["reviewed"] == 20
     assert result["missed_site_rate"] == 0.0
+
+
+# ---------------------------------------------------------------------------
+# persistence
+# ---------------------------------------------------------------------------
+def test_sample_round_trips_through_disk(tmp_path):
+    """Weights are meaningless without the probabilities, so they must survive."""
+    from spyv.bench.missed_sites import load, save
+
+    sample = draw_sample(frame(), n_a=5, n_b=5)
+    labelled(sample[0], detected=1, missed=2)
+    sample[0].found[1].confidence = "uncertain"
+    path = tmp_path / "files.json"
+    save(sample, path, meta={"frame_A": 100, "frame_B": 900})
+
+    back, meta = load(path)
+    assert meta["frame_B"] == 900
+    assert [f.inclusion_prob for f in back] == [f.inclusion_prob for f in sample]
+    assert back[0].found[1].confidence == "uncertain"
+    assert estimate(back)["missed_site_rate"] == estimate(sample)["missed_site_rate"]
