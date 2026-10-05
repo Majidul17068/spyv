@@ -288,6 +288,39 @@ def save(sample: list[SampledFile], path: Path, meta: dict[str, Any] | None = No
     }, indent=2), encoding="utf-8")
 
 
+def export_csv(sample: list[SampledFile], path: Path) -> None:
+    """Write the worksheet a reviewer labels in, matching the other audit sheets.
+
+    The label columns ship empty. A blank means unfinished and a recorded zero
+    means "I read this file and there is no instruction text in it"; the two are
+    different observations and the estimator treats them differently, so the
+    sheet must not let a reviewer express one by leaving the other blank.
+
+    The detector's candidate count is deliberately absent. Per the audit guide a
+    reviewer enumerates the file's instruction sites first and compares against
+    the detector afterwards; a column saying "0 found here" on the sheet in front
+    of them inverts that order and invites the agreement it is meant to test.
+    """
+    import csv
+
+    fields = [
+        "repo", "path", "arm", "stratum", "lines", "inclusion_probability",
+        "instruction_sites_found", "of_which_missed", "causes",
+        "evidence", "reviewer", "uncertainty",
+    ]
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=fields)
+        writer.writeheader()
+        for f in sample:
+            writer.writerow({
+                "repo": f.repo, "path": f.path, "arm": f.arm,
+                "stratum": f.stratum, "lines": f.lines,
+                "inclusion_probability": f.inclusion_prob,
+                "instruction_sites_found": "", "of_which_missed": "",
+                "causes": "", "evidence": "", "reviewer": "", "uncertainty": "",
+            })
+
+
 def load(path: Path) -> tuple[list[SampledFile], dict[str, Any]]:
     data = json.loads(Path(path).read_text(encoding="utf-8"))
     files = []
@@ -397,6 +430,7 @@ __all__ = [
     "draw_sample",
     "enumerate_frame",
     "estimate",
+    "export_csv",
     "frame_summary",
     "load",
     "save",

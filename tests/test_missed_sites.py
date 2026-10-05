@@ -207,3 +207,20 @@ def test_sample_round_trips_through_disk(tmp_path):
     assert [f.inclusion_prob for f in back] == [f.inclusion_prob for f in sample]
     assert back[0].found[1].confidence == "uncertain"
     assert estimate(back)["missed_site_rate"] == estimate(sample)["missed_site_rate"]
+
+
+def test_csv_worksheet_withholds_the_detector_count(tmp_path):
+    """A reviewer must enumerate before comparing, so the sheet cannot pre-answer."""
+    import csv as _csv
+
+    from spyv.bench.missed_sites import export_csv
+
+    sample = draw_sample(frame(), n_a=3, n_b=3)
+    path = tmp_path / "sheet.csv"
+    export_csv(sample, path)
+
+    rows = list(_csv.DictReader(path.open(encoding="utf-8")))
+    assert len(rows) == 6
+    assert "detected" not in rows[0]
+    assert all(r["instruction_sites_found"] == "" for r in rows)
+    assert float(rows[0]["inclusion_probability"]) > 0
