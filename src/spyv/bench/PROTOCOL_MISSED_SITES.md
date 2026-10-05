@@ -81,3 +81,50 @@ A sample of files bounds what the extractor misses **in Python source it can
 reach**. Instructions held in configuration, data files, notebooks, other
 languages, or assembled only at run time are outside this frame, and their
 absence from the estimate is not evidence of their absence from the corpus.
+
+----
+
+# Amendment 1: superseding an earlier file sample
+
+Recorded before any file in either sample was read. No label exists against
+either draw, so nothing here selects between results.
+
+## What happened
+
+A file sample for this audit already existed, in the manuscript repository:
+`revision/audit/missed-site-files.csv`, drawn under seed 20260912 by
+`scripts/prepare_revision.py`, and `AUDIT_GUIDE.md` step 5 pointed reviewers at
+it. This protocol and its sampler were written without checking for it, and a
+second sample of 120 files was drawn under seed 20260924.
+
+Two drawn samples answering one pre-registered question is a defect regardless
+of which is better. If both survive to labelling time, whoever labels can choose
+the one whose answer they prefer, and no reader can tell that happened. One must
+be retired, and the retirement must be recorded rather than performed silently.
+
+## What is retired, and why
+
+The 20260912 sample is retired. The 20260924 sample is the audit.
+
+Both draws are legitimate probability samples with recorded inclusion
+probabilities. The reasons for keeping the second are frame and spread, not a
+result, because no result exists for either:
+
+- The earlier draw samples 10 repositories of 50, then 10 files from each, so 40
+  repositories contribute nothing and the clustering that dominates variance
+  everywhere else in this study is concentrated into ten units. The replacement
+  spans 34 repositories.
+- The earlier frame is built from each repository's parsed-file record, so the
+  ten files that failed to parse cannot be drawn. Those are precisely the files
+  whose every site was missed, which this audit exists to count.
+- The replacement carries an estimator, so the recorded inclusion probabilities
+  are actually divided by rather than left for a later script to honour.
+
+## What is given up
+
+The earlier design is simpler and harder to attack. It does not stratify on
+detector output, so it raises no question of whether the stratification biased
+anything. The replacement does stratify, and relies on Horvitz-Thompson
+weighting to undo it. That reliance is now load-bearing, and a reader who
+distrusts the weights should be given the per-arm counts, which the estimator
+reports separately for exactly this reason.
