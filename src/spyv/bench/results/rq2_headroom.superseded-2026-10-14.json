@@ -1,0 +1,626 @@
+{
+  "rq": 2,
+  "opaque_sites": 9331,
+  "buckets": {
+    "undetermined": 7375,
+    "runtime_bound": 1675,
+    "reachable": 281
+  },
+  "shares": {
+    "undetermined": 0.7903761654699389,
+    "runtime_bound": 0.17950916300503697,
+    "reachable": 0.030114671525024114
+  },
+  "ci95": {
+    "undetermined": [
+      0.7819984674674583,
+      0.7985148644352493
+    ],
+    "runtime_bound": [
+      0.17185450557054635,
+      0.18742760586881654
+    ],
+    "reachable": [
+      0.026835672349171242,
+      0.03378041780494558
+    ]
+  },
+  "note": "runtime_bound is classifier output, not a bound: most of it rests on an identifier heuristic or an unconditional subscript rule rather than on evidence from reading a callee. See METRICS.md and the paper's Section V.",
+  "reasons": {
+    "method_call_needs_type_inference": 2092,
+    "callee_third_party": 1276,
+    "constant_not_resolvable": 844,
+    "callee_unresolved": 572,
+    "subscript_of_runtime_value": 425,
+    "callee_in_stdlib": 411,
+    "expr:BoolOp": 405,
+    "attribute_needs_type_inference": 386,
+    "callee_in_repository_unresolved": 297,
+    "expr:IfExp": 268,
+    "expr:BinOp": 267,
+    "io_call_by_name:get": 255,
+    "constant_resolved_cross_module": 180,
+    "expr:Await": 103,
+    "callee_returns_runtime_value": 76,
+    "callee_returns_literals": 67,
+    "io_call_by_name:get_prompt": 65,
+    "attribute_value_opaque": 59,
+    "attribute_not_assigned_in_module": 58,
+    "expr:JoinedStr": 44,
+    "io_call_by_name:query_one": 37,
+    "return_depends_on:parameter:default": 36,
+    "expr:List": 29,
+    "resolution_depth_exceeded": 27,
+    "return_depends_on:parameter:prompt": 26,
+    "io_call_by_name:generate_prompt_with_tmpl_filename": 24,
+    "expr:Constant": 22,
+    "io_call_by_name:read_text": 21,
+    "io_call_by_name:get_format_instructions": 20,
+    "return_depends_on:io:read_text": 19,
+    "return_depends_on:parameter:job": 18,
+    "expr:UnaryOp": 17,
+    "io_call_by_name:load_prompts": 16,
+    "io_call_by_name:get_text_content": 15,
+    "return_depends_on:parameter:columns": 12,
+    "return_depends_on:parameter:text": 11,
+    "io_call_by_name:read_agent_prompt": 10,
+    "io_call_by_name:get_prompt_from_key": 10,
+    "return_depends_on:parameter:task": 9,
+    "io_call_by_name:read_tools_prompt": 9,
+    "return_depends_on:io:get": 9,
+    "io_call_by_name:get_string_tokens": 9,
+    "io_call_by_name:load_system": 8,
+    "io_call_by_name:get_preprompts": 7,
+    "expr:Compare": 7,
+    "return_depends_on:io:get_learning_prompts": 7,
+    "return_depends_on:parameter:fn": 7,
+    "return_depends_on:parameter:key": 6,
+    "io_call_by_name:read": 6,
+    "io_call_by_name:get_system_prompt": 6,
+    "return_depends_on:parameter:role": 6,
+    "return_depends_on:parameter:topic": 6,
+    "io_call_by_name:retrieve": 5,
+    "io_call_by_name:generate_structured_prompt": 5,
+    "io_call_by_name:get_state": 5,
+    "return_depends_on:parameter:hints": 5,
+    "io_call_by_name:generate": 5,
+    "return_depends_on:parameter:messages": 4,
+    "return_depends_on:parameter:preprompts": 4,
+    "io_call_by_name:request": 4,
+    "return_depends_on:parameter:max_length": 4,
+    "return_depends_on:parameter:strip": 4,
+    "return_depends_on:parameter:target_language": 4,
+    "return_depends_on:parameter:instruction": 4,
+    "return_depends_on:parameter:context": 3,
+    "io_call_by_name:input": 3,
+    "expr:Lambda": 3,
+    "io_call_by_name:post_to_raw_text": 3,
+    "return_depends_on:parameter:state": 3,
+    "return_depends_on:io:get_skill_instructions": 3,
+    "return_depends_on:parameter:vocab_size": 3,
+    "return_depends_on:parameter:message": 2,
+    "return_depends_on:parameter:initial_research": 2,
+    "no_return_found": 2,
+    "return_depends_on:parameter:variables": 2,
+    "return_depends_on:parameter:user_input": 2,
+    "io_call_by_name:generate_content": 2,
+    "io_call_by_name:get_system_message": 2,
+    "return_depends_on:parameter:tokens": 2,
+    "return_depends_on:parameter:ticker": 2,
+    "io_call_by_name:get_skill_instructions": 2,
+    "return_depends_on:parameter:pattern_name": 2,
+    "io_call_by_name:get_memory_prompt": 2,
+    "return_depends_on:parameter:stats": 2,
+    "io_call_by_name:invoke": 2,
+    "return_depends_on:parameter:plan_evidence": 2,
+    "expr:DictComp": 2,
+    "return_depends_on:parameter:team": 1,
+    "return_depends_on:parameter:base_path": 1,
+    "return_depends_on:parameter:config": 1,
+    "io_call_by_name:generate_quick_summary_prompt": 1,
+    "io_call_by_name:generate_subtopics_prompt": 1,
+    "io_call_by_name:generate_mcp_research_prompt": 1,
+    "io_call_by_name:generate_mcp_tool_selection_prompt": 1,
+    "return_depends_on:parameter:raw_result": 1,
+    "io_call_by_name:get_human_prompt_service": 1,
+    "return_depends_on:parameter:node_id": 1,
+    "return_depends_on:parameter:name": 1,
+    "expr:Dict": 1,
+    "io_call_by_name:get_tools_prompt": 1,
+    "return_depends_on:parameter:scene_count": 1,
+    "return_depends_on:parameter:original_task": 1,
+    "expr:Tuple": 1,
+    "return_depends_on:parameter:assistant_msg": 1,
+    "return_depends_on:parameter:value": 1,
+    "return_depends_on:parameter:image_tokens": 1,
+    "io_call_by_name:get_or_create": 1,
+    "return_depends_on:parameter:extra_system": 1,
+    "return_depends_on:parameter:limit": 1,
+    "return_depends_on:io:get_descriptions": 1,
+    "return_depends_on:io:get_format_instructions": 1,
+    "return_depends_on:parameter:content": 1,
+    "return_depends_on:parameter:num_tokens": 1,
+    "return_depends_on:parameter:error_template": 1
+  },
+  "reasons_total": 8755,
+  "repos": [
+    {
+      "name": "crewai",
+      "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
+      "opaque_sites": 300,
+      "buckets": {
+        "undetermined": 217,
+        "runtime_bound": 50,
+        "reachable": 33
+      }
+    },
+    {
+      "name": "crewai-examples",
+      "sha": "da94a91e691e1cf5b3151416bb15b5b62729bea8",
+      "opaque_sites": 53,
+      "buckets": {
+        "undetermined": 43,
+        "runtime_bound": 10
+      }
+    },
+    {
+      "name": "langgraph",
+      "sha": "38031739e551638e373fb553453256c23feeb41f",
+      "opaque_sites": 41,
+      "buckets": {
+        "undetermined": 33,
+        "runtime_bound": 8
+      }
+    },
+    {
+      "name": "langchain",
+      "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
+      "opaque_sites": 755,
+      "buckets": {
+        "undetermined": 662,
+        "reachable": 42,
+        "runtime_bound": 51
+      }
+    },
+    {
+      "name": "autogen",
+      "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
+      "opaque_sites": 137,
+      "buckets": {
+        "undetermined": 119,
+        "runtime_bound": 16,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "metagpt",
+      "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
+      "opaque_sites": 233,
+      "buckets": {
+        "undetermined": 179,
+        "runtime_bound": 44,
+        "reachable": 10
+      }
+    },
+    {
+      "name": "superagi",
+      "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
+      "opaque_sites": 104,
+      "buckets": {
+        "undetermined": 76,
+        "runtime_bound": 28
+      }
+    },
+    {
+      "name": "gpt-engineer",
+      "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
+      "opaque_sites": 52,
+      "buckets": {
+        "runtime_bound": 18,
+        "undetermined": 34
+      }
+    },
+    {
+      "name": "babyagi",
+      "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
+      "opaque_sites": 8,
+      "buckets": {
+        "undetermined": 3,
+        "reachable": 5
+      }
+    },
+    {
+      "name": "camel",
+      "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
+      "opaque_sites": 417,
+      "buckets": {
+        "runtime_bound": 45,
+        "undetermined": 351,
+        "reachable": 21
+      }
+    },
+    {
+      "name": "agentverse",
+      "sha": "f90c4bd9680fdd3bcff8c52c9170911a59b23478",
+      "opaque_sites": 29,
+      "buckets": {
+        "undetermined": 27,
+        "runtime_bound": 2
+      }
+    },
+    {
+      "name": "open-interpreter",
+      "sha": "5b07159c477920c159d8892d112b480e7307f257",
+      "opaque_sites": 12,
+      "buckets": {
+        "undetermined": 7,
+        "runtime_bound": 5
+      }
+    },
+    {
+      "name": "gpt-researcher",
+      "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
+      "opaque_sites": 48,
+      "buckets": {
+        "runtime_bound": 19,
+        "undetermined": 28,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "chatdev",
+      "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
+      "opaque_sites": 18,
+      "buckets": {
+        "runtime_bound": 8,
+        "undetermined": 10
+      }
+    },
+    {
+      "name": "agno",
+      "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
+      "opaque_sites": 508,
+      "buckets": {
+        "runtime_bound": 67,
+        "undetermined": 439,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "pydantic-ai",
+      "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
+      "opaque_sites": 343,
+      "buckets": {
+        "undetermined": 306,
+        "runtime_bound": 36,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "smolagents",
+      "sha": "30bb1161095dbae2271e6bc3cc4c219cc3897a57",
+      "opaque_sites": 35,
+      "buckets": {
+        "undetermined": 29,
+        "runtime_bound": 6
+      }
+    },
+    {
+      "name": "swarm",
+      "sha": "6af0b4caf37dca4526dfd98e9fbd8ce36e7eeb22",
+      "opaque_sites": 12,
+      "buckets": {
+        "undetermined": 11,
+        "runtime_bound": 1
+      }
+    },
+    {
+      "name": "taskweaver",
+      "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
+      "opaque_sites": 60,
+      "buckets": {
+        "undetermined": 50,
+        "runtime_bound": 10
+      }
+    },
+    {
+      "name": "llama-index",
+      "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
+      "opaque_sites": 948,
+      "buckets": {
+        "runtime_bound": 74,
+        "undetermined": 857,
+        "reachable": 17
+      }
+    },
+    {
+      "name": "hermes-agent",
+      "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
+      "opaque_sites": 803,
+      "buckets": {
+        "runtime_bound": 202,
+        "undetermined": 574,
+        "reachable": 27
+      }
+    },
+    {
+      "name": "awesome-llm-apps",
+      "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
+      "opaque_sites": 121,
+      "buckets": {
+        "undetermined": 106,
+        "runtime_bound": 13,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "moneyprinterturbo",
+      "sha": "0df0ef4ac2d725c79fa53bfe072063ee9cdfba80",
+      "opaque_sites": 39,
+      "buckets": {
+        "runtime_bound": 6,
+        "undetermined": 33
+      }
+    },
+    {
+      "name": "browser-use",
+      "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
+      "opaque_sites": 140,
+      "buckets": {
+        "runtime_bound": 24,
+        "undetermined": 116
+      }
+    },
+    {
+      "name": "tradingagents",
+      "sha": "a33fd4c0f134485a43553a2c23a63cb14adbd88f",
+      "opaque_sites": 31,
+      "buckets": {
+        "runtime_bound": 4,
+        "undetermined": 26,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "paddleocr",
+      "sha": "2661c7c0ef5c613e8f93c6e93b2e052399f0f854",
+      "opaque_sites": 6,
+      "buckets": {
+        "undetermined": 6
+      }
+    },
+    {
+      "name": "deer-flow",
+      "sha": "bdd68469c156877daa3facb547314b8391cabf73",
+      "opaque_sites": 189,
+      "buckets": {
+        "runtime_bound": 26,
+        "undetermined": 160,
+        "reachable": 3
+      }
+    },
+    {
+      "name": "learn-claude-code",
+      "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
+      "opaque_sites": 16,
+      "buckets": {
+        "undetermined": 12,
+        "runtime_bound": 3,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "mem0",
+      "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
+      "opaque_sites": 42,
+      "buckets": {
+        "undetermined": 27,
+        "reachable": 6,
+        "runtime_bound": 9
+      }
+    },
+    {
+      "name": "daily_stock_analysis",
+      "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
+      "opaque_sites": 136,
+      "buckets": {
+        "undetermined": 101,
+        "runtime_bound": 23,
+        "reachable": 12
+      }
+    },
+    {
+      "name": "ai-engineering-from-scratch",
+      "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
+      "opaque_sites": 88,
+      "buckets": {
+        "undetermined": 65,
+        "runtime_bound": 20,
+        "reachable": 3
+      }
+    },
+    {
+      "name": "nanobot",
+      "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
+      "opaque_sites": 111,
+      "buckets": {
+        "undetermined": 93,
+        "runtime_bound": 18
+      }
+    },
+    {
+      "name": "agentic-awesome-skills",
+      "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
+      "opaque_sites": 179,
+      "buckets": {
+        "undetermined": 126,
+        "runtime_bound": 47,
+        "reachable": 6
+      }
+    },
+    {
+      "name": "ai-agent-book",
+      "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
+      "opaque_sites": 353,
+      "buckets": {
+        "reachable": 38,
+        "undetermined": 245,
+        "runtime_bound": 70
+      }
+    },
+    {
+      "name": "langchain-chatchat",
+      "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
+      "opaque_sites": 62,
+      "buckets": {
+        "undetermined": 43,
+        "runtime_bound": 19
+      }
+    },
+    {
+      "name": "deeptutor",
+      "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
+      "opaque_sites": 384,
+      "buckets": {
+        "undetermined": 228,
+        "runtime_bound": 154,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "500-ai-agents-projects",
+      "sha": "9beeb721c2af551bacaab827a76bddaecaa0ca5e",
+      "opaque_sites": 1,
+      "buckets": {
+        "undetermined": 1
+      }
+    },
+    {
+      "name": "pageindex",
+      "sha": "d4ce6ee65f5ede05ccc7d8040ca3555bd3e65789",
+      "opaque_sites": 8,
+      "buckets": {
+        "runtime_bound": 3,
+        "undetermined": 5
+      }
+    },
+    {
+      "name": "qwenpaw",
+      "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
+      "opaque_sites": 235,
+      "buckets": {
+        "undetermined": 178,
+        "runtime_bound": 56,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "sglang",
+      "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
+      "opaque_sites": 781,
+      "buckets": {
+        "runtime_bound": 196,
+        "undetermined": 581,
+        "reachable": 4
+      }
+    },
+    {
+      "name": "vibe-trading",
+      "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
+      "opaque_sites": 72,
+      "buckets": {
+        "undetermined": 58,
+        "runtime_bound": 12,
+        "reachable": 2
+      }
+    },
+    {
+      "name": "graphiti",
+      "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
+      "opaque_sites": 17,
+      "buckets": {
+        "undetermined": 14,
+        "runtime_bound": 3
+      }
+    },
+    {
+      "name": "cognee",
+      "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
+      "opaque_sites": 290,
+      "buckets": {
+        "undetermined": 253,
+        "runtime_bound": 32,
+        "reachable": 5
+      }
+    },
+    {
+      "name": "scrapegraph-ai",
+      "sha": "5b833057ee5effa322cc26dcd534e892793700d6",
+      "opaque_sites": 153,
+      "buckets": {
+        "undetermined": 98,
+        "runtime_bound": 47,
+        "reachable": 8
+      }
+    },
+    {
+      "name": "agentscope",
+      "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
+      "opaque_sites": 90,
+      "buckets": {
+        "runtime_bound": 16,
+        "undetermined": 74
+      }
+    },
+    {
+      "name": "openai-agents-python",
+      "sha": "10cdae4a3c30a29c6e96c8ec14e6bf1c5f02940e",
+      "opaque_sites": 218,
+      "buckets": {
+        "undetermined": 172,
+        "runtime_bound": 45,
+        "reachable": 1
+      }
+    },
+    {
+      "name": "deepagents",
+      "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
+      "opaque_sites": 428,
+      "buckets": {
+        "undetermined": 322,
+        "runtime_bound": 103,
+        "reachable": 3
+      }
+    },
+    {
+      "name": "haystack",
+      "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
+      "opaque_sites": 83,
+      "buckets": {
+        "runtime_bound": 8,
+        "undetermined": 71,
+        "reachable": 4
+      }
+    },
+    {
+      "name": "kotaemon",
+      "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
+      "opaque_sites": 97,
+      "buckets": {
+        "undetermined": 75,
+        "reachable": 10,
+        "runtime_bound": 12
+      }
+    },
+    {
+      "name": "mlc-llm",
+      "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
+      "opaque_sites": 45,
+      "buckets": {
+        "undetermined": 31,
+        "runtime_bound": 6,
+        "reachable": 8
+      }
+    }
+  ]
+}

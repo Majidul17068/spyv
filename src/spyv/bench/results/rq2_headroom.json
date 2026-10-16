@@ -1,57 +1,57 @@
 {
   "rq": 2,
-  "opaque_sites": 9331,
+  "opaque_sites": 9418,
   "buckets": {
-    "undetermined": 7375,
-    "runtime_bound": 1675,
-    "reachable": 281
+    "undetermined": 7485,
+    "runtime_bound": 1680,
+    "reachable": 253
   },
   "shares": {
-    "undetermined": 0.7903761654699389,
-    "runtime_bound": 0.17950916300503697,
-    "reachable": 0.030114671525024114
+    "undetermined": 0.794754724994691,
+    "runtime_bound": 0.17838182204289657,
+    "reachable": 0.026863452962412403
   },
   "ci95": {
     "undetermined": [
-      0.7819984674674583,
-      0.7985148644352493
+      0.7864783323558188,
+      0.8027907549105179
     ],
     "runtime_bound": [
-      0.17185450557054635,
-      0.18742760586881654
+      0.17078150624576882,
+      0.18624440681988913
     ],
     "reachable": [
-      0.026835672349171242,
-      0.03378041780494558
+      0.023785876502548417,
+      0.03032685661748196
     ]
   },
   "note": "runtime_bound is classifier output, not a bound: most of it rests on an identifier heuristic or an unconditional subscript rule rather than on evidence from reading a callee. See METRICS.md and the paper's Section V.",
   "reasons": {
-    "method_call_needs_type_inference": 2092,
+    "method_call_needs_type_inference": 2094,
     "callee_third_party": 1276,
-    "constant_not_resolvable": 844,
-    "callee_unresolved": 572,
-    "subscript_of_runtime_value": 425,
-    "callee_in_stdlib": 411,
-    "expr:BoolOp": 405,
-    "attribute_needs_type_inference": 386,
-    "callee_in_repository_unresolved": 297,
-    "expr:IfExp": 268,
-    "expr:BinOp": 267,
-    "io_call_by_name:get": 255,
-    "constant_resolved_cross_module": 180,
+    "constant_not_resolvable": 862,
+    "callee_unresolved": 574,
+    "subscript_of_runtime_value": 428,
+    "attribute_needs_type_inference": 423,
+    "callee_in_stdlib": 409,
+    "expr:BoolOp": 406,
+    "callee_in_repository_unresolved": 299,
+    "expr:BinOp": 285,
+    "expr:IfExp": 274,
+    "io_call_by_name:get": 256,
+    "constant_resolved_cross_module": 121,
     "expr:Await": 103,
+    "callee_returns_literals": 77,
+    "attribute_not_assigned_in_module": 77,
     "callee_returns_runtime_value": 76,
-    "callee_returns_literals": 67,
     "io_call_by_name:get_prompt": 65,
     "attribute_value_opaque": 59,
-    "attribute_not_assigned_in_module": 58,
-    "expr:JoinedStr": 44,
+    "expr:JoinedStr": 40,
     "io_call_by_name:query_one": 37,
     "return_depends_on:parameter:default": 36,
     "expr:List": 29,
     "resolution_depth_exceeded": 27,
-    "return_depends_on:parameter:prompt": 26,
+    "return_depends_on:parameter:prompt": 25,
     "io_call_by_name:generate_prompt_with_tmpl_filename": 24,
     "expr:Constant": 22,
     "io_call_by_name:read_text": 21,
@@ -64,9 +64,9 @@
     "return_depends_on:parameter:columns": 12,
     "return_depends_on:parameter:text": 11,
     "io_call_by_name:read_agent_prompt": 10,
+    "io_call_by_name:read_tools_prompt": 10,
     "io_call_by_name:get_prompt_from_key": 10,
     "return_depends_on:parameter:task": 9,
-    "io_call_by_name:read_tools_prompt": 9,
     "return_depends_on:io:get": 9,
     "io_call_by_name:get_string_tokens": 9,
     "io_call_by_name:load_system": 8,
@@ -80,6 +80,8 @@
     "return_depends_on:parameter:role": 6,
     "return_depends_on:parameter:topic": 6,
     "io_call_by_name:retrieve": 5,
+    "return_depends_on:io:retrieve": 5,
+    "attribute_assigned_literal": 5,
     "io_call_by_name:generate_structured_prompt": 5,
     "io_call_by_name:get_state": 5,
     "return_depends_on:parameter:hints": 5,
@@ -114,21 +116,17 @@
     "io_call_by_name:invoke": 2,
     "return_depends_on:parameter:plan_evidence": 2,
     "expr:DictComp": 2,
-    "return_depends_on:parameter:team": 1,
     "return_depends_on:parameter:base_path": 1,
     "return_depends_on:parameter:config": 1,
     "io_call_by_name:generate_quick_summary_prompt": 1,
     "io_call_by_name:generate_subtopics_prompt": 1,
     "io_call_by_name:generate_mcp_research_prompt": 1,
-    "io_call_by_name:generate_mcp_tool_selection_prompt": 1,
     "return_depends_on:parameter:raw_result": 1,
     "io_call_by_name:get_human_prompt_service": 1,
     "return_depends_on:parameter:node_id": 1,
     "return_depends_on:parameter:name": 1,
     "expr:Dict": 1,
-    "io_call_by_name:get_tools_prompt": 1,
     "return_depends_on:parameter:scene_count": 1,
-    "return_depends_on:parameter:original_task": 1,
     "expr:Tuple": 1,
     "return_depends_on:parameter:assistant_msg": 1,
     "return_depends_on:parameter:value": 1,
@@ -142,16 +140,16 @@
     "return_depends_on:parameter:num_tokens": 1,
     "return_depends_on:parameter:error_template": 1
   },
-  "reasons_total": 8755,
+  "reasons_total": 8815,
   "repos": [
     {
       "name": "crewai",
       "sha": "871c9c5131f4097cf8c5bafe228e84b697361a43",
-      "opaque_sites": 300,
+      "opaque_sites": 284,
       "buckets": {
-        "undetermined": 217,
+        "undetermined": 218,
         "runtime_bound": 50,
-        "reachable": 33
+        "reachable": 16
       }
     },
     {
@@ -175,29 +173,29 @@
     {
       "name": "langchain",
       "sha": "43bed06205603e6e4f0ce8fc80a73f92910a9cd5",
-      "opaque_sites": 755,
+      "opaque_sites": 729,
       "buckets": {
-        "undetermined": 662,
-        "reachable": 42,
+        "undetermined": 663,
+        "reachable": 15,
         "runtime_bound": 51
       }
     },
     {
       "name": "autogen",
       "sha": "027ecf0a379bcc1d09956d46d12d44a3ad9cee14",
-      "opaque_sites": 137,
+      "opaque_sites": 150,
       "buckets": {
-        "undetermined": 119,
+        "undetermined": 121,
         "runtime_bound": 16,
-        "reachable": 2
+        "reachable": 13
       }
     },
     {
       "name": "metagpt",
       "sha": "11cdf466d042aece04fc6cfd13b28e1a70341b1f",
-      "opaque_sites": 233,
+      "opaque_sites": 237,
       "buckets": {
-        "undetermined": 179,
+        "undetermined": 183,
         "runtime_bound": 44,
         "reachable": 10
       }
@@ -205,38 +203,39 @@
     {
       "name": "superagi",
       "sha": "c3c1982e7bd6a11cfed53c5a193ea502f924b1b6",
-      "opaque_sites": 104,
+      "opaque_sites": 112,
       "buckets": {
         "undetermined": 76,
-        "runtime_bound": 28
+        "runtime_bound": 29,
+        "reachable": 7
       }
     },
     {
       "name": "gpt-engineer",
       "sha": "a90fcd543eedcc0ff2c34561bc0785d2ba83c47e",
-      "opaque_sites": 52,
+      "opaque_sites": 53,
       "buckets": {
         "runtime_bound": 18,
-        "undetermined": 34
+        "undetermined": 34,
+        "reachable": 1
       }
     },
     {
       "name": "babyagi",
       "sha": "fa8930ebe72a82e5ad57b356e7cbec96290e5bb2",
-      "opaque_sites": 8,
+      "opaque_sites": 3,
       "buckets": {
-        "undetermined": 3,
-        "reachable": 5
+        "undetermined": 3
       }
     },
     {
       "name": "camel",
       "sha": "13dc7a7dda66d943949e5448d55e70d5a9481cfe",
-      "opaque_sites": 417,
+      "opaque_sites": 435,
       "buckets": {
         "runtime_bound": 45,
-        "undetermined": 351,
-        "reachable": 21
+        "undetermined": 365,
+        "reachable": 25
       }
     },
     {
@@ -260,11 +259,11 @@
     {
       "name": "gpt-researcher",
       "sha": "6f998577d547b1e54ec662dac63583aa11e3b84b",
-      "opaque_sites": 48,
+      "opaque_sites": 49,
       "buckets": {
         "runtime_bound": 19,
         "undetermined": 28,
-        "reachable": 1
+        "reachable": 2
       }
     },
     {
@@ -279,19 +278,19 @@
     {
       "name": "agno",
       "sha": "edeec13d9dad793c29b13468fb1bb90f46aa111f",
-      "opaque_sites": 508,
+      "opaque_sites": 522,
       "buckets": {
         "runtime_bound": 67,
-        "undetermined": 439,
-        "reachable": 2
+        "undetermined": 448,
+        "reachable": 7
       }
     },
     {
       "name": "pydantic-ai",
       "sha": "b48ee3808631ea8796a7c3b6941863bde47e10be",
-      "opaque_sites": 343,
+      "opaque_sites": 347,
       "buckets": {
-        "undetermined": 306,
+        "undetermined": 310,
         "runtime_bound": 36,
         "reachable": 1
       }
@@ -317,40 +316,40 @@
     {
       "name": "taskweaver",
       "sha": "d44ddef23f90059fb17999d3095db4240e98f955",
-      "opaque_sites": 60,
+      "opaque_sites": 61,
       "buckets": {
-        "undetermined": 50,
+        "undetermined": 51,
         "runtime_bound": 10
       }
     },
     {
       "name": "llama-index",
       "sha": "d8021225eb7e7b276d5ceb476b0a4650240f27f8",
-      "opaque_sites": 948,
+      "opaque_sites": 942,
       "buckets": {
         "runtime_bound": 74,
-        "undetermined": 857,
-        "reachable": 17
+        "undetermined": 862,
+        "reachable": 6
       }
     },
     {
       "name": "hermes-agent",
       "sha": "93a29d110db7724f18959cb941aae3520fb587ac",
-      "opaque_sites": 803,
+      "opaque_sites": 805,
       "buckets": {
-        "runtime_bound": 202,
-        "undetermined": 574,
-        "reachable": 27
+        "runtime_bound": 203,
+        "undetermined": 583,
+        "reachable": 19
       }
     },
     {
       "name": "awesome-llm-apps",
       "sha": "11a4bc330e4b0b1509577db4581c5cfbcf6ea6a0",
-      "opaque_sites": 121,
+      "opaque_sites": 126,
       "buckets": {
-        "undetermined": 106,
+        "undetermined": 108,
         "runtime_bound": 13,
-        "reachable": 2
+        "reachable": 5
       }
     },
     {
@@ -365,10 +364,11 @@
     {
       "name": "browser-use",
       "sha": "28670f720f63cc5f525a2acd6d6072867689ab68",
-      "opaque_sites": 140,
+      "opaque_sites": 145,
       "buckets": {
         "runtime_bound": 24,
-        "undetermined": 116
+        "undetermined": 116,
+        "reachable": 5
       }
     },
     {
@@ -392,99 +392,100 @@
     {
       "name": "deer-flow",
       "sha": "bdd68469c156877daa3facb547314b8391cabf73",
-      "opaque_sites": 189,
+      "opaque_sites": 190,
       "buckets": {
         "runtime_bound": 26,
-        "undetermined": 160,
+        "undetermined": 161,
         "reachable": 3
       }
     },
     {
       "name": "learn-claude-code",
       "sha": "0dcafa2ae053a1ddd6a72f265431104b08a5aa13",
-      "opaque_sites": 16,
+      "opaque_sites": 18,
       "buckets": {
         "undetermined": 12,
-        "runtime_bound": 3,
-        "reachable": 1
+        "reachable": 3,
+        "runtime_bound": 3
       }
     },
     {
       "name": "mem0",
       "sha": "39bc02330563764e7d4465f1ecff5f002d94da1a",
-      "opaque_sites": 42,
+      "opaque_sites": 44,
       "buckets": {
-        "undetermined": 27,
-        "reachable": 6,
+        "undetermined": 28,
+        "reachable": 7,
         "runtime_bound": 9
       }
     },
     {
       "name": "daily_stock_analysis",
       "sha": "fb4735a1055caefa2396982af3b09121feb9ff30",
-      "opaque_sites": 136,
+      "opaque_sites": 133,
       "buckets": {
-        "undetermined": 101,
+        "undetermined": 103,
         "runtime_bound": 23,
-        "reachable": 12
+        "reachable": 7
       }
     },
     {
       "name": "ai-engineering-from-scratch",
       "sha": "39ea8a1c6d0b61f071226eff7ede4d4105fed820",
-      "opaque_sites": 88,
+      "opaque_sites": 87,
       "buckets": {
         "undetermined": 65,
         "runtime_bound": 20,
-        "reachable": 3
+        "reachable": 2
       }
     },
     {
       "name": "nanobot",
       "sha": "d6c112ab741b67489021b8efd98e6121f0a50f4d",
-      "opaque_sites": 111,
+      "opaque_sites": 113,
       "buckets": {
-        "undetermined": 93,
-        "runtime_bound": 18
+        "undetermined": 94,
+        "runtime_bound": 18,
+        "reachable": 1
       }
     },
     {
       "name": "agentic-awesome-skills",
       "sha": "5cf4dfeb13ea966daa1e117897689cd7991e3f44",
-      "opaque_sites": 179,
+      "opaque_sites": 191,
       "buckets": {
-        "undetermined": 126,
-        "runtime_bound": 47,
-        "reachable": 6
+        "undetermined": 129,
+        "runtime_bound": 50,
+        "reachable": 12
       }
     },
     {
       "name": "ai-agent-book",
       "sha": "1f92cbb6024ec61766a351b7fd6c78ef05fe8b15",
-      "opaque_sites": 353,
+      "opaque_sites": 359,
       "buckets": {
-        "reachable": 38,
-        "undetermined": 245,
+        "reachable": 39,
+        "undetermined": 250,
         "runtime_bound": 70
       }
     },
     {
       "name": "langchain-chatchat",
       "sha": "49165d6af4438aa7e8a1f71ce276db55f4405151",
-      "opaque_sites": 62,
+      "opaque_sites": 63,
       "buckets": {
-        "undetermined": 43,
+        "undetermined": 44,
         "runtime_bound": 19
       }
     },
     {
       "name": "deeptutor",
       "sha": "3e82f130422a813cdd73c10b21a44e9325f5821a",
-      "opaque_sites": 384,
+      "opaque_sites": 387,
       "buckets": {
         "undetermined": 228,
         "runtime_bound": 154,
-        "reachable": 2
+        "reachable": 5
       }
     },
     {
@@ -507,29 +508,29 @@
     {
       "name": "qwenpaw",
       "sha": "b3123ebc815b0212736dfb869f1e70d8e8183f37",
-      "opaque_sites": 235,
+      "opaque_sites": 239,
       "buckets": {
-        "undetermined": 178,
+        "undetermined": 181,
         "runtime_bound": 56,
-        "reachable": 1
+        "reachable": 2
       }
     },
     {
       "name": "sglang",
       "sha": "c608f9bf7581ea87dd2efccfc34093e22b3e8810",
-      "opaque_sites": 781,
+      "opaque_sites": 801,
       "buckets": {
         "runtime_bound": 196,
-        "undetermined": 581,
-        "reachable": 4
+        "undetermined": 595,
+        "reachable": 10
       }
     },
     {
       "name": "vibe-trading",
       "sha": "80ffdda44c5c4db0dd84d70e051cca591cea67df",
-      "opaque_sites": 72,
+      "opaque_sites": 73,
       "buckets": {
-        "undetermined": 58,
+        "undetermined": 59,
         "runtime_bound": 12,
         "reachable": 2
       }
@@ -537,20 +538,21 @@
     {
       "name": "graphiti",
       "sha": "683a8539c8925de69071a1305dc8bf0e52e17c65",
-      "opaque_sites": 17,
+      "opaque_sites": 18,
       "buckets": {
         "undetermined": 14,
-        "runtime_bound": 3
+        "runtime_bound": 3,
+        "reachable": 1
       }
     },
     {
       "name": "cognee",
       "sha": "690c0ec023719a2a277dc893cdecfec1ca8012cc",
-      "opaque_sites": 290,
+      "opaque_sites": 301,
       "buckets": {
-        "undetermined": 253,
+        "undetermined": 263,
         "runtime_bound": 32,
-        "reachable": 5
+        "reachable": 6
       }
     },
     {
@@ -566,10 +568,11 @@
     {
       "name": "agentscope",
       "sha": "9983e76d1ee70052d31c01d224a477c5788cbe33",
-      "opaque_sites": 90,
+      "opaque_sites": 97,
       "buckets": {
         "runtime_bound": 16,
-        "undetermined": 74
+        "undetermined": 80,
+        "reachable": 1
       }
     },
     {
@@ -585,41 +588,41 @@
     {
       "name": "deepagents",
       "sha": "92e15dc0cb6d39fce1024483c30408f1b33e7549",
-      "opaque_sites": 428,
+      "opaque_sites": 436,
       "buckets": {
-        "undetermined": 322,
+        "undetermined": 328,
         "runtime_bound": 103,
-        "reachable": 3
+        "reachable": 5
       }
     },
     {
       "name": "haystack",
       "sha": "4a63df73bc171e7c4251daa60263b1019c45d02e",
-      "opaque_sites": 83,
+      "opaque_sites": 81,
       "buckets": {
         "runtime_bound": 8,
         "undetermined": 71,
-        "reachable": 4
+        "reachable": 2
       }
     },
     {
       "name": "kotaemon",
       "sha": "9ad3e4e49aa35b8acddd235918a5d9753c1cfdf9",
-      "opaque_sites": 97,
+      "opaque_sites": 93,
       "buckets": {
-        "undetermined": 75,
-        "reachable": 10,
+        "undetermined": 79,
+        "reachable": 2,
         "runtime_bound": 12
       }
     },
     {
       "name": "mlc-llm",
       "sha": "9fa644f54b04983adea4d0168f49fc6af4a893ba",
-      "opaque_sites": 45,
+      "opaque_sites": 38,
       "buckets": {
         "undetermined": 31,
         "runtime_bound": 6,
-        "reachable": 8
+        "reachable": 1
       }
     }
   ]
