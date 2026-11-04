@@ -13,11 +13,11 @@ from spyv.bench.missed_sites import (
     FileRecord,
     FoundSite,
     SampledFile,
-    _read_source,
     draw_sample,
     estimate,
     frame_summary,
 )
+from spyv.sources import read_source
 
 
 def frame(n_a: int = 100, n_b: int = 900, repos: int = 5) -> list[FileRecord]:
@@ -58,11 +58,11 @@ def test_source_is_decoded_the_way_python_decodes_it(tmp_path):
     """A BOM must not make a valid file look unparseable to the audit."""
     bom = tmp_path / "bom.py"
     bom.write_bytes(b"\xef\xbb\xbfx = 1\n")
-    assert _read_source(bom) == "x = 1\n"
+    assert read_source(bom) == "x = 1\n"
 
     cookie = tmp_path / "latin.py"
     cookie.write_bytes(b"# -*- coding: latin-1 -*-\ns = '\xe9'\n")
-    assert "\xe9" in _read_source(cookie)
+    assert "\xe9" in read_source(cookie)
 
 
 # ---------------------------------------------------------------------------

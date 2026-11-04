@@ -27,9 +27,7 @@ The labels are a person's. Nothing here generates them.
 from __future__ import annotations
 
 import ast
-import io
 import json
-import tokenize
 import warnings
 from collections import Counter
 from dataclasses import dataclass, field
@@ -37,6 +35,7 @@ from pathlib import Path
 from typing import Any
 
 from ..discovery import _SKIP_DIRS
+from ..sources import read_source
 from .scaffolding import classify_path
 
 SAMPLE_SEED = 20260924
@@ -86,20 +85,6 @@ def enumerate_frame(cache: Path | None = None, repos: list[str] | None = None) -
     return out
 
 
-def _read_source(path: Path) -> str:
-    """Decode a Python file the way Python itself would.
-
-    Plain UTF-8 is the wrong reader for source. A byte-order mark decodes to a
-    stray U+FEFF that makes an otherwise valid file unparseable, and a file with
-    a coding cookie is not UTF-8 at all. The corrective measurement reads through
-    ``tokenize.detect_encoding``, so this frame must too: a file the measurement
-    parsed must not be recorded here as one whose sites were all missed.
-    """
-    raw = path.read_bytes()
-    encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
-    return raw.decode(encoding)
-
-
 def _collect(refs: list[Any], root: Path, wanted: set[str] | None, out: list[FileRecord]) -> None:
     from .visibility import sites_in_source
 
@@ -124,7 +109,7 @@ def _collect(refs: list[Any], root: Path, wanted: set[str] | None, out: list[Fil
                 parse_ok=False,
             )
             try:
-                source = _read_source(path)
+                source = read_source(path)
             except (OSError, UnicodeError, SyntaxError, ValueError) as exc:
                 record.read_error = type(exc).__name__
                 out.append(record)
