@@ -34,15 +34,14 @@ of the tool examining it.
 from __future__ import annotations
 
 import ast
-import io
 import sys
-import tokenize
 from collections import Counter
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Any, Literal
 
 from ..discovery import _SKIP_DIRS, _string_bindings
+from ..sources import read_source
 from .visibility import classify, is_stringish, sites_in_source
 
 # Standard-library top-level names. Source for these is present on every machine,
@@ -287,20 +286,6 @@ def analyze_source(source: str, path: str) -> list[OpaqueVerdict]:
     return verdicts
 
 
-def _read_source(path: Path) -> str:
-    """Decode a Python file the way Python does.
-
-    Plain UTF-8 is the wrong reader for source: a byte-order mark survives as a
-    stray U+FEFF that makes a valid file unparseable, and a file with a coding
-    cookie is not UTF-8 at all. Reading through ``tokenize.detect_encoding``
-    cost this module two opaque sites against the corrective run, which is the
-    kind of silent two-site gap nobody goes looking for.
-    """
-    raw = path.read_bytes()
-    encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
-    return raw.decode(encoding)
-
-
 def run_headroom(root: str | Path, *, name: str | None = None) -> dict[str, Any]:
     root_path = Path(root)
     verdicts: list[OpaqueVerdict] = []
@@ -308,7 +293,7 @@ def run_headroom(root: str | Path, *, name: str | None = None) -> dict[str, Any]
         if any(part in _SKIP_DIRS or part.endswith(".egg-info") for part in path.parts):
             continue
         try:
-            source = _read_source(path)
+            source = read_source(path)
         except (OSError, UnicodeError, SyntaxError, ValueError):
             continue
         try:
@@ -477,8 +462,8 @@ def run_headroom_project(root: str | Path, *, name: str | None = None) -> dict[s
 
     for module in index.modules.values():
         try:
-            source = module.path.read_text(encoding="utf-8")
-        except (OSError, UnicodeDecodeError):
+            source = read_source(module.path)
+        except (OSError, UnicodeError, SyntaxError, ValueError):
             continue
         try:
             rel = module.path.relative_to(root_path).as_posix()
