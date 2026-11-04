@@ -15,6 +15,7 @@ from typing import Any, Literal
 
 from ..bindings import binding_contexts
 from ..discovery import _SKIP_DIRS, _name_matches, _static_text
+from ..sources import read_source
 
 Visibility = Literal["static", "partial", "opaque"]
 
@@ -401,8 +402,8 @@ def run_visibility(root: str | Path, *, name: str | None = None) -> VisibilityRe
         if any(part in _SKIP_DIRS or part.endswith(".egg-info") for part in path.parts):
             continue
         try:
-            source = path.read_text(encoding="utf-8")
-        except (OSError, UnicodeDecodeError):
+            source = read_source(path)
+        except (OSError, UnicodeError, SyntaxError, ValueError):
             continue
         result.files_scanned += 1
         try:
