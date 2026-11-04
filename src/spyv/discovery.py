@@ -6,6 +6,7 @@ from pathlib import Path
 
 from .bindings import binding_contexts
 from .contracts import DiscoveredPrompt
+from .sources import read_source
 
 _NAME_HINTS = (
     "system_prompt",
@@ -450,7 +451,9 @@ def discover(root: str | Path) -> tuple[list[DiscoveredPrompt], int]:
         suffix = path.suffix.lower()
         try:
             if suffix == ".py":
-                text = path.read_text(encoding="utf-8")
+                # Python source carries its own encoding; the other branches
+                # below are YAML, JSON and plain text, where UTF-8 is right.
+                text = read_source(path)
                 files_scanned += 1
                 prompts.extend(_from_python(path, text))
             elif suffix in (".yaml", ".yml"):
@@ -465,7 +468,7 @@ def discover(root: str | Path) -> tuple[list[DiscoveredPrompt], int]:
                 text = path.read_text(encoding="utf-8")
                 files_scanned += 1
                 prompts.extend(_from_prompt_file(path, text))
-        except (OSError, UnicodeDecodeError):
+        except (OSError, UnicodeError, SyntaxError, ValueError):
             continue
 
     filtered = [p for p in prompts if _looks_like_prompt(p.system_prompt)]
