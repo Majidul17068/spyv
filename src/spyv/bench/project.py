@@ -25,6 +25,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 
 from ..discovery import _SKIP_DIRS
+from ..sources import read_source
 
 MAX_DEPTH = 3
 
@@ -102,9 +103,9 @@ class ProjectIndex:
             if any(part in _SKIP_DIRS or part.endswith(".egg-info") for part in path.parts):
                 continue
             try:
-                source = path.read_text(encoding="utf-8")
+                source = read_source(path)
                 tree = ast.parse(source)
-            except (OSError, UnicodeDecodeError, SyntaxError, ValueError):
+            except (OSError, UnicodeError, SyntaxError, ValueError):
                 self.parse_failures += 1
                 continue
             try:
