@@ -34,6 +34,7 @@ from dataclasses import dataclass
 from typing import Any, Literal
 
 from ..discovery import _string_bindings
+from ..sources import read_source
 from .visibility import Visibility, is_stringish
 
 Level = Literal[0, 1, 2, 3, 4]
@@ -238,15 +239,15 @@ def measure_repo(root: str | Path, level: int,  # noqa: F821
             if any(p in _SKIP_DIRS or p.endswith(".egg-info") for p in path.parts):
                 continue
             try:
-                items.append((path, path.read_text(encoding="utf-8")))
-            except (OSError, UnicodeDecodeError):
+                items.append((path, read_source(path)))
+            except (OSError, UnicodeError, SyntaxError, ValueError):
                 continue
     else:
         items = []
         for mod in modules:
             try:
-                items.append((mod.path, mod.path.read_text(encoding="utf-8")))
-            except (OSError, UnicodeDecodeError):
+                items.append((mod.path, read_source(mod.path)))
+            except (OSError, UnicodeError, SyntaxError, ValueError):
                 continue
 
     for path, src in items:
