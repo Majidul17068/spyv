@@ -6,14 +6,12 @@ import argparse
 import ast
 import gzip
 import hashlib
-import io
 import json
 import platform
 import random
 import statistics
 import subprocess
 import time
-import tokenize
 from collections import Counter, defaultdict
 from collections.abc import Callable, Mapping, Sequence
 from datetime import datetime, timezone
@@ -25,6 +23,7 @@ import yaml
 from spyv.bench.scaffolding import SCAFFOLD_DIRS
 from spyv.bench.visibility import sites_in_source
 from spyv.discovery import _SKIP_DIRS
+from spyv.sources import decode_source
 
 SEED = 20260910
 DRAWS = 10000
@@ -157,8 +156,7 @@ def run(cache: Path, out: Path, manifest: Path) -> None:
                 continue
             try:
                 raw = path.read_bytes()
-                encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
-                source = raw.decode(encoding)
+                source = decode_source(raw)
                 ast.parse(source)
                 scoped = sites_in_source(source, relative)
                 literal = sites_in_source(source, relative, literal_only=True)

@@ -24,7 +24,18 @@ import io
 import tokenize
 from pathlib import Path
 
-__all__ = ["read_source"]
+__all__ = ["decode_source", "read_source"]
+
+
+def decode_source(raw: bytes) -> str:
+    """Decode already-read source bytes using their own declared encoding.
+
+    Callers that need the raw bytes as well -- to hash them for a provenance
+    record, say -- read the file once and decode through here, rather than
+    reading it twice or reimplementing the rule.
+    """
+    encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
+    return raw.decode(encoding)
 
 
 def read_source(path: str | Path) -> str:
@@ -35,6 +46,4 @@ def read_source(path: str | Path) -> str:
     corpus should catch ``(OSError, UnicodeError, SyntaxError, ValueError)`` and
     skip, rather than letting one malformed file end a run.
     """
-    raw = Path(path).read_bytes()
-    encoding, _ = tokenize.detect_encoding(io.BytesIO(raw).readline)
-    return raw.decode(encoding)
+    return decode_source(Path(path).read_bytes())
