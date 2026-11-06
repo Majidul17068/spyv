@@ -1,28 +1,28 @@
 {
   "rq": 2,
-  "opaque_sites": 9418,
+  "opaque_sites": 9420,
   "buckets": {
-    "undetermined": 7485,
+    "undetermined": 7487,
     "runtime_bound": 1680,
     "reachable": 253
   },
   "shares": {
-    "undetermined": 0.794754724994691,
-    "runtime_bound": 0.17838182204289657,
-    "reachable": 0.026863452962412403
+    "undetermined": 0.7947983014861996,
+    "runtime_bound": 0.17834394904458598,
+    "reachable": 0.02685774946921444
   },
   "ci95": {
     "undetermined": [
-      0.7864783323558188,
-      0.8027907549105179
+      0.7865234241502695,
+      0.8028328315830612
     ],
     "runtime_bound": [
-      0.17078150624576882,
-      0.18624440681988913
+      0.17074508365437238,
+      0.18620505863155054
     ],
     "reachable": [
-      0.023785876502548417,
-      0.03032685661748196
+      0.02378081893647165,
+      0.030320429963976766
     ]
   },
   "note": "runtime_bound is classifier output, not a bound: most of it rests on an identifier heuristic or an unconditional subscript rule rather than on evidence from reading a callee. See METRICS.md and the paper's Section V.",
@@ -35,7 +35,7 @@
     "attribute_needs_type_inference": 423,
     "callee_in_stdlib": 409,
     "expr:BoolOp": 406,
-    "callee_in_repository_unresolved": 299,
+    "callee_in_repository_unresolved": 300,
     "expr:BinOp": 285,
     "expr:IfExp": 274,
     "io_call_by_name:get": 256,
@@ -45,7 +45,7 @@
     "attribute_not_assigned_in_module": 77,
     "callee_returns_runtime_value": 76,
     "io_call_by_name:get_prompt": 65,
-    "attribute_value_opaque": 59,
+    "attribute_value_opaque": 60,
     "expr:JoinedStr": 40,
     "io_call_by_name:query_one": 37,
     "return_depends_on:parameter:default": 36,
@@ -140,7 +140,7 @@
     "return_depends_on:parameter:num_tokens": 1,
     "return_depends_on:parameter:error_template": 1
   },
-  "reasons_total": 8815,
+  "reasons_total": 8817,
   "repos": [
     {
       "name": "crewai",
@@ -269,10 +269,10 @@
     {
       "name": "chatdev",
       "sha": "4fb2db0ea90375ce1059f44fe03ffbd191a7a169",
-      "opaque_sites": 18,
+      "opaque_sites": 20,
       "buckets": {
         "runtime_bound": 8,
-        "undetermined": 10
+        "undetermined": 12
       }
     },
     {
