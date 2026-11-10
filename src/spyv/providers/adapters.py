@@ -65,7 +65,10 @@ class AnthropicAdapter:
             temperature=temperature,
             max_tokens=4096,
         )
-        parts = [block.text for block in response.content if getattr(block, "type", "") == "text"]
+        # Narrow on the discriminator directly rather than through getattr: the
+        # guard was already correct, but a type checker cannot follow getattr,
+        # so the eleven union members each looked like a possible AttributeError.
+        parts = [block.text for block in response.content if block.type == "text"]
         return "".join(parts)
 
 
