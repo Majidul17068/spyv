@@ -2,9 +2,17 @@
 
 All notable changes to Spyv are recorded here. Dates are release dates.
 
-## 0.5.1 — Encoding fixes
+## 0.5.1 — Encoding and `--out` fixes
 
 ### Fixed
+
+- **`--out` crashed in two of its three formats.** The writer called
+  `terminal.render_text` and `terminal.render_markdown`, neither of which
+  existed, so `spyv test <path> --out report.txt` raised `AttributeError` —
+  `text` being the default format. `--format md` failed the same way;
+  `--format json` took a different branch and worked. Both renderers are now
+  implemented, and `--out` is covered by tests that assert the written file
+  carries the findings rather than merely existing.
 
 - **`spyv scan` silently skipped files with a byte-order mark.** Source was read
   as plain UTF-8, so a BOM survived as a stray `U+FEFF` at offset zero and the
