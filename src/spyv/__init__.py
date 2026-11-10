@@ -52,7 +52,7 @@ try:  # read from installed metadata so it cannot drift from pyproject.toml
 
     __version__ = _pkg_version("spyv")
 except (ImportError, PackageNotFoundError):  # pragma: no cover - source checkout
-    __version__ = "0.5.0"
+    __version__ = "0.5.1"
 
 __author__ = "Majidul Islam"
 __license__ = "Apache-2.0"

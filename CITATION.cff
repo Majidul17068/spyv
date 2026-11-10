@@ -17,7 +17,7 @@ authors:
 repository-code: "https://github.com/Majidul17068/spyv"
 url: "https://pypi.org/project/spyv/"
 license: Apache-2.0
-version: "0.5.0"
+version: "0.5.1"
 date-released: "2026-09-07"
 keywords:
   - prompt security
