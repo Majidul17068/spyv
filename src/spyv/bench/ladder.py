@@ -31,6 +31,7 @@ from __future__ import annotations
 
 import ast
 from dataclasses import dataclass
+from pathlib import Path
 from typing import Any, Literal
 
 from ..discovery import _string_bindings
@@ -212,7 +213,7 @@ def classify_at(
     return "opaque"
 
 
-def measure_repo(root: str | Path, level: int,  # noqa: F821
+def measure_repo(root: str | Path, level: int,
                  stratum: str | None = None) -> dict[str, int]:
     """Classify every prompt site in a repository at one rung of the ladder.
 
@@ -221,13 +222,11 @@ def measure_repo(root: str | Path, level: int,  # noqa: F821
     recoverability differs by a wide margin, so the ladder has to be reported
     per stratum rather than only in aggregate.
     """
-    from pathlib import Path as _P
-
     from .headroom import _locate_expressions
     from .project import ProjectIndex
     from .visibility import sites_in_source
 
-    root = _P(root)
+    root = Path(root)
     counts: dict[str, int] = {"static": 0, "partial": 0, "opaque": 0}
     index = ProjectIndex(root) if level >= 3 else None
     modules = index.modules.values() if index else None
