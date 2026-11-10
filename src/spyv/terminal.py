@@ -286,6 +286,95 @@ def _resolve_console(color: bool | None) -> Console:
     return Console(stderr=True, force_terminal=color, no_color=not color)
 
 
+def render_text(report: Report) -> str:
+    """Render a report as plain text, for `--out` with `--format text`.
+
+    Separate from ``render_report``, which draws to a console and returns
+    nothing. A file written with `--out` has to be readable without a terminal,
+    so no colour, no box drawing, no spinner.
+    """
+    lines = [
+        "SPYV REPORT",
+        "=" * 60,
+        f"generated : {report.generated_at}",
+        f"model     : {report.model_used}",
+        f"target    : {report.target_hash}",
+        f"verdict   : {report.overall_verdict}   score {report.overall_score:.1f}",
+        "",
+        f"QUALITY       score {report.quality.score:.1f}",
+    ]
+    for s in report.quality.strengths:
+        lines.append(f"  + {s}")
+    for f in report.quality.findings:
+        lines.append(f"  - [{f.severity}] {f.title}")
+
+    lines += ["", f"GUARDRAILS    score {report.guardrails.score:.1f}"]
+    for g in report.guardrails.found:
+        lines.append(f"  present : {g.kind} ({g.strength})")
+    for m in report.guardrails.missing:
+        lines.append(f"  missing : {m.kind} [{m.severity}]")
+
+    lines += ["", f"VULNERABILITIES ({len(report.vulnerabilities)})"]
+    if not report.vulnerabilities:
+        lines.append("  none reported")
+    for v in report.vulnerabilities:
+        tag = f" [{v.owasp_llm_tag}]" if v.owasp_llm_tag else ""
+        lines.append(f"  [{v.severity}] {v.title}{tag}  ({v.status})")
+        if v.description:
+            lines.append(f"      {v.description}")
+
+    if report.fixes:
+        lines += ["", f"SUGGESTED FIXES ({len(report.fixes)})"]
+        for fix in report.fixes:
+            lines.append(f"  - [{fix.priority}] {fix.kind} at {fix.insertion_point} ({fix.id})")
+
+    lines += ["", f"attack run included : {report.attack_run_included}"]
+    return "\n".join(lines) + "\n"
+
+
+def render_markdown(report: Report) -> str:
+    """Render a report as Markdown, for `--out` with `--format md`."""
+    lines = [
+        "# Spyv report",
+        "",
+        f"- **Verdict:** {report.overall_verdict} (score {report.overall_score:.1f})",
+        f"- **Model:** `{report.model_used}`",
+        f"- **Target:** `{report.target_hash}`",
+        f"- **Generated:** {report.generated_at}",
+        "",
+        f"## Quality — {report.quality.score:.1f}",
+        "",
+    ]
+    for s in report.quality.strengths:
+        lines.append(f"- ✅ {s}")
+    for f in report.quality.findings:
+        lines.append(f"- **{f.severity}** — {f.title}")
+
+    lines += ["", f"## Guardrails — {report.guardrails.score:.1f}", ""]
+    for g in report.guardrails.found:
+        lines.append(f"- present: `{g.kind}` ({g.strength})")
+    for m in report.guardrails.missing:
+        lines.append(f"- missing: `{m.kind}` — {m.severity}")
+
+    lines += ["", f"## Vulnerabilities ({len(report.vulnerabilities)})", ""]
+    if not report.vulnerabilities:
+        lines.append("None reported.")
+    else:
+        lines += ["| Severity | Title | OWASP | Status |", "|---|---|---|---|"]
+        for v in report.vulnerabilities:
+            lines.append(
+                f"| {v.severity} | {v.title} | {v.owasp_llm_tag or '—'} | {v.status} |"
+            )
+
+    if report.fixes:
+        lines += ["", f"## Suggested fixes ({len(report.fixes)})", ""]
+        for fix in report.fixes:
+            lines.append(f"- **{fix.kind}** at `{fix.insertion_point}` — priority {fix.priority} (`{fix.id}`)")
+
+    lines += ["", f"_Attack run included: {report.attack_run_included}_"]
+    return "\n".join(lines) + "\n"
+
+
 def render_report(report: Report, *, color: bool | None = None) -> None:
     out_mode = os.environ.get("SPYV_OUT", "").lower() or "auto"
     json_path = os.environ.get("SPYV_JSON_PATH")
