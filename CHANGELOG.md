@@ -2,6 +2,35 @@
 
 All notable changes to Spyv are recorded here. Dates are release dates.
 
+## 0.5.1 — Encoding fixes
+
+### Fixed
+
+- **`spyv scan` silently skipped files with a byte-order mark.** Source was read
+  as plain UTF-8, so a BOM survived as a stray `U+FEFF` at offset zero and the
+  module failed to parse. The file was then skipped with no error and no entry
+  in the scanned-file count: a scan could report no prompts in a file that has
+  them. Files declaring a coding cookie (`# -*- coding: latin-1 -*-`) failed the
+  same way. Source is now decoded through `tokenize.detect_encoding`, the rule
+  CPython itself applies.
+
+  This affected the product path and the measurement modules alike —
+  `discovery`, `bench.visibility`, `bench.ladder`, `bench.project` and both
+  `bench.headroom` entry points each carried the defect. One corpus measurement
+  moved as a result: the headroom decomposition now counts 9,420 opaque sites
+  against the 9,418 it previously reported, matching the corrective run exactly.
+
+- **One undecodable file no longer ends a directory scan.** Discovery caught
+  `UnicodeDecodeError` but not the `SyntaxError` that an unknown coding cookie
+  raises.
+
+### Added
+
+- **`spyv.sources`** — one `read_source` / `decode_source` pair, so the rule
+  lives in a single place. A test fails CI if any module reads Python source as
+  plain UTF-8 again; this defect had been found and fixed three separate times
+  before it was shared.
+
 ## 0.5.0 — Validation release
 
 0.4.0 could measure how much prompt surface a static reader recovers. It could
